@@ -1,3 +1,144 @@
+Wild Frontier 2.26: locally generated expressive combat callouts.
+Base GitHub revision: b1575e0ee404758233ec4a083f6dbc66c55c1665.
+Validation session: 2026-11-08.
+- Replaced 24 neutral clips with 30 locally generated Chinese MP3s: three fixed character voices and seven contexts, including pain/assistance. Qwen3-TTS 1.7B CustomVoice revision 0c0e3051f131929182e2c023b9537f8b1c68adfe, qwen-tts 0.1.1, torch 2.9.1+cpu, BF16/SDPA. No fal, remote inference, voice cloning, pitch shifting or speed modification.
+- Per-clip dialogue, speaker, acting instruction and seed are recorded in sources/combat-voice-direction.json; output hashes and durations are recorded in dist/audio/enemy/manifest.json. Model weights are development-only and are not committed or served.
+- Added actual damage-triggered pain reactions and urgent grenade/pain interruption while maintaining a single active speech channel, short urgent cooldowns, stable character voices and pause/mute/death stopping.
+- 2.25 vehicle traversal and grass implementation files are unchanged. Large original startup pack names remain unchanged.
+- Independent local Whisper-small and SenseVoice-int8 transcription audits are used to identify unclear words. This checks approximate word agreement; it does not establish acting quality or naturalness. No subjective listening pass is claimed.
+- Full rendering in shared Chrome remains blocked by the browser's disabled WebGL context. Real iPhone rendering, driving and subjective listening have not been checked in this session.
+
+Final V2.26 results:
+- Static asset/module checks: 408 local files, 22 3D models, 53 JavaScript modules and 126 module references; all passed.
+- 9 cactus/grass/voice resource and playback regressions, 6 new combat voice scheduling checks and 70 full game regressions passed. CI also retains the arm/grip, vehicle traversal and water checks.
+- 30 MP3s independently decoded by FFmpeg; 447912 bytes total; duration range 0.864 to 3.504 seconds. Mean signal levels are within -40 to -8 dBFS and maximum decoded sample peak is -2.2 dBFS.
+- Final Whisper-small and SenseVoice-int8 audits each agree phonetically with 29/30 clips. Their single disagreements concern different clips; every clip agrees with at least one recognizer. Optional erhua and introductory pain sounds are handled explicitly. Exact transcripts, hashes, levels and disagreements are preserved in sources/combat-voice-audit.json.
+- Shared Chrome decoded all 30 final clips with its actual AudioContext in running state. Actual GameAudio playback returned 0.81s for scout alert, 1.53s for veteran attack and 2.33s for leader search. The actual EnemyChatter -> GameAudio path switched spot -> grenade and retained exactly one active speech source. This is audio-component validation, not a rendered gameplay or subjective listening claim.
+- Temporary preview configuration and the audio QA page were removed before publication.
+
+Final local check output:
+
+COMMAND npm run check:static
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> wild-frontier-fps@1.0.0 check:static
+> node scripts/check-static.mjs
+
+PASS 408 local files; 22 3D models; 53 JavaScript modules; 126 module references
+PASS project Pages paths and full terrain, soldier, weapons and vehicle assets
+
+COMMAND npm run check:field
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> wild-frontier-fps@1.0.0 check:field
+> node scripts/check-field-chatter.mjs
+
+PASS all three cactus forms topple once, settle above the ground and persist until a new round
+PASS continuous vehicle contact handles fast travel, reverse and negative grid boundaries, while misses and teleports do not hit
+PASS cactus fall follows the impact direction, rests along slopes and freezes while paused
+PASS sparse grass is grounded, deterministic and outside water, roads and houses across the island
+PASS vehicle tires compress the new grass while cactus roots and original instance buffers stay fixed
+PASS all dialogue variants have distinct local MP3 assets and three fixed character voices
+PASS enemy speech follows true detection, has no overlap and never repeats every frame
+PASS speech reacts to vehicles, nearby grenades, reloading and losing the target, and cancels on death, pause and mute
+PASS the actual audio path spatializes recorded speech and stops it immediately on pause and mute
+9 field interaction and character-voice checks passed. iPhone hardware not tested.
+
+COMMAND npm run check:voices
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> wild-frontier-fps@1.0.0 check:voices
+> node scripts/check-combat-chatter.mjs
+
+PASS a surviving bullet hit interrupts a routine report with one pain bark and does not repeat every frame
+PASS a visible incoming grenade can interrupt routine speech during the ordinary per-enemy cooldown
+PASS a wall hides the grenade and calm hidden enemies do not invent a warning
+PASS unloaded urgent clips retry at a bounded rate and become playable after loading
+PASS dead, muted and paused speakers cannot leave a voice playing or start a new one
+PASS role assignment stays fixed for a given enemy through alert, injury and reset
+6 combat voice scheduling checks passed.
+
+COMMAND npm run check
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> wild-frontier-fps@1.0.0 check
+> node scripts/check.mjs
+
+PASS deployment responds while loading and enters once after readiness
+PASS deployment waits for foreground without losing the queued click
+PASS load failure stays recoverable and late assets cannot auto-enter
+PASS stalled loading times out and retries; hidden tabs retain their request
+PASS readiness without a click keeps the user in the lobby
+PASS reproducible terrain, forest and dry deployment
+PASS lake and river banks keep continuous walkable slopes
+PASS eightfold optical magnification and camera-ray alignment
+PASS weapon muzzle and casing markers share the world-camera screen position
+PASS physical muzzle starts at the barrel, converges on aim and cannot fire past near cover
+PASS recoil has bounded movement, frame-rate agreement and a settled rest pose
+PASS sniper body damage, bolt cooldown and exact headshot
+PASS solid cover stops bullets before an enemy
+PASS bullets have finite flight speed, gravity, air drag and pause
+PASS reload accounting and weapon switch cancellation
+PASS grenade trajectory has gravity and impacts terrain
+PASS blast radius damages multiple enemies and respects cover
+PASS pause freezes movement, timers and projectile state
+PASS movement slides at solid walls and the world boundary
+PASS medical pack, safe-zone damage and training immunity
+PASS win/lose events and full reset
+PASS armour is consumed before health and emits the exact split losses
+PASS broken armour passes overflow to health and cannot protect later hits
+PASS the actual player blast path consumes armour before its remaining damage
+PASS medical packs restore health without repairing armour and matches reset both
+PASS training and invalid damage cannot drain either health or armour
+PASS enemy hits deal 2 to 4 points and consume armour before health
+PASS grenade lock needs steady aim and clears on cover, switching or closing aim
+PASS a locked grenade follows a moving enemy and explodes once on contact
+PASS cover stops a homing grenade and a dead target cannot be followed
+PASS unlocked grenades hit enemy bodies between frames instead of passing through
+PASS blasts launch bodies, stop at terrain, preserve pause and let survivors recover
+PASS shipped first-frame path supports the fixed cactus field and shared world time
+PASS shipped playing and paused frame paths reach both scene draws
+PASS shipped HUD shows armour loss, broken armour and reset beside health
+PASS the shipped driving frame applies accelerator input and omits the infantry weapon draw
+PASS the result frame keeps a launched body moving while pause still freezes it
+PASS the drowned result frame keeps a vehicle sinking without drawing infantry weapons and pause freezes it
+PASS the shipped frame runs vehicle trails during play, freezes them on pause and only dissipates exhaust in results
+PASS the shipped horn responds to keyboard or touch and stops on pause, engine flooding or leaving the car
+PASS reticles preserve the camera centre, angular mil spacing and grenade elevation marks
+PASS shipped grenade and third-weapon aim look through both sights without barrel obstruction
+PASS switching away from 8x removes its pattern and closing aim restores the normal view
+PASS the shipped camera displays lock progress on the enemy and clears it on weapon change
+PASS terrain, trees, soldiers and viewmodels have finite geometry
+PASS water height texture follows lake and river coordinates
+PASS island coast, graded foundations and enterable rural architecture
+PASS fixed cacti follow visible terrain and remain present in low quality
+PASS photographic foliage has alpha cutouts and bounded LOD sizes
+PASS portrait weapon view preserves width and shows only compact gloved hands
+PASS independent soldier skeletons, rifle grip and bolt animation
+PASS grenade impact articulates the original skeleton and resets all rig offsets
+PASS shots aimed at the enlarged animated head hit the visible head
+PASS cacti have outward solid volumes, stable normals, ribbing and visible spines
+PASS sky sun, moving shadows and water highlights share one direction
+PASS weapon metal illumination follows the world sun as the camera turns
+PASS full-leaf canopy and three solid cactus forms keep physical vegetation detail
+PASS optional 2K photos share requests, survive failure and retry independently
+PASS original weapon textures, physical scope and independent AKM magazine
+PASS cactus ground cover keeps existing roadside stones grounded
+PASS obsolete grass, ferns and flower resources are absent from the deployed model list
+PASS casings, dust and explosion effects stay within the phone budget
+PASS grenade hits create a finite flash, expanding blast and fading debris
+PASS calibre-sized hollow cases and separate copper bullets use shared non-emissive meshes
+PASS all island grass is replaced by grounded solid cacti before walking
+PASS walking, turning, scope zoom and quality changes preserve the entire scene
+PASS every tree retains continuous coverage through both detail transitions
+PASS cactus geometry, instance counts and visibility never change with camera distance
+PASS every rigid cactus and its spines remain inside their tile culling bounds
+PASS all local HTML/CSS/JS dependencies and deployment configuration exist
+
+70 checks passed. Browser / mobile rendering has not been tested.
+
+
+Previous version validation (historical):
 Wild Frontier 2.25: drivable terrain and larger, denser grass.
 Base GitHub revision: db9063d7fd055fb74da515c8ac1fb61a1f2717c4.
 Validated 2026-11-09:

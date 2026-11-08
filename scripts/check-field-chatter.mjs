@@ -55,8 +55,8 @@ check('all dialogue variants have distinct local MP3 assets and three fixed char
   const root=new URL('../dist/audio/enemy/',import.meta.url),manifest=JSON.parse(fs.readFileSync(new URL('manifest.json',root))),hashes=new Set();let bytes=0;
   assert.equal(manifest.profiles.length,3);
   for(const profile of ENEMY_VOICE_PROFILES)for(const [kind,lines] of Object.entries(ENEMY_LINES))for(const [i,text] of lines.entries()){
-    const c=manifest.clips[enemyVoiceKey(profile.id,kind,i)];assert.equal(c.text,text);assert.ok(c.duration>.5&&c.duration<5);const b=fs.readFileSync(new URL(c.file,root));assert.ok(b.length>2000);assert.ok(b.subarray(0,3).toString()==='ID3'||b[0]===255);hashes.add(createHash('sha256').update(b).digest('hex'));bytes+=b.length;
-  }assert.equal(hashes.size,24);assert.ok(bytes<650000);
+    const c=manifest.clips[enemyVoiceKey(profile.id,kind,i)];assert.equal(c.text,text);assert.ok(c.duration>.4&&c.duration<7.6);assert.ok(c.file.startsWith('combat-'));assert.ok(c.instruction.length>20);const b=fs.readFileSync(new URL(c.file,root));assert.ok(b.length>2000);assert.ok(b.subarray(0,3).toString()==='ID3'||b[0]===255);const hash=createHash('sha256').update(b).digest('hex');assert.equal(hash,c.sha256);hashes.add(hash);bytes+=b.length;
+  }assert.equal(hashes.size,30);assert.ok(bytes<1500000);assert.equal(manifest.generatedLocally,true);assert.match(manifest.generator.model,/1\.7B-CustomVoice/);
 });
 function chatterFixture(){
   const e={id:0,x:0,y:200,z:-20,alive:true,sees:false,reloadRemaining:0},match={time:8,enemies:[e],grenades:[],player:{x:0,y:201.7,z:0},colliders:[],vehicle:null,over:false},lines=[],stops=[];

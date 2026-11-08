@@ -155,3 +155,13 @@ distant tree atlas retains its 2048px width. Source attribution and alpha
 masks remain applicable. Mobile close tree detail uses the medium mesh.
 Game code, UI, surface blending, particles and remaining interface tones:
 this project.
+
+Enemy combat callouts (V2.26): synthetic recordings generated locally using
+Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice, revision
+0c0e3051f131929182e2c023b9537f8b1c68adfe, qwen-tts 0.1.1, CPU inference.
+Model card: https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice
+Model license declared by Qwen: Apache-2.0. Model weights are not distributed.
+Preset voices: Dylan (scout), Uncle_Fu (veteran), Ryan (leader), speaking Chinese.
+Original dialogue and per-line acting directions: this project; see
+sources/combat-voice-direction.json in the source repository.
+No remote inference API, voice cloning, pitch shift or speed change was used.

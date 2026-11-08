@@ -1,0 +1,565 @@
+{
+  "version": "2.26",
+  "generatedLocally": true,
+  "asrEngines": [
+    {
+      "model": "Systran/faster-whisper-small",
+      "matched": 29,
+      "total": 30
+    },
+    {
+      "model": "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17",
+      "matched": 29,
+      "total": 30
+    }
+  ],
+  "notes": [
+    "Phonetic word agreement is used to flag unclear takes, accepting optional erhua and leading pain sounds.",
+    "All 30 takes agree with at least one of two independent local recognizers; the two single-engine disagreements remain visible below.",
+    "ASR emotion labels are descriptive model outputs, not verified acting quality. No human listening or real iPhone audio test is claimed."
+  ],
+  "totalBytes": 447912,
+  "maxPeakDbfs": -2.2,
+  "clips": [
+    {
+      "key": "enemy-scout-spot-0",
+      "text": "发现他了！",
+      "sha256": "574155476755ded0e51187f937fd1f893162ae97a4e394a489f36f5ff88a1a2b",
+      "duration": 0.864,
+      "bytes": 7148,
+      "meanDbfs": -18.1,
+      "peakDbfs": -5.1,
+      "whisper": {
+        "transcript": "发现他了",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "发现他了。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|EMO_UNKNOWN|>"
+      }
+    },
+    {
+      "key": "enemy-scout-spot-1",
+      "text": "在那儿！快！",
+      "sha256": "f56f554c2b85ef17f34a485f357be23e3d04794328481b2879f9e16fca712271",
+      "duration": 1.104,
+      "bytes": 9068,
+      "meanDbfs": -22.6,
+      "peakDbfs": -2.5,
+      "whisper": {
+        "transcript": "在那 快",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "在那快。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|EMO_UNKNOWN|>"
+      }
+    },
+    {
+      "key": "enemy-scout-attack-0",
+      "text": "压住他！别停！",
+      "sha256": "61cade3322d3d62b7a2b58ddfca2d287cc91847a52fbd368ddae965e0bee6d30",
+      "duration": 1.344,
+      "bytes": 10988,
+      "meanDbfs": -17.7,
+      "peakDbfs": -2.7,
+      "whisper": {
+        "transcript": "压住它别停",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "压住他别停。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-scout-attack-1",
+      "text": "冲！别让他跑了！",
+      "sha256": "eb7ccbc2acb15915d7337f888455fe015c5310445f75e08d74f3cdf23dfe4175",
+      "duration": 1.584,
+      "bytes": 12908,
+      "meanDbfs": -19.4,
+      "peakDbfs": -2.4,
+      "whisper": {
+        "transcript": "冲别让它跑了",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "冲别让他跑了。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-scout-reload-0",
+      "text": "没子弹了！掩护我！",
+      "sha256": "8490bb20f49cefebec2784e93d94cc5bb8dd688943f71cd59c93a241ff5fc85c",
+      "duration": 1.824,
+      "bytes": 14828,
+      "meanDbfs": -20.8,
+      "peakDbfs": -2.5,
+      "whisper": {
+        "transcript": "沒子彈了掩護我",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "没子弹了掩护我。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-scout-lost-0",
+      "text": "他去哪了？小心点……",
+      "sha256": "b71219d6613dae65fa01a3bed79f835555be416b65758ba7f66e6990499f21b7",
+      "duration": 1.824,
+      "bytes": 14828,
+      "meanDbfs": -22.5,
+      "peakDbfs": -2.7,
+      "whisper": {
+        "transcript": "他去哪儿了?小心点",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "他去哪儿了？小心点。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|SURPRISED|>"
+      }
+    },
+    {
+      "key": "enemy-scout-vehicle-0",
+      "text": "有车！快闪开！",
+      "sha256": "c12df007b5e963a37899b499a1d3846d4f7dde81218c41f6bd4af5fc9c95c295",
+      "duration": 1.584,
+      "bytes": 12908,
+      "meanDbfs": -25.2,
+      "peakDbfs": -2.7,
+      "whisper": {
+        "transcript": "有车快闪开",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "有车快闪开。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-scout-grenade-0",
+      "text": "小心榴弹！快趴下！",
+      "sha256": "084e25e09cc18a22fe06a0fd55549e56d5f29c01dc0b043ded9373d86fa06be1",
+      "duration": 1.656,
+      "bytes": 13484,
+      "meanDbfs": -21.6,
+      "peakDbfs": -2.5,
+      "whisper": {
+        "transcript": "小心榴弹快趴下",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "小心榴弹，快趴下。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-scout-wounded-0",
+      "text": "啊！我中弹了！",
+      "sha256": "d9630eba1434d03c14aec8e305ae767138dcce8e6465e2fe58609563da6f6c4f",
+      "duration": 1.824,
+      "bytes": 14828,
+      "meanDbfs": -18.7,
+      "peakDbfs": -2.5,
+      "whisper": {
+        "transcript": "啊 我中弹了",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "啊，我中弹了。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|SURPRISED|>"
+      }
+    },
+    {
+      "key": "enemy-scout-wounded-1",
+      "text": "啊！我受伤了！",
+      "sha256": "044f37a93f66a5590593f482f3416f1462e13fb3158298aab4d72d765c7eaf88",
+      "duration": 1.344,
+      "bytes": 10988,
+      "meanDbfs": -20.3,
+      "peakDbfs": -2.4,
+      "whisper": {
+        "transcript": "我受伤了",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "啊，我受伤了。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|HAPPY|>"
+      }
+    },
+    {
+      "key": "enemy-veteran-spot-0",
+      "text": "发现他了！",
+      "sha256": "0ce7df2e3c5d174807c587e966a204143dc30c6bf7aa996f8c4db34d44cb3c80",
+      "duration": 1.104,
+      "bytes": 9068,
+      "meanDbfs": -18.2,
+      "peakDbfs": -4.4,
+      "whisper": {
+        "transcript": "发现她了",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "发现他了。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-veteran-spot-1",
+      "text": "在那儿！快！",
+      "sha256": "3c8400bd88301b9de26d6525a887d447e38ad42895a9c8569b7389ab29a55f45",
+      "duration": 1.584,
+      "bytes": 12908,
+      "meanDbfs": -18.6,
+      "peakDbfs": -2.4,
+      "whisper": {
+        "transcript": "在那儿 快",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "在那儿快。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-veteran-attack-0",
+      "text": "压住他！别停！",
+      "sha256": "75c953ce9f5b229c0a0cde4e9b8cbc11c9cea812eabd44953265e7c22fff324d",
+      "duration": 1.584,
+      "bytes": 12908,
+      "meanDbfs": -18.6,
+      "peakDbfs": -2.4,
+      "whisper": {
+        "transcript": "押住他 别停",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "压住他，别停。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-veteran-attack-1",
+      "text": "冲！别让他跑了！",
+      "sha256": "0f0ea8d4103ad96c3acb35cc2da2ff5fab97234601d494ce03e4248ca223a5cd",
+      "duration": 1.824,
+      "bytes": 14828,
+      "meanDbfs": -22.0,
+      "peakDbfs": -2.6,
+      "whisper": {
+        "transcript": "冲别让他跑了",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "冲别让他跑了。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-veteran-reload-0",
+      "text": "没子弹了！掩护我！",
+      "sha256": "a3fedad6f62cf95b49451b85bff2e06e8e2b11ab75994b3f81b7e9f32a2a5543",
+      "duration": 2.784,
+      "bytes": 22508,
+      "meanDbfs": -18.3,
+      "peakDbfs": -2.6,
+      "whisper": {
+        "transcript": "没子弹了掩护我",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "没子弹了，掩护我。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-veteran-lost-0",
+      "text": "他去哪了？小心点……",
+      "sha256": "a65eafca7f3d9278e2c708e346b4301b26bba0182789dc353189e4eae12d63d2",
+      "duration": 2.448,
+      "bytes": 19820,
+      "meanDbfs": -24.3,
+      "peakDbfs": -8.6,
+      "whisper": {
+        "transcript": "他去拿了小心點",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "他去哪了？小心点。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|EMO_UNKNOWN|>"
+      }
+    },
+    {
+      "key": "enemy-veteran-vehicle-0",
+      "text": "有车！快闪开！",
+      "sha256": "5729b12955d6e13d213a3d08068361e5ddc0dcb33a07cc9f267b1d36af8ba365",
+      "duration": 2.064,
+      "bytes": 16748,
+      "meanDbfs": -18.4,
+      "peakDbfs": -2.5,
+      "whisper": {
+        "transcript": "游彻 快闪开",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "丢车快闪开。",
+        "phoneticMatch": false,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-veteran-grenade-0",
+      "text": "小心榴弹！快趴下！",
+      "sha256": "8a3f094a591e4c41c9168f51eada50b92e0b188267c46a65fd00b5b34014974a",
+      "duration": 3.168,
+      "bytes": 25580,
+      "meanDbfs": -18.2,
+      "peakDbfs": -2.5,
+      "whisper": {
+        "transcript": "小心榴弹快趴下",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "小心榴弹，快趴下。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-veteran-wounded-0",
+      "text": "啊！我中弹了！",
+      "sha256": "bd334c01dbb2ed82c98f2d71391e1db31954f89db63cb36a4fb7018911dcfd90",
+      "duration": 2.064,
+      "bytes": 16748,
+      "meanDbfs": -19.0,
+      "peakDbfs": -2.6,
+      "whisper": {
+        "transcript": "我中弹了",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "啊，我中弹了。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-veteran-wounded-1",
+      "text": "啊！我受伤了！",
+      "sha256": "07856c525169a823703296429e1d67b45aa2f40ef7eccfa8ed3d6b1da835166a",
+      "duration": 2.064,
+      "bytes": 16748,
+      "meanDbfs": -19.2,
+      "peakDbfs": -2.5,
+      "whisper": {
+        "transcript": "我受伤了",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "啊，我受伤了。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|EMO_UNKNOWN|>"
+      }
+    },
+    {
+      "key": "enemy-leader-spot-0",
+      "text": "发现他了！",
+      "sha256": "11a66060455075fe263398012afbc8d11aac46ba3ecfc0541dae8c40a0506128",
+      "duration": 1.104,
+      "bytes": 9068,
+      "meanDbfs": -19.9,
+      "peakDbfs": -2.5,
+      "whisper": {
+        "transcript": "發現他了",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "发现他了。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-leader-spot-1",
+      "text": "在那儿！快！",
+      "sha256": "56ebed50fc4a416237b7cd099128526ec7e436bfd9aea3c17215b197da991594",
+      "duration": 1.584,
+      "bytes": 12908,
+      "meanDbfs": -17.5,
+      "peakDbfs": -4.2,
+      "whisper": {
+        "transcript": "天哪 快",
+        "phoneticMatch": false
+      },
+      "sensevoice": {
+        "transcript": "在那快。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|EMO_UNKNOWN|>"
+      }
+    },
+    {
+      "key": "enemy-leader-attack-0",
+      "text": "压住他！别停！",
+      "sha256": "1773c812cf85759828a98fb45eda3542e313c96575a4a94aaefbba3dd52ebd62",
+      "duration": 1.416,
+      "bytes": 11564,
+      "meanDbfs": -19.3,
+      "peakDbfs": -2.4,
+      "whisper": {
+        "transcript": "压住他别停",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "压住他，别停。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-leader-attack-1",
+      "text": "冲！别让他跑了！",
+      "sha256": "c220a1cf5bc1ecee7f1d002ab7a1e5e7548c8d164e9426615c1772d040edebdd",
+      "duration": 1.488,
+      "bytes": 12140,
+      "meanDbfs": -21.7,
+      "peakDbfs": -2.5,
+      "whisper": {
+        "transcript": "冲别让他跑了",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "冲别让他跑了。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-leader-reload-0",
+      "text": "没子弹了！掩护我！",
+      "sha256": "5699dc1677b3dc85c67775617afebec3763c878c5f3481dac26ac86ebb6ab4d5",
+      "duration": 3.504,
+      "bytes": 28268,
+      "meanDbfs": -18.2,
+      "peakDbfs": -2.2,
+      "whisper": {
+        "transcript": "沒子彈了掩護我",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "没子弹了，掩护我。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|HAPPY|>"
+      }
+    },
+    {
+      "key": "enemy-leader-lost-0",
+      "text": "他去哪了？小心点……",
+      "sha256": "2cea609107517b484166c1ab4a4cd15160058d0db8ba64d304db1ebb5735e903",
+      "duration": 2.376,
+      "bytes": 19244,
+      "meanDbfs": -23.5,
+      "peakDbfs": -7.6,
+      "whisper": {
+        "transcript": "他去哪儿了小心点",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "他去哪儿了？小心点。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|SURPRISED|>"
+      }
+    },
+    {
+      "key": "enemy-leader-vehicle-0",
+      "text": "有车！快闪开！",
+      "sha256": "6e7bd0c6f532d88b1aec07f45dfcc7d453fbc773c0016ce8e6cf200760f78367",
+      "duration": 1.584,
+      "bytes": 12908,
+      "meanDbfs": -19.4,
+      "peakDbfs": -2.5,
+      "whisper": {
+        "transcript": "有车 快闪开",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "有车快闪开。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|ANGRY|>"
+      }
+    },
+    {
+      "key": "enemy-leader-grenade-0",
+      "text": "小心榴弹！快趴下！",
+      "sha256": "d70a01c1299df166ff241fd8799c43bd6c91312838ee548e5772f90cc2294ef1",
+      "duration": 1.656,
+      "bytes": 13484,
+      "meanDbfs": -19.3,
+      "peakDbfs": -2.4,
+      "whisper": {
+        "transcript": "小心流弹快趴下",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "小心榴弹，快趴下。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|HAPPY|>"
+      }
+    },
+    {
+      "key": "enemy-leader-wounded-0",
+      "text": "啊！我中弹了！",
+      "sha256": "107574b4035af1df28b9ec81051c03b28dc15e4ee60874dea74fbe625cb7ecac",
+      "duration": 2.616,
+      "bytes": 21164,
+      "meanDbfs": -18.0,
+      "peakDbfs": -3.9,
+      "whisper": {
+        "transcript": "我中弹了",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "啊呃我中弹了。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|HAPPY|>"
+      }
+    },
+    {
+      "key": "enemy-leader-wounded-1",
+      "text": "啊！我受伤了！",
+      "sha256": "56204a8aacd713656b32c23325be9bef1ce7617ee8eb06fe4f0ff1b3111136fa",
+      "duration": 2.136,
+      "bytes": 17324,
+      "meanDbfs": -18.7,
+      "peakDbfs": -5.3,
+      "whisper": {
+        "transcript": "我受伤了",
+        "phoneticMatch": true
+      },
+      "sensevoice": {
+        "transcript": "哦，我受伤了。",
+        "phoneticMatch": true,
+        "emotionLabel": "<|SURPRISED|>"
+      }
+    }
+  ]
+}

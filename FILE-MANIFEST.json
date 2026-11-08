@@ -4,8 +4,8 @@
     "sha256": "299e6f890f4964b964001cd60e406cd59dd060b3221061ab319766e19e685288"
   },
   ".github/workflows/pages.yml": {
-    "bytes": 1153,
-    "sha256": "cd5759091f6fbb17486ee2fb6047fb94599ac0c81ca65d9c2825ac95fd730460"
+    "bytes": 1244,
+    "sha256": "d6ebbf916768b7ca0bde4c8ad94c99cf07464167c3953b28516aa970a6d5c4f3"
   },
   ".gitignore": {
     "bytes": 88,
@@ -16,20 +16,20 @@
     "sha256": "bbc5753bee7959148c65d2688619e077f53cfdfe44f1a744e3f9ec8f1df2cdb8"
   },
   "README.md": {
-    "bytes": 4937,
-    "sha256": "2b5b9f2260eb5112e847d7ae3141adcc499c882d78078102f73d37ff9150c4b3"
+    "bytes": 6415,
+    "sha256": "d9e23439612cffc28e0d1afc9b9fcce4f6d6c12c209d53ff74dcb8b6c5da2992"
   },
   "VALIDATION.txt": {
-    "bytes": 12963,
-    "sha256": "33578a84833b86babb218937fbd9498349a43df52ed53cf0cac4bde281119e01"
+    "bytes": 23759,
+    "sha256": "e80605187ba5567c1ec2bcdbb34ad056c19bb21de2f636bdd2e6716f21ae6e7f"
   },
   "dist/.nojekyll": {
     "bytes": 1,
     "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
   },
   "dist/ASSET-CREDITS.txt": {
-    "bytes": 11188,
-    "sha256": "8c7f2b74773bc2ff31b794fd67bba5ff171ebfd77de6f6671b0ee86a3a693785"
+    "bytes": 11827,
+    "sha256": "58e84e7e17f044aa0e6d099160f8fc8332e41e25400d16662feddbe17dff0425"
   },
   "dist/aim-overlay.js": {
     "bytes": 2391,
@@ -48,8 +48,8 @@
     "sha256": "c8d729adc2eb211329f1c6139a066cbcf5e845af8abfe452b839d9538c0bb767"
   },
   "dist/audio.js": {
-    "bytes": 13653,
-    "sha256": "b643421edc6d7b1768722dd76b4d5fcdaef35a4c4fba7c412dc5d51f0700d0ad"
+    "bytes": 13660,
+    "sha256": "08e29f8d9fd38b32d60e9680f864498eb177e825f763555d36bc189178a26132"
   },
   "dist/audio/SOURCES.json": {
     "bytes": 21974,
@@ -63,105 +63,129 @@
     "bytes": 55742,
     "sha256": "f571a0fe5e9b49dca527b5f67c4ef4d02273be458208966b9a8507b8f1b9723f"
   },
-  "dist/audio/enemy/leader-attack-0.mp3": {
-    "bytes": 14636,
-    "sha256": "2fa1f34a772ebf7bdbb6e29bb84a1b3339ffd793754360cd0c469b80aff5aad7"
+  "dist/audio/enemy/combat-leader-attack-0.mp3": {
+    "bytes": 11564,
+    "sha256": "1773c812cf85759828a98fb45eda3542e313c96575a4a94aaefbba3dd52ebd62"
   },
-  "dist/audio/enemy/leader-attack-1.mp3": {
-    "bytes": 19436,
-    "sha256": "a73dd83ef9bfc5c978a8e07fe368c58a2495de726c2e8ca1bf11c95632fc0371"
+  "dist/audio/enemy/combat-leader-attack-1.mp3": {
+    "bytes": 12140,
+    "sha256": "c220a1cf5bc1ecee7f1d002ab7a1e5e7548c8d164e9426615c1772d040edebdd"
   },
-  "dist/audio/enemy/leader-grenade-0.mp3": {
-    "bytes": 20012,
-    "sha256": "52926f66787fc78bb8eeb0aa0077c6ee146f1c5ebef00cc798a84126bee16e88"
+  "dist/audio/enemy/combat-leader-grenade-0.mp3": {
+    "bytes": 13484,
+    "sha256": "d70a01c1299df166ff241fd8799c43bd6c91312838ee548e5772f90cc2294ef1"
   },
-  "dist/audio/enemy/leader-lost-0.mp3": {
-    "bytes": 20972,
-    "sha256": "cd4b89ec7d05500b68cd2c33182a8512cc7d4e0bf39276a92c3fda49b90069a7"
-  },
-  "dist/audio/enemy/leader-reload-0.mp3": {
+  "dist/audio/enemy/combat-leader-lost-0.mp3": {
     "bytes": 19244,
-    "sha256": "344efaf8747fdb0f4c68261ceacf0a91e5eca563e47b50a0d7b23148cb4ca216"
+    "sha256": "2cea609107517b484166c1ab4a4cd15160058d0db8ba64d304db1ebb5735e903"
   },
-  "dist/audio/enemy/leader-spot-0.mp3": {
-    "bytes": 13676,
-    "sha256": "63775d75dbba4d67cc15c5af0d961ceea9da3e394353c4645a17f91a822a3b8b"
+  "dist/audio/enemy/combat-leader-reload-0.mp3": {
+    "bytes": 28268,
+    "sha256": "5699dc1677b3dc85c67775617afebec3763c878c5f3481dac26ac86ebb6ab4d5"
   },
-  "dist/audio/enemy/leader-spot-1.mp3": {
-    "bytes": 20204,
-    "sha256": "14aa3b4236f85c1dc98bdb7a1333653df71c3e5279a818cc8b492f015eda076b"
+  "dist/audio/enemy/combat-leader-spot-0.mp3": {
+    "bytes": 9068,
+    "sha256": "11a66060455075fe263398012afbc8d11aac46ba3ecfc0541dae8c40a0506128"
   },
-  "dist/audio/enemy/leader-vehicle-0.mp3": {
-    "bytes": 19052,
-    "sha256": "c4b9e5360df204c02b7300af9550384236a25814cdfeadd0ac656c78e227d892"
+  "dist/audio/enemy/combat-leader-spot-1.mp3": {
+    "bytes": 12908,
+    "sha256": "56ebed50fc4a416237b7cd099128526ec7e436bfd9aea3c17215b197da991594"
+  },
+  "dist/audio/enemy/combat-leader-vehicle-0.mp3": {
+    "bytes": 12908,
+    "sha256": "6e7bd0c6f532d88b1aec07f45dfcc7d453fbc773c0016ce8e6cf200760f78367"
+  },
+  "dist/audio/enemy/combat-leader-wounded-0.mp3": {
+    "bytes": 21164,
+    "sha256": "107574b4035af1df28b9ec81051c03b28dc15e4ee60874dea74fbe625cb7ecac"
+  },
+  "dist/audio/enemy/combat-leader-wounded-1.mp3": {
+    "bytes": 17324,
+    "sha256": "56204a8aacd713656b32c23325be9bef1ce7617ee8eb06fe4f0ff1b3111136fa"
+  },
+  "dist/audio/enemy/combat-scout-attack-0.mp3": {
+    "bytes": 10988,
+    "sha256": "61cade3322d3d62b7a2b58ddfca2d287cc91847a52fbd368ddae965e0bee6d30"
+  },
+  "dist/audio/enemy/combat-scout-attack-1.mp3": {
+    "bytes": 12908,
+    "sha256": "eb7ccbc2acb15915d7337f888455fe015c5310445f75e08d74f3cdf23dfe4175"
+  },
+  "dist/audio/enemy/combat-scout-grenade-0.mp3": {
+    "bytes": 13484,
+    "sha256": "084e25e09cc18a22fe06a0fd55549e56d5f29c01dc0b043ded9373d86fa06be1"
+  },
+  "dist/audio/enemy/combat-scout-lost-0.mp3": {
+    "bytes": 14828,
+    "sha256": "b71219d6613dae65fa01a3bed79f835555be416b65758ba7f66e6990499f21b7"
+  },
+  "dist/audio/enemy/combat-scout-reload-0.mp3": {
+    "bytes": 14828,
+    "sha256": "8490bb20f49cefebec2784e93d94cc5bb8dd688943f71cd59c93a241ff5fc85c"
+  },
+  "dist/audio/enemy/combat-scout-spot-0.mp3": {
+    "bytes": 7148,
+    "sha256": "574155476755ded0e51187f937fd1f893162ae97a4e394a489f36f5ff88a1a2b"
+  },
+  "dist/audio/enemy/combat-scout-spot-1.mp3": {
+    "bytes": 9068,
+    "sha256": "f56f554c2b85ef17f34a485f357be23e3d04794328481b2879f9e16fca712271"
+  },
+  "dist/audio/enemy/combat-scout-vehicle-0.mp3": {
+    "bytes": 12908,
+    "sha256": "c12df007b5e963a37899b499a1d3846d4f7dde81218c41f6bd4af5fc9c95c295"
+  },
+  "dist/audio/enemy/combat-scout-wounded-0.mp3": {
+    "bytes": 14828,
+    "sha256": "d9630eba1434d03c14aec8e305ae767138dcce8e6465e2fe58609563da6f6c4f"
+  },
+  "dist/audio/enemy/combat-scout-wounded-1.mp3": {
+    "bytes": 10988,
+    "sha256": "044f37a93f66a5590593f482f3416f1462e13fb3158298aab4d72d765c7eaf88"
+  },
+  "dist/audio/enemy/combat-veteran-attack-0.mp3": {
+    "bytes": 12908,
+    "sha256": "75c953ce9f5b229c0a0cde4e9b8cbc11c9cea812eabd44953265e7c22fff324d"
+  },
+  "dist/audio/enemy/combat-veteran-attack-1.mp3": {
+    "bytes": 14828,
+    "sha256": "0f0ea8d4103ad96c3acb35cc2da2ff5fab97234601d494ce03e4248ca223a5cd"
+  },
+  "dist/audio/enemy/combat-veteran-grenade-0.mp3": {
+    "bytes": 25580,
+    "sha256": "8a3f094a591e4c41c9168f51eada50b92e0b188267c46a65fd00b5b34014974a"
+  },
+  "dist/audio/enemy/combat-veteran-lost-0.mp3": {
+    "bytes": 19820,
+    "sha256": "a65eafca7f3d9278e2c708e346b4301b26bba0182789dc353189e4eae12d63d2"
+  },
+  "dist/audio/enemy/combat-veteran-reload-0.mp3": {
+    "bytes": 22508,
+    "sha256": "a3fedad6f62cf95b49451b85bff2e06e8e2b11ab75994b3f81b7e9f32a2a5543"
+  },
+  "dist/audio/enemy/combat-veteran-spot-0.mp3": {
+    "bytes": 9068,
+    "sha256": "0ce7df2e3c5d174807c587e966a204143dc30c6bf7aa996f8c4db34d44cb3c80"
+  },
+  "dist/audio/enemy/combat-veteran-spot-1.mp3": {
+    "bytes": 12908,
+    "sha256": "3c8400bd88301b9de26d6525a887d447e38ad42895a9c8569b7389ab29a55f45"
+  },
+  "dist/audio/enemy/combat-veteran-vehicle-0.mp3": {
+    "bytes": 16748,
+    "sha256": "5729b12955d6e13d213a3d08068361e5ddc0dcb33a07cc9f267b1d36af8ba365"
+  },
+  "dist/audio/enemy/combat-veteran-wounded-0.mp3": {
+    "bytes": 16748,
+    "sha256": "bd334c01dbb2ed82c98f2d71391e1db31954f89db63cb36a4fb7018911dcfd90"
+  },
+  "dist/audio/enemy/combat-veteran-wounded-1.mp3": {
+    "bytes": 16748,
+    "sha256": "07856c525169a823703296429e1d67b45aa2f40ef7eccfa8ed3d6b1da835166a"
   },
   "dist/audio/enemy/manifest.json": {
-    "bytes": 5703,
-    "sha256": "fed674110d1d986c176cc7d521a565017d720d0fe47dd70331afe2fd574f8e0a"
-  },
-  "dist/audio/enemy/scout-attack-0.mp3": {
-    "bytes": 14060,
-    "sha256": "5e89b11e605d3f163b6b32fc95c10a2e966b12307ea4c80a6285353ac9f69064"
-  },
-  "dist/audio/enemy/scout-attack-1.mp3": {
-    "bytes": 19820,
-    "sha256": "bc9f0e62ad8d5aaacf0f20f54d2d2ba5cf3415fbf8049826adb19d1bb5e19a7c"
-  },
-  "dist/audio/enemy/scout-grenade-0.mp3": {
-    "bytes": 19244,
-    "sha256": "95486a88285f34a564a746d2ef729b229e27d5b84e9a78a45e9e595563a504f4"
-  },
-  "dist/audio/enemy/scout-lost-0.mp3": {
-    "bytes": 17516,
-    "sha256": "d75861bd6c61abc14a80587509b0225bca5167e384f752b314c3f6ad1ef03f8d"
-  },
-  "dist/audio/enemy/scout-reload-0.mp3": {
-    "bytes": 17132,
-    "sha256": "ae22f8bf97eb0487436343bc3660354d794d13c1d986d3440d44d931acee6892"
-  },
-  "dist/audio/enemy/scout-spot-0.mp3": {
-    "bytes": 13676,
-    "sha256": "bb8a95161266d2f781f4852834b148143b678cfe63f490244c48b2050b239162"
-  },
-  "dist/audio/enemy/scout-spot-1.mp3": {
-    "bytes": 17132,
-    "sha256": "ffdac587bbbcbb4083da9676488698e52829495782559ad337500b729a3974e3"
-  },
-  "dist/audio/enemy/scout-vehicle-0.mp3": {
-    "bytes": 16940,
-    "sha256": "c025e85f8d49ef13030dc48fcacf46d9454ffa3d4b681748e1e18792c895bf9e"
-  },
-  "dist/audio/enemy/veteran-attack-0.mp3": {
-    "bytes": 13676,
-    "sha256": "3f466a1fac1c9c9b79a7ab030887fe6f356dcfaa44f858dd34a6ecf0ab9a7fbd"
-  },
-  "dist/audio/enemy/veteran-attack-1.mp3": {
-    "bytes": 16364,
-    "sha256": "b38ff59d6a1d25c259a80070892410879925ac46fd68e55884b53d41153e2abc"
-  },
-  "dist/audio/enemy/veteran-grenade-0.mp3": {
-    "bytes": 18860,
-    "sha256": "f5228892e95b1039ccab76b8c8913f4bfa751123db00bdf0e9d49209a5c97895"
-  },
-  "dist/audio/enemy/veteran-lost-0.mp3": {
-    "bytes": 17516,
-    "sha256": "8f19dde53ce05a316e7b3cdefd14716732b39ba26af7ae750d71150758a423aa"
-  },
-  "dist/audio/enemy/veteran-reload-0.mp3": {
-    "bytes": 16364,
-    "sha256": "b4e76e30a5b32a9c1bf7a433943a13e84097a6ca1b839052ab7f51c992a7be16"
-  },
-  "dist/audio/enemy/veteran-spot-0.mp3": {
-    "bytes": 13292,
-    "sha256": "3abda7e8a257168128bd6df97830080cc0029a022eb521e1ce25513f7010e1fa"
-  },
-  "dist/audio/enemy/veteran-spot-1.mp3": {
-    "bytes": 16940,
-    "sha256": "e47f5e65d8596710f665b09bf1f1f3c0c3c36eccb747318bdfc9438e7477b9b1"
-  },
-  "dist/audio/enemy/veteran-vehicle-0.mp3": {
-    "bytes": 18092,
-    "sha256": "60e22c93eb512e16bc129369fcd40255f96d1f49a56692e114a12d52884e58f6"
+    "bytes": 24518,
+    "sha256": "538544afbb2dd77f52bd2eb78ec1dc9d1e815c90462723d87a4af4ea1d6fcadd"
   },
   "dist/audio/explosion.wav": {
     "bytes": 57754,
@@ -292,8 +316,8 @@
     "sha256": "6cfc33e806309d8ce1d64d2306958588964afa513d5883a00c5518c7054db765"
   },
   "dist/bootstrap.js": {
-    "bytes": 2019,
-    "sha256": "670c7e18c604b5da61dc7990226303ce05fa00759d25a09921a1c5c228125b1e"
+    "bytes": 2020,
+    "sha256": "739a843b3b37dca2bfb4175f11a57e48e38b76c6443e3b1087810fde19658f0e"
   },
   "dist/building-layout.js": {
     "bytes": 5074,
@@ -336,8 +360,8 @@
     "sha256": "6ae21cb0ed8cabb65aff28e1018b5c6fb87b51a78061c32181ca6ea07a35706c"
   },
   "dist/enemy-chatter.js": {
-    "bytes": 3631,
-    "sha256": "79c5f106e5e5ec4c42b71c51552fdd0cbad556202450a9b08802fa8650674684"
+    "bytes": 4680,
+    "sha256": "b5ef9c376a8d68ad52965d9a89c834d5f9fd404f37503aa61f5db14d6c4e5227"
   },
   "dist/environment/SOURCE.md": {
     "bytes": 570,
@@ -368,8 +392,8 @@
     "sha256": "cc9fb2539cf27df48255982e896d28f544483537cdb41f9fabd741af8992d719"
   },
   "dist/game.js": {
-    "bytes": 43053,
-    "sha256": "53817c49ed095d4f7dabc4b7b13a15b42dd3645101be6d8b78d1c6876dc099c7"
+    "bytes": 43055,
+    "sha256": "af685c3ba84befe220ecdac399b29272901b60f2a8646c29c69e8e17d893012a"
   },
   "dist/graphics.js": {
     "bytes": 7640,
@@ -720,8 +744,8 @@
     "sha256": "09c070873b762302aa6ee86e35127b49dd86f2a6f894bac8180ec188fa7ff4e0"
   },
   "dist/index.html": {
-    "bytes": 17039,
-    "sha256": "23e98dec1f8ab580bd971d04c3f27f03f4914ec0231a13203d83c16b7c21bf07"
+    "bytes": 17041,
+    "sha256": "186b17dddd40acdd7e8967211f139619765111660656bbaadcb807aa9ae1bb0e"
   },
   "dist/lobby-photo.css": {
     "bytes": 2674,
@@ -1640,8 +1664,8 @@
     "sha256": "e956bf258dc3c0a25104c9a19e9d56a8393aaac3fba0bcad8a3d71b0fa7c098e"
   },
   "package.json": {
-    "bytes": 730,
-    "sha256": "b3988e3c5a76a4f485a05db87c8c47d1aee08ec886a2f1a295dc0b50307a936f"
+    "bytes": 791,
+    "sha256": "207853b4723ad5841559955c6ea9a4fc87d7903cdfd32f23963bec3c015b5370"
   },
   "scripts/build-cache-ui-check.mjs": {
     "bytes": 4786,
@@ -1691,6 +1715,10 @@
     "bytes": 9018,
     "sha256": "d1964e3c5f719cb274c95d01a2473a82885bf631bd8d1bab17fb9cfd18884df8"
   },
+  "scripts/check-combat-chatter.mjs": {
+    "bytes": 3143,
+    "sha256": "8cff28e71e2eb37199c90c0ebe60d64b0aba330e7076d879a434e7cc09d36663"
+  },
   "scripts/check-combat.mjs": {
     "bytes": 4757,
     "sha256": "bb556a57d5a0dbfd135f3e5caff63650ac925f9dc023aabfcf870cf69bf9fee2"
@@ -1700,8 +1728,8 @@
     "sha256": "f2b2c67a20ff372b2078b98f7a655f59b81cf9722438125445b2c33006baa591"
   },
   "scripts/check-field-chatter.mjs": {
-    "bytes": 10431,
-    "sha256": "b85c25ac30dcc117a57e80992bd7dee58ae72498e6e06787afe537a2bb494e2c"
+    "bytes": 10657,
+    "sha256": "8b8a8e885fff66d5ce8f820a1bb17ce220cca2f8c7d263b3fe85e09fc58a842b"
   },
   "scripts/check-foley.mjs": {
     "bytes": 4214,
@@ -1734,6 +1762,10 @@
   "scripts/check-loading.mjs": {
     "bytes": 3321,
     "sha256": "a731ffb270c609cf8c809900df962b530c16d3675561b16686b94927fc1f4f10"
+  },
+  "scripts/check-local-voice-transcripts.py": {
+    "bytes": 4161,
+    "sha256": "9dc120a5bea3b88acec5a8745c93fe41be7c231f01f5b83fb1897ac5e653ba56"
   },
   "scripts/check-lock-vehicle.mjs": {
     "bytes": 8918,
@@ -1896,8 +1928,8 @@
     "sha256": "62a38c597eb6c48017de13540dd439855c1a830318538522fad145dbab128703"
   },
   "scripts/prepare-enemy-voices.py": {
-    "bytes": 2739,
-    "sha256": "86872461bdae465b51d021d4282cfc1457a29fe0d02fd459ee2a9ed39858e9ac"
+    "bytes": 296,
+    "sha256": "211e5031bc2ce380b2c2ec1971f58caa67e5a35c7fb0aa7fb246ebc1bdf42b32"
   },
   "scripts/prepare-foley.py": {
     "bytes": 2666,
@@ -1922,6 +1954,10 @@
   "scripts/prepare-jeep.mjs": {
     "bytes": 6376,
     "sha256": "854c78d9e714a1fda2248eb8799fa2ea9c732d16529a8006d15ff16a92e6114f"
+  },
+  "scripts/prepare-local-combat-voices.py": {
+    "bytes": 4457,
+    "sha256": "d0d9cf1f46d15c3c323e2d2812225e4bf3e0c04f118e55634258252e82bdb352"
   },
   "scripts/prepare-meadow-grass.mjs": {
     "bytes": 7815,
@@ -2115,9 +2151,13 @@
     "bytes": 28236,
     "sha256": "a1529e39aade7ccf239181261d76f1c1bc41df27b6ab0edfcf6a5de95d3c0f8a"
   },
+  "sources/combat-voice-audit.json": {
+    "bytes": 16289,
+    "sha256": "4f84b8f547601e4b3548397455a2883d83ee1938199c2a71d741e1ef2dd86176"
+  },
   "sources/combat-voice-direction.json": {
-    "bytes": 14593,
-    "sha256": "9734820baf4e62108dc3e90d65451fea6c9c637b2c1fc54fc6587a287e8db7b8"
+    "bytes": 19625,
+    "sha256": "d55c81fc5e2a34691b705367c378b542ca2eba1246350df5e26e468dc6fad29f"
   },
   "sources/dead_tree_trunk.json": {
     "bytes": 27133,

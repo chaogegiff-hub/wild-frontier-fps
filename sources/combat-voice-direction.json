@@ -1,24 +1,34 @@
 {
-  "version": "2.25-emotional-draft",
-  "status": "prepared-not-generated",
-  "endpoint_id": "elevenlabs/tts/eleven-v4",
-  "language": "zh",
-  "note": "New clips must be generated and auditioned before replacing the live neutral voice assets. These recipes are not recordings. No successful generation request was returned in this session.",
+  "version": "2.26",
+  "status": "generated-locally",
+  "generator": {
+    "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+    "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+    "sdk": "qwen-tts==0.1.1",
+    "torch": "2.9.1+cpu",
+    "device": "cpu",
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "model_card": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"
+  },
   "profiles": [
     {
       "id": "scout",
-      "voice": "Antoni",
-      "character": "年轻、急促、紧张，短促吸气后报告"
+      "label": "侦察兵",
+      "voice": "Dylan",
+      "character": "年轻、急促、警觉的男性侦察兵"
     },
     {
       "id": "veteran",
-      "voice": "Adam",
-      "character": "低沉、沙哑，压制惊慌但有用力喊叫和痛感"
+      "label": "老兵",
+      "voice": "Uncle_Fu",
+      "character": "低沉、略沙哑、身处交火压力的男性老兵"
     },
     {
       "id": "leader",
-      "voice": "Josh",
-      "character": "粗犷、有力，在压力下急促下令"
+      "label": "队长",
+      "voice": "Ryan",
+      "character": "节奏强、沉着有力、在危险中紧张下令的男性队长"
     }
   ],
   "clips": [
@@ -26,481 +36,331 @@
       "key": "enemy-scout-spot-0",
       "profile": "scout",
       "kind": "spot",
+      "index": 0,
       "text": "发现他了！",
-      "output_file": "scout-spot-0-emotional.mp3",
-      "input": {
-        "text": "[gasping] [panicked] 发现他了！",
-        "voice": "Antoni",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22500
-      }
+      "voice": "Dylan",
+      "instruction": "你是年轻、急促、警觉的男性侦察兵。用非常紧张、惊恐而急促的语气大喊，像交火时突然发现敌人。短促用力，带急促换气，声音有明显紧绷感。只说提供的台词，保持自然的中文发音。",
+      "seed": 22600,
+      "output_file": "combat-scout-spot-0.mp3"
     },
     {
       "key": "enemy-scout-spot-1",
       "profile": "scout",
       "kind": "spot",
+      "index": 1,
       "text": "在那儿！快！",
-      "output_file": "scout-spot-1-emotional.mp3",
-      "input": {
-        "text": "[urgent] 在那儿！[shouting] 快！",
-        "voice": "Antoni",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22501
-      }
+      "voice": "Dylan",
+      "instruction": "你是年轻、急促、警觉的男性侦察兵。用非常紧张、惊恐而急促的语气大喊，像交火时突然发现敌人。短促用力，带急促换气，声音有明显紧绷感。只说提供的台词，保持自然的中文发音。",
+      "seed": 22601,
+      "output_file": "combat-scout-spot-1.mp3"
     },
     {
       "key": "enemy-scout-attack-0",
       "profile": "scout",
       "kind": "attack",
+      "index": 0,
       "text": "压住他！别停！",
-      "output_file": "scout-attack-0-emotional.mp3",
-      "input": {
-        "text": "[angry] [shouting] 压住他！别停！",
-        "voice": "Antoni",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22502
-      }
+      "voice": "Dylan",
+      "instruction": "你是年轻、急促、警觉的男性侦察兵。用愤怒、紧张、声嘶力竭的语气喊出战斗命令。短句有爆发力，重音明显，像顶着枪声急促催促同伴。只说提供的台词，保持自然的中文发音。",
+      "seed": 22602,
+      "output_file": "combat-scout-attack-0.mp3"
     },
     {
       "key": "enemy-scout-attack-1",
       "profile": "scout",
       "kind": "attack",
+      "index": 1,
       "text": "冲！别让他跑了！",
-      "output_file": "scout-attack-1-emotional.mp3",
-      "input": {
-        "text": "[shouting] 冲！别让他跑了！",
-        "voice": "Antoni",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22503
-      }
+      "voice": "Dylan",
+      "instruction": "你是年轻、急促、警觉的男性侦察兵。用愤怒、紧张、声嘶力竭的语气喊出战斗命令。短句有爆发力，重音明显，像顶着枪声急促催促同伴。只说提供的台词，保持自然的中文发音。",
+      "seed": 22603,
+      "output_file": "combat-scout-attack-1.mp3"
     },
     {
       "key": "enemy-scout-reload-0",
       "profile": "scout",
       "kind": "reload",
-      "text": "换弹！掩护我！",
-      "output_file": "scout-reload-0-emotional.mp3",
-      "input": {
-        "text": "[breathless] 换弹！[urgent] 掩护我！",
-        "voice": "Antoni",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22504
-      }
+      "index": 0,
+      "text": "没子弹了！掩护我！",
+      "voice": "Dylan",
+      "instruction": "使用清晰的标准普通话，保持每个词完整可辨。你是年轻、急促、警觉的男性侦察兵。用十分紧张、喘着气、急于求援的语气喊话。第一句短促，第二句更急，喉咙用力，有自然的急促换气。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 23604,
+      "output_file": "combat-scout-reload-0.mp3"
     },
     {
       "key": "enemy-scout-lost-0",
       "profile": "scout",
       "kind": "lost",
-      "text": "人呢？小心点……",
-      "output_file": "scout-lost-0-emotional.mp3",
-      "input": {
-        "text": "[whispering] [nervous] 人呢？小心点……",
-        "voice": "Antoni",
-        "language_code": "zh",
-        "stability": 0.35,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22505
-      }
+      "index": 0,
+      "text": "他去哪了？小心点……",
+      "voice": "Dylan",
+      "instruction": "使用清晰的标准普通话，保持每个词完整可辨。你是年轻、急促、警觉的男性侦察兵。用压低、绷紧而警惕的声音低语，语气带担心和迟疑。第一句是紧张的疑问，随后小心提醒同伴，保留真实的停顿。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 22905,
+      "output_file": "combat-scout-lost-0.mp3"
     },
     {
       "key": "enemy-scout-vehicle-0",
       "profile": "scout",
       "kind": "vehicle",
-      "text": "车！快闪开！",
-      "output_file": "scout-vehicle-0-emotional.mp3",
-      "input": {
-        "text": "[panicked] 车！[shouting] 快闪开！",
-        "voice": "Antoni",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22506
-      }
+      "index": 0,
+      "text": "有车！快闪开！",
+      "voice": "Dylan",
+      "instruction": "使用清晰的标准普通话，保持每个词完整可辨。你是年轻、急促、警觉的男性侦察兵。用突然受惊、极度紧张的语气大喊警告。第一个字突然爆发，随后慌忙催促同伴躲开，声音紧绷、短促、用力。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 22906,
+      "output_file": "combat-scout-vehicle-0.mp3"
     },
     {
       "key": "enemy-scout-grenade-0",
       "profile": "scout",
       "kind": "grenade",
-      "text": "榴弹！趴下！",
-      "output_file": "scout-grenade-0-emotional.mp3",
-      "input": {
-        "text": "[frightened] [shouting] 榴弹！趴下！",
-        "voice": "Antoni",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22507
-      }
+      "index": 0,
+      "text": "小心榴弹！快趴下！",
+      "voice": "Dylan",
+      "instruction": "使用清晰的标准普通话，保持每个词完整可辨。你是年轻、急促、警觉的男性侦察兵。用惊恐、十分紧迫、拼命警告同伴的语气大喊。音量强、节奏急，有紧绷感和爆发力。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 22907,
+      "output_file": "combat-scout-grenade-0.mp3"
     },
     {
       "key": "enemy-scout-wounded-0",
       "profile": "scout",
       "kind": "wounded",
-      "text": "呃啊！我中弹了！",
-      "output_file": "scout-wounded-0-emotional.mp3",
-      "input": {
-        "text": "[groaning] 呃啊！[strained] 我中弹了！",
-        "voice": "Antoni",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22508
-      }
+      "index": 0,
+      "text": "啊！我中弹了！",
+      "voice": "Dylan",
+      "instruction": "使用清晰的标准普通话，保持每个词完整可辨。你是年轻、急促、警觉的男性侦察兵。用突然中弹后疼痛、挣扎、倒吸气的语气发声。前面的声音是痛呼或吸气，后面的短句带明显痛感、气息不稳、急促求援。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 22908,
+      "output_file": "combat-scout-wounded-0.mp3"
     },
     {
       "key": "enemy-scout-wounded-1",
       "profile": "scout",
       "kind": "wounded",
-      "text": "嘶！掩护我！",
-      "output_file": "scout-wounded-1-emotional.mp3",
-      "input": {
-        "text": "[gasping] 嘶！[strained] 掩护我！",
-        "voice": "Antoni",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22509
-      }
+      "index": 1,
+      "text": "啊！我受伤了！",
+      "voice": "Dylan",
+      "instruction": "使用清晰的标准普通话，保持每个词完整可辨。你是年轻、急促、警觉的男性侦察兵。用突然中弹后疼痛、挣扎、倒吸气的语气发声。前面的声音是痛呼或吸气，后面的短句带明显痛感、气息不稳、急促求援。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 23609,
+      "output_file": "combat-scout-wounded-1.mp3"
     },
     {
       "key": "enemy-veteran-spot-0",
       "profile": "veteran",
       "kind": "spot",
+      "index": 0,
       "text": "发现他了！",
-      "output_file": "veteran-spot-0-emotional.mp3",
-      "input": {
-        "text": "[gasping] [panicked] 发现他了！",
-        "voice": "Adam",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22610
-      }
+      "voice": "Uncle_Fu",
+      "instruction": "你是低沉、略沙哑、身处交火压力的男性老兵。用非常紧张、惊恐而急促的语气大喊，像交火时突然发现敌人。短促用力，带急促换气，声音有明显紧绷感。只说提供的台词，保持自然的中文发音。",
+      "seed": 22610,
+      "output_file": "combat-veteran-spot-0.mp3"
     },
     {
       "key": "enemy-veteran-spot-1",
       "profile": "veteran",
       "kind": "spot",
+      "index": 1,
       "text": "在那儿！快！",
-      "output_file": "veteran-spot-1-emotional.mp3",
-      "input": {
-        "text": "[urgent] 在那儿！[shouting] 快！",
-        "voice": "Adam",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22611
-      }
+      "voice": "Uncle_Fu",
+      "instruction": "你是低沉、略沙哑、身处交火压力的男性老兵。用非常紧张、惊恐而急促的语气大喊，像交火时突然发现敌人。短促用力，带急促换气，声音有明显紧绷感。只说提供的台词，保持自然的中文发音。",
+      "seed": 22611,
+      "output_file": "combat-veteran-spot-1.mp3"
     },
     {
       "key": "enemy-veteran-attack-0",
       "profile": "veteran",
       "kind": "attack",
+      "index": 0,
       "text": "压住他！别停！",
-      "output_file": "veteran-attack-0-emotional.mp3",
-      "input": {
-        "text": "[angry] [shouting] 压住他！别停！",
-        "voice": "Adam",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22612
-      }
+      "voice": "Uncle_Fu",
+      "instruction": "你是低沉、略沙哑、身处交火压力的男性老兵。用愤怒、紧张、声嘶力竭的语气喊出战斗命令。短句有爆发力，重音明显，像顶着枪声急促催促同伴。只说提供的台词，保持自然的中文发音。",
+      "seed": 22612,
+      "output_file": "combat-veteran-attack-0.mp3"
     },
     {
       "key": "enemy-veteran-attack-1",
       "profile": "veteran",
       "kind": "attack",
+      "index": 1,
       "text": "冲！别让他跑了！",
-      "output_file": "veteran-attack-1-emotional.mp3",
-      "input": {
-        "text": "[shouting] 冲！别让他跑了！",
-        "voice": "Adam",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22613
-      }
+      "voice": "Uncle_Fu",
+      "instruction": "你是低沉、略沙哑、身处交火压力的男性老兵。用愤怒、紧张、声嘶力竭的语气喊出战斗命令。短句有爆发力，重音明显，像顶着枪声急促催促同伴。只说提供的台词，保持自然的中文发音。",
+      "seed": 22613,
+      "output_file": "combat-veteran-attack-1.mp3"
     },
     {
       "key": "enemy-veteran-reload-0",
       "profile": "veteran",
       "kind": "reload",
-      "text": "换弹！掩护我！",
-      "output_file": "veteran-reload-0-emotional.mp3",
-      "input": {
-        "text": "[breathless] 换弹！[urgent] 掩护我！",
-        "voice": "Adam",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22614
-      }
+      "index": 0,
+      "text": "没子弹了！掩护我！",
+      "voice": "Uncle_Fu",
+      "instruction": "使用清晰的标准普通话，保持每个词完整可辨。你是低沉、略沙哑、身处交火压力的男性老兵。用十分紧张、喘着气、急于求援的语气喊话。第一句短促，第二句更急，喉咙用力，有自然的急促换气。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 23614,
+      "output_file": "combat-veteran-reload-0.mp3"
     },
     {
       "key": "enemy-veteran-lost-0",
       "profile": "veteran",
       "kind": "lost",
-      "text": "人呢？小心点……",
-      "output_file": "veteran-lost-0-emotional.mp3",
-      "input": {
-        "text": "[whispering] [nervous] 人呢？小心点……",
-        "voice": "Adam",
-        "language_code": "zh",
-        "stability": 0.35,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22615
-      }
+      "index": 0,
+      "text": "他去哪了？小心点……",
+      "voice": "Uncle_Fu",
+      "instruction": "使用清晰的标准普通话，保持每个词完整可辨。你是低沉、略沙哑、身处交火压力的男性老兵。用压低、绷紧而警惕的声音低语，语气带担心和迟疑。第一句是紧张的疑问，随后小心提醒同伴，保留真实的停顿。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 22915,
+      "output_file": "combat-veteran-lost-0.mp3"
     },
     {
       "key": "enemy-veteran-vehicle-0",
       "profile": "veteran",
       "kind": "vehicle",
-      "text": "车！快闪开！",
-      "output_file": "veteran-vehicle-0-emotional.mp3",
-      "input": {
-        "text": "[panicked] 车！[shouting] 快闪开！",
-        "voice": "Adam",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22616
-      }
+      "index": 0,
+      "text": "有车！快闪开！",
+      "voice": "Uncle_Fu",
+      "instruction": "使用清晰的标准普通话，保持每个词完整可辨。你是低沉、略沙哑、身处交火压力的男性老兵。用突然受惊、极度紧张的语气大喊警告。第一个字突然爆发，随后慌忙催促同伴躲开，声音紧绷、短促、用力。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 22916,
+      "output_file": "combat-veteran-vehicle-0.mp3"
     },
     {
       "key": "enemy-veteran-grenade-0",
       "profile": "veteran",
       "kind": "grenade",
-      "text": "榴弹！趴下！",
-      "output_file": "veteran-grenade-0-emotional.mp3",
-      "input": {
-        "text": "[frightened] [shouting] 榴弹！趴下！",
-        "voice": "Adam",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22617
-      }
+      "index": 0,
+      "text": "小心榴弹！快趴下！",
+      "voice": "Uncle_Fu",
+      "instruction": "使用清晰的标准普通话，保持每个词完整可辨。你是低沉、略沙哑、身处交火压力的男性老兵。用惊恐、十分紧迫、拼命警告同伴的语气大喊。音量强、节奏急，有紧绷感和爆发力。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 22917,
+      "output_file": "combat-veteran-grenade-0.mp3"
     },
     {
       "key": "enemy-veteran-wounded-0",
       "profile": "veteran",
       "kind": "wounded",
-      "text": "呃啊！我中弹了！",
-      "output_file": "veteran-wounded-0-emotional.mp3",
-      "input": {
-        "text": "[groaning] 呃啊！[strained] 我中弹了！",
-        "voice": "Adam",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22618
-      }
+      "index": 0,
+      "text": "啊！我中弹了！",
+      "voice": "Uncle_Fu",
+      "instruction": "使用清晰的标准普通话，保持每个词完整可辨。你是低沉、略沙哑、身处交火压力的男性老兵。用突然中弹后疼痛、挣扎、倒吸气的语气发声。前面的声音是痛呼或吸气，后面的短句带明显痛感、气息不稳、急促求援。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 22918,
+      "output_file": "combat-veteran-wounded-0.mp3"
     },
     {
       "key": "enemy-veteran-wounded-1",
       "profile": "veteran",
       "kind": "wounded",
-      "text": "嘶！掩护我！",
-      "output_file": "veteran-wounded-1-emotional.mp3",
-      "input": {
-        "text": "[gasping] 嘶！[strained] 掩护我！",
-        "voice": "Adam",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22619
-      }
+      "index": 1,
+      "text": "啊！我受伤了！",
+      "voice": "Uncle_Fu",
+      "instruction": "使用清晰的标准普通话，保持每个词完整可辨。你是低沉、略沙哑、身处交火压力的男性老兵。用突然中弹后疼痛、挣扎、倒吸气的语气发声。前面的声音是痛呼或吸气，后面的短句带明显痛感、气息不稳、急促求援。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 23619,
+      "output_file": "combat-veteran-wounded-1.mp3"
     },
     {
       "key": "enemy-leader-spot-0",
       "profile": "leader",
       "kind": "spot",
+      "index": 0,
       "text": "发现他了！",
-      "output_file": "leader-spot-0-emotional.mp3",
-      "input": {
-        "text": "[gasping] [panicked] 发现他了！",
-        "voice": "Josh",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22720
-      }
+      "voice": "Ryan",
+      "instruction": "使用清晰的标准普通话说中文，不能夹杂英语，不使用方言。你是有力、粗犷、在危险中急促下令的男性队长。用非常紧张、惊恐而急促的语气大喊，像交火时突然发现敌人。短促用力，带急促换气，声音有明显紧绷感。只说提供的台词，保持自然的中文发音。",
+      "seed": 23320,
+      "output_file": "combat-leader-spot-0.mp3"
     },
     {
       "key": "enemy-leader-spot-1",
       "profile": "leader",
       "kind": "spot",
+      "index": 1,
       "text": "在那儿！快！",
-      "output_file": "leader-spot-1-emotional.mp3",
-      "input": {
-        "text": "[urgent] 在那儿！[shouting] 快！",
-        "voice": "Josh",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22721
-      }
+      "voice": "Ryan",
+      "instruction": "用清晰的普通话急促大喊，声音紧张有力，一口气说完，不结巴、不呻吟、不加额外的字或声音，只说：在那儿！快！",
+      "seed": 23372,
+      "output_file": "combat-leader-spot-1.mp3"
     },
     {
       "key": "enemy-leader-attack-0",
       "profile": "leader",
       "kind": "attack",
+      "index": 0,
       "text": "压住他！别停！",
-      "output_file": "leader-attack-0-emotional.mp3",
-      "input": {
-        "text": "[angry] [shouting] 压住他！别停！",
-        "voice": "Josh",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22722
-      }
+      "voice": "Ryan",
+      "instruction": "使用清晰的标准普通话说中文，不能夹杂英语，不使用方言。你是有力、粗犷、在危险中急促下令的男性队长。用愤怒、紧张、声嘶力竭的语气喊出战斗命令。短句有爆发力，重音明显，像顶着枪声急促催促同伴。只说提供的台词，保持自然的中文发音。",
+      "seed": 23322,
+      "output_file": "combat-leader-attack-0.mp3"
     },
     {
       "key": "enemy-leader-attack-1",
       "profile": "leader",
       "kind": "attack",
+      "index": 1,
       "text": "冲！别让他跑了！",
-      "output_file": "leader-attack-1-emotional.mp3",
-      "input": {
-        "text": "[shouting] 冲！别让他跑了！",
-        "voice": "Josh",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22723
-      }
+      "voice": "Ryan",
+      "instruction": "使用清晰的标准普通话说中文，不能夹杂英语，不使用方言。你是有力、粗犷、在危险中急促下令的男性队长。用愤怒、紧张、声嘶力竭的语气喊出战斗命令。短句有爆发力，重音明显，像顶着枪声急促催促同伴。只说提供的台词，保持自然的中文发音。",
+      "seed": 23323,
+      "output_file": "combat-leader-attack-1.mp3"
     },
     {
       "key": "enemy-leader-reload-0",
       "profile": "leader",
       "kind": "reload",
-      "text": "换弹！掩护我！",
-      "output_file": "leader-reload-0-emotional.mp3",
-      "input": {
-        "text": "[breathless] 换弹！[urgent] 掩护我！",
-        "voice": "Josh",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22724
-      }
+      "index": 0,
+      "text": "没子弹了！掩护我！",
+      "voice": "Ryan",
+      "instruction": "使用清晰的标准普通话说中文，不能夹杂英语，不使用方言。使用清晰的标准普通话，保持每个词完整可辨。你是有力、粗犷、在危险中急促下令的男性队长。用十分紧张、喘着气、急于求援的语气喊话。第一句短促，第二句更急，喉咙用力，有自然的急促换气。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 23624,
+      "output_file": "combat-leader-reload-0.mp3"
     },
     {
       "key": "enemy-leader-lost-0",
       "profile": "leader",
       "kind": "lost",
-      "text": "人呢？小心点……",
-      "output_file": "leader-lost-0-emotional.mp3",
-      "input": {
-        "text": "[whispering] [nervous] 人呢？小心点……",
-        "voice": "Josh",
-        "language_code": "zh",
-        "stability": 0.35,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22725
-      }
+      "index": 0,
+      "text": "他去哪了？小心点……",
+      "voice": "Ryan",
+      "instruction": "使用清晰的标准普通话说中文，不能夹杂英语，不使用方言。使用清晰的标准普通话，保持每个词完整可辨。你是有力、粗犷、在危险中急促下令的男性队长。用压低、绷紧而警惕的声音低语，语气带担心和迟疑。第一句是紧张的疑问，随后小心提醒同伴，保留真实的停顿。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 23625,
+      "output_file": "combat-leader-lost-0.mp3"
     },
     {
       "key": "enemy-leader-vehicle-0",
       "profile": "leader",
       "kind": "vehicle",
-      "text": "车！快闪开！",
-      "output_file": "leader-vehicle-0-emotional.mp3",
-      "input": {
-        "text": "[panicked] 车！[shouting] 快闪开！",
-        "voice": "Josh",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22726
-      }
+      "index": 0,
+      "text": "有车！快闪开！",
+      "voice": "Ryan",
+      "instruction": "使用清晰的标准普通话说中文，不能夹杂英语，不使用方言。使用清晰的标准普通话，保持每个词完整可辨。你是有力、粗犷、在危险中急促下令的男性队长。用突然受惊、极度紧张的语气大喊警告。第一个字突然爆发，随后慌忙催促同伴躲开，声音紧绷、短促、用力。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 23626,
+      "output_file": "combat-leader-vehicle-0.mp3"
     },
     {
       "key": "enemy-leader-grenade-0",
       "profile": "leader",
       "kind": "grenade",
-      "text": "榴弹！趴下！",
-      "output_file": "leader-grenade-0-emotional.mp3",
-      "input": {
-        "text": "[frightened] [shouting] 榴弹！趴下！",
-        "voice": "Josh",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22727
-      }
+      "index": 0,
+      "text": "小心榴弹！快趴下！",
+      "voice": "Ryan",
+      "instruction": "使用清晰的标准普通话说中文，不能夹杂英语，不使用方言。使用清晰的标准普通话，保持每个词完整可辨。你是有力、粗犷、在危险中急促下令的男性队长。用惊恐、十分紧迫、拼命警告同伴的语气大喊。音量强、节奏急，有紧绷感和爆发力。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 23627,
+      "output_file": "combat-leader-grenade-0.mp3"
     },
     {
       "key": "enemy-leader-wounded-0",
       "profile": "leader",
       "kind": "wounded",
-      "text": "呃啊！我中弹了！",
-      "output_file": "leader-wounded-0-emotional.mp3",
-      "input": {
-        "text": "[groaning] 呃啊！[strained] 我中弹了！",
-        "voice": "Josh",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22728
-      }
+      "index": 0,
+      "text": "啊！我中弹了！",
+      "voice": "Ryan",
+      "instruction": "使用清晰的标准普通话说中文，不能夹杂英语，不使用方言。使用清晰的标准普通话，保持每个词完整可辨。你是有力、粗犷、在危险中急促下令的男性队长。用突然中弹后疼痛、挣扎、倒吸气的语气发声。前面的声音是痛呼或吸气，后面的短句带明显痛感、气息不稳、急促求援。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 23628,
+      "output_file": "combat-leader-wounded-0.mp3"
     },
     {
       "key": "enemy-leader-wounded-1",
       "profile": "leader",
       "kind": "wounded",
-      "text": "嘶！掩护我！",
-      "output_file": "leader-wounded-1-emotional.mp3",
-      "input": {
-        "text": "[gasping] 嘶！[strained] 掩护我！",
-        "voice": "Josh",
-        "language_code": "zh",
-        "stability": 0.25,
-        "similarity_boost": 0.65,
-        "output_format": "mp3_44100_128",
-        "seed": 22729
-      }
+      "index": 1,
+      "text": "啊！我受伤了！",
+      "voice": "Ryan",
+      "instruction": "使用清晰的标准普通话说中文，不能夹杂英语，不使用方言。使用清晰的标准普通话，保持每个词完整可辨。你是有力、粗犷、在危险中急促下令的男性队长。用突然中弹后疼痛、挣扎、倒吸气的语气发声。前面的声音是痛呼或吸气，后面的短句带明显痛感、气息不稳、急促求援。只说提供的台词，保持自然的中文发音。情绪紧张但字音清楚，短句分明。",
+      "seed": 23629,
+      "output_file": "combat-leader-wounded-1.mp3"
     }
   ]
 }

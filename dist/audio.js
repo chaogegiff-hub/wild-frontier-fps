@@ -39,7 +39,7 @@ export class GameAudio{
         this.init();if(!this.ctx)throw new Error('AudioContext unavailable');
         // This extension is fetched separately from the unchanged large startup
         // packs, whose old cached manifest does not contain the new recordings.
-        const root=new URL('./audio/enemy/',import.meta.url),response=await fetch(new URL('manifest.json?v=2.24-world1',root));if(!response.ok)throw new Error('Enemy voices unavailable');const manifest=await response.json();
+        const root=new URL('./audio/enemy/',import.meta.url),response=await fetch(new URL('manifest.json?v=2.26-local-voices1',root));if(!response.ok)throw new Error('Enemy voices unavailable');const manifest=await response.json();
         const results=await Promise.allSettled(Object.entries(manifest.clips).map(async([key,clip])=>{const response=await fetch(new URL(clip.file,root));if(!response.ok)throw new Error(clip.file);this.buffers[key]=[await this.ctx.decodeAudioData(await response.arrayBuffer())];}));
         const failed=results.filter(r=>r.status==='rejected').length;if(failed)throw new Error(`${failed} enemy voice clips failed to load`);this.voicesReady=true;return true;
       }catch(error){console.warn('Enemy voice load can be retried',error);this.voiceLoadPromise=null;return false;}

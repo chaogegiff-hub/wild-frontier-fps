@@ -6,8 +6,8 @@ import {Match,WEAPONS,ENEMY_BODY,GRENADE_LOCK_TIME,createWorldData,heightAt,terr
 import {makeWorld,loadSurfaces,SURFACE_GROUPS,SURFACE_FILES} from './world.js?v=2.25-drive-grass1';
 import {createViewModels,createEnemyModel,weaponViewFov,weaponViewPosition} from './weapons.js?v=2.25-drive-grass1';
 import {loadAssets,lightFromSky,loadSkyDetail,ASSET_GROUPS,MODEL_FILES} from './assets.js?v=2.25-drive-grass1';
-import {GameAudio} from './audio.js?v=2.25-drive-grass1';
-import {EnemyChatter} from './enemy-chatter.js?v=2.25-drive-grass1';
+import {GameAudio} from './audio.js?v=2.26-local-voices1';
+import {EnemyChatter} from './enemy-chatter.js?v=2.26-local-voices1';
 import {BattleEffects} from './effects.js?v=2.25-drive-grass1';
 import {loadStartupPack,invalidateStartupCache} from './resource-pack.js?v=2.25-drive-grass1';
 import {viewPointToWorld,WeaponRecoil,syncWeaponLighting} from './weapon-view.js?v=2.25-drive-grass1';
