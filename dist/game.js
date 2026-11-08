@@ -3,10 +3,11 @@ import {PickupControls} from './pickup-controls.js?v=2.21';
 import {VaultControls} from './window-vault.js?v=2.21';
 import * as THREE from './vendor/three.module.js';
 import {Match,WEAPONS,ENEMY_BODY,GRENADE_LOCK_TIME,createWorldData,heightAt,terrainSurfaceAt,clamp,lerp,direction,zoomFov,terrainRay,walkHeight,WATER_LEVEL,shotFromMuzzle,aimDistance} from './core.js?v=2.21';
-import {makeWorld,loadSurfaces,SURFACE_GROUPS,SURFACE_FILES} from './world.js?v=2.21';
+import {makeWorld,loadSurfaces,SURFACE_GROUPS,SURFACE_FILES} from './world.js?v=2.24-world1';
 import {createViewModels,createEnemyModel,weaponViewFov,weaponViewPosition} from './weapons.js?v=2.23-arms1';
 import {loadAssets,lightFromSky,loadSkyDetail,ASSET_GROUPS,MODEL_FILES} from './assets.js?v=2.21';
-import {GameAudio} from './audio.js?v=2.21';
+import {GameAudio} from './audio.js?v=2.24-world1';
+import {EnemyChatter} from './enemy-chatter.js?v=2.24-world1';
 import {BattleEffects} from './effects.js?v=2.21';
 import {loadStartupPack,invalidateStartupCache} from './resource-pack.js?v=2.21';
 import {viewPointToWorld,WeaponRecoil,syncWeaponLighting} from './weapon-view.js?v=2.23-arms1';
@@ -36,6 +37,7 @@ let joy={forward:0,strafe:0},joyId=null,touchJump=false,touchCrouch=false;
 let enemyMeshes=[],battleEffects,shellTimers=[],projectileMeshes=[];
 const qv=new THREE.Vector3(),rayDir=new THREE.Vector3();
 const audio=new GameAudio();
+const enemyChatter=new EnemyChatter({speak:line=>{const duration=audio.enemyVoice(line);if(duration){$('enemySubtitle').textContent=`${line.label} ${String(line.enemyId+1).padStart(2,'0')}：${line.text}`;$('enemySubtitle').hidden=false;}return duration;},stop:()=>{audio.stopChatter();$('enemySubtitle').hidden=true;}});
 let vehicleViews,vehicleTrails,driveCameraReady=false,driveLookYaw=0,driveLookPitch=0;
 let swimView,swimWasActive=false;const footstepContacts=new FootstepContacts();
 const drivingControls=new DrivingControls(document,interactVehicle,pressed=>{if(state==='playing'&&match?.vehicle&&!match.vehicle.stalled)audio.horn(pressed);});
@@ -58,7 +60,7 @@ function startMatch(){
   $('lobby').hidden=true;$('pauseScreen').hidden=true;$('result').hidden=true;$('hud').hidden=false;$('killFeed').replaceChildren();$('scope').hidden=true;
   $('rotateNotice').hidden=!touch;
   driveCameraReady=false;vehicleViews?.update(0,match.fleet);$('modeTag').textContent=selectedMode==='training'?'自由训练':'生存对战';$('lookHint').hidden=false;
-  vehicleTrails?.reset(match.fleet);world.resetInteractive(match);
+  vehicleTrails?.reset(match.fleet);world.resetInteractive(match);enemyChatter.reset();audio.loadChatter();
   swimView?.reset();swimWasActive=false;footstepContacts.reset();
   enemyMeshes.forEach(m=>{m.rotation.set(0,0,0);m.visible=true;m.userData.reset();});
   recoil=0;adsBlend=0;weaponRecoil.reset();breath=6;damageFlash=0;hitTime=0;clearEffects();audio.resume();audio.setActive(true);lockMouse();
@@ -286,11 +288,12 @@ function renderFrame(now){
   vehicleViews?.update(state==='paused'?0:dt,match.fleet);
   if(state!=='paused'){
     for(let i=shellTimers.length-1;i>=0;i--){const pending=shellTimers[i];pending.time-=dt;if(pending.time<=0){ejectCasing(pending.slot);audio.bolt();shellTimers.splice(i,1);}}
-    if(state==='playing'||state==='result'){battleEffects.waterVehicles(dt,match.fleet.cars);battleEffects.vehicleWrecks(dt,match.fleet.cars);}battleEffects.update(dt,match.bullets);vehicleTrails?.update(dt,match.fleet,{active:state==='playing'});
+    if(state==='playing'||state==='result'){battleEffects.waterVehicles(dt,match.fleet.cars);battleEffects.vehicleWrecks(dt,match.fleet.cars);}battleEffects.update(dt,match.bullets);vehicleTrails?.update(dt,match.fleet,{active:state==='playing'});world.updateInteractions(dt,match.fleet,state==='playing'||state==='result');
   }
   audio.drive?.(state==='playing'?match.vehicle:null);audio.horn?.(state==='playing'&&!!match.vehicle&&!match.vehicle.stalled&&(keys.KeyB||drivingControls.honking));
   battleFeedback.update(dt,{state,match});
   camera.getWorldDirection(rayDir);audio.listener(camera.position,rayDir);
+  enemyChatter.update(dt,match,{active:state==='playing',enabled:config.sound});
   world.update(elapsed,camera);syncWeaponLighting(camera,world,viewScene,gunLight);
   if(hdTextures)hdTextures.update(dt,{camera,weapon:match.weapon,world:data,enemies:match.enemies,zoom:aim?WEAPONS[match.weapon].zoom:1});
   damageFlash=Math.max(0,damageFlash-dt*.55);$('damageVignette').style.opacity=damageFlash;hitTime=Math.max(0,hitTime-dt);$('hitMarker').style.opacity=hitTime>0?1:0;
@@ -382,14 +385,15 @@ async function boot(){
     data=createWorldData();activeSky=assets.sky;environmentTarget=lightFromSky(renderer,scene,viewScene,assets.sky);world=makeWorld(scene,data,surfaces,config.quality,assets);models=createViewModels(assets,surfaces);models.roots.forEach(m=>viewScene.add(m));viewScene.add(models.flash);swimView=new SwimView(assets.hands,assets.swimArms);viewScene.add(swimView.group);
     match=new Match(data,handleEvent);enemyMeshes=match.enemies.map(e=>{const m=createEnemyModel(e.id,assets,surfaces);scene.add(m);return m;});audio.enabled=config.sound;
     vehicleViews=makeVehicleViews(assets,match.fleet);scene.add(vehicleViews.group);
-    vehicleTrails=new VehicleTrails(scene,world.grass,{bridges:data.colliders.filter(c=>c.bridge),outletFor:car=>vehicleViews.exhaust(car)});vehicleTrails.reset(match.fleet);
+    vehicleTrails=new VehicleTrails(scene,world.wildGrass,{bridges:data.colliders.filter(c=>c.bridge),outletFor:car=>vehicleViews.exhaust(car)});vehicleTrails.reset(match.fleet);
     hdTextures=new HDTextureStreamer(textureRegistry(assets,surfaces,MODEL_FILES,SURFACE_FILES),{mobile:touch,onStatus:s=>{$('graphicsLabel').textContent=config.quality==='high'?`2K 超清${!s.ready?' · 高清材质准备中':s.total&&s.loaded<s.total?` · 高清材质 ${s.loaded}/${s.total}`:''}`:config.quality==='low'?'流畅画质':'均衡画质';}});applyQuality();installCanvasInput();
     battleEffects=new BattleEffects(scene,audio,{mobile:touch,floorAt:(x,z,y)=>walkHeight(x,z,match.colliders,y)});aimOverlay=new AimOverlay($('aimReticle'));
+    world.grass.userData.impacts.onImpact=e=>{if(!e.landing)audio.cactusImpact(e.point,e.speed);battleEffects.impact(e.point,{x:0,y:1,z:0},'earth',false);};
     deployment.progress('准备 3D 画面');await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
     if(deployment.status==='failed')return;
     updateHUD();drawMap();last=performance.now();renderFrame(last);
     if(renderer.getContext().isContextLost())throw new Error('WebGL context lost during startup');
-    ready=true;if(deployment.ready()){last=performance.now();requestAnimationFrame(animate);setTimeout(()=>audio.load(),250);setTimeout(activateDetails,400);}
+    ready=true;if(deployment.ready()){last=performance.now();requestAnimationFrame(animate);setTimeout(()=>{audio.load();audio.loadChatter();},250);setTimeout(activateDetails,400);}
   }catch(e){
     if(phase==='assets'&&packReady)await invalidateStartupCache();
     startupFailed(e,phase==='assets'?(e.message?.startsWith('战场')?e.message:'战场资源读取失败，请点击重新部署。'):'3D 画面未能启动，请点击重新部署；也可以在设置中降低画质。');

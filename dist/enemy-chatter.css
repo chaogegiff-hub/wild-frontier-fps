@@ -1,0 +1,4 @@
+#enemySubtitle{position:absolute;left:50%;bottom:27%;transform:translateX(-50%);max-width:min(88vw,520px);width:max-content;padding:8px 15px;border-left:2px solid #d7bd7d;background:linear-gradient(90deg,#14201ce8,#14201c9c);color:#f3e9cf;font-size:14px;line-height:1.5;letter-spacing:.04em;text-shadow:0 1px 2px #000;pointer-events:none;z-index:8}
+#enemySubtitle[hidden]{display:none}
+@media(orientation:portrait){#enemySubtitle{bottom:35%;font-size:13px}}
+@media(max-height:430px){#enemySubtitle{bottom:25%;font-size:12px;padding:4px 10px}}

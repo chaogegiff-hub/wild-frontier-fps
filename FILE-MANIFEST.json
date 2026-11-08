@@ -4,8 +4,8 @@
     "sha256": "299e6f890f4964b964001cd60e406cd59dd060b3221061ab319766e19e685288"
   },
   ".github/workflows/pages.yml": {
-    "bytes": 966,
-    "sha256": "68e7a5ec33e1552963348b780190dbe31a147fd70b28435a9c8f46a6390197b7"
+    "bytes": 1058,
+    "sha256": "09991e4178f77c84d1e2e22679e85a97c9a05208718c05e739dd6dd5bbef1a3b"
   },
   ".gitignore": {
     "bytes": 88,
@@ -16,12 +16,12 @@
     "sha256": "bbc5753bee7959148c65d2688619e077f53cfdfe44f1a744e3f9ec8f1df2cdb8"
   },
   "README.md": {
-    "bytes": 2913,
-    "sha256": "385359351dd6cbb339b6f8aeba7be220eaba95f7e1c66c04c77cedf22cb792b0"
+    "bytes": 3992,
+    "sha256": "07249135455e853bf52ede9c3fd402710fd38606da4326256e0de13c636b19f7"
   },
   "VALIDATION.txt": {
-    "bytes": 6263,
-    "sha256": "a0662e9be1887afee3c7430af5f876f3d9f89a919648eb311ab62b0c701352de"
+    "bytes": 8477,
+    "sha256": "fc55de2cb09c57abab9c27123dbc8222e1feea01d9aeac241a7d2fd0977c805b"
   },
   "dist/.nojekyll": {
     "bytes": 1,
@@ -48,8 +48,8 @@
     "sha256": "2193f9449f7b48a88c8ba714d55437ba43316688faef9fe216b88622a462cfa6"
   },
   "dist/audio.js": {
-    "bytes": 10806,
-    "sha256": "0e9f0828eaed53a58a0dbc0a8d4dd79e6b296a1c6615fee6b0b5a49e0df6d0dd"
+    "bytes": 13627,
+    "sha256": "6f10a103bda92cc498044b7c8e82b9046ebeb8e41d848a6c4213a4b05588b785"
   },
   "dist/audio/SOURCES.json": {
     "bytes": 21974,
@@ -62,6 +62,106 @@
   "dist/audio/casing.wav": {
     "bytes": 55742,
     "sha256": "f571a0fe5e9b49dca527b5f67c4ef4d02273be458208966b9a8507b8f1b9723f"
+  },
+  "dist/audio/enemy/leader-attack-0.mp3": {
+    "bytes": 14636,
+    "sha256": "2fa1f34a772ebf7bdbb6e29bb84a1b3339ffd793754360cd0c469b80aff5aad7"
+  },
+  "dist/audio/enemy/leader-attack-1.mp3": {
+    "bytes": 19436,
+    "sha256": "a73dd83ef9bfc5c978a8e07fe368c58a2495de726c2e8ca1bf11c95632fc0371"
+  },
+  "dist/audio/enemy/leader-grenade-0.mp3": {
+    "bytes": 20012,
+    "sha256": "52926f66787fc78bb8eeb0aa0077c6ee146f1c5ebef00cc798a84126bee16e88"
+  },
+  "dist/audio/enemy/leader-lost-0.mp3": {
+    "bytes": 20972,
+    "sha256": "cd4b89ec7d05500b68cd2c33182a8512cc7d4e0bf39276a92c3fda49b90069a7"
+  },
+  "dist/audio/enemy/leader-reload-0.mp3": {
+    "bytes": 19244,
+    "sha256": "344efaf8747fdb0f4c68261ceacf0a91e5eca563e47b50a0d7b23148cb4ca216"
+  },
+  "dist/audio/enemy/leader-spot-0.mp3": {
+    "bytes": 13676,
+    "sha256": "63775d75dbba4d67cc15c5af0d961ceea9da3e394353c4645a17f91a822a3b8b"
+  },
+  "dist/audio/enemy/leader-spot-1.mp3": {
+    "bytes": 20204,
+    "sha256": "14aa3b4236f85c1dc98bdb7a1333653df71c3e5279a818cc8b492f015eda076b"
+  },
+  "dist/audio/enemy/leader-vehicle-0.mp3": {
+    "bytes": 19052,
+    "sha256": "c4b9e5360df204c02b7300af9550384236a25814cdfeadd0ac656c78e227d892"
+  },
+  "dist/audio/enemy/manifest.json": {
+    "bytes": 5703,
+    "sha256": "fed674110d1d986c176cc7d521a565017d720d0fe47dd70331afe2fd574f8e0a"
+  },
+  "dist/audio/enemy/scout-attack-0.mp3": {
+    "bytes": 14060,
+    "sha256": "5e89b11e605d3f163b6b32fc95c10a2e966b12307ea4c80a6285353ac9f69064"
+  },
+  "dist/audio/enemy/scout-attack-1.mp3": {
+    "bytes": 19820,
+    "sha256": "bc9f0e62ad8d5aaacf0f20f54d2d2ba5cf3415fbf8049826adb19d1bb5e19a7c"
+  },
+  "dist/audio/enemy/scout-grenade-0.mp3": {
+    "bytes": 19244,
+    "sha256": "95486a88285f34a564a746d2ef729b229e27d5b84e9a78a45e9e595563a504f4"
+  },
+  "dist/audio/enemy/scout-lost-0.mp3": {
+    "bytes": 17516,
+    "sha256": "d75861bd6c61abc14a80587509b0225bca5167e384f752b314c3f6ad1ef03f8d"
+  },
+  "dist/audio/enemy/scout-reload-0.mp3": {
+    "bytes": 17132,
+    "sha256": "ae22f8bf97eb0487436343bc3660354d794d13c1d986d3440d44d931acee6892"
+  },
+  "dist/audio/enemy/scout-spot-0.mp3": {
+    "bytes": 13676,
+    "sha256": "bb8a95161266d2f781f4852834b148143b678cfe63f490244c48b2050b239162"
+  },
+  "dist/audio/enemy/scout-spot-1.mp3": {
+    "bytes": 17132,
+    "sha256": "ffdac587bbbcbb4083da9676488698e52829495782559ad337500b729a3974e3"
+  },
+  "dist/audio/enemy/scout-vehicle-0.mp3": {
+    "bytes": 16940,
+    "sha256": "c025e85f8d49ef13030dc48fcacf46d9454ffa3d4b681748e1e18792c895bf9e"
+  },
+  "dist/audio/enemy/veteran-attack-0.mp3": {
+    "bytes": 13676,
+    "sha256": "3f466a1fac1c9c9b79a7ab030887fe6f356dcfaa44f858dd34a6ecf0ab9a7fbd"
+  },
+  "dist/audio/enemy/veteran-attack-1.mp3": {
+    "bytes": 16364,
+    "sha256": "b38ff59d6a1d25c259a80070892410879925ac46fd68e55884b53d41153e2abc"
+  },
+  "dist/audio/enemy/veteran-grenade-0.mp3": {
+    "bytes": 18860,
+    "sha256": "f5228892e95b1039ccab76b8c8913f4bfa751123db00bdf0e9d49209a5c97895"
+  },
+  "dist/audio/enemy/veteran-lost-0.mp3": {
+    "bytes": 17516,
+    "sha256": "8f19dde53ce05a316e7b3cdefd14716732b39ba26af7ae750d71150758a423aa"
+  },
+  "dist/audio/enemy/veteran-reload-0.mp3": {
+    "bytes": 16364,
+    "sha256": "b4e76e30a5b32a9c1bf7a433943a13e84097a6ca1b839052ab7f51c992a7be16"
+  },
+  "dist/audio/enemy/veteran-spot-0.mp3": {
+    "bytes": 13292,
+    "sha256": "3abda7e8a257168128bd6df97830080cc0029a022eb521e1ce25513f7010e1fa"
+  },
+  "dist/audio/enemy/veteran-spot-1.mp3": {
+    "bytes": 16940,
+    "sha256": "e47f5e65d8596710f665b09bf1f1f3c0c3c36eccb747318bdfc9438e7477b9b1"
+  },
+  "dist/audio/enemy/veteran-vehicle-0.mp3": {
+    "bytes": 18092,
+    "sha256": "60e22c93eb512e16bc129369fcd40255f96d1f49a56692e114a12d52884e58f6"
   },
   "dist/audio/explosion.wav": {
     "bytes": 57754,
@@ -192,16 +292,20 @@
     "sha256": "6cfc33e806309d8ce1d64d2306958588964afa513d5883a00c5518c7054db765"
   },
   "dist/bootstrap.js": {
-    "bytes": 1999,
-    "sha256": "eb25f936426bfd3462c1d20577285d6fcd1db9cf20f88de26d1f673ac62c9a5e"
+    "bytes": 2000,
+    "sha256": "a8fa25c782f4bda04e9a7a9b48deac3ee2a12656ad1516ea8e23cee5929051f4"
   },
   "dist/building-layout.js": {
     "bytes": 5074,
     "sha256": "8e74a7deb13effb6a0e7a1476213f7a1650d4d74157e6f8653f9f4fe8f9ac14f"
   },
   "dist/cactus-field.js": {
-    "bytes": 9974,
-    "sha256": "0a5056891d984b9ba5d7fcc98a900096d9032255d40bcf9a6719dbf49e4748ae"
+    "bytes": 10972,
+    "sha256": "3be84cf4f2a56fcff2e1ddc98ee80f6def26af1db941038f94e03ddf429e911e"
+  },
+  "dist/cactus-impact.js": {
+    "bytes": 4856,
+    "sha256": "5351515c4dbbf0d7fd70c4a3b1b1d4c670e88f153e6d4cc376e1f9bdd0f59fd2"
   },
   "dist/character-motion.js": {
     "bytes": 5634,
@@ -226,6 +330,14 @@
   "dist/effects.js": {
     "bytes": 17148,
     "sha256": "e5ab9b51fdd18b13a8340a87409c19f94f910243b1c4053f29f621e271c398bb"
+  },
+  "dist/enemy-chatter.css": {
+    "bytes": 543,
+    "sha256": "6ae21cb0ed8cabb65aff28e1018b5c6fb87b51a78061c32181ca6ea07a35706c"
+  },
+  "dist/enemy-chatter.js": {
+    "bytes": 3618,
+    "sha256": "1e240abafd8621533a8246ab9ebda06dfd0b14aa2360153463a02b71d21ba83c"
   },
   "dist/environment/SOURCE.md": {
     "bytes": 570,
@@ -256,8 +368,8 @@
     "sha256": "cc9fb2539cf27df48255982e896d28f544483537cdb41f9fabd741af8992d719"
   },
   "dist/game.js": {
-    "bytes": 42044,
-    "sha256": "3af5b0392a650ef332ff0576f3738057176844b7e47cd17b6f1a1e69c4f9b31f"
+    "bytes": 42826,
+    "sha256": "bcad7ff0bfd9a4b51b255570636f77ec2f8d15e6e3f82e6a2774b5e796fc8b6a"
   },
   "dist/graphics.js": {
     "bytes": 7627,
@@ -608,8 +720,8 @@
     "sha256": "ed9ad807c9797dde37ab96e4bb4572ff3a917248cac0a8009280ed85c3175a06"
   },
   "dist/index.html": {
-    "bytes": 16902,
-    "sha256": "87b34bad5f720a364c39f74cfe6ed343634580e478c7775e3c445ef77b68a940"
+    "bytes": 17027,
+    "sha256": "059e75def13ac94d992978e82617267fef5cbb705145e7f19dd9688450bcce96"
   },
   "dist/lobby-photo.css": {
     "bytes": 2674,
@@ -1507,13 +1619,17 @@
     "bytes": 13403,
     "sha256": "a04e556c23c60cf8d3503320fab6e439fd659c04e44d1f0f2fda1e2fea0e135a"
   },
+  "dist/wild-grass.js": {
+    "bytes": 5924,
+    "sha256": "183f53bf81ed6067e5f48f20ce5c0c15f3ee73544c84ef83c7b0fef78d058b98"
+  },
   "dist/window-vault.js": {
     "bytes": 2759,
     "sha256": "2f02de9be0ffe1be961477a99f4209e56e9e28af860500f30b192aab3e204f2d"
   },
   "dist/world.js": {
-    "bytes": 12710,
-    "sha256": "86595f7c1a050921fe700b0f9893bacb81351cf80580447b2161e2737c0c5e14"
+    "bytes": 12993,
+    "sha256": "586f76679c862d49799e93a52af3ae7e1f2331b654af7e8f0486162cedd5bfb2"
   },
   "docs/arms-comparison.png": {
     "bytes": 80242,
@@ -1524,8 +1640,8 @@
     "sha256": "e956bf258dc3c0a25104c9a19e9d56a8393aaac3fba0bcad8a3d71b0fa7c098e"
   },
   "package.json": {
-    "bytes": 532,
-    "sha256": "5b82bb6333251ce642e589705ea015afa34d6f5e725fffcfff05b2ef3fe178e7"
+    "bytes": 591,
+    "sha256": "3504d13ed1846c0d682137bdf42b1cc9402b9ca74af542bfeb5f50c00db5eba7"
   },
   "scripts/build-cache-ui-check.mjs": {
     "bytes": 4786,
@@ -1579,13 +1695,17 @@
     "bytes": 4757,
     "sha256": "bb556a57d5a0dbfd135f3e5caff63650ac925f9dc023aabfcf870cf69bf9fee2"
   },
+  "scripts/check-field-chatter.mjs": {
+    "bytes": 10011,
+    "sha256": "7afddedcf580d1d7b60df4e404a3e29f07e02dbe43136072252fe7c7a2162359"
+  },
   "scripts/check-foley.mjs": {
     "bytes": 4214,
     "sha256": "ee6fc12e86f9c72d8fb8c8a2111286b121425019c2950b48318e860872f908df"
   },
   "scripts/check-frame.mjs": {
-    "bytes": 9037,
-    "sha256": "c2a7af4b5a7e922bc666293f9098894d51850dd810bc027148d665ec6e61ac94"
+    "bytes": 9144,
+    "sha256": "c8f076ab0df055e1ae6d50cf6e2c17457e9446bb891ecd0a8ee1bec4071f9114"
   },
   "scripts/check-full-leaf-tree.py": {
     "bytes": 10206,
@@ -1770,6 +1890,10 @@
   "scripts/prepare-audio.py": {
     "bytes": 11135,
     "sha256": "62a38c597eb6c48017de13540dd439855c1a830318538522fad145dbab128703"
+  },
+  "scripts/prepare-enemy-voices.py": {
+    "bytes": 2739,
+    "sha256": "86872461bdae465b51d021d4282cfc1457a29fe0d02fd459ee2a9ed39858e9ac"
   },
   "scripts/prepare-foley.py": {
     "bytes": 2666,

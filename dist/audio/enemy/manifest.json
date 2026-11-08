@@ -1,0 +1,222 @@
+{
+  "version": "2.24",
+  "language": "zh-CN",
+  "synthetic": true,
+  "profiles": [
+    {
+      "id": "scout",
+      "label": "侦察兵",
+      "sourceVoice": "zh-CN-YunxiNeural",
+      "rate": "+15%",
+      "pitch": "+6Hz"
+    },
+    {
+      "id": "veteran",
+      "label": "老兵",
+      "sourceVoice": "zh-CN-YunyangNeural",
+      "rate": "-3%",
+      "pitch": "-16Hz"
+    },
+    {
+      "id": "leader",
+      "label": "队长",
+      "sourceVoice": "zh-CN-YunjianNeural",
+      "rate": "+7%",
+      "pitch": "-6Hz"
+    }
+  ],
+  "clips": {
+    "enemy-scout-spot-0": {
+      "file": "scout-spot-0.mp3",
+      "text": "发现他了！",
+      "profile": "scout",
+      "kind": "spot",
+      "duration": 1.68,
+      "synthetic": true
+    },
+    "enemy-scout-spot-1": {
+      "file": "scout-spot-1.mp3",
+      "text": "他在那里，盯紧他！",
+      "profile": "scout",
+      "kind": "spot",
+      "duration": 2.112,
+      "synthetic": true
+    },
+    "enemy-scout-attack-0": {
+      "file": "scout-attack-0.mp3",
+      "text": "别让他跑了！",
+      "profile": "scout",
+      "kind": "attack",
+      "duration": 1.728,
+      "synthetic": true
+    },
+    "enemy-scout-attack-1": {
+      "file": "scout-attack-1.mp3",
+      "text": "瞄准目标，开火！",
+      "profile": "scout",
+      "kind": "attack",
+      "duration": 2.448,
+      "synthetic": true
+    },
+    "enemy-scout-reload-0": {
+      "file": "scout-reload-0.mp3",
+      "text": "我换弹，掩护我！",
+      "profile": "scout",
+      "kind": "reload",
+      "duration": 2.112,
+      "synthetic": true
+    },
+    "enemy-scout-lost-0": {
+      "file": "scout-lost-0.mp3",
+      "text": "人不见了，注意搜索！",
+      "profile": "scout",
+      "kind": "lost",
+      "duration": 2.16,
+      "synthetic": true
+    },
+    "enemy-scout-vehicle-0": {
+      "file": "scout-vehicle-0.mp3",
+      "text": "他开车过来了，小心！",
+      "profile": "scout",
+      "kind": "vehicle",
+      "duration": 2.088,
+      "synthetic": true
+    },
+    "enemy-scout-grenade-0": {
+      "file": "scout-grenade-0.mp3",
+      "text": "榴弹！快躲开！",
+      "profile": "scout",
+      "kind": "grenade",
+      "duration": 2.376,
+      "synthetic": true
+    },
+    "enemy-veteran-spot-0": {
+      "file": "veteran-spot-0.mp3",
+      "text": "发现他了！",
+      "profile": "veteran",
+      "kind": "spot",
+      "duration": 1.632,
+      "synthetic": true
+    },
+    "enemy-veteran-spot-1": {
+      "file": "veteran-spot-1.mp3",
+      "text": "他在那里，盯紧他！",
+      "profile": "veteran",
+      "kind": "spot",
+      "duration": 2.088,
+      "synthetic": true
+    },
+    "enemy-veteran-attack-0": {
+      "file": "veteran-attack-0.mp3",
+      "text": "别让他跑了！",
+      "profile": "veteran",
+      "kind": "attack",
+      "duration": 1.68,
+      "synthetic": true
+    },
+    "enemy-veteran-attack-1": {
+      "file": "veteran-attack-1.mp3",
+      "text": "瞄准目标，开火！",
+      "profile": "veteran",
+      "kind": "attack",
+      "duration": 2.016,
+      "synthetic": true
+    },
+    "enemy-veteran-reload-0": {
+      "file": "veteran-reload-0.mp3",
+      "text": "我换弹，掩护我！",
+      "profile": "veteran",
+      "kind": "reload",
+      "duration": 2.016,
+      "synthetic": true
+    },
+    "enemy-veteran-lost-0": {
+      "file": "veteran-lost-0.mp3",
+      "text": "人不见了，注意搜索！",
+      "profile": "veteran",
+      "kind": "lost",
+      "duration": 2.16,
+      "synthetic": true
+    },
+    "enemy-veteran-vehicle-0": {
+      "file": "veteran-vehicle-0.mp3",
+      "text": "他开车过来了，小心！",
+      "profile": "veteran",
+      "kind": "vehicle",
+      "duration": 2.232,
+      "synthetic": true
+    },
+    "enemy-veteran-grenade-0": {
+      "file": "veteran-grenade-0.mp3",
+      "text": "榴弹！快躲开！",
+      "profile": "veteran",
+      "kind": "grenade",
+      "duration": 2.328,
+      "synthetic": true
+    },
+    "enemy-leader-spot-0": {
+      "file": "leader-spot-0.mp3",
+      "text": "发现他了！",
+      "profile": "leader",
+      "kind": "spot",
+      "duration": 1.68,
+      "synthetic": true
+    },
+    "enemy-leader-spot-1": {
+      "file": "leader-spot-1.mp3",
+      "text": "他在那里，盯紧他！",
+      "profile": "leader",
+      "kind": "spot",
+      "duration": 2.496,
+      "synthetic": true
+    },
+    "enemy-leader-attack-0": {
+      "file": "leader-attack-0.mp3",
+      "text": "别让他跑了！",
+      "profile": "leader",
+      "kind": "attack",
+      "duration": 1.8,
+      "synthetic": true
+    },
+    "enemy-leader-attack-1": {
+      "file": "leader-attack-1.mp3",
+      "text": "瞄准目标，开火！",
+      "profile": "leader",
+      "kind": "attack",
+      "duration": 2.4,
+      "synthetic": true
+    },
+    "enemy-leader-reload-0": {
+      "file": "leader-reload-0.mp3",
+      "text": "我换弹，掩护我！",
+      "profile": "leader",
+      "kind": "reload",
+      "duration": 2.376,
+      "synthetic": true
+    },
+    "enemy-leader-lost-0": {
+      "file": "leader-lost-0.mp3",
+      "text": "人不见了，注意搜索！",
+      "profile": "leader",
+      "kind": "lost",
+      "duration": 2.592,
+      "synthetic": true
+    },
+    "enemy-leader-vehicle-0": {
+      "file": "leader-vehicle-0.mp3",
+      "text": "他开车过来了，小心！",
+      "profile": "leader",
+      "kind": "vehicle",
+      "duration": 2.352,
+      "synthetic": true
+    },
+    "enemy-leader-grenade-0": {
+      "file": "leader-grenade-0.mp3",
+      "text": "榴弹！快躲开！",
+      "profile": "leader",
+      "kind": "grenade",
+      "duration": 2.472,
+      "synthetic": true
+    }
+  }
+}

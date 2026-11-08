@@ -1,6 +1,7 @@
 import * as THREE from './vendor/three.module.js';
 import {randomSeed} from './core.js?v=2.21';
 import {plantable,meadowSurface} from './resident-vegetation.js?v=2.21';
+import {CactusImpacts} from './cactus-impact.js?v=2.24-world1';
 
 // Authored opaque volumes with ribs, rounded crowns, pads, areoles and spines.
 // These models are not photographs or scans.
@@ -63,11 +64,12 @@ export function cactusGeometries(){
 function cactusMaterial(time){
   const m=new THREE.MeshStandardMaterial({name:'opaque-ribbed-cactus',color:0xffffff,vertexColors:true,roughness:.82,metalness:0,side:THREE.DoubleSide});
   m.uniforms={time};m.onBeforeCompile=s=>{
-    s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nattribute vec3 aOffset;attribute vec3 aScale;attribute float aAngle;attribute vec3 aTint;varying vec3 vCactusTint;varying vec3 vCactusP;');
+    s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nattribute vec3 aOffset;attribute vec3 aScale;attribute float aAngle;attribute vec3 aTint;attribute vec4 aFall;varying vec3 vCactusTint;varying vec3 vCactusP;\nvec3 cactusFall(vec3 p){vec3 axis=vec3(aFall.x,0.0,aFall.y);float c=cos(aFall.z),s=sin(aFall.z);return p*c+cross(axis,p)*s+axis*dot(axis,p)*(1.0-c);}');
     s.vertexShader=s.vertexShader.replace('#include <beginnormal_vertex>','#include <beginnormal_vertex>\nfloat cactusC=cos(aAngle),cactusS=sin(aAngle);mat2 cactusR=mat2(cactusC,-cactusS,cactusS,cactusC);objectNormal=normalize(objectNormal/aScale);objectNormal.xz=cactusR*objectNormal.xz;');
-    s.vertexShader=s.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvCactusP=position;transformed*=aScale;transformed.xz=cactusR*transformed.xz;transformed+=aOffset;vCactusTint=aTint;');
+    s.vertexShader=s.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvCactusP=position;transformed*=aScale;transformed.xz=cactusR*transformed.xz;transformed=cactusFall(transformed);transformed.y+=aFall.w;transformed+=aOffset;vCactusTint=aTint;');
+    s.vertexShader=s.vertexShader.replace('objectNormal.xz=cactusR*objectNormal.xz;','objectNormal.xz=cactusR*objectNormal.xz;objectNormal=cactusFall(objectNormal);');
     s.fragmentShader=s.fragmentShader.replace('#include <common>','#include <common>\nvarying vec3 vCactusTint;varying vec3 vCactusP;').replace('#include <color_fragment>','#include <color_fragment>\nfloat waxGrain=sin(vCactusP.x*328.0+sin(vCactusP.y*171.0))*sin(vCactusP.z*285.0+vCactusP.y*410.0);diffuseColor.rgb*=vCactusTint*(.96+.04*waxGrain)*mix(.76,1.0,smoothstep(0.0,.18,vCactusP.y));');
-  };m.customProgramCacheKey=()=> 'solid-cactus-ribs-and-spines-v1';return m;
+  };m.customProgramCacheKey=()=> 'solid-cactus-persistent-topple-v2';return m;
 }
 export function makeCactusField(data,time,terrainGeometry){
   const group=new THREE.Group();group.name='fixed-island-cactus-field';const bases=cactusGeometries(),material=cactusMaterial(time),tiles=new Map(),sample=meadowSurface(terrainGeometry),surface={},spacing=4.0,counts=[0,0,0];
@@ -77,12 +79,16 @@ export function makeCactusField(data,time,terrainGeometry){
     const r=rand(),variant=r<.57?0:r<.86?1:2,scale=.65+rand()*.63,tint=.86+rand()*.22,key=Math.floor(x/48)+','+Math.floor(z/48);
     if(!tiles.has(key))tiles.set(key,[[],[],[]]);tiles.get(key)[variant].push([x,surface.height-.008,z,scale*(.89+rand()*.22),scale,scale,rand()*TAU,tint*(.94+rand()*.07),tint,tint*(.88+rand()*.10)]);counts[variant]++;
   }
-  const meshes=[];
+  const meshes=[],plants=[];
   for(const [key,variants] of tiles)variants.forEach((rows,variant)=>{
     if(!rows.length)return;const base=bases[variant],g=new THREE.InstancedBufferGeometry();g.index=base.index;for(const [name,a] of Object.entries(base.attributes))g.setAttribute(name,a);
     for(const [name,size,offset] of [['aOffset',3,0],['aScale',3,3],['aAngle',1,6],['aTint',3,7]]){const a=new Float32Array(rows.length*size);rows.forEach((r,i)=>a.set(r.slice(offset,offset+size),i*size));g.setAttribute(name,new THREE.InstancedBufferAttribute(a,size).setUsage(THREE.StaticDrawUsage));}
     g.instanceCount=rows.length;g.userData=base.userData;const box=new THREE.Box3(),b=base.boundingBox,rad=Math.hypot(Math.max(Math.abs(b.min.x),Math.abs(b.max.x)),Math.max(Math.abs(b.min.z),Math.abs(b.max.z)));
     for(const r of rows){const radius=rad*Math.max(r[3],r[5]);box.expandByPoint(new THREE.Vector3(r[0]-radius,r[1]+b.min.y*r[4],r[2]-radius));box.expandByPoint(new THREE.Vector3(r[0]+radius,r[1]+b.max.y*r[4],r[2]+radius));}
-    box.expandByScalar(.015);g.boundingBox=box;g.boundingSphere=box.getBoundingSphere(new THREE.Sphere());const mesh=new THREE.Mesh(g,material);mesh.name='resident-'+base.userData.form;mesh.userData={tileKey:key,variant,cactus:true};mesh.receiveShadow=true;mesh.castShadow=false;mesh.matrixAutoUpdate=false;group.add(mesh);meshes.push(mesh);
-  });group.userData={meshes,coverage:{count:counts.reduce((a,b)=>a+b,0),spacing,resident:true,cactus:true,variants:counts},compressible:false};group.matrixAutoUpdate=false;return group;
+    // A falling crown may cross its tile boundary. Keep the conservative bounds
+    // resident so rotating the camera never hides an impacted plant.
+    box.expandByScalar(2.8);g.boundingBox=box;g.boundingSphere=box.getBoundingSphere(new THREE.Sphere());g.setAttribute('aFall',new THREE.InstancedBufferAttribute(new Float32Array(rows.length*4),4).setUsage(THREE.DynamicDrawUsage));
+    const mesh=new THREE.Mesh(g,material);mesh.name='resident-'+base.userData.form;mesh.userData={tileKey:key,variant,cactus:true};mesh.receiveShadow=true;mesh.castShadow=false;mesh.matrixAutoUpdate=false;group.add(mesh);meshes.push(mesh);
+    rows.forEach((r,index)=>plants.push({mesh,index,x:r[0],y:r[1],z:r[2],sx:r[3],sy:r[4],sz:r[5],yaw:r[6],height:b.max.y*r[4],radius:rad*Math.max(r[3],r[5]),variant,angle:0,lift:0}));
+  });const impacts=new CactusImpacts(plants,{sample});group.userData={meshes,impacts,coverage:{count:counts.reduce((a,b)=>a+b,0),spacing,resident:true,cactus:true,variants:counts},compressible:false};group.matrixAutoUpdate=false;return group;
 }

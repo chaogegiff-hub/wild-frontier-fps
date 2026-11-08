@@ -3,9 +3,9 @@ import {assetUrl} from './resource-pack.js?v=2.21';
 
 // Firearms use recordings; the engine and dual-tone horn are synthesized.
 export class GameAudio{
-  constructor(){this.ctx=null;this.buffers={};this._enabled=true;this.active=false;this.sources=new Set();this.lockTones=new Set();this.movementSources=new Set();this.lastChoices=new Map();this.lockTargetId=null;this.lockBeepTimer=0;this.ready=false;}
+  constructor(){this.ctx=null;this.buffers={};this._enabled=true;this.active=false;this.sources=new Set();this.lockTones=new Set();this.movementSources=new Set();this.chatterSources=new Set();this.lastChoices=new Map();this.lockTargetId=null;this.lockBeepTimer=0;this.ready=false;}
   get enabled(){return this._enabled;}
-  set enabled(value){this._enabled=value;if(this.master)this.master.gain.setTargetAtTime(value?.75:0,this.ctx.currentTime,.05);if(!value)this.clearLockAudio();}
+  set enabled(value){this._enabled=value;if(this.master)this.master.gain.setTargetAtTime(value?.75:0,this.ctx.currentTime,.05);if(!value){this.clearLockAudio();this.stopChatter();}}
   init(){
     if(this.ctx)return;
     const Audio=globalThis.AudioContext||globalThis.webkitAudioContext;if(!Audio)return;
@@ -32,9 +32,33 @@ export class GameAudio{
   resume(){
     if(!this.enabled)return;try{this.init();if(this.ctx?.state==='suspended')this.ctx.resume().catch(()=>{});this.startAmbience();}catch{}
   }
+  async loadChatter(){
+    if(this.voiceLoadPromise)return this.voiceLoadPromise;
+    this.voiceLoadPromise=(async()=>{
+      try{
+        this.init();if(!this.ctx)throw new Error('AudioContext unavailable');
+        // This extension is fetched separately from the unchanged large startup
+        // packs, whose old cached manifest does not contain the new recordings.
+        const root=new URL('./audio/enemy/',import.meta.url),response=await fetch(new URL('manifest.json?v=2.24-world1',root));if(!response.ok)throw new Error('Enemy voices unavailable');const manifest=await response.json();
+        const results=await Promise.allSettled(Object.entries(manifest.clips).map(async([key,clip])=>{const response=await fetch(new URL(clip.file,root));if(!response.ok)throw new Error(clip.file);this.buffers[key]=[await this.ctx.decodeAudioData(await response.arrayBuffer())];}));
+        const failed=results.filter(r=>r.status==='rejected').length;if(failed)throw new Error(`${failed} enemy voice clips failed to load`);this.voicesReady=true;return true;
+      }catch(error){console.warn('Enemy voice load can be retried',error);this.voiceLoadPromise=null;return false;}
+    })();return this.voiceLoadPromise;
+  }
+  stopChatter(){for(const source of this.chatterSources)try{source.stop();}catch{}this.chatterSources.clear();}
+  enemyVoice(line){
+    if(!this.active||!this.enabled)return false;
+    const source=this.play(line.key,{volume:line.blocked?.48:1.05,position:line.position,refDistance:16,category:'chatter',occluded:line.blocked});
+    return source?source.buffer.duration+Math.hypot(line.position.x-(this.position?.x||0),line.position.z-(this.position?.z||0))/343:false;
+  }
+  cactusImpact(position,speed=3){
+    if(!this.active||!this.enabled)return;this.resume();if(!this.ctx)return;const c=this.ctx,source=c.createBufferSource(),length=Math.floor(c.sampleRate*.22),buffer=c.createBuffer(1,length,c.sampleRate),data=buffer.getChannelData(0);
+    let seed=19;for(let i=0;i<length;i++){seed=(Math.imul(seed,1664525)+1013904223)|0;const t=i/c.sampleRate;data[i]=((seed>>>0)/4294967295-.5)*Math.exp(-t*27)+Math.sin(t*650)*Math.exp(-t*45)*.55;}source.buffer=buffer;
+    const gain=c.createGain(),filter=c.createBiquadFilter();filter.type='lowpass';filter.frequency.value=1800;const d=this.position?Math.hypot(position.x-this.position.x,position.z-this.position.z):0;gain.gain.value=Math.min(.28,.10+speed*.012)/(1+d*.09);source.connect(filter).connect(gain).connect(this.master);source.onended=()=>{source.disconnect();filter.disconnect();gain.disconnect();};source.start();
+  }
   setActive(active){
     this.active=active;if(this.ambientGain)this.ambientGain.gain.setTargetAtTime(active?.055:0,this.ctx.currentTime,.18);
-    if(!active&&this.engineGain)this.engineGain.gain.setTargetAtTime(0,this.ctx.currentTime,.04);if(!active){this.horn(false);this.clearLockAudio();for(const source of this.movementSources)try{source.stop();}catch{}this.movementSources.clear();}
+    if(!active&&this.engineGain)this.engineGain.gain.setTargetAtTime(0,this.ctx.currentTime,.04);if(!active){this.stopChatter();this.horn(false);this.clearLockAudio();for(const source of this.movementSources)try{source.stop();}catch{}this.movementSources.clear();}
   }
   horn(pressed){
     if(!this.enabled||!this.active){this.hornPressed=false;if(this.hornGain){this.hornGain.gain.cancelScheduledValues?.(this.ctx.currentTime);this.hornGain.gain.setTargetAtTime(0,this.ctx.currentTime,.025);}return;}
@@ -70,20 +94,21 @@ export class GameAudio{
     }else{l.setPosition(position.x,position.y,position.z);l.setOrientation(forward.x,forward.y,forward.z,0,1,0);}
     this.position={x:position.x,y:position.y,z:position.z};
   }
-  play(key,{volume=1,position,pitch=1,delay=0,echo=false,duration,pan=0,category=''}={}){
+  play(key,{volume=1,position,pitch=1,delay=0,echo=false,duration,pan=0,category='',refDistance=7,occluded=false}={}){
     if(!this.ctx||!this.enabled||!this.buffers[key]?.length)return;
     const c=this.ctx,source=c.createBufferSource(),choices=this.buffers[key];let index=Math.floor(Math.random()*choices.length);if(choices.length>1&&index===this.lastChoices.get(key))index=(index+1+Math.floor(Math.random()*(choices.length-1)))%choices.length;this.lastChoices.set(key,index);source.buffer=choices[index];source.playbackRate.value=pitch;
     const gain=c.createGain();gain.gain.value=volume;source.connect(gain);let output=gain,nodes=[source,gain];
     if(position&&this.position){
-      const d=Math.hypot(position.x-this.position.x,position.y-this.position.y,position.z-this.position.z),low=c.createBiquadFilter();low.type='lowpass';low.frequency.value=clamp(20000/(1+d/35),1100,20000);
-      const p=c.createPanner();p.panningModel='HRTF';p.distanceModel='inverse';p.refDistance=7;p.maxDistance=550;p.rolloffFactor=1.1;
+      const d=Math.hypot(position.x-this.position.x,position.y-this.position.y,position.z-this.position.z),low=c.createBiquadFilter();low.type='lowpass';low.frequency.value=occluded?1500:clamp(20000/(1+d/35),1100,20000);
+      const p=c.createPanner();p.panningModel='HRTF';p.distanceModel='inverse';p.refDistance=refDistance;p.maxDistance=550;p.rolloffFactor=1.1;
       if(p.positionX){p.positionX.value=position.x;p.positionY.value=position.y;p.positionZ.value=position.z;}else p.setPosition(position.x,position.y,position.z);
       output.connect(low).connect(p);output=p;nodes.push(low,p);delay+=d/343;
     }
     if(!position&&pan&&c.createStereoPanner){const stereo=c.createStereoPanner();stereo.pan.value=pan;output.connect(stereo);output=stereo;nodes.push(stereo);}
     output.connect(this.master);if(echo)output.connect(this.echo);
-    source.onended=()=>{this.sources.delete(source);this.movementSources.delete(source);nodes.forEach(n=>n.disconnect());};this.sources.add(source);if(category==='movement')this.movementSources.add(source);
+    source.onended=()=>{this.sources.delete(source);this.movementSources.delete(source);this.chatterSources.delete(source);nodes.forEach(n=>n.disconnect());};this.sources.add(source);if(category==='movement')this.movementSources.add(source);if(category==='chatter')this.chatterSources.add(source);
     const when=c.currentTime+delay;if(duration)source.start(when,0,Math.min(duration,source.buffer.duration));else source.start(when);
+    return source;
   }
   shot(weapon){this.resume();this.play(weapon,{volume:weapon==='sniper'?.82:weapon==='grenade'?.8:.64,pitch:.985+Math.random()*.03,echo:true});}
   enemyShot(position){this.play('rifle',{volume:.7,position,echo:true});}

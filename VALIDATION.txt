@@ -1,14 +1,42 @@
-Wild Frontier 2.23: first-person arm and grip correction.
-Base restored revision: 5d7583c63c76d2fe735f8de5b1d7177326d6da30.
-GitHub base revision: 8c115ff9963987404903d9ce2b30cc3931913213.
+Wild Frontier 2.24: cactus vehicle impacts, sparse wild grass and character voice callouts.
+Base GitHub revision: 8461ae5a790e779d92aa638a5a8539dc2f6adebd.
+Validated 2026-11-09:
+- 9 new checks: swept car contact in both directions, all 3 cactus forms, persistent fallen state, every cactus surface vertex above ground, slope rest angle, pause/restart, deterministic sparse grass, wheel compression, 24 distinct MP3 assets, actual enemy visibility/context triggers, cooldown, no overlapping voices, mute/death/pause stop.
+- 70 full game regression checks passed, including actual shipped renderFrame and first-frame paths.
+- 6 existing arm/grip checks, 7 wheel-track/grass checks and 2 horn/audio checks passed.
+- All 213 actual vendored Three.js WebGL 2 shader programs compiled and linked in native GLES, including new fall and grass material code.
+- Shared Chrome decoded all 24 recorded Mandarin callouts successfully. AudioContext was running, and the actual character voice playback path started successfully from the QA page.
+- Shared Chrome could not create WebGL: GL_VENDOR=Disabled, GL_RENDERER=Disabled. Full browser game rendering and real iPhone play were not verified. No screenshot is represented as device footage.
+- 24 voice clips: 3 source voices, 8 phrases each; 413856 bytes of local MP3. Scripts and manifest record the synthetic source, profile, text and duration. No runtime speech service dependency.
+- Temporary preview config and audio QA page removed before deployment.
 
-Validated 2026-11-08:
-- 3 posture checks: wrist bend below 25 degrees (measured maximum 12.1), natural elbow bend, preserved bone lengths, view framing and camera/sight clearance.
-- 3 articulated-glove checks: trigger/thumb contact, material and sight clearance.
-- 6 swimming checks: shared source integrity, continuous strokes, wrist cuffs, visible arms, contact events.
-- 6 hip and 4 aimed native GLES geometry renders inspected in portrait and landscape. These are asset checks, not browser or iPhone screenshots.
-- npm ci and the arm tests also passed with the Codex-specific dependency path removed, matching the deployment workflow.
-- Static local asset, JavaScript and GitHub Pages path checks passed.
+Final static, gameplay and field check output:
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> wild-frontier-fps@1.0.0 check:field
+> node scripts/check-field-chatter.mjs
+
+PASS all three cactus forms topple once, settle above the ground and persist until a new round
+PASS continuous vehicle contact handles fast travel, reverse and negative grid boundaries, while misses and teleports do not hit
+PASS cactus fall follows the impact direction, rests along slopes and freezes while paused
+PASS sparse grass is grounded, deterministic and outside water, roads and houses across the island
+PASS vehicle tires compress the new grass while cactus roots and original instance buffers stay fixed
+PASS all dialogue variants have distinct local MP3 assets and three fixed character voices
+PASS enemy speech follows true detection, has no overlap and never repeats every frame
+PASS speech reacts to vehicles, nearby grenades, reloading and losing the target, and cancels on death, pause and mute
+PASS the actual audio path spatializes recorded speech and stops it immediately on pause and mute
+9 field interaction and character-voice checks passed. iPhone hardware not tested.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> wild-frontier-fps@1.0.0 check:static
+> node scripts/check-static.mjs
+
+PASS 402 local files; 22 3D models; 53 JavaScript modules; 126 module references
+PASS project Pages paths and full terrain, soldier, weapons and vehicle assets
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> wild-frontier-fps@1.0.0 check
+> node scripts/check.mjs
 
 PASS deployment responds while loading and enters once after readiness
 PASS deployment waits for foreground without losing the queued click
@@ -82,5 +110,3 @@ PASS every rigid cactus and its spines remain inside their tile culling bounds
 PASS all local HTML/CSS/JS dependencies and deployment configuration exist
 
 70 checks passed. Browser / mobile rendering has not been tested.
-
-The full browser GPU rendering and iPhone frame rate have not been verified by these tests.

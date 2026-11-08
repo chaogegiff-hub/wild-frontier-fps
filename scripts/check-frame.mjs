@@ -5,6 +5,7 @@ import * as THREE from '../dist/vendor/three.module.js';
 import {Match,WEAPONS,heightAt,clamp} from '../dist/core.js';
 import {BattleEffects} from '../dist/effects.js';
 import {syncWeaponLighting} from '../dist/weapon-view.js';
+import {EnemyChatter} from '../dist/enemy-chatter.js';
 
 // Execute the shipped frame function with the real world and match objects.
 // Only platform I/O and the GPU renderer are stubs: this is a JavaScript
@@ -14,7 +15,7 @@ export function checkFrame(check,{world,data,scene,view,source=fs.readFileSync(n
   assert.ok(begin>=0&&end>begin,'Actual shipped renderFrame function is missing');
   const elements=new Map(),draws=[],match=new Match(data),camera=new THREE.PerspectiveCamera(66,.6,.08,1000),viewCamera=new THREE.PerspectiveCamera(58,.6,.02,5),viewScene=new THREE.Scene();
   const context=vm.createContext({
-    THREE,WEAPONS,heightAt,syncWeaponLighting,swimView:null,hdTextures:null,vehicleViews:null,vehicleTrails:null,battleFeedback:{update(){}},drivingControls:{sample:()=>({throttle:0,steer:0})},gunLight:new THREE.DirectionalLight(),state:'lobby',last:1000,elapsed:0,match,camera,world,scene,viewScene,viewCamera,models:view,
+    THREE,WEAPONS,heightAt,syncWeaponLighting,config:{sound:true},enemyChatter:new EnemyChatter(),swimView:null,hdTextures:null,vehicleViews:null,vehicleTrails:null,battleFeedback:{update(){}},drivingControls:{sample:()=>({throttle:0,steer:0})},gunLight:new THREE.DirectionalLight(),state:'lobby',last:1000,elapsed:0,match,camera,world,scene,viewScene,viewCamera,models:view,
     keys:{},joy:{forward:0,strafe:0},touchCrouch:false,touchJump:false,touch:false,aim:false,
     fireHeld:false,fireLatched:false,uiTimer:0,mapTimer:0,shellTimers:[],damageFlash:0,hitTime:0,messageTime:0,
     frameTime:0,frameCount:0,rayDir:new THREE.Vector3(),

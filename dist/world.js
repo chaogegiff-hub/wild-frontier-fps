@@ -2,7 +2,8 @@ import {makeLootViews} from './loot-views.js?v=2.21';
 import * as THREE from './vendor/three.module.js';
 import {heightAt,slopeAt,noise,randomSeed,WORLD_SIZE,WATER_LEVEL,roadX,TRAIL_ROUTES,onTrail} from './core.js?v=2.21';
 import {makeNature} from './nature.js?v=2.21';
-import {makeCactusField} from './cactus-field.js?v=2.21';
+import {makeCactusField} from './cactus-field.js?v=2.24-world1';
+import {makeWildGrass} from './wild-grass.js?v=2.24-world1';
 import {skyLighting} from './assets.js?v=2.21';
 import {makeRuralBuilding} from './rural-buildings.js?v=2.21';
 import {makeGroundMaterial,detailSurfaceLoader} from './terrain-material.js?v=2.21';
@@ -74,12 +75,13 @@ export function makeWorld(scene,data,surfaces,quality,assets){
   for(const b of data.buildings)buildings.add(makeRuralBuilding(b,surfaces));scene.add(buildings);
   const windows=new Map(buildings.children.flatMap(b=>b.userData.windows.map(w=>[w.id,w.mesh]))),lootViews=makeLootViews(data.loot||[]);scene.add(lootViews.group);
   const grass=makeCactusField(data,timeUniform,geo);scene.add(grass);
+  const wildGrass=makeWildGrass(data,timeUniform,geo);scene.add(wildGrass);
 
   const sunLight=new THREE.DirectionalLight(lighting.sunColor,DAYLIGHT.sunIntensity);sunLight.position.copy(lighting.direction).multiplyScalar(320);sunLight.castShadow=quality!=='low';sunLight.shadow.mapSize.set(quality==='high'?2048:1024,quality==='high'?2048:1024);Object.assign(sunLight.shadow.camera,{left:-80,right:80,top:80,bottom:-80,near:1,far:640});sunLight.shadow.bias=-.00035;sunLight.shadow.normalBias=.16;scene.add(sunLight,sunLight.target);
   const ambient=new THREE.HemisphereLight('#c0dcf5','#555e40',DAYLIGHT.ambientIntensity);scene.add(ambient);
   scene.fog=new THREE.FogExp2('#b6d4e9',DAYLIGHT.hazeDensity);
   const mapCanvas=makeMap(data);
-  return {terrain,grass,water,nature,buildings,windows,lootViews,skyDome,breakWindow(id){const pane=windows.get(id);if(pane)pane.visible=false;},resetInteractive(match){for(const w of match.windows){const pane=windows.get(w.id);if(pane)pane.visible=!w.broken;}lootViews.reset(match.loot);},sunLight,ambient,mapCanvas,timeUniform,requestSurfaceDetail,
+  return {terrain,grass,wildGrass,water,nature,buildings,windows,lootViews,skyDome,breakWindow(id){const pane=windows.get(id);if(pane)pane.visible=false;},resetInteractive(match){for(const w of match.windows){const pane=windows.get(w.id);if(pane)pane.visible=!w.broken;}lootViews.reset(match.loot);grass.userData.impacts.reset(match.fleet);},updateInteractions(dt,fleet,active){grass.userData.impacts.update(dt,fleet,{active});},sunLight,ambient,mapCanvas,timeUniform,requestSurfaceDetail,
     setSky(sky){skyDome.material.uniforms.photoSky.value=sky;waterMat.uniforms.skyMap.value=sky;},
     update(time,camera){timeUniform.value=time;grass.userData.refreshPhotos?.();skyDome.position.copy(camera.position);waterMat.uniforms.cameraPos.value.copy(camera.position);nature.update(time,camera);sunLight.target.position.copy(camera.position);sunLight.position.copy(camera.position).addScaledVector(lighting.direction,320);},
     setQuality(q){nature.setQuality(q);sunLight.castShadow=q!=='low';const size=q==='high'?2048:1024;if(sunLight.shadow.mapSize.x!==size){sunLight.shadow.mapSize.set(size,size);if(sunLight.shadow.map){sunLight.shadow.map.dispose();sunLight.shadow.map=null;}}}
