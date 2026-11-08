@@ -1,7 +1,11 @@
 {
+  ".github/workflows/import-game.yml": {
+    "bytes": 1812,
+    "sha256": "299e6f890f4964b964001cd60e406cd59dd060b3221061ab319766e19e685288"
+  },
   ".github/workflows/pages.yml": {
-    "bytes": 771,
-    "sha256": "fcb9427cc38f3f96078f1960ef3b00dc9884e9e0c85745bc387f7baf826f9667"
+    "bytes": 966,
+    "sha256": "68e7a5ec33e1552963348b780190dbe31a147fd70b28435a9c8f46a6390197b7"
   },
   ".gitignore": {
     "bytes": 88,
@@ -12,12 +16,12 @@
     "sha256": "bbc5753bee7959148c65d2688619e077f53cfdfe44f1a744e3f9ec8f1df2cdb8"
   },
   "README.md": {
-    "bytes": 2301,
-    "sha256": "99a8b3bfaf8da4dcf12f7e97706c9a389da9b516155f340c1cc48deb0444b924"
+    "bytes": 2913,
+    "sha256": "385359351dd6cbb339b6f8aeba7be220eaba95f7e1c66c04c77cedf22cb792b0"
   },
   "VALIDATION.txt": {
-    "bytes": 5686,
-    "sha256": "bd2e40fcd29964e3ffc3a8259faf99df89d0dab86f1b22ead5c5cff020c21fa8"
+    "bytes": 6263,
+    "sha256": "a0662e9be1887afee3c7430af5f876f3d9f89a919648eb311ab62b0c701352de"
   },
   "dist/.nojekyll": {
     "bytes": 1,
@@ -42,6 +46,10 @@
   "dist/assets.js": {
     "bytes": 7693,
     "sha256": "2193f9449f7b48a88c8ba714d55437ba43316688faef9fe216b88622a462cfa6"
+  },
+  "dist/audio.js": {
+    "bytes": 10806,
+    "sha256": "0e9f0828eaed53a58a0dbc0a8d4dd79e6b296a1c6615fee6b0b5a49e0df6d0dd"
   },
   "dist/audio/SOURCES.json": {
     "bytes": 21974,
@@ -175,10 +183,6 @@
     "bytes": 62444,
     "sha256": "26742c57d5aece5ccf0b9f17d64711755ae6ae4e9e4a7afd69db50c2501bac2c"
   },
-  "dist/audio.js": {
-    "bytes": 10806,
-    "sha256": "0e9f0828eaed53a58a0dbc0a8d4dd79e6b296a1c6615fee6b0b5a49e0df6d0dd"
-  },
   "dist/battle-feedback.css": {
     "bytes": 2231,
     "sha256": "89e61d1af2031b5e9ccf3e2a747a4ccc227e404d09ac07713708a3e26c8b3af8"
@@ -188,8 +192,8 @@
     "sha256": "6cfc33e806309d8ce1d64d2306958588964afa513d5883a00c5518c7054db765"
   },
   "dist/bootstrap.js": {
-    "bytes": 1993,
-    "sha256": "841bc4090ea7c87023c9810c4c02c35499c0c597c1971050618a83f8a00ab6c2"
+    "bytes": 1999,
+    "sha256": "eb25f936426bfd3462c1d20577285d6fcd1db9cf20f88de26d1f673ac62c9a5e"
   },
   "dist/building-layout.js": {
     "bytes": 5074,
@@ -252,8 +256,8 @@
     "sha256": "cc9fb2539cf27df48255982e896d28f544483537cdb41f9fabd741af8992d719"
   },
   "dist/game.js": {
-    "bytes": 42032,
-    "sha256": "019fc1d8bcbebc719ad6daa746c9c41a166d2e1318835f1c9deae8a2ca9e6070"
+    "bytes": 42044,
+    "sha256": "3af5b0392a650ef332ff0576f3738057176844b7e47cd17b6f1a1e69c4f9b31f"
   },
   "dist/graphics.js": {
     "bytes": 7627,
@@ -270,6 +274,10 @@
   "dist/hd2k/environment/sky.hdr": {
     "bytes": 5451493,
     "sha256": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198"
+  },
+  "dist/hd2k/equipment-manifest.json": {
+    "bytes": 9226,
+    "sha256": "63f470e9a372950a1be3416de08879075dd3f3df10b49ce5c878bafc840ffd66"
   },
   "dist/hd2k/equipment/gl6/metal-base.jpg": {
     "bytes": 323653,
@@ -367,13 +375,13 @@
     "bytes": 2412,
     "sha256": "b1a4911703c66669ee6b3f565e9d817247e7351e4929e2101076c93f28dec7ee"
   },
-  "dist/hd2k/equipment-manifest.json": {
-    "bytes": 9226,
-    "sha256": "63f470e9a372950a1be3416de08879075dd3f3df10b49ce5c878bafc840ffd66"
-  },
   "dist/hd2k/manifest.json": {
     "bytes": 37406,
     "sha256": "9f164023f6752fbda7e197768af1f359c529c51a0fca6f244f91546983dce182"
+  },
+  "dist/hd2k/nature-manifest.json": {
+    "bytes": 19323,
+    "sha256": "9cb7120020ed0bbc2fce59c751363a61bc70dd1b0191d7f98c97a92a93b18201"
   },
   "dist/hd2k/nature/fern_02/textures/fern_02_arm_2k.jpg": {
     "bytes": 519437,
@@ -507,10 +515,6 @@
     "bytes": 2827697,
     "sha256": "8278ef44ac26e08f0be2a47b11fd3001ff3a55888bf78e08136b40bd065ef575"
   },
-  "dist/hd2k/nature-manifest.json": {
-    "bytes": 19323,
-    "sha256": "9cb7120020ed0bbc2fce59c751363a61bc70dd1b0191d7f98c97a92a93b18201"
-  },
   "dist/hd2k/textures/forest-normal.jpg": {
     "bytes": 3669921,
     "sha256": "b9b59ae7348ba62992210e58d9fa2835a40f6693ab66b2e560ae5f4189650f23"
@@ -604,8 +608,8 @@
     "sha256": "ed9ad807c9797dde37ab96e4bb4572ff3a917248cac0a8009280ed85c3175a06"
   },
   "dist/index.html": {
-    "bytes": 16890,
-    "sha256": "ab3c39f4f6348af32011e1efd2c17bf9f76c4fe77c6125783046049815ff4e57"
+    "bytes": 16902,
+    "sha256": "87b34bad5f720a364c39f74cfe6ed343634580e478c7775e3c445ef77b68a940"
   },
   "dist/lobby-photo.css": {
     "bytes": 2674,
@@ -910,6 +914,10 @@
   "dist/models/swim-sleeves/model.gltf": {
     "bytes": 19327,
     "sha256": "101abbcb27b3e7837d8837d547e4a19cf441f30070882a0ae24ce706787aa636"
+  },
+  "dist/nature.js": {
+    "bytes": 10360,
+    "sha256": "e367e09438d83d2e3174f19f345d75932409c4b31fb7db9b59cf263656ccd62c"
   },
   "dist/nature/fern_02/fern_02.bin": {
     "bytes": 213568,
@@ -1255,10 +1263,6 @@
     "bytes": 136404,
     "sha256": "3aff956fce071605172137b08fbdcafaffc47ce31d1420b9fe80f19965757672"
   },
-  "dist/nature.js": {
-    "bytes": 10360,
-    "sha256": "e367e09438d83d2e3174f19f345d75932409c4b31fb7db9b59cf263656ccd62c"
-  },
   "dist/packs/desktop-geometry-cb5da49e9809.pack": {
     "bytes": 9038160,
     "sha256": "cb5da49e980953d51600825e334546d71e8964b1f66c1cabd9bf40bfd7ec0bf3"
@@ -1496,12 +1500,12 @@
     "sha256": "a97ec6852978949b7941c070b81292b842473a37549222353fa0a70c18d7285a"
   },
   "dist/weapon-view.js": {
-    "bytes": 3044,
-    "sha256": "e1ce4d8a46774d22b7532151d549fe67b9aabdde076eda2dacc9b63d074f885e"
+    "bytes": 3192,
+    "sha256": "d35f6cb82bf956d05aec35ef33bf7a16c9bf5abb8d51b7a018f912dc37796450"
   },
   "dist/weapons.js": {
-    "bytes": 12135,
-    "sha256": "5f32bcec5881cc4dea4fa7a68c8c4c6a9aedb21755ef3f79cf5a217c0860f20f"
+    "bytes": 13403,
+    "sha256": "a04e556c23c60cf8d3503320fab6e439fd659c04e44d1f0f2fda1e2fea0e135a"
   },
   "dist/window-vault.js": {
     "bytes": 2759,
@@ -1511,9 +1515,17 @@
     "bytes": 12710,
     "sha256": "86595f7c1a050921fe700b0f9893bacb81351cf80580447b2161e2737c0c5e14"
   },
+  "docs/arms-comparison.png": {
+    "bytes": 80242,
+    "sha256": "0b5483c8ba5fd78b56f53cc54d572dfd3d9bd5ab892f10e620168e668436c835"
+  },
+  "package-lock.json": {
+    "bytes": 8368,
+    "sha256": "e956bf258dc3c0a25104c9a19e9d56a8393aaac3fba0bcad8a3d71b0fa7c098e"
+  },
   "package.json": {
-    "bytes": 434,
-    "sha256": "62fdb655e82136412ac439e976f6d7d2eba66810f825cb74d6c164cdf6b4bc5f"
+    "bytes": 532,
+    "sha256": "5b82bb6333251ce642e589705ea015afa34d6f5e725fffcfff05b2ef3fe178e7"
   },
   "scripts/build-cache-ui-check.mjs": {
     "bytes": 4786,
@@ -1671,6 +1683,10 @@
     "bytes": 3063,
     "sha256": "93a89c65ea7413b145d21c6a71ec440afa47716133da2bb2e0b00015adcec333"
   },
+  "scripts/check-weapon-posture.mjs": {
+    "bytes": 3556,
+    "sha256": "1dfc0938a386bba45a1929b740542ff07ab4fd77a895d2eeff78574e6a17531c"
+  },
   "scripts/check-window-vault.mjs": {
     "bytes": 4132,
     "sha256": "8bad8bb6a14bbe81ef101dc31f4df625fbb327945a7cab23bce07e77069cc49b"
@@ -1724,8 +1740,8 @@
     "sha256": "dd4b3e284241387ba9d6948277590d9564b050f4e292a1aad193f88e68108fb8"
   },
   "scripts/export-weapon-layout.mjs": {
-    "bytes": 3326,
-    "sha256": "ab85525f4962c1c84115bd23e9a94da8391134c0147e454bef1e1cf32c66b054"
+    "bytes": 3364,
+    "sha256": "94ded3a8fd4d9d19ed01de98f45c74ee5f535116d495b793b0ef7b61fa44bf64"
   },
   "scripts/export-webgl2-shaders.mjs": {
     "bytes": 6431,
@@ -1812,8 +1828,8 @@
     "sha256": "b7b804a561e4523fb4c8abc3c279885dc013aabef040ba067c7b76c91326cefe"
   },
   "scripts/render-weapon-layout.py": {
-    "bytes": 6741,
-    "sha256": "e0028e9dcd5c41678d6e0f464a8c077552d3a35c2bd1c70ba1a4981a15198ae1"
+    "bytes": 6863,
+    "sha256": "f00ec9125479db22a8019984d7100adacbba46e173257faeb18eb94b07341d11"
   },
   "scripts/repair-m4-geometry.py": {
     "bytes": 3516,

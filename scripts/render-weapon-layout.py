@@ -25,7 +25,7 @@ precision highp float;layout(location=0)in vec3 pos;layout(location=1)in vec3 no
 uniform mat4 projection;out vec2 uv;out vec3 n;void main(){uv=tex;n=normal;gl_Position=projection*vec4(pos,1.0);}'''
 fs=b'''#version 300 es
 precision highp float;uniform sampler2D photo;uniform vec3 tint;uniform float cutoff;uniform int hasPhoto;
-in vec2 uv;in vec3 n;out vec4 color;void main(){vec4 t=hasPhoto==1?texture(photo,uv):vec4(pow(tint,vec3(.4545)),1.0);if(t.a<cutoff)discard;
+in vec2 uv;in vec3 n;out vec4 color;void main(){vec4 t=hasPhoto==1?texture(photo,uv)*vec4(pow(tint,vec3(.4545)),1.0):vec4(pow(tint,vec3(.4545)),1.0);if(t.a<cutoff)discard;
 vec3 nn=normalize(n);float light=.48+.65*max(0.0,dot(nn,normalize(vec3(-.5,.8,.6))));color=vec4(t.rgb*light,1.0);}'''
 for code,typ in [(vs,0x8B31),(fs,0x8B30)]:
  s=create(typ);text=C.c_char_p(code);source(s,1,C.byref(text),None);compile_(s);ok=I();get(s,0x8B81,C.byref(ok));assert ok.value;attach(program,s)
@@ -34,7 +34,7 @@ location=gl('glGetUniformLocation',I,U,C.c_char_p);mat=gl('glUniformMatrix4fv',N
 genbuf=gl('glGenBuffers',None,I,C.POINTER(U));bindbuf=gl('glBindBuffer',None,U,U);bufdata=gl('glBufferData',None,U,C.c_ssize_t,P,U)
 genvao=gl('glGenVertexArrays',None,I,C.POINTER(U));bindvao=gl('glBindVertexArray',None,U);enattr=gl('glEnableVertexAttribArray',None,U);attr=gl('glVertexAttribPointer',None,U,I,U,U,I,P)
 gentex=gl('glGenTextures',None,I,C.POINTER(U));bindtex=gl('glBindTexture',None,U,U);teximage=gl('glTexImage2D',None,U,I,I,I,I,I,U,U,P);texparam=gl('glTexParameteri',None,U,U,I)
-enable=gl('glEnable',None,U);draw=gl('glDrawElements',None,U,I,U,P);pixels=gl('glReadPixels',None,I,I,I,I,U,U,P);viewport=gl('glViewport',None,I,I,I,I);clearcolor=gl('glClearColor',None,F,F,F,F);clear=gl('glClear',None,U);error=gl('glGetError',U)
+enable=gl('glEnable',None,U);disable=gl('glDisable',None,U);draw=gl('glDrawElements',None,U,I,U,P);pixels=gl('glReadPixels',None,I,I,I,I,U,U,P);viewport=gl('glViewport',None,I,I,I,I);clearcolor=gl('glClearColor',None,F,F,F,F);clear=gl('glClear',None,U);error=gl('glGetError',U)
 enable(0x0B71);i1(location(program,b'photo'),0)
 items=json.loads((folder/'layout.json').read_text());arm_masks='--sleeves' in sys.argv
 if arm_masks:
@@ -47,6 +47,7 @@ for index,item in enumerate(items):
  viewport(0,0,w,h);clearcolor(.74,.80,.82,1);clear(0x4000|0x100)
  projection=np.array(item['projection'],dtype='float32');mat(location(program,b'projection'),1,0,projection.ctypes.data)
  for part in item['parts']:
+  (disable if part.get('doubleSided') else enable)(0x0B44)
   vertices=np.fromfile(folder/part['vertices'],dtype='<f4');indices=np.fromfile(folder/part['indices'],dtype='<u4');assert np.isfinite(vertices).all()
   vao=U();genvao(1,C.byref(vao));bindvao(vao);vbo=U();genbuf(1,C.byref(vbo));bindbuf(0x8892,vbo);bufdata(0x8892,vertices.nbytes,vertices.ctypes.data,0x88E4)
   for n,size,offset in [(0,3,0),(1,3,12),(2,2,24)]:enattr(n);attr(n,size,0x1406,0,32,P(offset))

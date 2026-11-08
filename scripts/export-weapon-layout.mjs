@@ -27,7 +27,7 @@ for(const aspect of [.6,16/9])for(const slot of aiming?[1,2]:[0,1,2]){
     for(let i=0;i<p.count;i++)vertex.set([p.getX(i),p.getY(i),p.getZ(i),n.getX(i),n.getY(i),n.getZ(i),uv?uv.getX(i):0,uv?uv.getY(i):0],i*8);
     const id=`${records.length}-${item.parts.length}`,vfile=id+'-vertices.bin',ifile=id+'-indices.bin';
     const indices=g.index?new Uint32Array(g.index.array):Uint32Array.from({length:p.count},(_,i)=>i);fs.writeFileSync(path.join(output,vfile),Buffer.from(vertex.buffer));fs.writeFileSync(path.join(output,ifile),Buffer.from(indices.buffer));
-    const m=o.material;item.parts.push({name:o.name,vertices:vfile,indices:ifile,count:indices.length,color:m.color.toArray(),texture:texture(m.map),alphaTest:m.alphaTest||0,skinned:o.isSkinnedMesh});
+    const m=o.material;item.parts.push({name:o.name,vertices:vfile,indices:ifile,count:indices.length,color:m.color.toArray(),texture:texture(m.map),alphaTest:m.alphaTest||0,skinned:o.isSkinnedMesh,doubleSided:m.side===THREE.DoubleSide});
   });records.push(item);
 }
 fs.writeFileSync(path.join(output,'layout.json'),JSON.stringify(records));console.log(`Exported actual posed weapon and FPS-hand geometry for ${records.length} ${aiming?'aimed':'hip'} view layouts.`);

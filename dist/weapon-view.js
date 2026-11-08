@@ -2,12 +2,14 @@ import * as THREE from './vendor/three.module.js';
 
 // Aim through the rear and front sights. Centring the muzzle instead puts
 // the eye inside the receiver or barrel and produces an obstructed picture.
-export function makeAimPose(rear,front,depth=-.30){
+export function makeAimPose(rear,front,eyeRelief=.16){
   const direction=front.clone().sub(rear).normalize();
   if(direction.lengthSq()<.99)throw new Error('Sight axis has no length');
   const quaternion=new THREE.Quaternion().setFromUnitVectors(direction,new THREE.Vector3(0,0,-1));
   const aligned=rear.clone().applyQuaternion(quaternion);
-  return {quaternion,position:new THREE.Vector3(-aligned.x,-aligned.y,Math.min(depth,-.10-aligned.z))};
+  // Position the eye behind the sight. A distant whole-gun translation also
+  // pulled the shoulders into the camera and exposed both upper-arm cutoffs.
+  return {quaternion,position:new THREE.Vector3(-aligned.x,-aligned.y,-eyeRelief-aligned.z)};
 }
 
 export function reticleLayout(width,height,fov){

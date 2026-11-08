@@ -1,6 +1,14 @@
-Full source restored from original project revision 5d7583c63c76d2fe735f8de5b1d7177326d6da30.
+Wild Frontier 2.23: first-person arm and grip correction.
+Base restored revision: 5d7583c63c76d2fe735f8de5b1d7177326d6da30.
+GitHub base revision: 8c115ff9963987404903d9ce2b30cc3931913213.
 
-Static validation: 373 runtime files, 22 glTF models, 50 JS modules and 117 module references verified.
+Validated 2026-11-08:
+- 3 posture checks: wrist bend below 25 degrees (measured maximum 12.1), natural elbow bend, preserved bone lengths, view framing and camera/sight clearance.
+- 3 articulated-glove checks: trigger/thumb contact, material and sight clearance.
+- 6 swimming checks: shared source integrity, continuous strokes, wrist cuffs, visible arms, contact events.
+- 6 hip and 4 aimed native GLES geometry renders inspected in portrait and landscape. These are asset checks, not browser or iPhone screenshots.
+- npm ci and the arm tests also passed with the Codex-specific dependency path removed, matching the deployment workflow.
+- Static local asset, JavaScript and GitHub Pages path checks passed.
 
 PASS deployment responds while loading and enters once after readiness
 PASS deployment waits for foreground without losing the queued click
@@ -75,4 +83,4 @@ PASS all local HTML/CSS/JS dependencies and deployment configuration exist
 
 70 checks passed. Browser / mobile rendering has not been tested.
 
-This validation loads actual local models and checks gameplay logic. Full browser 3D rendering, iPhone frame rate and GitHub Pages deployment are not yet verified. New character voice audio has not been generated.
+The full browser GPU rendering and iPhone frame rate have not been verified by these tests.

@@ -2,14 +2,14 @@ import * as THREE from './vendor/three.module.js';
 import {createFirstPersonBody} from './first-person-body.js?v=2.21';
 import {WEAPONS,clamp,smooth} from './core.js?v=2.21';
 import {poseChain,forearmTwist,curlFingerTo} from './rig-ik.js?v=2.21';
-import {makeAimPose} from './weapon-view.js?v=2.21';
+import {makeAimPose} from './weapon-view.js?v=2.23-arms1';
 import {createCombatant} from './character.js?v=2.21';
 
 const vector=()=>new THREE.Vector3();
 export function weaponViewFov(aspect){return aspect<1?2*Math.atan(Math.tan(58*Math.PI/360)/aspect)*180/Math.PI:58;}
 export function weaponViewOffset(aspect){return aspect<1?.11:.22;}
-export const WEAPON_VIEW_SCALE=.82;
-export function weaponViewPosition(aspect){return new THREE.Vector3(weaponViewOffset(aspect),aspect<1?-.29:-.25,-.38);}
+export const WEAPON_VIEW_SCALE=.76;
+export function weaponViewPosition(aspect){return new THREE.Vector3(weaponViewOffset(aspect),-.27-.26*Math.max(0,1/aspect-1),-.42);}
 function weaponSurface(model,surfaces){
   const materials=new Map();
   model.traverse(o=>{
@@ -39,12 +39,24 @@ function weaponSurface(model,surfaces){
 }
 function makeHands(asset,right=[.025,-.09,-.04],left=[-.02,-.11,-.27],contacts={},arms){
   const body=createFirstPersonBody(asset,arms);body.position.set(0,-.14,.10);body.updateMatrixWorld(true);
-  for(const [side,wrist,pole] of [['R',right,[.36,-.28,.28]],['L',left,[-.35,-.32,.02]]]){
-    const target=body.worldToLocal(new THREE.Vector3(...wrist)).toArray();
-    poseChain(body,body.getObjectByName('upper_arm'+side),body.getObjectByName('forearm'+side),body.getObjectByName('hand'+side+'control'),target,pole);
+  // A viewmodel shoulder sits behind and below the grip, not beside the wrist.
+  // Translate the shoulder anchor; upper-arm and forearm bone lengths stay intact.
+  const shoulder=body.getObjectByName('upper_armR');
+  shoulder.position.copy(shoulder.parent.worldToLocal(new THREE.Vector3(.25,-.22,.19)));body.updateMatrixWorld(true);
+  for(const [side,wrist] of [['R',right],['L',left]]){
     const hand=body.getObjectByName('hand'+side);
     const x=side==='R'?new THREE.Vector3(0,1,0):new THREE.Vector3(.76,0,.65).normalize(),y=side==='R'?new THREE.Vector3(0,0,-1):new THREE.Vector3(.65,0,-.76).normalize(),z=side==='R'?new THREE.Vector3(-1,0,0):new THREE.Vector3(0,1,0);
-    const rotation=new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(x,y,z));
+    const oldRotation=new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(x,y,z));
+    const rotation=oldRotation.clone(),tilt=new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1,0,0),(side==='R'?24:28)*Math.PI/180);
+    if(side==='R')rotation.premultiply(tilt);else rotation.multiply(tilt);
+    // Keep the metacarpal contact beside the weapon while relaxing the wrist.
+    const palm=hand.worldToLocal(body.getObjectByName('f_middle01'+side).getWorldPosition(vector()));
+    const target=new THREE.Vector3(...wrist).add(palm.clone().applyQuaternion(oldRotation)).sub(palm.clone().applyQuaternion(rotation));
+    const lower=body.getObjectByName('forearm'+side),control=body.getObjectByName('hand'+side+'control');
+    const forearmLength=lower.getWorldPosition(vector()).distanceTo(control.getWorldPosition(vector()));
+    const pole=target.clone().addScaledVector(palm.clone().applyQuaternion(rotation).normalize(),-forearmLength);
+    pole.x+=side==='R'?.04:-.025;pole.y-=.02;pole.z+=.015;
+    poseChain(body,body.getObjectByName('upper_arm'+side),lower,control,body.worldToLocal(target.clone()).toArray(),body.worldToLocal(pole).toArray());
     forearmTwist(body,body.getObjectByName('forearm'+side),body.getObjectByName('hand'+side+'control'),hand,rotation);
     hand.quaternion.copy(hand.parent.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(rotation));
     for(const finger of ['index','middle','ring','pinky']){
@@ -66,7 +78,7 @@ function makeHands(asset,right=[.025,-.09,-.04],left=[-.02,-.11,-.27],contacts={
       }
     }
   }
-  body.traverse(o=>{if(o.isSkinnedMesh){o.frustumCulled=false;o.skeleton.update();o.material=o.material.clone();}});
+  body.traverse(o=>{if(o.isSkinnedMesh){o.frustumCulled=false;o.skeleton.update();o.material=o.material.clone();if(!o.userData.firstPersonArm)o.material.color.multiply(new THREE.Color().setRGB(.43,.36,.44));}});
   return body;
 }
 function muzzleOf(model){
@@ -94,7 +106,7 @@ export function createViewModels(assets,surfaces){
     const ejector=model.getObjectByName('Ejector_Lid');if(ejector)ejector.rotateZ(-1.2);
     const rear=model.getObjectByName(i===0?'OpticalAxis':'SIGHT_REAR_RIM')||model.getObjectByName('SIGHT_REAR'),front=model.getObjectByName('SIGHT_FRONT');
     if(!rear||i!==0&&!front)throw new Error(`Missing sight markers for ${name}`);
-    const sightRear=rear.getWorldPosition(vector()),sightFront=i===0?rear.localToWorld(new THREE.Vector3(0,0,.1)):front.getWorldPosition(vector()),aimPose=makeAimPose(sightRear.clone().multiplyScalar(WEAPON_VIEW_SCALE),sightFront.clone().multiplyScalar(WEAPON_VIEW_SCALE),-.42);
+    const sightRear=rear.getWorldPosition(vector()),sightFront=i===0?rear.localToWorld(new THREE.Vector3(0,0,.1)):front.getWorldPosition(vector()),aimPose=makeAimPose(sightRear.clone().multiplyScalar(WEAPON_VIEW_SCALE),sightFront.clone().multiplyScalar(WEAPON_VIEW_SCALE),i===0?.12:.28);
     g.userData={aimPose,sightRear,sightFront,drum,drumAngle:0,drumTarget:0,muzzle:new THREE.Vector3(-muzzle.x,muzzle.y+y,-muzzle.z+z),eject,mixer,play,model,fireAge:10,reloadActive:false,closed:false,bolt,magazine,charging,chargingBase:charging?.position.clone(),boltBase:bolt?.position.clone(),boltRotation:bolt?.quaternion.clone(),magazineBase:magazine?.position.clone()};
     g.scale.setScalar(WEAPON_VIEW_SCALE);g.position.copy(weaponViewPosition(16/9));g.rotation.y=-.035;return g;
   });
