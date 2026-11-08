@@ -1,0 +1,46 @@
+name: Import full game source
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: import-game-source
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+      - name: Download verified full source
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/game-import"
+          gh release download source-2.22-restored --repo "$GITHUB_REPOSITORY" --pattern 'WildFrontier_Full_Source_GitHub_Pages.zip' --dir "$RUNNER_TEMP/game-import"
+          archive="$RUNNER_TEMP/game-import/WildFrontier_Full_Source_GitHub_Pages.zip"
+          printf '%s  %s\n' '4f1c16d060ceb6b1aa00470336ec3627b2c95f399a55a1ac73409aa0c01c9990' "$archive" | sha256sum --check --status
+          unzip -q "$archive" -d "$RUNNER_TEMP/game-import/source"
+          rsync -a --exclude='.github/' --exclude='.openai/' --exclude='.git/' "$RUNNER_TEMP/game-import/source/" ./
+      - name: Verify restored assets
+        run: node scripts/check-static.mjs
+      - name: Save full source to main
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add dist scripts sources source-assets README.md ORIGINAL-CHANGELOG.md package.json .gitignore FILE-MANIFEST.json VALIDATION.txt
+          if ! git diff --cached --quiet; then
+            git commit -m 'Restore full 3D game source, models, textures and audio'
+            git push origin HEAD:main
+          fi
+      - name: Start GitHub Pages publication
+        run: gh workflow run pages.yml --ref main --repo "$GITHUB_REPOSITORY"
