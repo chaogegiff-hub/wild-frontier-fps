@@ -1,8 +1,8 @@
 import * as THREE from './vendor/three.module.js';
-import {variants} from './assets.js?v=2.21';
-import {terrainSurfaceAt,slopeAt,roadX,randomSeed,noise} from './core.js?v=2.21';
-import {plantLighting,leafGeometry,addLodDither} from './resident-vegetation.js?v=2.21';
-export {makeResidentMeadow as makeMeadow} from './resident-vegetation.js?v=2.21';
+import {variants} from './assets.js?v=2.25-drive-grass1';
+import {terrainSurfaceAt,slopeAt,roadX,randomSeed,noise} from './core.js?v=2.25-drive-grass1';
+import {plantLighting,leafGeometry,addLodDither} from './resident-vegetation.js?v=2.25-drive-grass1';
+export {makeResidentMeadow as makeMeadow} from './resident-vegetation.js?v=2.25-drive-grass1';
 
 function windShader(s,time,amount,lod=false){
   s.uniforms.windTime=time;

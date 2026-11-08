@@ -1,9 +1,9 @@
 import * as THREE from './vendor/three.module.js';
 import {clone as cloneSkeleton} from './vendor/SkeletonUtils.js';
-import {clamp,smooth,ENEMY_SCALE} from './core.js?v=2.21';
-import {poseChain} from './rig-ik.js?v=2.21';
-import {CombatantMotion} from './character-motion.js?v=2.21';
-import {ImpactMotion} from './impact-motion.js?v=2.21';
+import {clamp,smooth,ENEMY_SCALE} from './core.js?v=2.25-drive-grass1';
+import {poseChain} from './rig-ik.js?v=2.25-drive-grass1';
+import {CombatantMotion} from './character-motion.js?v=2.25-drive-grass1';
+import {ImpactMotion} from './impact-motion.js?v=2.25-drive-grass1';
 
 const v=()=>new THREE.Vector3();
 let flashMap;

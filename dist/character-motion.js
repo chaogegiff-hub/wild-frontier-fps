@@ -1,5 +1,5 @@
 import * as THREE from './vendor/three.module.js';
-import {poseChain} from './rig-ik.js?v=2.21';
+import {poseChain} from './rig-ik.js?v=2.25-drive-grass1';
 
 const clamp=THREE.MathUtils.clamp,smooth=(a,b,x)=>{const t=clamp((x-a)/(b-a),0,1);return t*t*(3-2*t);};
 const point=()=>new THREE.Vector3(),rotation=()=>new THREE.Quaternion();

@@ -1,6 +1,6 @@
 import * as THREE from './vendor/three.module.js';
-import {randomSeed,noise} from './core.js?v=2.21';
-import {plantable,meadowSurface} from './resident-vegetation.js?v=2.21';
+import {randomSeed,noise} from './core.js?v=2.25-drive-grass1';
+import {plantable,meadowSurface} from './resident-vegetation.js?v=2.25-drive-grass1';
 
 // Small, irregular clumps of curved physical leaves and occasional dry seed
 // stalks. No square photo cards, per-frame spawning or distance-based reseeding.
@@ -37,20 +37,21 @@ function grassMaterial(time){
   };m.customProgramCacheKey=()=> 'sparse-wild-grass-wind-and-wheel-press-v1';return m;
 }
 export function makeWildGrass(data,time,terrainGeometry){
-  const group=new THREE.Group();group.name='sparse-resident-wild-grass';const bases=[0,1,2].map(wildGrassGeometry),material=grassMaterial(time),sample=meadowSurface(terrainGeometry),surface={},tiles=new Map(),step=2.25,cells=Math.ceil(300/step);let count=0;
+  const group=new THREE.Group();group.name='sparse-resident-wild-grass';const bases=[0,1,2].map(wildGrassGeometry),material=grassMaterial(time),sample=meadowSurface(terrainGeometry),surface={},tiles=new Map(),step=1.6,cells=Math.ceil(300/step);let count=0;
   for(let ix=-cells;ix<cells;ix++)for(let iz=-cells;iz<cells;iz++){
     const rand=randomSeed((ix*73856093)^(iz*19349663)^15319),x=(ix+.12+rand()*.76)*step,z=(iz+.12+rand()*.76)*step,patch=noise(x*.052+12,z*.052-7);
     if(rand()>.18+.44*patch)continue;sample(x,z,surface);if(!plantable(data,x,z,surface))continue;
     if(data.rocks.some(r=>Math.hypot(x-r.x,z-r.z)<r.r+.3)||data.cliffs?.some(r=>Math.hypot(x-r.x,z-r.z)<r.r*.85))continue;
-    const variant=Math.floor(rand()*3),scale=.64+rand()*.65,tint=.82+rand()*.32,key=Math.floor(x/48)+','+Math.floor(z/48),dry=1-patch;
-    if(!tiles.has(key))tiles.set(key,[[],[],[]]);tiles.get(key)[variant].push([x,surface.height+.003,z,scale,scale,scale,rand()*Math.PI*2,tint*(.95+dry*.15),tint,tint*(.86-dry*.05)]);count++;
+    const variant=Math.floor(rand()*3),scale=1.10+rand()*.90,width=scale*1.15,tint=.82+rand()*.32,key=Math.floor(x/48)+','+Math.floor(z/48),dry=1-patch;
+    if(!tiles.has(key))tiles.set(key,[[],[],[]]);tiles.get(key)[variant].push([x,surface.height+.003,z,width,scale,width,rand()*Math.PI*2,tint*(.95+dry*.15),tint,tint*(.86-dry*.05)]);count++;
   }
   const meshes=[];
   for(const [tileKey,variants] of tiles)variants.forEach((rows,variant)=>{
     if(!rows.length)return;const base=bases[variant],g=new THREE.InstancedBufferGeometry();g.index=base.index;for(const [name,a] of Object.entries(base.attributes))g.setAttribute(name,a);
     for(const [name,size,offset] of [['aOffset',3,0],['aScale',3,3],['aAngle',1,6],['aTint',3,7]]){const a=new Float32Array(rows.length*size);rows.forEach((r,i)=>a.set(r.slice(offset,offset+size),i*size));g.setAttribute(name,new THREE.InstancedBufferAttribute(a,size));}
     g.setAttribute('aPress',new THREE.InstancedBufferAttribute(new Float32Array(rows.length*2),2).setUsage(THREE.DynamicDrawUsage));g.instanceCount=rows.length;
-    const box=new THREE.Box3();for(const r of rows){box.expandByPoint(new THREE.Vector3(r[0]-.85,r[1]-.02,r[2]-.85));box.expandByPoint(new THREE.Vector3(r[0]+.85,r[1]+.8,r[2]+.85));}g.boundingBox=box;g.boundingSphere=box.getBoundingSphere(new THREE.Sphere());
+    const box=new THREE.Box3(),b=base.boundingBox,radial=Math.hypot(Math.max(Math.abs(b.min.x),Math.abs(b.max.x)),Math.max(Math.abs(b.min.z),Math.abs(b.max.z)));
+    for(const r of rows){const height=b.max.y*r[4],radius=radial*r[3]+height*.82+height*height*.18+.04;box.expandByPoint(new THREE.Vector3(r[0]-radius,r[1]-.02,r[2]-radius));box.expandByPoint(new THREE.Vector3(r[0]+radius,r[1]+height+.03,r[2]+radius));}g.boundingBox=box;g.boundingSphere=box.getBoundingSphere(new THREE.Sphere());
     const mesh=new THREE.Mesh(g,material);mesh.name='wild-grass-'+variant+'-'+tileKey;mesh.userData={tileKey,variant,wildGrass:true};mesh.receiveShadow=true;mesh.matrixAutoUpdate=false;group.add(mesh);meshes.push(mesh);
   });group.userData={meshes,coverage:{count,spacing:step,resident:true,sparse:true},compressible:true};group.matrixAutoUpdate=false;return group;
 }

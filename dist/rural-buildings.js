@@ -1,5 +1,5 @@
 import * as THREE from './vendor/three.module.js';
-import {housePlan} from './building-layout.js?v=2.21';
+import {housePlan} from './building-layout.js?v=2.25-drive-grass1';
 import {mergeGeometries} from './vendor/BufferGeometryUtils.js';
 
 // Exterior, room floors, open doors and breakable panes share one physical layout.

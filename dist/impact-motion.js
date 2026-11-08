@@ -1,5 +1,5 @@
 import * as THREE from './vendor/three.module.js';
-import {poseChain,aimBone} from './rig-ik.js?v=2.21';
+import {poseChain,aimBone} from './rig-ik.js?v=2.25-drive-grass1';
 const V=()=>new THREE.Vector3(),Q=()=>new THREE.Quaternion(),up=new THREE.Vector3(0,1,0),clamp=THREE.MathUtils.clamp;
 const joints=[['pelvis','Pelvis',14,.16],['spine','Spine',8,.17],['waist','Spine1',8,.18],['chest','Spine2',12,.19],['neck','Neck',3,.12],['head','Head',5,.17]];
 for(const side of ['L','R'])for(const [key,bone,mass,radius]of [['hip','Thigh',5,.12],['knee','Calf',3,.10],['foot','Foot',1,.11],['toe','Toe0',.5,.055],['shoulder','UpperArm',3,.10],['elbow','Forearm',1.5,.075],['hand','Hand',.65,.065]])joints.push([side+key,side+'_'+bone,mass,radius]);

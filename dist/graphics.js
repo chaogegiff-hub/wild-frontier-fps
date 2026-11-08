@@ -1,5 +1,5 @@
 import * as THREE from './vendor/three.module.js';
-import {detailManifest,immutableBlob} from './detail-resources.js?v=2.21';
+import {detailManifest,immutableBlob} from './detail-resources.js?v=2.25-drive-grass1';
 
 export const TWO_K_EDGE=2560;
 export function renderSizing(width,height,{quality='high',pixelRatio=1,mobile=false,maxSize=4096}={}){

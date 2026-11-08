@@ -1,7 +1,7 @@
 import * as THREE from './vendor/three.module.js';
-import {randomSeed} from './core.js?v=2.21';
-import {plantable,meadowSurface} from './resident-vegetation.js?v=2.21';
-import {CactusImpacts} from './cactus-impact.js?v=2.24-world1';
+import {randomSeed} from './core.js?v=2.25-drive-grass1';
+import {plantable,meadowSurface} from './resident-vegetation.js?v=2.25-drive-grass1';
+import {CactusImpacts} from './cactus-impact.js?v=2.25-drive-grass1';
 
 // Authored opaque volumes with ribs, rounded crowns, pads, areoles and spines.
 // These models are not photographs or scans.

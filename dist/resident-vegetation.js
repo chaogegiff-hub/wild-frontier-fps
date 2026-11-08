@@ -1,7 +1,7 @@
 import * as THREE from './vendor/three.module.js';
-import {variants} from './assets.js?v=2.21';
-import {heightAt,slopeAt,roadX,randomSeed,noise,onTrail,WORLD_SIZE} from './core.js?v=2.21';
-import {meadowBlades,meadowAtlas} from './meadow-blades.js?v=2.21';
+import {variants} from './assets.js?v=2.25-drive-grass1';
+import {heightAt,slopeAt,roadX,randomSeed,noise,onTrail,WORLD_SIZE} from './core.js?v=2.25-drive-grass1';
+import {meadowBlades,meadowAtlas} from './meadow-blades.js?v=2.25-drive-grass1';
 
 const vegetationNoise=`float vegetationNoise(vec3 p){return fract(sin(dot(floor(p*32.0),vec3(12.9898,78.233,37.719)))*43758.5453);}`;
 export function plantable(data,x,z,surface){

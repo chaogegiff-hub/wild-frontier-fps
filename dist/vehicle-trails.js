@@ -1,6 +1,6 @@
 import * as THREE from './vendor/three.module.js';
-import {terrainSurfaceAt,WATER_LEVEL} from './core.js?v=2.21';
-import {vehicleWorld,VEHICLE_EXHAUST,VEHICLE_EXHAUST_AXIS} from './vehicle-physics.js?v=2.21';
+import {terrainSurfaceAt,WATER_LEVEL} from './core.js?v=2.25-drive-grass1';
+import {vehicleWorld,VEHICLE_EXHAUST,VEHICLE_EXHAUST_AXIS} from './vehicle-physics.js?v=2.25-drive-grass1';
 
 const clamp=THREE.MathUtils.clamp,TILE=48,CELL=2,GRID=24;
 export const TRACK_CAPACITY=65536;

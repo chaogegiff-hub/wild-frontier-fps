@@ -1,4 +1,4 @@
-import {reticleLayout,grenadeSightMarks} from './weapon-view.js?v=2.21';
+import {reticleLayout,grenadeSightMarks} from './weapon-view.js?v=2.25-drive-grass1';
 
 // Only reticle ink is drawn here. The magnified image remains the live 3D
 // camera render; there is no picture texture or shared fake scope image.

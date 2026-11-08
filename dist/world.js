@@ -1,14 +1,14 @@
-import {makeLootViews} from './loot-views.js?v=2.21';
+import {makeLootViews} from './loot-views.js?v=2.25-drive-grass1';
 import * as THREE from './vendor/three.module.js';
-import {heightAt,slopeAt,noise,randomSeed,WORLD_SIZE,WATER_LEVEL,roadX,TRAIL_ROUTES,onTrail} from './core.js?v=2.21';
-import {makeNature} from './nature.js?v=2.21';
-import {makeCactusField} from './cactus-field.js?v=2.24-world1';
-import {makeWildGrass} from './wild-grass.js?v=2.24-world1';
-import {skyLighting} from './assets.js?v=2.21';
-import {makeRuralBuilding} from './rural-buildings.js?v=2.21';
-import {makeGroundMaterial,detailSurfaceLoader} from './terrain-material.js?v=2.21';
-import {mapConcurrent,retryAsset} from './asset-loading.js?v=2.21';
-import {makeSunnySky,DAYLIGHT} from './daylight.js?v=2.21';
+import {heightAt,slopeAt,noise,randomSeed,WORLD_SIZE,WATER_LEVEL,roadX,TRAIL_ROUTES,onTrail} from './core.js?v=2.25-drive-grass1';
+import {makeNature} from './nature.js?v=2.25-drive-grass1';
+import {makeCactusField} from './cactus-field.js?v=2.25-drive-grass1';
+import {makeWildGrass} from './wild-grass.js?v=2.25-drive-grass1';
+import {skyLighting} from './assets.js?v=2.25-drive-grass1';
+import {makeRuralBuilding} from './rural-buildings.js?v=2.25-drive-grass1';
+import {makeGroundMaterial,detailSurfaceLoader} from './terrain-material.js?v=2.25-drive-grass1';
+import {mapConcurrent,retryAsset} from './asset-loading.js?v=2.25-drive-grass1';
+import {makeSunnySky,DAYLIGHT} from './daylight.js?v=2.25-drive-grass1';
 
 export const SURFACE_GROUPS=21;
 export const SURFACE_FILES={ground:'ground.jpg',rock:'rock.jpg',normal:'ground-normal.jpg',rockNormal:'rock-normal.jpg',grass:'grass.jpg',grassNormal:'grass-normal.jpg',grassRough:'grass-rough.jpg',forest:'forest.jpg',forestNormal:'forest-normal.jpg',metalNormal:'metal-normal.jpg',metalRough:'metal-rough.jpg',waterNormal:'water-normal.jpg',wall:'wall.jpg',wallNormal:'wall-normal.jpg',wallRough:'wall-rough.jpg',roof:'roof.jpg',roofNormal:'roof-normal.jpg',roofRough:'roof-rough.jpg',wood:'wood.jpg',woodNormal:'wood-normal.jpg',woodRough:'wood-rough.jpg'};

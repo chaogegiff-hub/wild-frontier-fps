@@ -1,5 +1,5 @@
 import * as THREE from './vendor/three.module.js';
-import {randomSeed} from './core.js?v=2.21';
+import {randomSeed} from './core.js?v=2.25-drive-grass1';
 
 // Narrow, curved ribbons sample individual leaves from the existing CC0 photo
 // atlas, with curled photographic tufts sharing one 2K sheet at every distance.

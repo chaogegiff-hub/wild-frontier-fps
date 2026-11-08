@@ -1,7 +1,7 @@
 import * as THREE from './vendor/three.module.js';
 import {unzip,unzipSync} from './vendor/fflate.module.js';
-import {STARTUP_PACKS} from './startup-pack-manifest.js?v=2.21';
-import {resourceCache,verifyBytes} from './resource-cache.js?v=2.21';
+import {STARTUP_PACKS} from './startup-pack-manifest.js?v=2.25-drive-grass1';
+import {resourceCache,verifyBytes} from './resource-cache.js?v=2.25-drive-grass1';
 
 const root=new URL('./',import.meta.url),urls=new Map();let loaded,pending,activeController,activeCache=resourceCache,activeKeys=[];
 const mime=file=>file.endsWith('.jpg')?'image/jpeg':file.endsWith('.png')?'image/png':file.endsWith('.gltf')?'model/gltf+json':file.endsWith('.json')?'application/json':file.endsWith('.wav')?'audio/wav':'application/octet-stream';

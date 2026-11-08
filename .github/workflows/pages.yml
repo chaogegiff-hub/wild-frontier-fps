@@ -31,6 +31,8 @@ jobs:
         run: npm run check:arms
       - name: Verify cactus, sparse grass and enemy voices
         run: npm run check:field
+      - name: Verify drivable terrain, collisions and water
+        run: npm run check:driving
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload full game

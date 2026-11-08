@@ -1,5 +1,6 @@
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 export const VEHICLE_SIZE=Object.freeze({width:2.12,length:3.98,height:1.84,wheelBase:2.42,wheelRadius:.415});
+export const VEHICLE_TERRAIN_LIMITS=Object.freeze({pitch:.68,roll:.49,warp:.72,belly:.56});
 // Center and outward normal of the hollow outlet in the licensed Jeep mesh.
 export const VEHICLE_EXHAUST=Object.freeze({x:.286212,y:.550418,z:1.868465});
 export const VEHICLE_EXHAUST_AXIS=Object.freeze({x:0,y:.409,z:.912});
@@ -23,6 +24,10 @@ function boxesTouch(a,b){
   for(const angle of axes){const x=Math.cos(angle),z=-Math.sin(angle),radius=c=>c.w/2*Math.abs(x*Math.cos(c.yaw||0)-z*Math.sin(c.yaw||0))+c.d/2*Math.abs(x*Math.sin(c.yaw||0)+z*Math.cos(c.yaw||0));if(Math.abs(dx*x+dz*z)>=radius(a)+radius(b))return false;}return true;
 }
 const CONTACTS=VEHICLE_WHEELS.map(w=>[w.x,w.z]);
+export function vehicleSupport(c,terrain){
+  const heights=CONTACTS.map(([x,z])=>{const p=vehicleWorld(c,x,z);return terrain(p.x,p.z);}),front=(heights[0]+heights[1])*.5,rear=(heights[2]+heights[3])*.5,support=heights.reduce((n,y)=>n+y,0)/4;
+  return {heights,support,center:terrain(c.x,c.z),pitch:Math.atan2(front-rear,VEHICLE_SIZE.wheelBase),roll:Math.atan2((heights[1]+heights[3]-heights[0]-heights[2])*.5,1.706637),warp:Math.abs(heights[0]+heights[3]-heights[1]-heights[2])*.5};
+}
 
 export class VehicleFleet{
   constructor({terrain,waterLevel=3,colliders=[],spawns=VEHICLE_SPAWNS}){
@@ -45,15 +50,18 @@ export class VehicleFleet{
   body(c){return {x:c.x,z:c.z,yaw:c.yaw,w:VEHICLE_SIZE.width,d:VEHICLE_SIZE.length};}
   canPlace(c,colliders,{parking=false}={}){
     if(Math.abs(c.x)>262||Math.abs(c.z)>262)return false;
-    const heights=CONTACTS.map(([x,z])=>{const p=vehicleWorld(c,x,z);return this.terrain(p.x,p.z);}),center=this.terrain(c.x,c.z);
+    const {heights,center,support,pitch,roll,warp}=vehicleSupport(c,this.terrain);
     const low=Math.min(...heights,center);
     if(parking&&low<this.waterLevel+.12)return false;
-    if(Math.max(...heights)-Math.min(...heights)>1.65&&low>this.waterLevel-.2){
+    const steep=(Math.abs(pitch)>VEHICLE_TERRAIN_LIMITS.pitch||Math.abs(roll)>VEHICLE_TERRAIN_LIMITS.roll||warp>VEHICLE_TERRAIN_LIMITS.warp)&&low>this.waterLevel-.2,belly=center>this.waterLevel+.25&&center-support>VEHICLE_TERRAIN_LIMITS.belly;
+    if(steep||belly){
       // Descending lake banks allow water entry; dry uphill and obstacle limits remain.
       const sign=c.speed<-.01?-1:1,front=(heights[0]+heights[1])*.5,rear=(heights[2]+heights[3])*.5,descending=(front-rear)*sign<-.25;
       const shore=!parking&&descending&&[6,12,18].some(d=>{const p=vehicleWorld(c,0,-d*sign);return this.terrain(p.x,p.z)<this.waterLevel+.2;});if(!shore)return false;
     }
-    if(center>this.waterLevel+.25&&center-c.y>1.1)return false;
+    // Compare the belly to the current support plane. The old center-vs-body
+    // test and four-wheel height range mistook an ordinary tilted plane for a
+    // wall, trapping cars even when moving downhill or reversing out.
     const body=this.body(c);
     for(const obstacle of colliders){
       if(obstacle.bridge||obstacle.y>c.y+VEHICLE_SIZE.height||obstacle.y+obstacle.h<c.y+.15)continue;
@@ -62,8 +70,7 @@ export class VehicleFleet{
     return !this.cars.some(other=>other.id!==c.id&&Math.abs(other.y-c.y)<VEHICLE_SIZE.height&&boxesTouch(body,this.body(other)));
   }
   pose(c,dt=0){
-    const h=CONTACTS.map(([x,z])=>{const p=vehicleWorld(c,x,z);return this.terrain(p.x,p.z);});
-    const support=h.reduce((n,y)=>n+y,0)/4+.025,floor=support-(c.sinking?.12:0),pitch=clamp(Math.atan2((h[0]+h[1]-h[2]-h[3])*.5,VEHICLE_SIZE.wheelBase),-.58,.58),roll=clamp(Math.atan2((h[1]+h[3]-h[0]-h[2])*.5,1.75),-.52,.52);
+    const ground=vehicleSupport(c,this.terrain),support=ground.support+.025,floor=support-(c.sinking?.12:0),pitch=clamp(ground.pitch,-.70,.70),roll=clamp(ground.roll,-.52,.52);
     c.waterDepth=Math.max(0,this.waterLevel-support);const wet=c.waterDepth>.35;
     if(wet&&!c.inWater&&dt>0)this.events.push({type:'vehiclewater',vehicle:c,point:{x:c.x,y:this.waterLevel,z:c.z},speed:Math.abs(c.speed)});
     c.inWater=wet;

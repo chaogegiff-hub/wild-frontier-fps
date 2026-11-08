@@ -1,16 +1,63 @@
-Wild Frontier 2.24: cactus vehicle impacts, sparse wild grass and character voice callouts.
-Base GitHub revision: 8461ae5a790e779d92aa638a5a8539dc2f6adebd.
+Wild Frontier 2.25: drivable terrain and larger, denser grass.
+Base GitHub revision: db9063d7fd055fb74da515c8ac1fb61a1f2717c4.
 Validated 2026-11-09:
-- 9 new checks: swept car contact in both directions, all 3 cactus forms, persistent fallen state, every cactus surface vertex above ground, slope rest angle, pause/restart, deterministic sparse grass, wheel compression, 24 distinct MP3 assets, actual enemy visibility/context triggers, cooldown, no overlapping voices, mute/death/pause stop.
-- 70 full game regression checks passed, including actual shipped renderFrame and first-frame paths.
-- 6 existing arm/grip checks, 7 wheel-track/grass checks and 2 horn/audio checks passed.
-- All 213 actual vendored Three.js WebGL 2 shader programs compiled and linked in native GLES, including new fall and grass material code.
-- Shared Chrome decoded all 24 recorded Mandarin callouts successfully. AudioContext was running, and the actual character voice playback path started successfully from the QA page.
-- Shared Chrome could not create WebGL: GL_VENDOR=Disabled, GL_RENDERER=Disabled. Full browser game rendering and real iPhone play were not verified. No screenshot is represented as device footage.
-- 24 voice clips: 3 source voices, 8 phrases each; 413856 bytes of local MP3. Scripts and manifest record the synthetic source, profile, text and duration. No runtime speech service dependency.
-- Temporary preview config and audio QA page removed before deployment.
+- 4 new terrain regressions: diagonal uphill/downhill and reverse on analytically sloped terrain; five real island sites previously blocked by the old four-wheel height-range rule; walls, tree trunks, high-centered chassis and steep dry banks; frame-rate agreement.
+- 22 vehicle, 6 water/sinking, 9 cactus/grass/voice, 70 full game and 6 arm/grip checks passed.
+- All 213 actual Three.js WebGL 2 shader programs compiled and linked in native GLES.
+- Measured against the previous committed grass implementation using the same world: 18619 -> 36943 clumps (1.984x); mean clump height 0.37975 -> 0.60815 m (1.601x); mean horizontal scale 0.96566 -> 1.77955 (1.843x). Larger conservative bounds cover full growth, wind and wheel compression.
+- Shared Chrome tried the updated entry and reported GL_VENDOR=Disabled / GL_RENDERER=Disabled. Full browser driving/rendering and real iPhone play remain unverified.
+- The existing 24 local MP3 files were preserved. No new expressive voice audio was generated or substituted. Thirty direction/recipe entries are prepared in sources/combat-voice-direction.json; these are plans, not recordings.
+- Runtime module imports use the new lightweight script version. Original large model/texture/audio startup packs retain their filenames and cache identities.
+- Temporary preview config was removed before publication.
 
-Final static, gameplay and field check output:
+Check output:
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> wild-frontier-fps@1.0.0 check:static
+> node scripts/check-static.mjs
+
+PASS 402 local files; 22 3D models; 53 JavaScript modules; 126 module references
+PASS project Pages paths and full terrain, soldier, weapons and vehicle assets
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> wild-frontier-fps@1.0.0 check:driving
+> node scripts/check-drivable-terrain.mjs && node scripts/check-vehicles.mjs && node scripts/check-vehicle-water.mjs
+
+PASS ordinary diagonal slopes no longer act as an invisible wall in forward or reverse
+PASS five previously rejected real island sites allow a vehicle to start and reverse
+PASS sharp dry banks, an underbody high spot, walls and tree trunks remain physical obstacles
+PASS tilted support poses stay finite and frame-rate independent without changing the collision hull
+4 drivable-terrain regressions passed. Exact player-reported positions were not supplied.
+PASS three permanent vehicles spawn on dry, unblocked terrain with one near deployment
+PASS entering cancels infantry actions, preserves equipment and exiting restores a safe standing pose
+PASS forward, reverse, steering, wheel rotation and brakes use a stable vehicle simulation
+PASS 240 and 360 Hz frames can start, stop and reverse instead of rounding powered acceleration to zero
+PASS a car can reverse along a wall when its requested corner rotation is blocked, without entering that wall
+PASS a fast vehicle cannot pass through walls, tree trunks, other cars or steep dry banks
+PASS exit while moving brakes first, finds the free side, and refuses a fully blocked exit
+PASS vehicle collision hulls rotate with the car and also block walking and projectiles
+PASS pause freezes a driven vehicle and restarting resets every parked car and driver state
+PASS forward and reverse bumper hits knock down one enemy once without changing bullet accuracy
+PASS 120 Hz contact checks catch a fast pass even inside a long frame and register a vehicle kill once
+PASS a parked car, a slow nudge, a clear miss and a wall between car and target do not knock enemies down
+PASS a surviving impact slides, stays down, recovers, and cannot be damaged repeatedly by the same overlap
+PASS pause and restart also freeze and clear vehicle knockdowns
+PASS a knocked-down body cannot slide or fly through a solid wall
+PASS actual touch controls support two fingers and disappear immediately after exiting or pausing
+PASS only four driving keys are exposed and each thumb can slide between its two directions
+PASS a separate horn can be held with steering and always releases on cancel, exit or flooding
+PASS licensed vehicle geometry preserves full detail, transparent glass, real dimensions and four wheel pivots
+PASS rolling and steering animate actual tires; only the occupied car shows a seated, independent driver
+PASS the shipped chase camera follows the car, clears weapon sights and stays above terrain
+PASS the seated driver slumps after drowning without accumulating bone rotations and recovers on reset
+22 vehicle checks passed. Browser 3D and iPhone driving have not been tested.
+PASS driving can cross a shoreline, loses engine power, then settles on the underwater floor
+PASS a shallow ford can be crossed without flooding and a drowned car cannot be boarded again
+PASS submerged occupants immediately lose health gradually without a countdown, bypassing armour in both modes
+PASS the actual lake shore allows forward and reverse entry on all four banks and complete submersion
+PASS escaping after health loss restores the player at the water surface and the abandoned car keeps sinking
+PASS pause freezes health loss and sinking; result aftermath continues to the bottom; restart clears it all
+6 water/vehicle checks passed. Browser/device effects not tested.
 npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
 
 > wild-frontier-fps@1.0.0 check:field
@@ -26,13 +73,6 @@ PASS enemy speech follows true detection, has no overlap and never repeats every
 PASS speech reacts to vehicles, nearby grenades, reloading and losing the target, and cancels on death, pause and mute
 PASS the actual audio path spatializes recorded speech and stops it immediately on pause and mute
 9 field interaction and character-voice checks passed. iPhone hardware not tested.
-npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
-
-> wild-frontier-fps@1.0.0 check:static
-> node scripts/check-static.mjs
-
-PASS 402 local files; 22 3D models; 53 JavaScript modules; 126 module references
-PASS project Pages paths and full terrain, soldier, weapons and vehicle assets
 npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
 
 > wild-frontier-fps@1.0.0 check
@@ -110,3 +150,16 @@ PASS every rigid cactus and its spines remain inside their tile culling bounds
 PASS all local HTML/CSS/JS dependencies and deployment configuration exist
 
 70 checks passed. Browser / mobile rendering has not been tested.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> wild-frontier-fps@1.0.0 check:arms
+> node scripts/check-weapon-posture.mjs && node scripts/check-weapon-hands.mjs
+
+PASS all three weapons keep neutral wrists and bent elbows without stretching arm bones
+PASS portrait and landscape hip poses keep shoulder cutoffs outside the picture
+PASS iron-sight eye relief is usable and the camera-to-front-sight path stays clear
+3 weapon-posture checks passed; largest wrist bend 12.1 degrees. Actual model geometry; not an iPhone screenshot.
+PASS all gun hands retain articulated anatomical fingers and thin textile materials
+PASS right index contacts the trigger area and opposing thumb stays around the grip on all three guns
+PASS gloves do not obstruct the actual grenade or rifle sight line and the source rig stays unchanged
+3 anatomical cloth glove, grip contact and sight-clearance checks passed.

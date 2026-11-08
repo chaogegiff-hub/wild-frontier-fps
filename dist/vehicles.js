@@ -1,8 +1,8 @@
-import {makeVehicleWreck,VEHICLE_WRECK_DELAY} from './vehicle-wreck.js?v=2.21';
+import {makeVehicleWreck,VEHICLE_WRECK_DELAY} from './vehicle-wreck.js?v=2.25-drive-grass1';
 import * as THREE from './vendor/three.module.js';
 import {clone as cloneSkeleton} from './vendor/SkeletonUtils.js';
-import {poseChain} from './rig-ik.js?v=2.21';
-import {vehicleWorld,VEHICLE_EXHAUST,VEHICLE_EXHAUST_AXIS} from './vehicle-physics.js?v=2.21';
+import {poseChain} from './rig-ik.js?v=2.25-drive-grass1';
+import {vehicleWorld,VEHICLE_EXHAUST,VEHICLE_EXHAUST_AXIS} from './vehicle-physics.js?v=2.25-drive-grass1';
 
 function seatedDriver(assets,root){
   const driver=cloneSkeleton(assets.soldier.scene);driver.name='player-driver';driver.position.set(-.39,-.18,.46);driver.rotation.y=Math.PI;root.add(driver);

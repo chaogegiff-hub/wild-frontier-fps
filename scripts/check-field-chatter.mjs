@@ -43,9 +43,10 @@ check('cactus fall follows the impact direction, rests along slopes and freezes 
 });
 const data=createWorldData(),field=makeCactusField(data,{value:0}),grass=makeWildGrass(data,{value:0});
 check('sparse grass is grounded, deterministic and outside water, roads and houses across the island',()=>{
-  assert.ok(grass.userData.coverage.count>12000&&grass.userData.coverage.count<23000);const second=makeWildGrass(data,{value:0}),a=grass.userData.meshes,b=second.userData.meshes;assert.equal(a.length,b.length);let near=0;
+  assert.ok(grass.userData.coverage.count>33000&&grass.userData.coverage.count<41000);const second=makeWildGrass(data,{value:0}),a=grass.userData.meshes,b=second.userData.meshes;assert.equal(a.length,b.length);let near=0,maxHeight=0;
   for(let m=0;m<a.length;m++){assert.deepEqual(a[m].geometry.attributes.aOffset.array,b[m].geometry.attributes.aOffset.array);const p=a[m].geometry.attributes.aOffset;for(let i=0;i<p.count;i++){const x=p.getX(i),z=p.getZ(i),y=p.getY(i);assert.ok(Math.abs(y-terrainSurfaceAt(x,z)-.003)<.00002);assert.ok(y>3.85&&y<86.01);assert.ok(Math.abs(x-roadX(z))>3.89);assert.equal(onTrail(x,z,.44),false);assert.ok(!data.buildings.some(h=>Math.abs(x-h.x)<h.w*.565&&Math.abs(z-h.z)<h.d*.565));if(Math.hypot(x-SPAWN.x,z-SPAWN.z)<20)near++;}}
-  assert.ok(near>40&&near<180);assert.equal(field.userData.coverage.count,14898);
+  for(const m of a){const g=m.geometry,scale=g.attributes.aScale,h=g.attributes.position.array.reduce((v,y,index)=>index%3===1?Math.max(v,y):v,0);for(let i=0;i<g.instanceCount;i++){assert.ok(scale.getY(i)>=1.09&&scale.getX(i)>scale.getY(i));maxHeight=Math.max(maxHeight,h*scale.getY(i));assert.ok(g.boundingBox.max.y>=g.attributes.aOffset.getY(i)+h*scale.getY(i));}}
+  assert.ok(near>100&&near<360);assert.ok(maxHeight>.85&&maxHeight<1.2);assert.equal(field.userData.coverage.count,14898);
 });
 check('vehicle tires compress the new grass while cactus roots and original instance buffers stay fixed',()=>{
   const mesh=grass.userData.meshes[0],a=mesh.geometry.attributes.aOffset,roots=[...a.array],x=a.getX(0),z=a.getZ(0),compression=new GrassCompression(grass.userData.meshes);compression.press({x:x-.5,z},{x:x+.5,z});compression.flush();assert.ok(mesh.geometry.attributes.aPress.getX(0)>.5);assert.deepEqual([...a.array],roots);compression.reset();assert.equal(mesh.geometry.attributes.aPress.getX(0),0);assert.equal(field.userData.compressible,false);

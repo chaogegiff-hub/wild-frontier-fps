@@ -1,4 +1,4 @@
-import {immutableBlob} from './resource-cache.js?v=2.21';
+import {immutableBlob} from './resource-cache.js?v=2.25-drive-grass1';
 let manifest;
 export function detailManifest(){
   return manifest??=(async()=>{const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);

@@ -1,8 +1,8 @@
 import * as THREE from './vendor/three.module.js';
 import {GLTFLoader} from './vendor/GLTFLoader.js';
 import {RGBELoader} from './vendor/RGBELoader.js';
-import {mapConcurrent,retryAsset,photoTexture,resilientModelTextures} from './asset-loading.js?v=2.21';
-import {detailManifest,immutableBlob} from './detail-resources.js?v=2.21';
+import {mapConcurrent,retryAsset,photoTexture,resilientModelTextures} from './asset-loading.js?v=2.25-drive-grass1';
+import {detailManifest,immutableBlob} from './detail-resources.js?v=2.25-drive-grass1';
 
 export const MODEL_FILES={vehicle:'models/jeep/model.gltf',sniper:'models/m700/model.gltf',grenade:'models/gl6/model.gltf',rifle:'models/akm/model.gltf',scope:'models/optics/scope.gltf',soldier:'models/rocketbox-soldier/model.gltf',hands:'models/gloved-hands/model.gltf',swimArms:'models/swim-sleeves/model.gltf',treeHigh:'nature/island_tree_02/high.gltf',treeMedium:'nature/island_tree_02/low.gltf',woodlandHigh:'nature/woodland_tree_03/high.gltf',woodlandMedium:'nature/woodland_tree_03/low.gltf',cliff:'nature/rock_face_01/model.gltf',rocks:'nature/rock_moss_set_01/model.gltf'};
 export const TREE_IMPOSTOR='nature/island_tree_02/impostor.png';

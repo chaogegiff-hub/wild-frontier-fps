@@ -1,6 +1,6 @@
 import * as THREE from './vendor/three.module.js';
-import {createFirstPersonBody} from './first-person-body.js?v=2.21';
-import {poseChain,forearmTwist} from './rig-ik.js?v=2.21';
+import {createFirstPersonBody} from './first-person-body.js?v=2.25-drive-grass1';
+import {poseChain,forearmTwist} from './rig-ik.js?v=2.25-drive-grass1';
 const v=()=>new THREE.Vector3();
 export function swimViewFov(aspect){return aspect<1?2*Math.atan(Math.tan(58*Math.PI/360)/aspect)*180/Math.PI:78;}
 const path=new THREE.CatmullRomCurve3([

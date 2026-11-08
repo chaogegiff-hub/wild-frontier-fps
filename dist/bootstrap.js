@@ -1,4 +1,4 @@
-import {createDeploymentFlow} from './startup.js?v=2.21';
+import {createDeploymentFlow} from './startup.js?v=2.25-drive-grass1';
 
 const $=id=>document.getElementById(id);
 const deployment=createDeploymentFlow({
@@ -26,7 +26,7 @@ $('start').addEventListener('click',()=>deployment.request());
 document.addEventListener('visibilitychange',()=>deployment.resume());
 
 // Import failures occur before game.js can run its own startup catch.
-import('./game.js?v=2.24-world1').catch(error=>{
+import('./game.js?v=2.25-drive-grass1').catch(error=>{
   console.error('Game module failed to load',error);
   deployment.fail('游戏文件未能载入，请检查网络后点击重试。');
 });

@@ -8,7 +8,8 @@
     "check:static": "node scripts/check-static.mjs",
     "preview": "python -m http.server 8000 --directory dist",
     "check:arms": "node scripts/check-weapon-posture.mjs && node scripts/check-weapon-hands.mjs",
-    "check:field": "node scripts/check-field-chatter.mjs"
+    "check:field": "node scripts/check-field-chatter.mjs",
+    "check:driving": "node scripts/check-drivable-terrain.mjs && node scripts/check-vehicles.mjs && node scripts/check-vehicle-water.mjs"
   },
   "description": "Restored complete Wild Frontier 3D FPS with local assets and GitHub Pages deployment",
   "devDependencies": {

@@ -1,5 +1,5 @@
 import * as THREE from './vendor/three.module.js';
-import {VEHICLE_SIZE,vehicleLocal} from './vehicle-physics.js?v=2.21';
+import {VEHICLE_SIZE,vehicleLocal} from './vehicle-physics.js?v=2.25-drive-grass1';
 
 const TILE=8,clamp=THREE.MathUtils.clamp;
 // The original resident instances remain in their tiles. Only impacted plants

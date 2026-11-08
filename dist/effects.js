@@ -1,6 +1,6 @@
 import * as THREE from './vendor/three.module.js';
-import {heightAt,terrainSurfaceAt,WATER_LEVEL} from './core.js?v=2.21';
-import {makeCasing,makeProjectile} from './ammunition.js?v=2.21';
+import {heightAt,terrainSurfaceAt,WATER_LEVEL} from './core.js?v=2.25-drive-grass1';
+import {makeCasing,makeProjectile} from './ammunition.js?v=2.25-drive-grass1';
 
 function plumeTexture(seed){
   const c=document.createElement('canvas');c.width=c.height=96;const ctx=c.getContext('2d'),img=ctx.createImageData(96,96);

@@ -1,4 +1,4 @@
-import {lineClear} from './core.js?v=2.21';
+import {lineClear} from './core.js?v=2.25-drive-grass1';
 
 export const ENEMY_VOICE_PROFILES=Object.freeze([
   {id:'scout',label:'侦察兵',character:'年轻、急促'},

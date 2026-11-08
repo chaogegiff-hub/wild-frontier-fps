@@ -1,0 +1,506 @@
+{
+  "version": "2.25-emotional-draft",
+  "status": "prepared-not-generated",
+  "endpoint_id": "elevenlabs/tts/eleven-v4",
+  "language": "zh",
+  "note": "New clips must be generated and auditioned before replacing the live neutral voice assets. These recipes are not recordings. No successful generation request was returned in this session.",
+  "profiles": [
+    {
+      "id": "scout",
+      "voice": "Antoni",
+      "character": "年轻、急促、紧张，短促吸气后报告"
+    },
+    {
+      "id": "veteran",
+      "voice": "Adam",
+      "character": "低沉、沙哑，压制惊慌但有用力喊叫和痛感"
+    },
+    {
+      "id": "leader",
+      "voice": "Josh",
+      "character": "粗犷、有力，在压力下急促下令"
+    }
+  ],
+  "clips": [
+    {
+      "key": "enemy-scout-spot-0",
+      "profile": "scout",
+      "kind": "spot",
+      "text": "发现他了！",
+      "output_file": "scout-spot-0-emotional.mp3",
+      "input": {
+        "text": "[gasping] [panicked] 发现他了！",
+        "voice": "Antoni",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22500
+      }
+    },
+    {
+      "key": "enemy-scout-spot-1",
+      "profile": "scout",
+      "kind": "spot",
+      "text": "在那儿！快！",
+      "output_file": "scout-spot-1-emotional.mp3",
+      "input": {
+        "text": "[urgent] 在那儿！[shouting] 快！",
+        "voice": "Antoni",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22501
+      }
+    },
+    {
+      "key": "enemy-scout-attack-0",
+      "profile": "scout",
+      "kind": "attack",
+      "text": "压住他！别停！",
+      "output_file": "scout-attack-0-emotional.mp3",
+      "input": {
+        "text": "[angry] [shouting] 压住他！别停！",
+        "voice": "Antoni",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22502
+      }
+    },
+    {
+      "key": "enemy-scout-attack-1",
+      "profile": "scout",
+      "kind": "attack",
+      "text": "冲！别让他跑了！",
+      "output_file": "scout-attack-1-emotional.mp3",
+      "input": {
+        "text": "[shouting] 冲！别让他跑了！",
+        "voice": "Antoni",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22503
+      }
+    },
+    {
+      "key": "enemy-scout-reload-0",
+      "profile": "scout",
+      "kind": "reload",
+      "text": "换弹！掩护我！",
+      "output_file": "scout-reload-0-emotional.mp3",
+      "input": {
+        "text": "[breathless] 换弹！[urgent] 掩护我！",
+        "voice": "Antoni",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22504
+      }
+    },
+    {
+      "key": "enemy-scout-lost-0",
+      "profile": "scout",
+      "kind": "lost",
+      "text": "人呢？小心点……",
+      "output_file": "scout-lost-0-emotional.mp3",
+      "input": {
+        "text": "[whispering] [nervous] 人呢？小心点……",
+        "voice": "Antoni",
+        "language_code": "zh",
+        "stability": 0.35,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22505
+      }
+    },
+    {
+      "key": "enemy-scout-vehicle-0",
+      "profile": "scout",
+      "kind": "vehicle",
+      "text": "车！快闪开！",
+      "output_file": "scout-vehicle-0-emotional.mp3",
+      "input": {
+        "text": "[panicked] 车！[shouting] 快闪开！",
+        "voice": "Antoni",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22506
+      }
+    },
+    {
+      "key": "enemy-scout-grenade-0",
+      "profile": "scout",
+      "kind": "grenade",
+      "text": "榴弹！趴下！",
+      "output_file": "scout-grenade-0-emotional.mp3",
+      "input": {
+        "text": "[frightened] [shouting] 榴弹！趴下！",
+        "voice": "Antoni",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22507
+      }
+    },
+    {
+      "key": "enemy-scout-wounded-0",
+      "profile": "scout",
+      "kind": "wounded",
+      "text": "呃啊！我中弹了！",
+      "output_file": "scout-wounded-0-emotional.mp3",
+      "input": {
+        "text": "[groaning] 呃啊！[strained] 我中弹了！",
+        "voice": "Antoni",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22508
+      }
+    },
+    {
+      "key": "enemy-scout-wounded-1",
+      "profile": "scout",
+      "kind": "wounded",
+      "text": "嘶！掩护我！",
+      "output_file": "scout-wounded-1-emotional.mp3",
+      "input": {
+        "text": "[gasping] 嘶！[strained] 掩护我！",
+        "voice": "Antoni",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22509
+      }
+    },
+    {
+      "key": "enemy-veteran-spot-0",
+      "profile": "veteran",
+      "kind": "spot",
+      "text": "发现他了！",
+      "output_file": "veteran-spot-0-emotional.mp3",
+      "input": {
+        "text": "[gasping] [panicked] 发现他了！",
+        "voice": "Adam",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22610
+      }
+    },
+    {
+      "key": "enemy-veteran-spot-1",
+      "profile": "veteran",
+      "kind": "spot",
+      "text": "在那儿！快！",
+      "output_file": "veteran-spot-1-emotional.mp3",
+      "input": {
+        "text": "[urgent] 在那儿！[shouting] 快！",
+        "voice": "Adam",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22611
+      }
+    },
+    {
+      "key": "enemy-veteran-attack-0",
+      "profile": "veteran",
+      "kind": "attack",
+      "text": "压住他！别停！",
+      "output_file": "veteran-attack-0-emotional.mp3",
+      "input": {
+        "text": "[angry] [shouting] 压住他！别停！",
+        "voice": "Adam",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22612
+      }
+    },
+    {
+      "key": "enemy-veteran-attack-1",
+      "profile": "veteran",
+      "kind": "attack",
+      "text": "冲！别让他跑了！",
+      "output_file": "veteran-attack-1-emotional.mp3",
+      "input": {
+        "text": "[shouting] 冲！别让他跑了！",
+        "voice": "Adam",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22613
+      }
+    },
+    {
+      "key": "enemy-veteran-reload-0",
+      "profile": "veteran",
+      "kind": "reload",
+      "text": "换弹！掩护我！",
+      "output_file": "veteran-reload-0-emotional.mp3",
+      "input": {
+        "text": "[breathless] 换弹！[urgent] 掩护我！",
+        "voice": "Adam",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22614
+      }
+    },
+    {
+      "key": "enemy-veteran-lost-0",
+      "profile": "veteran",
+      "kind": "lost",
+      "text": "人呢？小心点……",
+      "output_file": "veteran-lost-0-emotional.mp3",
+      "input": {
+        "text": "[whispering] [nervous] 人呢？小心点……",
+        "voice": "Adam",
+        "language_code": "zh",
+        "stability": 0.35,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22615
+      }
+    },
+    {
+      "key": "enemy-veteran-vehicle-0",
+      "profile": "veteran",
+      "kind": "vehicle",
+      "text": "车！快闪开！",
+      "output_file": "veteran-vehicle-0-emotional.mp3",
+      "input": {
+        "text": "[panicked] 车！[shouting] 快闪开！",
+        "voice": "Adam",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22616
+      }
+    },
+    {
+      "key": "enemy-veteran-grenade-0",
+      "profile": "veteran",
+      "kind": "grenade",
+      "text": "榴弹！趴下！",
+      "output_file": "veteran-grenade-0-emotional.mp3",
+      "input": {
+        "text": "[frightened] [shouting] 榴弹！趴下！",
+        "voice": "Adam",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22617
+      }
+    },
+    {
+      "key": "enemy-veteran-wounded-0",
+      "profile": "veteran",
+      "kind": "wounded",
+      "text": "呃啊！我中弹了！",
+      "output_file": "veteran-wounded-0-emotional.mp3",
+      "input": {
+        "text": "[groaning] 呃啊！[strained] 我中弹了！",
+        "voice": "Adam",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22618
+      }
+    },
+    {
+      "key": "enemy-veteran-wounded-1",
+      "profile": "veteran",
+      "kind": "wounded",
+      "text": "嘶！掩护我！",
+      "output_file": "veteran-wounded-1-emotional.mp3",
+      "input": {
+        "text": "[gasping] 嘶！[strained] 掩护我！",
+        "voice": "Adam",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22619
+      }
+    },
+    {
+      "key": "enemy-leader-spot-0",
+      "profile": "leader",
+      "kind": "spot",
+      "text": "发现他了！",
+      "output_file": "leader-spot-0-emotional.mp3",
+      "input": {
+        "text": "[gasping] [panicked] 发现他了！",
+        "voice": "Josh",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22720
+      }
+    },
+    {
+      "key": "enemy-leader-spot-1",
+      "profile": "leader",
+      "kind": "spot",
+      "text": "在那儿！快！",
+      "output_file": "leader-spot-1-emotional.mp3",
+      "input": {
+        "text": "[urgent] 在那儿！[shouting] 快！",
+        "voice": "Josh",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22721
+      }
+    },
+    {
+      "key": "enemy-leader-attack-0",
+      "profile": "leader",
+      "kind": "attack",
+      "text": "压住他！别停！",
+      "output_file": "leader-attack-0-emotional.mp3",
+      "input": {
+        "text": "[angry] [shouting] 压住他！别停！",
+        "voice": "Josh",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22722
+      }
+    },
+    {
+      "key": "enemy-leader-attack-1",
+      "profile": "leader",
+      "kind": "attack",
+      "text": "冲！别让他跑了！",
+      "output_file": "leader-attack-1-emotional.mp3",
+      "input": {
+        "text": "[shouting] 冲！别让他跑了！",
+        "voice": "Josh",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22723
+      }
+    },
+    {
+      "key": "enemy-leader-reload-0",
+      "profile": "leader",
+      "kind": "reload",
+      "text": "换弹！掩护我！",
+      "output_file": "leader-reload-0-emotional.mp3",
+      "input": {
+        "text": "[breathless] 换弹！[urgent] 掩护我！",
+        "voice": "Josh",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22724
+      }
+    },
+    {
+      "key": "enemy-leader-lost-0",
+      "profile": "leader",
+      "kind": "lost",
+      "text": "人呢？小心点……",
+      "output_file": "leader-lost-0-emotional.mp3",
+      "input": {
+        "text": "[whispering] [nervous] 人呢？小心点……",
+        "voice": "Josh",
+        "language_code": "zh",
+        "stability": 0.35,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22725
+      }
+    },
+    {
+      "key": "enemy-leader-vehicle-0",
+      "profile": "leader",
+      "kind": "vehicle",
+      "text": "车！快闪开！",
+      "output_file": "leader-vehicle-0-emotional.mp3",
+      "input": {
+        "text": "[panicked] 车！[shouting] 快闪开！",
+        "voice": "Josh",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22726
+      }
+    },
+    {
+      "key": "enemy-leader-grenade-0",
+      "profile": "leader",
+      "kind": "grenade",
+      "text": "榴弹！趴下！",
+      "output_file": "leader-grenade-0-emotional.mp3",
+      "input": {
+        "text": "[frightened] [shouting] 榴弹！趴下！",
+        "voice": "Josh",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22727
+      }
+    },
+    {
+      "key": "enemy-leader-wounded-0",
+      "profile": "leader",
+      "kind": "wounded",
+      "text": "呃啊！我中弹了！",
+      "output_file": "leader-wounded-0-emotional.mp3",
+      "input": {
+        "text": "[groaning] 呃啊！[strained] 我中弹了！",
+        "voice": "Josh",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22728
+      }
+    },
+    {
+      "key": "enemy-leader-wounded-1",
+      "profile": "leader",
+      "kind": "wounded",
+      "text": "嘶！掩护我！",
+      "output_file": "leader-wounded-1-emotional.mp3",
+      "input": {
+        "text": "[gasping] 嘶！[strained] 掩护我！",
+        "voice": "Josh",
+        "language_code": "zh",
+        "stability": 0.25,
+        "similarity_boost": 0.65,
+        "output_format": "mp3_44100_128",
+        "seed": 22729
+      }
+    }
+  ]
+}

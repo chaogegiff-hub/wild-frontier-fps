@@ -1,5 +1,5 @@
-import {clamp} from './core.js?v=2.21';
-import {assetUrl} from './resource-pack.js?v=2.21';
+import {clamp} from './core.js?v=2.25-drive-grass1';
+import {assetUrl} from './resource-pack.js?v=2.25-drive-grass1';
 
 // Firearms use recordings; the engine and dual-tone horn are synthesized.
 export class GameAudio{

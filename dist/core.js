@@ -1,7 +1,7 @@
-import {houseColliders,houseWindows,houseLoot} from './building-layout.js?v=2.21';
-import {terrainRelief} from './terrain-data.js?v=2.21';
-import {VehicleFleet,vehicleLocal,circleTouchesBox} from './vehicle-physics.js?v=2.21';
-import {findWindowVault,vaultSample} from './window-vault.js?v=2.21';
+import {houseColliders,houseWindows,houseLoot} from './building-layout.js?v=2.25-drive-grass1';
+import {terrainRelief} from './terrain-data.js?v=2.25-drive-grass1';
+import {VehicleFleet,vehicleLocal,circleTouchesBox} from './vehicle-physics.js?v=2.25-drive-grass1';
+import {findWindowVault,vaultSample} from './window-vault.js?v=2.25-drive-grass1';
 // Rendering, collision and targeting share one proportional enemy size.
 export const ENEMY_SCALE=1.18;
 export const ENEMY_BODY=Object.freeze({scale:ENEMY_SCALE,head:1.66*ENEMY_SCALE,headRadius:.245*ENEMY_SCALE,torso:.95*ENEMY_SCALE,torsoRadius:.53*ENEMY_SCALE,lock:.98*ENEMY_SCALE,fire:1.48*ENEMY_SCALE,grenadeRadius:.62*ENEMY_SCALE,height:1.86*ENEMY_SCALE});
