@@ -1,0 +1,32 @@
+/* The supplied photograph is displayed unchanged. Framing belongs to the UI. */
+#lobby{isolation:isolate;background:#101b18}
+.lobby-backdrop{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#101b18}
+.lobby-backdrop::before{content:"";position:absolute;inset:-18px;background:url('./images/lobby-portrait.jpg?v=2.22') center 18%/cover no-repeat;filter:blur(12px);opacity:.45}
+.lobby-photo{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 18%}
+.lobby-backdrop::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,16,14,.94),rgba(7,20,17,.80) 26%,rgba(7,19,16,.30) 52%,rgba(7,19,16,.06) 76%),linear-gradient(0deg,rgba(7,18,15,.96),rgba(7,18,15,.45) 18%,transparent 58%),linear-gradient(180deg,rgba(7,18,16,.30),transparent 25%)}
+.lobby-header,.lobby-content,.lobby-footer{position:relative;z-index:1}
+#lobby .map-card{z-index:1;background:rgba(9,22,19,.66);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+#lobby .lobby-content{text-shadow:0 2px 12px #0005}
+#lobby .feature-tags span{background:rgba(9,22,19,.48);border-color:#c5cbbc55;color:#e2e5d7}
+#lobby .mode-switch button,#lobby .loadout-card{background:rgba(9,22,19,.68);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+#lobby .mode-switch button.selected,#lobby .loadout-card.selected{background:rgba(122,111,70,.49)}
+#lobby .mode-switch small{color:#d0d7c8}
+#lobby .loadout-label span,#lobby .mode-label>span{color:#b1bdae}
+#lobby .deploy-button{text-shadow:none}
+@media(orientation:portrait) and (max-width:800px){
+  .lobby-photo{inset:auto;left:4%;top:0;width:140%;height:100%;object-position:50% 18%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%);mask-image:linear-gradient(90deg,transparent,#000 12%)}
+  .lobby-backdrop::after{background:linear-gradient(90deg,rgba(7,21,18,.86),rgba(9,23,20,.70) 36%,rgba(7,21,18,.13) 72%),linear-gradient(0deg,rgba(7,21,18,.97),rgba(7,21,18,.60) 34%,transparent 75%),linear-gradient(180deg,rgba(7,21,18,.25),transparent 26%)}
+  #lobby .lead{max-width:66%;line-height:1.7}
+  #lobby .lead br{display:block}
+}
+@media(orientation:landscape) and (max-width:900px) and (max-height:500px){
+  #lobby h1{font-size:36px;line-height:1.15;margin:10px 0}
+  #lobby h1>span{display:inline}
+  #lobby .lobby-content{padding-top:0;padding-bottom:14px}
+  #lobby .feature-tags{margin-bottom:12px}
+  #lobby .loadout-section{margin:12px 0}
+}
+@media(prefers-reduced-transparency:reduce){
+  #lobby .mode-switch button,#lobby .loadout-card{background:#14241f}
+  #lobby .mode-switch button.selected,#lobby .loadout-card.selected{background:#514c32}
+}

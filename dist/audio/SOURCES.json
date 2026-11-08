@@ -1,0 +1,602 @@
+{
+  "sniper-1.wav": {
+    "duration": 1.4,
+    "channels": 1,
+    "sampleRate": 48000,
+    "bits": 16,
+    "peakDbFS": -4.0,
+    "attackMs": 5,
+    "bytes": 134444,
+    "source": {
+      "author": "Joseph SARDIN / BigSoundBank",
+      "license": "CC0-1.0",
+      "page": "https://bigsoundbank.com/shot-of-winchester-magnum-xtr-s0397.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0397.mp3",
+      "description": "Outdoor recording of one Winchester Magnum XTR shot."
+    },
+    "sourceStart": 1.021542,
+    "processing": "Real shot attack and outdoor echo; level normalized."
+  },
+  "rifle-1.wav": {
+    "duration": 1.35,
+    "channels": 1,
+    "sampleRate": 48000,
+    "bits": 16,
+    "peakDbFS": -4.0,
+    "attackMs": 5,
+    "bytes": 129644,
+    "source": {
+      "author": "qubodup / public-domain US government training video",
+      "license": "CC0-1.0",
+      "page": "https://freesound.org/people/qubodup/sounds/238916/",
+      "download": "https://cdn.freesound.org/previews/238/238916_71257-hq.mp3",
+      "description": "M16 automatic rifle training recording; final isolated shot is cropped."
+    },
+    "sourceStart": 2.149354,
+    "processing": "Last single M16 shot cropped from a burst; no additional shot in its tail."
+  },
+  "grenade.wav": {
+    "duration": 1.192896,
+    "channels": 1,
+    "sampleRate": 48000,
+    "bits": 16,
+    "peakDbFS": -4.0,
+    "attackMs": 9,
+    "bytes": 114562,
+    "source": {
+      "author": "qubodup / public-domain US government training video",
+      "license": "CC0-1.0",
+      "page": "https://freesound.org/people/qubodup/sounds/162361/",
+      "download": "https://cdn.freesound.org/previews/162/162361_71257-hq.mp3",
+      "description": "M32 propelled-grenade launch on training grounds."
+    },
+    "sourceStart": 0,
+    "processing": "Full launch recording, natural tail retained."
+  },
+  "explosion.wav": {
+    "duration": 0.601146,
+    "channels": 1,
+    "sampleRate": 48000,
+    "bits": 16,
+    "peakDbFS": -4.0,
+    "attackMs": 11,
+    "bytes": 57754,
+    "source": {
+      "author": "qubodup / public-domain US government training video",
+      "license": "CC0-1.0",
+      "page": "https://freesound.org/people/qubodup/sounds/162363/",
+      "download": "https://cdn.freesound.org/previews/162/162363_71257-hq.mp3",
+      "description": "Distant grenade detonation on training grounds; short original tail retained."
+    },
+    "sourceStart": 0,
+    "processing": "Full original detonation recording; its short natural tail is not synthesized or lengthened."
+  },
+  "reload.wav": {
+    "duration": 1.869875,
+    "channels": 1,
+    "sampleRate": 48000,
+    "bits": 16,
+    "peakDbFS": -4.0,
+    "attackMs": 34,
+    "bytes": 179552,
+    "source": {
+      "author": "qubodup; edits of CC0 mechanical recordings by serøtōnin",
+      "license": "CC0-1.0",
+      "page": "https://freesound.org/people/qubodup/sounds/815879/",
+      "download": "https://cdn.freesound.org/previews/815/815879_71257-hq.mp3",
+      "description": "Edited real magazine-removal and Ruger 10/22 empty-reload recordings."
+    },
+    "sourceStart": 0,
+    "processing": "Full edited mechanical reload recording."
+  },
+  "bolt.wav": {
+    "duration": 0.427208,
+    "channels": 1,
+    "sampleRate": 48000,
+    "bits": 16,
+    "peakDbFS": -4.0,
+    "attackMs": 4,
+    "bytes": 41056,
+    "source": {
+      "author": "qubodup; edits of CC0 mechanical recordings by serøtōnin",
+      "license": "CC0-1.0",
+      "page": "https://freesound.org/people/qubodup/sounds/815879/",
+      "download": "https://cdn.freesound.org/previews/815/815879_71257-hq.mp3",
+      "description": "Edited real magazine-removal and Ruger 10/22 empty-reload recordings."
+    },
+    "sourceStart": 1.442667,
+    "processing": "Final real mechanical handling segment from the reload source, used as bolt-cycle foley; attack trimmed to 5ms."
+  },
+  "casing.wav": {
+    "duration": 0.580187,
+    "channels": 1,
+    "sampleRate": 48000,
+    "bits": 16,
+    "peakDbFS": -4.0,
+    "attackMs": 0,
+    "bytes": 55742,
+    "source": {
+      "author": "BlondPanda",
+      "license": "CC0-1.0",
+      "page": "https://freesound.org/people/BlondPanda/sounds/778026/",
+      "download": "https://cdn.freesound.org/previews/778/778026_8927049-hq.mp3",
+      "description": "Real 9mm blank casing hitting a hard surface; Sennheiser MKE600 / EVO8."
+    },
+    "sourceStart": 0,
+    "processing": "Full real blank-casing landing recording."
+  },
+  "forest.wav": {
+    "duration": 20.0,
+    "channels": 2,
+    "sampleRate": 48000,
+    "bits": 16,
+    "peakDbFS": -4.0,
+    "attackMs": 3,
+    "bytes": 3840044,
+    "source": {
+      "author": "Joseph SARDIN / BigSoundBank",
+      "license": "CC0-1.0",
+      "page": "https://bigsoundbank.com/forest-s0100.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0100.mp3",
+      "description": "Real outdoor stereo forest birds, insects and quiet background environment."
+    },
+    "sourceStart": 3,
+    "processing": "20-second stereo loop from 22 seconds, with 2-second equal-power wrap crossfade."
+  },
+  "water-step-1.wav": {
+    "duration": 0.65,
+    "channels": 1,
+    "sampleRate": 48000,
+    "bits": 16,
+    "peakDbFS": -4.0,
+    "attackMs": 3,
+    "bytes": 62444,
+    "source": {
+      "author": "Joseph SARDIN / BigSoundBank",
+      "license": "CC0-1.0",
+      "page": "https://bigsoundbank.com/shoes-in-the-water-s0690.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0690.mp3",
+      "description": "Real shoes walking in water after a storm; two separate recorded splash steps cropped."
+    },
+    "sourceStart": 3.557833,
+    "processing": "One real shoe-in-water footstep, cropped with natural splash tail."
+  },
+  "water-step-2.wav": {
+    "duration": 0.65,
+    "channels": 1,
+    "sampleRate": 48000,
+    "bits": 16,
+    "peakDbFS": -4.0,
+    "attackMs": 4,
+    "bytes": 62444,
+    "source": {
+      "author": "Joseph SARDIN / BigSoundBank",
+      "license": "CC0-1.0",
+      "page": "https://bigsoundbank.com/shoes-in-the-water-s0690.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0690.mp3",
+      "description": "Real shoes walking in water after a storm; two separate recorded splash steps cropped."
+    },
+    "sourceStart": 4.392812,
+    "processing": "One real shoe-in-water footstep, cropped with natural splash tail."
+  },
+  "footstep-grass-1.wav": {
+    "duration": 0.4,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 25644,
+    "peakDbFS": -6,
+    "sha256": "93d939e0dedf105d694e65786b624822f88cd4f262d79714f1583174b38cb2d3",
+    "source": {
+      "key": "grass",
+      "page": "https://bigsoundbank.com/steps-in-the-short-grass-s0854.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0854.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Steps in the short grass — Free Download WAV & MP3 | BigSoundBank",
+      "bytes": 1208768
+    },
+    "sourceStart": 1.448,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-grass-2.wav": {
+    "duration": 0.4,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 25644,
+    "peakDbFS": -6,
+    "sha256": "2c750ecddfd8a6d420ec7e33d26b642f7e02ad161818797061a211b4d278d021",
+    "source": {
+      "key": "grass",
+      "page": "https://bigsoundbank.com/steps-in-the-short-grass-s0854.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0854.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Steps in the short grass — Free Download WAV & MP3 | BigSoundBank",
+      "bytes": 1208768
+    },
+    "sourceStart": 7.828,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-grass-3.wav": {
+    "duration": 0.4,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 25644,
+    "peakDbFS": -6,
+    "sha256": "9850abc05e5bfdebf933b21bf7112a74d2be9ae0b93872fe477a9179c1f463b9",
+    "source": {
+      "key": "grass",
+      "page": "https://bigsoundbank.com/steps-in-the-short-grass-s0854.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0854.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Steps in the short grass — Free Download WAV & MP3 | BigSoundBank",
+      "bytes": 1208768
+    },
+    "sourceStart": 21.458,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-grass-4.wav": {
+    "duration": 0.4,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 25644,
+    "peakDbFS": -6,
+    "sha256": "cc8724ae81ba85b1f4873f8fed10cb6a6cbf55d983c26eed4bdddf431859ae4c",
+    "source": {
+      "key": "grass",
+      "page": "https://bigsoundbank.com/steps-in-the-short-grass-s0854.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0854.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Steps in the short grass — Free Download WAV & MP3 | BigSoundBank",
+      "bytes": 1208768
+    },
+    "sourceStart": 27.883,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-gravel-1.wav": {
+    "duration": 0.4,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 25644,
+    "peakDbFS": -6,
+    "sha256": "4166627d6042057108ddcb2fffcbb041408c461d0798e7139efd5c814b0a5d0b",
+    "source": {
+      "key": "gravel",
+      "page": "https://bigsoundbank.com/footsteps-on-gravels-3-s3202.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/3202.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Footsteps on Gravels #3 — Free Sound Effect Download | BigSoundBank",
+      "bytes": 2938893
+    },
+    "sourceStart": 15.708,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-gravel-2.wav": {
+    "duration": 0.4,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 25644,
+    "peakDbFS": -6,
+    "sha256": "07c65108bb121b615972a2c8b00fa840b32c733b4e125b91b6e7f8d93b69c931",
+    "source": {
+      "key": "gravel",
+      "page": "https://bigsoundbank.com/footsteps-on-gravels-3-s3202.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/3202.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Footsteps on Gravels #3 — Free Sound Effect Download | BigSoundBank",
+      "bytes": 2938893
+    },
+    "sourceStart": 26.668,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-gravel-3.wav": {
+    "duration": 0.4,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 25644,
+    "peakDbFS": -6,
+    "sha256": "935907eda605d31bff73d154da7716d2a29224a950a5c25a5ffffb4d18d9ba6d",
+    "source": {
+      "key": "gravel",
+      "page": "https://bigsoundbank.com/footsteps-on-gravels-3-s3202.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/3202.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Footsteps on Gravels #3 — Free Sound Effect Download | BigSoundBank",
+      "bytes": 2938893
+    },
+    "sourceStart": 45.263,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-gravel-4.wav": {
+    "duration": 0.4,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 25644,
+    "peakDbFS": -6,
+    "sha256": "28189cd81c6c1ad13a707daa02a1906544f47bcc6990d4bd623812a9e901d611",
+    "source": {
+      "key": "gravel",
+      "page": "https://bigsoundbank.com/footsteps-on-gravels-3-s3202.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/3202.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Footsteps on Gravels #3 — Free Sound Effect Download | BigSoundBank",
+      "bytes": 2938893
+    },
+    "sourceStart": 56.828,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-wood-1.wav": {
+    "duration": 0.34,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 21804,
+    "peakDbFS": -6,
+    "sha256": "2bef410272338da0d69e0739ea294477f15fc91afc160bc93713abb1d07735f1",
+    "source": {
+      "key": "wood",
+      "page": "https://bigsoundbank.com/man-footsteps-on-the-wooden-floor-s0165.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0165.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "DavidGreck",
+      "title": "Man Footsteps on the Wooden Floor — Free Download WAV & MP3 | BigSoundBank",
+      "bytes": 140332
+    },
+    "sourceStart": 0.373,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-wood-2.wav": {
+    "duration": 0.34,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 21804,
+    "peakDbFS": -6,
+    "sha256": "1a7341ea7c0a76e595e8536cd45ffa7bad3234983c1032eacc0c1958dc77278e",
+    "source": {
+      "key": "wood",
+      "page": "https://bigsoundbank.com/man-footsteps-on-the-wooden-floor-s0165.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0165.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "DavidGreck",
+      "title": "Man Footsteps on the Wooden Floor — Free Download WAV & MP3 | BigSoundBank",
+      "bytes": 140332
+    },
+    "sourceStart": 2.328,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-wood-3.wav": {
+    "duration": 0.34,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 21804,
+    "peakDbFS": -6,
+    "sha256": "7fd2ce3ed0d8a7940cb47437903e9bc2c00d5d0c2b4055d27a8a7e324958933d",
+    "source": {
+      "key": "wood",
+      "page": "https://bigsoundbank.com/man-footsteps-on-the-wooden-floor-s0165.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0165.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "DavidGreck",
+      "title": "Man Footsteps on the Wooden Floor — Free Download WAV & MP3 | BigSoundBank",
+      "bytes": 140332
+    },
+    "sourceStart": 4.848,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-wood-4.wav": {
+    "duration": 0.34,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 21804,
+    "peakDbFS": -6,
+    "sha256": "0bb2f968ed64d9bdf620514db45293e1682a912a35a290ca265cc6d2db58c811",
+    "source": {
+      "key": "wood",
+      "page": "https://bigsoundbank.com/man-footsteps-on-the-wooden-floor-s0165.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0165.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "DavidGreck",
+      "title": "Man Footsteps on the Wooden Floor — Free Download WAV & MP3 | BigSoundBank",
+      "bytes": 140332
+    },
+    "sourceStart": 7.478,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-stone-1.wav": {
+    "duration": 0.36,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 23084,
+    "peakDbFS": -6,
+    "sha256": "c2f9d247f30d0a95d0197a65e391a5c99bfeb6196cf3c02c4c3cbf85fbdbd456",
+    "source": {
+      "key": "stone",
+      "page": "https://bigsoundbank.com/footsteps-shoe-on-concrete-s0514.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0514.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Footsteps, Shoe on Concrete — Free Download WAV & MP3 | BigSoundBank",
+      "bytes": 403328
+    },
+    "sourceStart": 0.423,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-stone-2.wav": {
+    "duration": 0.36,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 23084,
+    "peakDbFS": -6,
+    "sha256": "b661b8acf0d022fb5889c2c0d7c608c524270519a5afb803727e6c456e24011f",
+    "source": {
+      "key": "stone",
+      "page": "https://bigsoundbank.com/footsteps-shoe-on-concrete-s0514.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0514.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Footsteps, Shoe on Concrete — Free Download WAV & MP3 | BigSoundBank",
+      "bytes": 403328
+    },
+    "sourceStart": 2.493,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-stone-3.wav": {
+    "duration": 0.36,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 23084,
+    "peakDbFS": -6,
+    "sha256": "8db17ada18d7b46f1ee4660e43900dda4ad1b418bc399605fc649c86c339cb3e",
+    "source": {
+      "key": "stone",
+      "page": "https://bigsoundbank.com/footsteps-shoe-on-concrete-s0514.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0514.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Footsteps, Shoe on Concrete — Free Download WAV & MP3 | BigSoundBank",
+      "bytes": 403328
+    },
+    "sourceStart": 5.588,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "footstep-stone-4.wav": {
+    "duration": 0.36,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 23084,
+    "peakDbFS": -6,
+    "sha256": "61ffab97a05b01633b278ec03128fec68205c170e2c9655cf8bf115549de3c55",
+    "source": {
+      "key": "stone",
+      "page": "https://bigsoundbank.com/footsteps-shoe-on-concrete-s0514.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0514.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Footsteps, Shoe on Concrete — Free Download WAV & MP3 | BigSoundBank",
+      "bytes": 403328
+    },
+    "sourceStart": 8.978,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  },
+  "swim-stroke-1.wav": {
+    "duration": 0.62,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 39724,
+    "peakDbFS": -6,
+    "sha256": "72a4714b0673fa1c9b57a8b2c00b48e5fefdf0e3a2c3b635ab670b644cee8765",
+    "source": {
+      "key": "swim",
+      "page": "https://bigsoundbank.com/stir-in-water-2-s0651.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0651.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Stir in water #2 — Free Sound Effect Download | BigSoundBank",
+      "bytes": 1362368
+    },
+    "sourceStart": 4.99,
+    "processing": "Distinct real recorded contact; 65 Hz highpass, normalized with short edit fades. Swimming source is actual hand movement in a sink, used as foley, not an outdoor swimmer recording."
+  },
+  "swim-stroke-2.wav": {
+    "duration": 0.62,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 39724,
+    "peakDbFS": -6,
+    "sha256": "871d2d72051eb055cd61b8333868b6bca82dfc5558d1927cca640e63f474a97c",
+    "source": {
+      "key": "swim",
+      "page": "https://bigsoundbank.com/stir-in-water-2-s0651.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0651.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Stir in water #2 — Free Sound Effect Download | BigSoundBank",
+      "bytes": 1362368
+    },
+    "sourceStart": 12.82,
+    "processing": "Distinct real recorded contact; 65 Hz highpass, normalized with short edit fades. Swimming source is actual hand movement in a sink, used as foley, not an outdoor swimmer recording."
+  },
+  "swim-stroke-3.wav": {
+    "duration": 0.62,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 39724,
+    "peakDbFS": -6,
+    "sha256": "10058a7892ac2c6fc7970159b9ab18e1aebd5198feda4dc890cf3825f631a5fe",
+    "source": {
+      "key": "swim",
+      "page": "https://bigsoundbank.com/stir-in-water-2-s0651.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0651.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Stir in water #2 — Free Sound Effect Download | BigSoundBank",
+      "bytes": 1362368
+    },
+    "sourceStart": 19.125,
+    "processing": "Distinct real recorded contact; 65 Hz highpass, normalized with short edit fades. Swimming source is actual hand movement in a sink, used as foley, not an outdoor swimmer recording."
+  },
+  "swim-stroke-4.wav": {
+    "duration": 0.62,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 39724,
+    "peakDbFS": -6,
+    "sha256": "29fafd7e935c827392be5eaab61c73299e2d7a8d99c8e084130b607110defb45",
+    "source": {
+      "key": "swim",
+      "page": "https://bigsoundbank.com/stir-in-water-2-s0651.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0651.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "Stir in water #2 — Free Sound Effect Download | BigSoundBank",
+      "bytes": 1362368
+    },
+    "sourceStart": 27.95,
+    "processing": "Distinct real recorded contact; 65 Hz highpass, normalized with short edit fades. Swimming source is actual hand movement in a sink, used as foley, not an outdoor swimmer recording."
+  },
+  "glass-break.wav": {
+    "duration": 1.4208125,
+    "channels": 1,
+    "sampleRate": 32000,
+    "bits": 16,
+    "bytes": 90976,
+    "peakDbFS": -6,
+    "sha256": "1aa39d23f28405daad0f94394eeb64c3bd1d6885ff7edfc2634738fe5b414460",
+    "source": {
+      "key": "mirror",
+      "page": "https://bigsoundbank.com:443/miroir-qui-explose-s0387.html",
+      "download": "https://bigsoundbank.com/UPLOAD/mp3/0387.mp3?v=d",
+      "license": "CC0-1.0",
+      "author": "Joseph SARDIN",
+      "title": "A Mirror Explodes",
+      "bytes": 60608
+    },
+    "sourceStart": 0.0671875,
+    "processing": "Distinct real recorded contact, 65 Hz highpass, normalized with short edit fades."
+  }
+}

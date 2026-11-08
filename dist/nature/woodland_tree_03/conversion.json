@@ -1,0 +1,223 @@
+{
+  "name": "woodland_tree_03",
+  "source": "https://polyhaven.com/a/tree_small_02",
+  "author": "Rico Cilliers",
+  "license": "CC0-1.0",
+  "originalBBox": {
+    "min": [
+      -1.3089934587478638,
+      -0.02410384640097618,
+      -1.3826267719268799
+    ],
+    "max": [
+      1.6077065467834473,
+      4.532637119293213,
+      2.9098503589630127
+    ]
+  },
+  "origin": [
+    0.14935654401779175,
+    -0.02410384640097618,
+    0.7636117935180664
+  ],
+  "sourceGeometryBytes": 95102324,
+  "sourceGeometrySha256": "8da6c3c389ad8748286d1b7488cd827f75ebdad9d8f59ef7dfb0916df5edc634",
+  "sourceLeafComponents": 30250,
+  "sourceLeafTriangles": 1939380,
+  "leafRepresentation": "One UV-fitted leaf surface per original separate leaf/twig mesh island, preserving source location, orientation, original UV bounds and photographic alpha. No crossed crown cards or cluster atlas.",
+  "lods": [
+    {
+      "name": "high",
+      "triangles": 63194,
+      "leafTriangles": 60500,
+      "retainedOriginalLeafComponents": 30250,
+      "occupiedCanopyVoxels": 427,
+      "meshBytes": 4732328,
+      "bbox": {
+        "min": [
+          -1.468017578125,
+          0,
+          -2.147705078125
+        ],
+        "max": [
+          1.46630859375,
+          4.564208984375,
+          2.14794921875
+        ]
+      },
+      "dimensions": [
+        2.934326171875,
+        4.564208984375,
+        4.295654296875
+      ],
+      "parts": [
+        {
+          "name": "tree_small_02_branches",
+          "triangles": 1096,
+          "vertices": 1268
+        },
+        {
+          "name": "tree_small_02_leaves",
+          "triangles": 60500,
+          "vertices": 121000
+        },
+        {
+          "name": "tree_small_02_trunk",
+          "triangles": 1598,
+          "vertices": 1282
+        }
+      ]
+    },
+    {
+      "name": "low",
+      "triangles": 41137,
+      "leafTriangles": 40000,
+      "retainedOriginalLeafComponents": 20000,
+      "occupiedCanopyVoxels": 427,
+      "meshBytes": 3101084,
+      "bbox": {
+        "min": [
+          -1.468017578125,
+          0,
+          -2.147705078125
+        ],
+        "max": [
+          1.454833984375,
+          4.564208984375,
+          2.14794921875
+        ]
+      },
+      "dimensions": [
+        2.9228515625,
+        4.564208984375,
+        4.295654296875
+      ],
+      "parts": [
+        {
+          "name": "tree_small_02_branches",
+          "triangles": 440,
+          "vertices": 503
+        },
+        {
+          "name": "tree_small_02_leaves",
+          "triangles": 40000,
+          "vertices": 80000
+        },
+        {
+          "name": "tree_small_02_trunk",
+          "triangles": 697,
+          "vertices": 683
+        }
+      ]
+    }
+  ],
+  "farAtlas": {
+    "reuse": "../woodland_tree_02/impostor.png",
+    "sameOriginalTree": true,
+    "frames": 8,
+    "planeSizeMeters": [
+      5.4,
+      5.4
+    ],
+    "planeCenterY": 2.28
+  },
+  "nativeProjectedCoverage": [
+    {
+      "view": 0,
+      "lod": "high",
+      "leafAreaRatio": 1.0443461950696677,
+      "leafIoU": 0.8092245672278872
+    },
+    {
+      "view": 0,
+      "lod": "low",
+      "leafAreaRatio": 0.9257770632368703,
+      "leafIoU": 0.7497261107729762
+    },
+    {
+      "view": 45,
+      "lod": "high",
+      "leafAreaRatio": 1.0514650232457563,
+      "leafIoU": 0.7775904065954656
+    },
+    {
+      "view": 45,
+      "lod": "low",
+      "leafAreaRatio": 0.9087468915558439,
+      "leafIoU": 0.712152070604209
+    },
+    {
+      "view": 90,
+      "lod": "high",
+      "leafAreaRatio": 1.0482722513089004,
+      "leafIoU": 0.7832983863615645
+    },
+    {
+      "view": 90,
+      "lod": "low",
+      "leafAreaRatio": 0.9027225130890052,
+      "leafIoU": 0.7102117647058823
+    },
+    {
+      "view": 135,
+      "lod": "high",
+      "leafAreaRatio": 1.0396296714463136,
+      "leafIoU": 0.7894997523526498
+    },
+    {
+      "view": 135,
+      "lod": "low",
+      "leafAreaRatio": 0.914530879530315,
+      "leafIoU": 0.7285423037716615
+    },
+    {
+      "view": 180,
+      "lod": "high",
+      "leafAreaRatio": 1.026713578316393,
+      "leafIoU": 0.8273998355069909
+    },
+    {
+      "view": 180,
+      "lod": "low",
+      "leafAreaRatio": 0.9184258535314047,
+      "leafIoU": 0.7677713736791547
+    },
+    {
+      "view": 225,
+      "lod": "high",
+      "leafAreaRatio": 1.0457260779841424,
+      "leafIoU": 0.7807506854495604
+    },
+    {
+      "view": 225,
+      "lod": "low",
+      "leafAreaRatio": 0.9080047789725209,
+      "leafIoU": 0.7140208800858621
+    },
+    {
+      "view": 270,
+      "lod": "high",
+      "leafAreaRatio": 1.045528987880773,
+      "leafIoU": 0.7827576363117328
+    },
+    {
+      "view": 270,
+      "lod": "low",
+      "leafAreaRatio": 0.9014084507042254,
+      "leafIoU": 0.7130631516820776
+    },
+    {
+      "view": 315,
+      "lod": "high",
+      "leafAreaRatio": 1.0528169014084507,
+      "leafIoU": 0.8057246608992844
+    },
+    {
+      "view": 315,
+      "lod": "low",
+      "leafAreaRatio": 0.9350412821758135,
+      "leafIoU": 0.7444176882661997
+    }
+  ],
+  "nativeChecks": "Eight horizontal azimuths: finite/index-valid geometry, original alpha; high projected crown area .95..1.12 and IoU>.75, low area .88..1.02 and IoU>.69. Asset-only native EGL, not browser or device QA."
+}

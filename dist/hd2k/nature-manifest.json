@@ -1,0 +1,457 @@
+{
+  "entries": [
+    {
+      "target": "environment/sky.hdr",
+      "file": "hd2k/environment/sky.hdr",
+      "source": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/kloofendal_48d_partly_cloudy_puresky_2k.hdr",
+      "width": 2048,
+      "height": 1024,
+      "native": true,
+      "kind": "hdr"
+    },
+    {
+      "target": "nature/fern_02/textures/fern_02_arm_1k.jpg",
+      "file": "hd2k/nature/fern_02/textures/fern_02_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/fern_02/fern_02_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/fern_02/textures/fern_02_diff_1k.png",
+      "file": "hd2k/nature/fern_02/textures/fern_02_diff_2k.png",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/fern_02/fern_02_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "alphaSource": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/fern_02/fern_02_alpha_2k.png"
+    },
+    {
+      "target": "nature/fern_02/textures/fern_02_nor_gl_1k.jpg",
+      "file": "hd2k/nature/fern_02/textures/fern_02_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/fern_02/fern_02_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/flower_heliophila/textures/flower_heliophila_arm_1k.jpg",
+      "file": "hd2k/nature/flower_heliophila/textures/flower_heliophila_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/flower_heliophila/flower_heliophila_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/flower_heliophila/textures/flower_heliophila_diff_1k.png",
+      "file": "hd2k/nature/flower_heliophila/textures/flower_heliophila_diff_2k.png",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/flower_heliophila/flower_heliophila_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "alphaSource": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/flower_heliophila/flower_heliophila_alpha_2k.png"
+    },
+    {
+      "target": "nature/flower_heliophila/textures/flower_heliophila_nor_gl_1k.jpg",
+      "file": "hd2k/nature/flower_heliophila/textures/flower_heliophila_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/flower_heliophila/flower_heliophila_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/grass_medium_02/textures/grass_medium_02_arm_1k.jpg",
+      "file": "hd2k/nature/grass_medium_02/textures/grass_medium_02_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/grass_medium_02/grass_medium_02_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/grass_medium_02/textures/grass_medium_02_diff_1k.png",
+      "file": "hd2k/nature/grass_medium_02/textures/grass_medium_02_diff_2k.png",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/grass_medium_02/grass_medium_02_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "alphaSource": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/grass_medium_02/grass_medium_02_alpha_2k.png"
+    },
+    {
+      "target": "nature/grass_medium_02/textures/grass_medium_02_nor_gl_1k.jpg",
+      "file": "hd2k/nature/grass_medium_02/textures/grass_medium_02_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/grass_medium_02/grass_medium_02_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_arm_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_branches_arm_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_branches_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_branches_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_branches_diff_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_branches_diff_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_branches_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_branches_nor_gl_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_branches_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_branches_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_diff_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_diff_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_leaves_arm_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_leaves_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_leaves_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_leaves_diff_1k.png",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_leaves_diff_2k.png",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_leaves_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "alphaSource": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/island_tree_02/island_tree_02_leaves_alpha_2k.png"
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_leaves_nor_gl_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_leaves_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_leaves_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_nor_gl_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/rock_face_01/textures/rock_face_01_arm_1k.jpg",
+      "file": "hd2k/nature/rock_face_01/textures/rock_face_01_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_face_01/rock_face_01_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/rock_face_01/textures/rock_face_01_diff_1k.jpg",
+      "file": "hd2k/nature/rock_face_01/textures/rock_face_01_diff_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_face_01/rock_face_01_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/rock_face_01/textures/rock_face_01_nor_gl_1k.jpg",
+      "file": "hd2k/nature/rock_face_01/textures/rock_face_01_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_face_01/rock_face_01_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/rock_moss_set_01/textures/rock_moss_set_01_diff_1k.jpg",
+      "file": "hd2k/nature/rock_moss_set_01/textures/rock_moss_set_01_diff_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_moss_set_01/rock_moss_set_01_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/rock_moss_set_01/textures/rock_moss_set_01_nor_gl_1k.jpg",
+      "file": "hd2k/nature/rock_moss_set_01/textures/rock_moss_set_01_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_moss_set_01/rock_moss_set_01_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/rock_moss_set_01/textures/rock_moss_set_01_rough_1k.jpg",
+      "file": "hd2k/nature/rock_moss_set_01/textures/rock_moss_set_01_rough_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_moss_set_01/rock_moss_set_01_rough_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_arm_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_branch_arm_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_branch_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_branch_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_branch_diff_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_branch_diff_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_branch_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_branch_nor_gl_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_branch_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_branch_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_diff_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_diff_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_leaves_arm_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_leaves_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_leaves_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_leaves_diff_1k.png",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_leaves_diff_2k.png",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_leaves_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "alphaSource": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/tree_small_02/tree_small_02_leaves_alpha_2k.png"
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_leaves_nor_gl_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_leaves_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_leaves_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_nor_gl_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/forest-normal.jpg",
+      "file": "hd2k/textures/forest-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_mud_leaves_01/brown_mud_leaves_01_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/forest.jpg",
+      "file": "hd2k/textures/forest.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_mud_leaves_01/brown_mud_leaves_01_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/grass-normal.jpg",
+      "file": "hd2k/textures/grass-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leafy_grass/leafy_grass_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/grass-rough.jpg",
+      "file": "hd2k/textures/grass-rough.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leafy_grass/leafy_grass_rough_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/grass.jpg",
+      "file": "hd2k/textures/grass.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leafy_grass/leafy_grass_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/ground-normal.jpg",
+      "file": "hd2k/textures/ground-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rocky_trail/rocky_trail_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/ground.jpg",
+      "file": "hd2k/textures/ground.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rocky_trail/rocky_trail_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/metal-normal.jpg",
+      "file": "hd2k/textures/metal-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/metal_plate/metal_plate_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/metal-rough.jpg",
+      "file": "hd2k/textures/metal-rough.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/metal_plate/metal_plate_rough_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/rock-normal.jpg",
+      "file": "hd2k/textures/rock-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_01/rock_01_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/rock.jpg",
+      "file": "hd2k/textures/rock.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_01/rock_01_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/roof-normal.jpg",
+      "file": "hd2k/textures/roof-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/grey_roof_tiles/grey_roof_tiles_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/roof-rough.jpg",
+      "file": "hd2k/textures/roof-rough.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/grey_roof_tiles/grey_roof_tiles_rough_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/roof.jpg",
+      "file": "hd2k/textures/roof.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/grey_roof_tiles/grey_roof_tiles_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/wall-normal.jpg",
+      "file": "hd2k/textures/wall-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/plaster_brick_01/plaster_brick_01_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/wall-rough.jpg",
+      "file": "hd2k/textures/wall-rough.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/plaster_brick_01/plaster_brick_01_rough_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/wall.jpg",
+      "file": "hd2k/textures/wall.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/plaster_brick_01/plaster_brick_01_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/water-normal.jpg",
+      "file": "hd2k/textures/water-normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "scripts/prepare-2k-nature.mjs: native periodic 2048px Fourier wave normal"
+    },
+    {
+      "target": "textures/wood-normal.jpg",
+      "file": "hd2k/textures/wood-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_planks_dirt/wood_planks_dirt_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/wood-rough.jpg",
+      "file": "hd2k/textures/wood-rough.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_planks_dirt/wood_planks_dirt_rough_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    },
+    {
+      "target": "textures/wood.jpg",
+      "file": "hd2k/textures/wood.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_planks_dirt/wood_planks_dirt_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true
+    }
+  ],
+  "notes": [
+    "All 20 active surface photographic maps and all 33 external images in the seven active nature glTF models use original official 2048x2048 Poly Haven sources. No 1K images enlarged.",
+    "Photographic RGB and UV orientation retained; normal maps are OpenGL; ARM maps retain original AO/Roughness/Metal channels. JPEG quality 93 with full 4:4:4 chroma.",
+    "Foliage alpha uses the original 16-bit PNG divided by 257. Invisible RGB is dilated without changing alpha.",
+    "Water normal is generated directly on a periodic 2048px Fourier lattice. It is an authored wave field, not a photograph or enlarged lower-resolution texture.",
+    "Sky is unmodified official 2048x1024 RGBE HDR. All Poly Haven assets CC0-1.0."
+  ]
+}

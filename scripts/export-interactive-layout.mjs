@@ -1,0 +1,20 @@
+// Native mesh/material inspection only; not a browser rendering or device screenshot.
+import fs from 'node:fs';import path from 'node:path';import * as THREE from '../dist/vendor/three.module.js';
+import {localAssets} from './local-assets.mjs';import {createWorldData,Match} from '../dist/core.js';import {makeRuralBuilding} from '../dist/rural-buildings.js';import {makeLootViews} from '../dist/loot-views.js';import {makeVehicleViews} from '../dist/vehicles.js';
+const dir=path.resolve(process.argv[2]);fs.mkdirSync(dir,{recursive:true});const {assets,surfaces}=await localAssets(),data=createWorldData(),b=data.buildings[0],house=makeRuralBuilding(b,surfaces),supplies=makeLootViews(data.loot.filter(l=>l.houseId===b.id)),fleet=new Match(data).fleet,vehicles=makeVehicleViews(assets,fleet),records=[],textures=new Map();
+const car=fleet.cars[0];Object.assign(car,{x:0,y:10,z:0,yaw:0,pitch:0,roll:0});vehicles.update(0);const room=new THREE.Group();room.add(house,supplies.group);
+function texture(map){if(!map)return null;if(textures.has(map.uuid))return textures.get(map.uuid);const c=document.createElement('canvas');c.width=map.image.width;c.height=map.image.height;c.getContext('2d').drawImage(map.image,0,0);const file='texture-'+textures.size+'.png';fs.writeFileSync(path.join(dir,file),c.toBuffer('image/png'));const value={file,flipY:map.flipY};textures.set(map.uuid,value);return value;}
+for(const [label,root,eye,target] of [
+  ['house-front',room,[b.x+4,b.y+2.5,b.z+b.d/2+5],[b.x,b.y+1.8,b.z]],
+  ['ground-room',room,[b.x,b.y+1.98,b.z+b.d/2-.65],[b.x-.8,b.y+1.25,b.z-b.d*.25]],
+  ['upper-room',room,[b.x+b.w*.10,b.y+b.h/2+1.8,b.z+b.d/2-.5],[b.x-b.w*.2,b.y+b.h/2+.65,b.z-b.d*.2]],
+  ['broken-window',room,[b.x-b.w*.285+.3,b.y+1.9,b.z+b.d/2+1.7],[b.x-b.w*.285+.3,b.y+1.55,b.z-b.d/2]],
+  ['intact-car',vehicles.items[0].root,[4,12.8,-5],[0,10.8,0]],
+  ['charred-black-wreck',vehicles.items[0].root,[4,12.8,-5],[0,10.8,0]]
+]){
+  if(label==='broken-window')house.userData.windows.filter(w=>w.id.startsWith(b.id+':0:0')).forEach(w=>w.mesh.visible=false);
+  if(label==='charred-black-wreck'){fleet.destroy(car);car.wreckAge=1.2;vehicles.update(0);}
+  root.updateMatrixWorld(true);const camera=new THREE.PerspectiveCamera(68,16/9,.04,200);camera.position.fromArray(eye);camera.lookAt(...target);camera.updateMatrixWorld(true);const item={aspect:16/9,slot:label,projection:camera.projectionMatrix.toArray(),parts:[]};
+  root.traverseVisible(o=>{if(!o.isMesh)return;const g=o.geometry.clone();if(o.isSkinnedMesh){o.skeleton.update();const p=g.attributes.position;for(let i=0;i<p.count;i++){const v=new THREE.Vector3();o.getVertexPosition(i,v);p.setXYZ(i,v.x,v.y,v.z);}g.computeVertexNormals();}g.applyMatrix4(new THREE.Matrix4().multiplyMatrices(camera.matrixWorldInverse,o.matrixWorld));const a=g.attributes,vertices=new Float32Array(a.position.count*8);for(let i=0;i<a.position.count;i++)vertices.set([a.position.getX(i),a.position.getY(i),a.position.getZ(i),a.normal.getX(i),a.normal.getY(i),a.normal.getZ(i),a.uv?.getX(i)||0,a.uv?.getY(i)||0],i*8);const materials=Array.isArray(o.material)?o.material:[o.material],groups=Array.isArray(o.material)?g.groups:[{start:0,count:g.index?.count||a.position.count,materialIndex:0}];for(const part of groups){const mat=materials[part.materialIndex],indices=g.index?Uint32Array.from(g.index.array.slice(part.start,part.start+part.count)):Uint32Array.from({length:part.count},(_,i)=>part.start+i),id=records.length+'-'+item.parts.length,vfile=id+'-vertices.bin',ifile=id+'-indices.bin';fs.writeFileSync(path.join(dir,vfile),Buffer.from(vertices.buffer));fs.writeFileSync(path.join(dir,ifile),Buffer.from(indices.buffer));item.parts.push({vertices:vfile,indices:ifile,count:indices.length,color:mat.color.toArray(),texture:texture(mat.map),alphaTest:mat.alphaTest||0,opacity:mat.opacity});}g.dispose();});item.parts.sort((a,b)=>(a.opacity<1)-(b.opacity<1));records.push(item);
+}
+fs.writeFileSync(path.join(dir,'layout.json'),JSON.stringify(records));console.log('Exported six actual house/interior/pickup/window/car/wreck geometry views.');

@@ -1,0 +1,75 @@
+{
+  "name": "island_tree_02",
+  "source": "https://polyhaven.com/a/island_tree_02",
+  "license": "CC0-1.0",
+  "axis": "Y up, units meters",
+  "originalBBox": {
+    "min": [
+      -2.052337884902954,
+      -0.017011718824505806,
+      -1.1141542196273804
+    ],
+    "max": [
+      2.155407428741455,
+      3.389594078063965,
+      2.956543207168579
+    ]
+  },
+  "origin": [
+    0.05153477191925049,
+    -0.017011718824505806,
+    0.9211944937705994
+  ],
+  "lods": [
+    {
+      "name": "high",
+      "meshBytes": 4830660,
+      "triangles": 69139,
+      "parts": [
+        {
+          "material": "island_tree_02",
+          "originalTriangles": 27298,
+          "triangles": 3600,
+          "relativeError": 0.002341147046536207
+        },
+        {
+          "material": "island_tree_02_leaves",
+          "originalTriangles": 714744,
+          "triangles": 65000,
+          "relativeError": 0.0012448433553799987
+        },
+        {
+          "material": "island_tree_02_branches",
+          "originalTriangles": 330171,
+          "triangles": 539,
+          "relativeError": 0.05481132119894028
+        }
+      ]
+    },
+    {
+      "name": "low",
+      "meshBytes": 3837644,
+      "triangles": 47305,
+      "parts": [
+        {
+          "material": "island_tree_02",
+          "originalTriangles": 27298,
+          "triangles": 1699,
+          "relativeError": 0.0046112616546452045
+        },
+        {
+          "material": "island_tree_02_leaves",
+          "originalTriangles": 714744,
+          "triangles": 45000,
+          "relativeError": 0.001619364833459258
+        },
+        {
+          "material": "island_tree_02_branches",
+          "originalTriangles": 330171,
+          "triangles": 606,
+          "relativeError": 0.052714694291353226
+        }
+      ]
+    }
+  ]
+}

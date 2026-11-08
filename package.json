@@ -1,0 +1,15 @@
+{
+  "name": "wild-frontier-fps",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "check:static": "node scripts/check-static.mjs",
+    "preview": "python -m http.server 8000 --directory dist"
+  },
+  "description": "Restored complete Wild Frontier 3D FPS with local assets and GitHub Pages deployment",
+  "devDependencies": {
+    "@napi-rs/canvas": "0.1.100"
+  }
+}

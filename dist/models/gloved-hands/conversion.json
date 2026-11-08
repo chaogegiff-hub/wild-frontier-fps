@@ -1,0 +1,80 @@
+{
+  "source": "https://opengameart.org/content/fps-arms-rigged-only",
+  "license": "CC0-1.0",
+  "anatomyAuthor": "para / MakeHuman",
+  "newWork": "Thin cotton shell, open wrist cuffs, cloth PBR sheen and anatomical weapon wrist continuation",
+  "triangles": 8856,
+  "vertices": 5212,
+  "bindRestError": 6.685429552324462e-08,
+  "bindBoundsMin": [
+    -0.5801175377309322,
+    -0.45034930362999437,
+    -0.370514885404706
+  ],
+  "bindBoundsMax": [
+    0.5801174184828997,
+    0.007950731832534075,
+    0.08738619858026504
+  ],
+  "handRegions": {
+    "L": {
+      "sourceHandVerticesBoundMin": [
+        -0.5801175377309322,
+        -0.45034912481606004,
+        -0.370514885404706
+      ],
+      "sourceHandVerticesBoundMax": [
+        -0.4472853248536587,
+        -0.28430451913911914,
+        -0.17461446439284692
+      ],
+      "handBone": "handL",
+      "handControl": "handLcontrol",
+      "cuffLengthMeters": 0.018,
+      "cuffLocalY": [
+        -0.012,
+        0.006
+      ],
+      "sourceGeometryLocalYMinimum": -0.003
+    },
+    "R": {
+      "sourceHandVerticesBoundMin": [
+        0.44728535465598107,
+        -0.45034930362999437,
+        -0.3705146474123001
+      ],
+      "sourceHandVerticesBoundMax": [
+        0.5801174184828997,
+        -0.2843045324957218,
+        -0.17461429524212235
+      ],
+      "handBone": "handR",
+      "handControl": "handRcontrol",
+      "cuffLengthMeters": 0.018,
+      "cuffLocalY": [
+        -0.012,
+        0.006
+      ],
+      "sourceGeometryLocalYMinimum": -0.003
+    }
+  },
+  "materials": [
+    {
+      "name": "tactical_woven_cloth",
+      "triangles": 6512
+    },
+    {
+      "name": "cotton_glove_seams",
+      "triangles": 256
+    },
+    {
+      "name": "woven_wrist_cuff",
+      "triangles": 288
+    },
+    {
+      "name": "cotton_weapon_sleeve",
+      "triangles": 1800
+    }
+  ],
+  "forearmAndUpperArmGeometry": "cotton arm continuation below the weapon frame; hidden while swimming; no visible upper arms in weapon view"
+}

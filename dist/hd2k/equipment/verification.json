@@ -1,0 +1,127 @@
+{
+  "orientation": [
+    {
+      "file": "sm004_body_color_acu",
+      "sourceSize": [
+        2048,
+        2048
+      ],
+      "verticalFlip": false,
+      "existingOrientationMAE": [
+        2.21679425239563,
+        42.27280044555664
+      ]
+    },
+    {
+      "file": "sm004_body_normal",
+      "sourceSize": [
+        2048,
+        2048
+      ],
+      "verticalFlip": false,
+      "existingOrientationMAE": [
+        2.0203216075897217,
+        16.465641021728516
+      ]
+    },
+    {
+      "file": "sm004_head_color",
+      "sourceSize": [
+        2048,
+        2048
+      ],
+      "verticalFlip": false,
+      "existingOrientationMAE": [
+        1.1850395202636719,
+        67.88427734375
+      ]
+    },
+    {
+      "file": "sm004_head_normal",
+      "sourceSize": [
+        2048,
+        2048
+      ],
+      "verticalFlip": false,
+      "existingOrientationMAE": [
+        1.5786710977554321,
+        8.067902565002441
+      ]
+    },
+    {
+      "file": "sm004_helmet_color_acu",
+      "sourceSize": [
+        2048,
+        2048
+      ],
+      "verticalFlip": false,
+      "existingOrientationMAE": [
+        1.1897506713867188,
+        38.028079986572266
+      ]
+    },
+    {
+      "file": "sm004_helmet_normal",
+      "sourceSize": [
+        2048,
+        2048
+      ],
+      "verticalFlip": false,
+      "existingOrientationMAE": [
+        2.392518997192383,
+        17.971933364868164
+      ]
+    },
+    {
+      "file": "sm004_equipment_color_acu",
+      "sourceSize": [
+        2048,
+        1024
+      ],
+      "verticalFlip": false,
+      "existingOrientationMAE": [
+        1.0769685506820679,
+        37.484832763671875
+      ]
+    },
+    {
+      "file": "sm004_equipment_normal",
+      "sourceSize": [
+        2048,
+        1024
+      ],
+      "verticalFlip": false,
+      "existingOrientationMAE": [
+        1.4136492013931274,
+        7.020726680755615
+      ]
+    },
+    {
+      "file": "sm004_pistol_color",
+      "sourceSize": [
+        1024,
+        1024
+      ],
+      "verticalFlip": false,
+      "existingOrientationMAE": [
+        0.7497234344482422,
+        27.91924476623535
+      ]
+    },
+    {
+      "file": "sm004_pistol_normal",
+      "sourceSize": [
+        1024,
+        1024
+      ],
+      "verticalFlip": false,
+      "existingOrientationMAE": [
+        1.249245047569275,
+        6.357639312744141
+      ]
+    }
+  ],
+  "files": 27,
+  "native2k": 25,
+  "bytes": 27966041
+}

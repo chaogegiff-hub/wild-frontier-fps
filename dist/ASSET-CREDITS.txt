@@ -1,0 +1,157 @@
+2.3 2K rendering and native material revision
+2K photographic surfaces, plants and HDR sky: original Poly Haven CC0 sources. See hd2k/NATURE-SOURCES.md and hd2k/nature-manifest.json for original files, attribution and conversion details. Periodic 2048 water-wave normal is project-generated, not enlarged from the old source.
+M700 and Rocketbox native 2K images restored from the original credited authors. AKM retains its credited original 2K delivery. Newly authored 2K tactical glove and GL-6 microfinish maps are project CC0 work. NPC holstered pistol source images remain original 1K. See hd2k/EQUIPMENT-SOURCES.md and equipment-manifest.json; Rocketbox MIT license remains in models/rocketbox-soldier/LICENSE.md.
+Rendering, memory-budgeted streaming and glTF material-slot fallback are project code. Raster UI is not used to fake 2K game output.
+
+2.2 character, AKM and sight-alignment revision
+Active third weapon: Weathered AKM, LonesomeDucky, CC0-1.0.
+https://opengameart.org/content/weathered-akm-rifle
+Original authored mesh (5,322 triangles), UVs, PBR color/roughness/metal/AO/normal maps and custom split normals preserved; converted to metres. Source 4K maps reduced to 2K delivery; mobile pack 1K, desktop pack 2K. Full-chroma JPEG, color quality 94 and normal/ORM 95 before pack compression. Not a scan or manufacturer CAD. See models/akm/SOURCE.md and conversion.json. Replaces the retained legacy M4A1 below.
+Active combatant: Microsoft Rocketbox Military_Male_03, Microsoft / Rocketbox, MIT.
+https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03
+Original same-skeleton Idle/Walk/Run animations from Assets/Animations. Original military avatar converted from FBX, normalized to metres, with original UVs, skeleton and color/normal maps. Full MIT text in models/rocketbox-soldier/LICENSE.md; conversion details in SOURCE.md and conversion.json. Replaces the retained Three.js Soldier below.
+Added 7.62 x39 brass case and copper bullet: original metre-scale geometry, CC0-1.0, in ammunition.js. Sight-marker calibration, independent reticle canvas and runtime grip IK are project code.
+
+2.1 weapon, ammunition and forest-floor revision
+Active GL-6: original authored Wild Frontier model and microfinish maps, CC0-1.0. 0.838 m, open barrel and six drum chambers, 8,178 triangles. Not a scan, manufacturer CAD, or the retained legacy 3DAssets.dev launcher below. See models/gl6/SOURCE.md.
+Cartridge cases and copper projectiles: original authored metre-scale geometry/materials, CC0-1.0. 5.56 x45, 7.62 x51 and 40 x46 case forms. See ammunition.js. Gameplay bullet behaviour is an approximation.
+M4A1: original credited CC0 asset below; removed zero-area triangles and repaired invalid normals without replacing the original UVs or PBR finish maps. See source-assets/legacy/models/m4a1/SOURCE.md in the source repository.
+Forest understorey and roadside stones reuse the credited fern_02 and rock_moss_set_01 photographic assets below. No additional external source assets.
+
+2.0 full-leaf canopy, ground rendering and midday photographic lighting
+Current woodland tree: nature/woodland_tree_03/ from tree_small_02, Rico Cilliers, Poly Haven CC0. Individual original leaf UV islands fitted to their own planes; 63,194/41,137triangles. Replaces the large crossed-cluster canopy at near/mid distance. Existing tree02 eight-angle far atlas reused.
+Current HDR sky: Kloofendal48dPartlyCloudy(PureSky), original GregZaal, sky edits JarodGuest, PolyHavenCC0. https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky
+Optional high-quality 2K LeafyGrass and Rock01 photographic diffuse/normal textures. See textures/detail/SOURCE.md and environment/SOURCE.md. Grass/rock baseline maps are retained at1K on phones. Stochastic tile offsets, matched normal coordinates and thin-leaf light transmission are authored real-time effects, not additional scanned content.
+
+1.9 island countryside and rural architecture revision
+Rural buildings: original authored geometry (stucco openings, roof, window trim, doors, gutters, stairs and chimney), built for this game using the existing credited surface photography. Not a scan, official PUBG asset or copy of its map. Terrain combines credited elevations with authored island beaches, river, village site grading and paths.
+
+1.8 hands and landscape integration revision
+
+Hands-only tactical gloves: original anatomical hands and rig from
+FPS Arms (rigged, only) by para / MakeHuman, CC0.
+https://opengameart.org/content/fps-arms-rigged-only
+New gloves remove arm surfaces and add capped cuffs, cloth, leather palm
+reinforcement, rubber knuckle cushions, closures and stitch geometry.
+New garment geometry and procedural tiled PBR maps are original CC0 work.
+These are authored game models and maps, not photographs or new scans.
+See models/gloved-hands/SOURCE.md and conversion.json.
+
+Landscape retains the credited elevation and photographic assets below.
+Shore/river grading, root blending and HDR-matched lighting are game adaptations.
+
+1.7 field and woodland revision
+
+Ground grass: Leafy Grass by Charlotte Baglioni, Poly Haven, CC0.
+https://polyhaven.com/a/leafy_grass
+Original 2K diffuse/normal/roughness photographs resized to 1K without recoloring.
+
+Second tree: tree_small_02 by Rico Cilliers, Poly Haven, CC0.
+https://polyhaven.com/a/tree_small_02
+Derived Woodland Tree 02 uses the original reduced 3D bark/branches and
+41 local photo leaf clusters baked from the original textured leaf surfaces.
+Near/mid LOD 3,239/1,747 triangles; whole-tree impostors are distant only.
+See nature/woodland_tree_02/SOURCE.md and conversion.json.
+
+Wild Frontier FPS 1.6 — asset attribution
+
+Three.js r164, GLTFLoader, RGBELoader, SkeletonUtils, BufferGeometryUtils
+MIT. See vendor/LICENSE.
+https://github.com/mrdoob/three.js/tree/r164
+Soldier.glb and waternormals.jpg: bundled Three.js example resources.
+https://github.com/mrdoob/three.js/blob/r164/examples/models/gltf/Soldier.glb
+
+Nature models, photographic PBR surfaces and sky: Poly Haven, CC0.
+https://polyhaven.com/license
+Models: tree_small_02, grass_medium_01, rock_moss_set_01,
+fern_02 and flower_heliophila.
+1.6 active replacements: island_tree_02, grass_medium_02, rock_face_01.
+https://polyhaven.com/a/island_tree_02
+https://polyhaven.com/a/grass_medium_02
+https://polyhaven.com/a/rock_face_01
+Tree: Rob Tuytel, Rico Cilliers. Grass: Rico Cilliers. Rock: Dario Barresi.
+New tree LODs preserve photographed leaf masks and UVs; distant tree
+atlas is baked from the original 3D model, not a separately generated image.
+New grass LODs retain individual blade islands and their original UVs.
+See each active model's SOURCE.md and conversion.json.
+https://polyhaven.com/a/tree_small_02
+https://polyhaven.com/a/grass_medium_01
+https://polyhaven.com/a/rock_moss_set_01
+https://polyhaven.com/a/fern_02
+https://polyhaven.com/a/flower_heliophila
+Textures: rocky_trail, rock_01, aerial_grass_rock, brown_mud_leaves_01,
+metal_plate, plaster_brick_01, grey_roof_tiles, wood_planks_dirt.
+HDRI: kloppenheim_06_puresky.
+Tree meshes have three LODs, simplified with meshoptimizer (MIT).
+Foliage diffuse textures include the original alpha masks. Flower meshes
+are simplified while retaining UVs; fern variants retain source geometry.
+
+M4A1: nisu, CC0 1.0 Universal.
+https://opengameart.org/content/m4a1-assault-rifle
+Original FBX converted to glTF; original PBR maps reduced to 1024px;
+mechanical parts and muzzle retained. See source-assets/legacy/models/m4a1/SOURCE.md in the source repository.
+
+M700: Stein Games, CC0 1.0 Universal.
+https://stein-indie.itch.io/m700
+Original FBX converted to glTF with rigid mechanical parts, original PBR
+maps and attachment markers. See models/m700/SOURCE.md.
+
+GL-6 grenade launcher, optical scope and retained legacy gun models:
+3DAssets.dev, CC0.
+https://3dassets.dev/assets/mega-weapon-pack-revolving-grenade-launcher-40fccdbc
+https://3dassets.dev/assets/mega-weapon-pack-bolt-sniper-chassis-scoped-891e227c
+https://3dassets.dev/assets/mega-weapon-pack-standard-rifle-94762172
+Scope extracted and simplified from the legacy sniper model.
+All weapon assets are authored meshes, not firearm photogrammetry.
+
+Dedicated first-person anatomical arms: para / MakeHuman team, CC0.
+https://opengameart.org/content/fps-arms-rigged-only
+Converted from the author's FBX; original skin UVs and finger rig preserved.
+Units and inverse binds normalized; gameplay applies grip IK and finger poses.
+See models/fps-arms/SOURCE.md.
+
+Recorded sound effects: CC0. Per-file sources, authors, recorded weapons,
+crop offsets and processing are in audio/SOURCES.json.
+Winchester Magnum XTR shot, forest, leaf and water footsteps:
+Joseph SARDIN / BigSoundBank.
+https://bigsoundbank.com/shot-of-winchester-magnum-xtr-s0397.html
+https://bigsoundbank.com/forest-s0100.html
+https://bigsoundbank.com/feet-in-leaves-s0137.html
+https://bigsoundbank.com/shoes-in-the-water-s0690.html
+M16 shot, M32 launch and distant grenade explosion:
+qubodup / public-domain US government training recordings.
+https://freesound.org/people/qubodup/sounds/238916/
+https://freesound.org/people/qubodup/sounds/162361/
+https://freesound.org/people/qubodup/sounds/162363/
+Recorded reload/bolt handling: qubodup, using serøtōnin's CC0 recordings.
+https://freesound.org/people/qubodup/sounds/815879/
+Recorded casing drop: BlondPanda.
+https://freesound.org/people/BlondPanda/sounds/778026/
+Audio is cropped, level adjusted and resampled; forest has a loop crossfade.
+Recordings are sound-design substitutes, not exact recordings of every
+displayed weapon. Game gunshots do not use oscillator/noise synthesis.
+
+Mountain relief: Mapzen / Tilezen open elevation tile service.
+https://s3.amazonaws.com/elevation-tiles-prod/terrarium/12/2194/1430.png
+https://github.com/tilezen/joerd/blob/master/docs/formats.md
+https://github.com/tilezen/joerd/blob/master/docs/attribution.md
+European elevation attribution: Copernicus / European Union (EU-DEM);
+Austria elevation: © offene Daten Österreichs, DGM Österreich.
+Global elevation sources include SRTM and GMTED2010 supplied by USGS,
+and ETOPO1 supplied by NOAA. Data-provider notices remain applicable;
+the elevation compilation is not labeled as CC0.
+For this game the tile is rotated 180 degrees, resampled to 129x129,
+height scaled by 0.057 and placed on a 640m game area, with procedural
+microrelief, lake/river flattening and road shaping. This is an adapted
+game landscape, not a geographic reproduction or navigation dataset.
+
+Barlow: SIL Open Font License. See fonts/OFL.txt.
+Resource conversion helpers: Three.js / fflate (MIT), meshoptimizer (MIT).
+See scripts/vendor/ licenses in the source repository.
+Startup resource decompression: fflate, MIT; see vendor/fflate-LICENSE.
+Startup bundles preserve geometry/animations and resize environmental photos
+to 512px (mobile) or 1024px (desktop). Weapon/arm/character photos retain 1024px; desktop AKM maps retain 2048px and
+distant tree atlas retains its 2048px width. Source attribution and alpha
+masks remain applicable. Mobile close tree detail uses the medium mesh.
+Game code, UI, surface blending, particles and remaining interface tones:
+this project.

@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import {createRequire} from 'node:module';
+import {localAssets} from './local-assets.mjs';import {MODEL_FILES} from '../dist/assets.js';import {SURFACE_FILES} from '../dist/world.js';import {HDTextureStreamer,textureRegistry} from '../dist/graphics.js';import {makeRuralBuilding} from '../dist/rural-buildings.js';import {createWorldData} from '../dist/core.js';
+const {loadImage}=createRequire(import.meta.url)(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+'/@napi-rs/canvas'),{assets,surfaces}=await localAssets(),registry=textureRegistry(assets,surfaces,MODEL_FILES,SURFACE_FILES),entries=JSON.parse(fs.readFileSync(new URL('../dist/hd2k/manifest.json',import.meta.url))).entries,building=[...registry.values()].filter(r=>r.groups.has('building'));
+assert.equal(building.length,9);for(const r of building){const e=entries.find(e=>e.target===r.target);assert.ok(e?.native);assert.equal(e.width,2048);assert.equal(e.height,2048);}
+const stream=new HDTextureStreamer(registry,{mobile:true,loadImage:async e=>/^textures\/(wall|roof|wood)/.test(e.target)?loadImage(new URL('../dist/'+e.file,import.meta.url).pathname):({width:e.width,height:e.height,close(){}})});await stream.start(entries);stream.setEnabled(true);stream.update(1,{weapon:0});
+const deadline=Date.now()+15000;while(building.some(r=>!r.hd)&&Date.now()<deadline)await new Promise(r=>setTimeout(r,5));assert.ok(building.every(r=>r.hd));
+const house=makeRuralBuilding(createWorldData().buildings[0],surfaces);
+for(const key of ['plaster','roof','timber']){const m=house.getObjectByName('rural-house-'+key).material;for(const slot of ['map','normalMap','roughnessMap']){assert.equal(m[slot].image.width,2048);assert.equal(m[slot].image.height,2048);}}
+console.log('PASS nine original 2K building maps reach the actual plaster, roof and timber materials');
+const before=building.map(r=>[...r.textures][0].image);for(const weapon of [1,2,0,2]){stream.update(1,{weapon});await new Promise(r=>setTimeout(r,5));building.forEach((r,i)=>assert.equal([...r.textures][0].image,before[i]));assert.ok(stream.usedBytes<=256*1048576);}
+console.log('PASS weapon changes keep all building maps resident within the existing phone HD budget');stream.dispose();

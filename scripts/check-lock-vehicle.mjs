@@ -1,0 +1,44 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
+import * as THREE from '../dist/vendor/three.module.js';import {localAssets} from './local-assets.mjs';
+import {Match,createWorldData} from '../dist/core.js';import {GameAudio} from '../dist/audio.js';
+import {VehicleFleet} from '../dist/vehicle-physics.js';import {makeVehicleViews} from '../dist/vehicles.js';import {BattleEffects} from '../dist/effects.js';
+let passed=0;const check=(name,fn)=>{fn();passed++;console.log('PASS '+name);};const data=createWorldData();
+function targetMatch(){const events=[],m=new Match({...data,colliders:[]},e=>events.push(e));m.reset('training');m.running=true;m.weapon=1;Object.assign(m.player,{x:0,z:0,ground:100,y:101,jump:0});m.enemies=[{...m.enemies[0],id:0,x:0,y:100,z:-55,alive:true},{...m.enemies[1],id:1,x:40,y:100,z:-60,alive:true}];return {m,events};}
+const aim=(m,id=0)=>{const e=m.enemies[id],p=m.player,d=new THREE.Vector3(e.x-p.x,e.y+.98-p.y,e.z-p.z).normalize();return {x:d.x,y:d.y,z:d.z};};
+check('steady aim locks in 0.30 seconds at 30, 60 and 120 Hz and success fires once',()=>{
+  for(const hz of [30,60,120]){const {m,events}=targetMatch(),dir=aim(m);for(let i=0;i<hz*.3-1;i++){m.updateGrenadeLock(1/hz,m.player,dir,true);assert.equal(m.grenadeLock.locked,false);}m.updateGrenadeLock(1/hz,m.player,dir,true);assert.equal(m.grenadeLock.locked,true);assert.equal(m.grenadeLock.progress,1);for(let i=0;i<hz;i++)m.updateGrenadeLock(1/hz,m.player,dir,true);assert.equal(events.filter(e=>e.type==='targetlocked').length,1);}
+});
+check('cover, a new target, closing aim, reloading and driving cannot retain partial or completed locks',()=>{
+  const {m}=targetMatch();m.updateGrenadeLock(.15,m.player,aim(m),true);assert.ok(m.grenadeLock.progress>.4&&m.grenadeLock.progress<.6);m.world.colliders.push({type:'box',x:0,z:-25,y:95,w:8,d:1,h:15});m.updateGrenadeLock(.1,m.player,aim(m),true);assert.equal(m.grenadeLock.targetId,null);m.world.colliders=[];
+  m.updateGrenadeLock(.3,m.player,aim(m),true);assert.ok(m.grenadeLock.locked);m.updateGrenadeLock(.02,m.player,aim(m,1),true);assert.equal(m.grenadeLock.targetId,1);assert.equal(m.grenadeLock.locked,false);assert.ok(m.grenadeLock.progress<.1);m.updateGrenadeLock(.1,m.player,aim(m,1),false);assert.equal(m.grenadeLock.targetId,null);
+  m.updateGrenadeLock(.3,m.player,aim(m),true);m.ammo[1].mag=1;m.reload();assert.equal(m.grenadeLock.targetId,null);m.reloadTime=0;m.fleet.driverId=0;m.updateGrenadeLock(.4,m.player,aim(m),true);assert.equal(m.grenadeLock.targetId,null);
+});
+function audioRig(){
+  const oscillators=[],param=()=>({value:0,events:[],setValueAtTime(v,t){this.value=v;this.events.push(['set',v,t]);},linearRampToValueAtTime(v,t){this.events.push(['attack',v,t]);},exponentialRampToValueAtTime(v,t){this.events.push(['release',v,t]);},cancelScheduledValues(t){this.events.push(['cancel',t]);},setTargetAtTime(v,t){this.value=v;this.events.push(['target',v,t]);}}),node=()=>({connect(n){return n;},disconnect(){this.disconnected=true;}}),ctx={currentTime:0,state:'running',createGain:()=>({...node(),gain:param()}),createOscillator(){const o={...node(),frequency:param(),start(t){this.startAt=t;},stop(t){this.stopAt=t;}};oscillators.push(o);return o;},advance(t){this.currentTime=t;for(const o of oscillators)if(!o.ended&&o.stopAt<=t){o.ended=true;o.onended?.();}}},audio=new GameAudio();audio.ctx=ctx;audio.master={...node(),gain:param()};audio.active=true;return {audio,ctx,oscillators};
+}
+check('acquisition pulses rise in pitch, success is a louder two-note confirmation and holding a lock stays quiet',()=>{
+  const {audio,ctx,oscillators}=audioRig(),{m}=targetMatch();m.onEvent=e=>{if(e.type==='targetlocked')audio.lockSuccess();};
+  for(let i=0;i<18;i++){ctx.advance(i/60);audio.trackLock(1/60,m.updateGrenadeLock(1/60,m.player,aim(m),true));}
+  const frequencies=oscillators.map(o=>o.frequency.value);assert.ok(frequencies.length>=4&&frequencies.length<=6);assert.ok(frequencies[0]<frequencies[1]);assert.deepEqual(frequencies.slice(-2),[1120,1580]);const confirm=oscillators.slice(-2);assert.ok(Math.abs(confirm[1].startAt-confirm[0].startAt-.09)<1e-8);
+  for(let i=18;i<180;i++){ctx.advance(i/60);audio.trackLock(1/60,m.updateGrenadeLock(1/60,m.player,aim(m),true));}assert.equal(oscillators.length,frequencies.length);assert.equal(audio.lockTones.size,0);assert.ok(oscillators.every(o=>o.disconnected));
+});
+check('lost targets, mute and pause cancel even the delayed confirmation note and repeated locks do not leak voices',()=>{
+  for(const cancel of [a=>a.trackLock(.016,null),a=>a.enabled=false,a=>a.setActive(false)]){const {audio,ctx,oscillators}=audioRig();audio.lockSuccess();assert.equal(audio.lockTones.size,2);cancel(audio);assert.equal(audio.lockTones.size,0);assert.ok(oscillators.every(o=>o.stopAt<=.021));ctx.advance(.04);assert.ok(oscillators.every(o=>o.disconnected));}
+  const {audio,ctx,oscillators}=audioRig();for(let i=0;i<150;i++){ctx.advance(i*.25);audio.trackLock(.016,{targetId:i,progress:.05,locked:false});audio.lockSuccess();audio.clearLockAudio();}ctx.advance(40);assert.equal(audio.lockTones.size,0);assert.ok(oscillators.every(o=>o.disconnected));audio.active=false;const before=oscillators.length;audio.lockSuccess();audio.trackLock(.2,{targetId:0,progress:.5,locked:false});assert.equal(oscillators.length,before);
+});
+const {assets}=await localAssets();
+check('a real grenade-to-car hit reaches the shipped vehicle-fire effect path once, then reveals a black undrivable wreck',()=>{
+  const scene=new THREE.Scene(),fx=new BattleEffects(scene,{explosion(){},casing(){}},{mobile:true}),m=new Match({...data,colliders:[]});m.reset('training');m.running=true;m.fleet=new VehicleFleet({terrain:()=>100,spawns:[{x:0,z:0,yaw:0},{x:60,z:60,yaw:0},{x:-60,z:60,yaw:0}]});m.enemies.forEach(e=>e.alive=false);const car=m.fleet.cars[0],views=makeVehicleViews(assets,m.fleet),events=[],source=fs.readFileSync(new URL('../dist/game.js',import.meta.url),'utf8'),begin=source.indexOf('function handleEvent(e){'),end=source.indexOf('\nfunction updateHUD()',begin),context=vm.createContext({match:m,battleEffects:fx,audio:{tone(){}},showMessage(){},weaponRecoil:{kick(){}},renderer:null,hitTime:0});
+  vm.runInContext(source.slice(begin,end),context);m.onEvent=e=>{events.push(e);context.event=e;vm.runInContext('handleEvent(event)',context);};m.grenades=[{x:0,y:100.8,z:-7,vx:0,vy:0,vz:76,age:0,targetId:null}];m.updateGrenades(.15);
+  assert.ok(car.destroyed&&car.stalled);assert.equal(events.filter(e=>e.type==='vehicledestroyed').length,1);assert.equal(events.filter(e=>e.type==='explosion'&&e.vehicle).length,1);assert.ok(fx.effects.filter(e=>e.type==='flame').length>=10);assert.ok(fx.effects.filter(e=>e.type==='smoke').length>=18);fx.update(.12);assert.ok(fx.blastLight.intensity>100);
+  car.wreckAge=.8;views.update(0);assert.ok(views.items[0].model.visible&&!views.items[0].wreck.visible);car.wreckAge=1.3;views.update(0);const wreck=views.items[0].wreck;assert.ok(wreck.visible&&!views.items[0].model.visible);assert.equal(wreck.children.filter(o=>o.name.startsWith('wheel-')).length,4);wreck.traverse(o=>{if(o.isMesh)assert.ok(Math.max(...o.material.color.toArray())<.035,'Wreck must be charred black, not grey');});m.player.x=car.x;m.player.z=car.z;assert.equal(m.nearbyVehicle(),null);m.damageVehicle(car,200);assert.equal(events.filter(e=>e.type==='vehicledestroyed').length,1);
+  m.reset('training');views.update(0,m.fleet);assert.ok(views.items[0].model.visible&&!views.items[0].wreck.visible);fx.clear();
+});
+check('vehicle fire and dense smoke continue after the initial flash, respect pause ages and finish within the phone particle budget',()=>{
+  const fx=new BattleEffects(new THREE.Scene(),{explosion(){},casing(){}},{mobile:true}),car={id:0,x:-64,y:12,z:146,yaw:1.2,pitch:.1,roll:-.08,destroyed:true,wreckAge:0};fx.explosion({x:car.x,y:car.y+.82,z:car.z},{vehicle:true});
+  for(let i=0;i<3*60;i++){car.wreckAge+=1/60;fx.vehicleWrecks(1/60,[car]);fx.update(1/60);assert.ok(fx.effects.length<=160);}assert.ok(fx.effects.some(e=>e.type==='flame'));assert.ok(fx.effects.filter(e=>e.type==='smoke'&&e.mesh.material.opacity>.5).length>=12);
+  const frozen=JSON.stringify(fx.effects.map(e=>[e.life,e.mesh.position.toArray()]));fx.update(0);assert.equal(JSON.stringify(fx.effects.map(e=>[e.life,e.mesh.position.toArray()])),frozen);
+  for(let i=0;i<4*60;i++){car.wreckAge+=1/60;fx.vehicleWrecks(1/60,[car]);fx.update(1/60);}assert.ok(!fx.effects.some(e=>e.type==='flame'));assert.ok(fx.effects.some(e=>e.type==='smoke'));
+  for(let i=0;i<18*60;i++){car.wreckAge+=1/60;fx.vehicleWrecks(1/60,[car]);fx.update(1/60);assert.ok(fx.effects.length<=160);}assert.equal(fx.effects.length,0);fx.clear();assert.equal(fx.burnTimers.size,0);
+});
+console.log(`${passed} faster-lock, audio-lifecycle and grenade-to-black-wreck checks passed. Device audio/3D output not verified.`);

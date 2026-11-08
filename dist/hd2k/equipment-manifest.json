@@ -1,0 +1,228 @@
+{
+  "entries": [
+    {
+      "target": "models/akm/basecolor.jpg",
+      "file": "models/akm/basecolor.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://opengameart.org/content/weathered-akm-rifle"
+    },
+    {
+      "target": "models/akm/normal.jpg",
+      "file": "models/akm/normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://opengameart.org/content/weathered-akm-rifle"
+    },
+    {
+      "target": "models/akm/orm.jpg",
+      "file": "models/akm/orm.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://opengameart.org/content/weathered-akm-rifle"
+    },
+    {
+      "target": "models/m700/textures/base-color.jpg",
+      "file": "hd2k/equipment/m700/base-color.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://stein-indie.itch.io/m700"
+    },
+    {
+      "target": "models/m700/textures/normal.jpg",
+      "file": "hd2k/equipment/m700/normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://stein-indie.itch.io/m700"
+    },
+    {
+      "target": "models/m700/textures/metal-rough.jpg",
+      "file": "hd2k/equipment/m700/metal-rough.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://stein-indie.itch.io/m700"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_body_color_acu.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_body_color_acu.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_body_normal.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_body_normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_head_color.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_head_color.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_head_normal.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_head_normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_helmet_color_acu.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_helmet_color_acu.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_helmet_normal.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_helmet_normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_equipment_color_acu.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_equipment_color_acu.jpg",
+      "width": 2048,
+      "height": 1024,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_equipment_normal.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_equipment_normal.jpg",
+      "width": 2048,
+      "height": 1024,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_pistol_color.jpg",
+      "file": "models/rocketbox-soldier/textures/sm004_pistol_color.jpg",
+      "width": 1024,
+      "height": 1024,
+      "native": false,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures (author original 1024px; retained without upscaling)"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_pistol_normal.jpg",
+      "file": "models/rocketbox-soldier/textures/sm004_pistol_normal.jpg",
+      "width": 1024,
+      "height": 1024,
+      "native": false,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures (author original 1024px; retained without upscaling)"
+    },
+    {
+      "target": "models/gl6/textures/metal-base.png",
+      "file": "hd2k/equipment/gl6/metal-base.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural metal microfinish generated at 2048x2048; CC0"
+    },
+    {
+      "target": "models/gl6/textures/metal-orm.png",
+      "file": "hd2k/equipment/gl6/metal-orm.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural metal microfinish generated at 2048x2048; CC0"
+    },
+    {
+      "target": "models/gl6/textures/metal-normal.png",
+      "file": "hd2k/equipment/gl6/metal-normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural metal microfinish generated at 2048x2048; CC0"
+    },
+    {
+      "target": "models/gl6/textures/polymer-base.png",
+      "file": "hd2k/equipment/gl6/polymer-base.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural polymer microfinish generated at 2048x2048; CC0"
+    },
+    {
+      "target": "models/gl6/textures/polymer-orm.png",
+      "file": "hd2k/equipment/gl6/polymer-orm.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural polymer microfinish generated at 2048x2048; CC0"
+    },
+    {
+      "target": "models/gl6/textures/polymer-normal.png",
+      "file": "hd2k/equipment/gl6/polymer-normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural polymer microfinish generated at 2048x2048; CC0"
+    },
+    {
+      "target": "models/gloved-hands/textures/cloth-color.png",
+      "file": "hd2k/equipment/gloves/cloth-color.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural woven textile with independent 2048px fibres; CC0"
+    },
+    {
+      "target": "models/gloved-hands/textures/cloth-normal.png",
+      "file": "hd2k/equipment/gloves/cloth-normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural woven textile with independent 2048px fibres; CC0"
+    },
+    {
+      "target": "models/gloved-hands/textures/cloth-roughness.png",
+      "file": "hd2k/equipment/gloves/cloth-roughness.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural woven textile with independent 2048px fibres; CC0"
+    },
+    {
+      "target": "models/gloved-hands/textures/leather-color.png",
+      "file": "hd2k/equipment/gloves/leather-color.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural leather with independent 2048px pores and wrinkles; CC0"
+    },
+    {
+      "target": "models/gloved-hands/textures/leather-normal.png",
+      "file": "hd2k/equipment/gloves/leather-normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural leather with independent 2048px pores and wrinkles; CC0"
+    }
+  ],
+  "notes": [
+    "27 mapped equipment images: 25 maps have a native 2048px long edge; the two tiny holstered-pistol maps remain author-original 1024x1024 and are explicitly native:false.",
+    "Rocketbox equipment atlases are native 2048x1024, preserving original aspect ratio and UV orientation; body, head and helmet atlases are 2048x2048.",
+    "M700 original 2048x2048 PNG maps restored from the author CC0 archive. Unreal DirectX normal green inverted; MAOR repacked R=AO,G=1-originalB,B=originalR. No resized 1K inputs.",
+    "AKM reuses the existing original 4096px-derived 2048x2048 exports. No second encoding.",
+    "GL6 and gloves retain original UV/material assignments. Their 2048px finishes are new authored procedural surfaces, not photographs, scans or enlargement of old 256px maps.",
+    "New RGB delivery files use JPEG quality 93 with 4:4:4 chroma; all tangent normals use OpenGL convention. Texture dimensions alone do not add geometry or scanning detail."
+  ]
+}

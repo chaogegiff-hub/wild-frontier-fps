@@ -1,0 +1,56 @@
+{
+  "author": "LonesomeDucky",
+  "license": "CC0-1.0",
+  "source": "https://opengameart.org/content/weathered-akm-rifle",
+  "download": "https://opengameart.org/sites/default/files/akm54.blend",
+  "sourceSha256": "4fe01a2cc27c6d31136e7a776fcef56fc9d336dd0d93e128b2f42778e94cf4d6",
+  "sourceVertices": 2812,
+  "triangles": 5322,
+  "loops": 15966,
+  "normalFans": 2818,
+  "normalLengthError": 4.440892098500626e-16,
+  "boundsMin": [
+    -0.032972787016831116,
+    0.0,
+    -0.44
+  ],
+  "boundsMax": [
+    0.01594882296447282,
+    0.24782711446087458,
+    0.44
+  ],
+  "scale": 0.9050387226577186,
+  "sourceTextureSize": 4096,
+  "deliveredTextureSize": 2048,
+  "preserved": [
+    "geometry",
+    "triangle winding",
+    "UV seams",
+    "packed PBR maps",
+    "custom split normals"
+  ],
+  "notes": "Original .blend decoded using its embedded SDNA; Blender custom normals reconstructed via its corner normal fan algorithm. +Y up, +Z muzzle; meters; original separate magazine connected component reparented to reload pivot.",
+  "sightMarkers": {
+    "SIGHT_REAR": [
+      0,
+      0.245454595,
+      0.021749966
+    ],
+    "SIGHT_FRONT": [
+      0,
+      0.246642668,
+      0.39309003
+    ],
+    "SIGHT_REAR_RIM": [
+      0,
+      0.24667142,
+      0.021749966
+    ],
+    "SIGHT_REAR_FLOOR": [
+      0,
+      0.24423777,
+      0.021749966
+    ]
+  },
+  "sightExplanation": "SIGHT_REAR is the center of the actual rear notch at the rear leaf, halfway between floor y=.24423777 and lip y=.24667142. SIGHT_FRONT is center of the actual front post top face (8 source vertices), not the barrel muzzle. Original front protection ears remain visible. SIGHT_REAR_RIM allows classic top-of-rear-blade sight picture."
+}

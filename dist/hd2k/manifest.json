@@ -1,0 +1,846 @@
+{
+  "version": 3,
+  "renderLongEdge": 2560,
+  "textureLongEdge": 2048,
+  "entries": [
+    {
+      "target": "environment/sky.hdr",
+      "file": "hd2k/environment/sky.hdr",
+      "source": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/kloofendal_48d_partly_cloudy_puresky_2k.hdr",
+      "width": 2048,
+      "height": 1024,
+      "native": true,
+      "kind": "hdr",
+      "bytes": 5451493,
+      "sha256": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198"
+    },
+    {
+      "target": "models/akm/basecolor.jpg",
+      "file": "models/akm/basecolor.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://opengameart.org/content/weathered-akm-rifle",
+      "bytes": 1047283,
+      "sha256": "71e1ebc3098e837b275f36f2f097cdb9925d0996e9002135e970f1cda34a825c"
+    },
+    {
+      "target": "models/akm/normal.jpg",
+      "file": "models/akm/normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://opengameart.org/content/weathered-akm-rifle",
+      "bytes": 1702979,
+      "sha256": "b17a95878aea9653c92123cd02968359bd05fda28729f244d5a9dffcf7723d4a"
+    },
+    {
+      "target": "models/akm/orm.jpg",
+      "file": "models/akm/orm.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://opengameart.org/content/weathered-akm-rifle",
+      "bytes": 2048732,
+      "sha256": "d22f2e8004abb7ac9154808304d8565be4d9f8931149deaca5a38ab06f0912fa"
+    },
+    {
+      "target": "models/gl6/textures/metal-base.png",
+      "file": "hd2k/equipment/gl6/metal-base.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural metal microfinish generated at 2048x2048; CC0",
+      "bytes": 323653,
+      "sha256": "d4654dc1cc5b77ca407b73fa518dc97e9d22196f07d19ebbf00f8b70d668f991"
+    },
+    {
+      "target": "models/gl6/textures/metal-normal.png",
+      "file": "hd2k/equipment/gl6/metal-normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural metal microfinish generated at 2048x2048; CC0",
+      "bytes": 1450869,
+      "sha256": "1e3f9198d5d9cc6700313a43c9d7615d32a25c858f49fe1d86d0126e968c1c29"
+    },
+    {
+      "target": "models/gl6/textures/metal-orm.png",
+      "file": "hd2k/equipment/gl6/metal-orm.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural metal microfinish generated at 2048x2048; CC0",
+      "bytes": 529799,
+      "sha256": "1c0b19de84c9ed07c0e9ec1251aa3cf46b0d6d89963c48bad2ff62b6835de50f"
+    },
+    {
+      "target": "models/gl6/textures/polymer-base.png",
+      "file": "hd2k/equipment/gl6/polymer-base.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural polymer microfinish generated at 2048x2048; CC0",
+      "bytes": 295105,
+      "sha256": "6a50f2716abf37c565c4aba28e4c678ca49894d2eb4f309d4df2683fc9d1fc71"
+    },
+    {
+      "target": "models/gl6/textures/polymer-normal.png",
+      "file": "hd2k/equipment/gl6/polymer-normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural polymer microfinish generated at 2048x2048; CC0",
+      "bytes": 2106186,
+      "sha256": "653b2ba9dc07aeb3c4c2197d9b60b3233091af040dee9f237e358e6bd46deeea"
+    },
+    {
+      "target": "models/gl6/textures/polymer-orm.png",
+      "file": "hd2k/equipment/gl6/polymer-orm.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural polymer microfinish generated at 2048x2048; CC0",
+      "bytes": 527361,
+      "sha256": "131c785e9ef13b0d8ee3d3e8b2561ec7fd6e0d994a5e961c48e5c7e94aad639c"
+    },
+    {
+      "target": "models/gloved-hands/textures/cloth-color.png",
+      "file": "hd2k/equipment/gloves/cloth-color.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural woven textile with independent 2048px fibres; CC0",
+      "bytes": 118940,
+      "sha256": "cc3185ced8deedfe96d32d651622a70bca6ef6c8570dc48ce99ef81e24de44e8"
+    },
+    {
+      "target": "models/gloved-hands/textures/cloth-normal.png",
+      "file": "hd2k/equipment/gloves/cloth-normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural woven textile with independent 2048px fibres; CC0",
+      "bytes": 994565,
+      "sha256": "33e1dcc9e0011ecf3c4fc0cab414c08e30840da971489ce1a4abf8c5b46212b2"
+    },
+    {
+      "target": "models/gloved-hands/textures/cloth-roughness.png",
+      "file": "hd2k/equipment/gloves/cloth-roughness.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural woven textile with independent 2048px fibres; CC0",
+      "bytes": 130499,
+      "sha256": "dc7ef884fe3576ed9867b87b9b0f676d7cecb581e23c2692be8807d96f7c2d32"
+    },
+    {
+      "target": "models/gloved-hands/textures/leather-color.png",
+      "file": "hd2k/equipment/gloves/leather-color.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural leather with independent 2048px pores and wrinkles; CC0",
+      "bytes": 206711,
+      "sha256": "429b2d2a91d030bb552dc26c1e20a5ad5ff898726dd571492ff73b64039822a0"
+    },
+    {
+      "target": "models/gloved-hands/textures/leather-normal.png",
+      "file": "hd2k/equipment/gloves/leather-normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "Original project procedural leather with independent 2048px pores and wrinkles; CC0",
+      "bytes": 1315186,
+      "sha256": "c066ff5d4eb79654ce170d655cb5e3c8c4325c9715343a22fdccea711f6a6796"
+    },
+    {
+      "target": "models/m700/textures/base-color.jpg",
+      "file": "hd2k/equipment/m700/base-color.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://stein-indie.itch.io/m700",
+      "bytes": 1068526,
+      "sha256": "93a55eb80a31aed58565a96183230f7ebf153b6bdd1282cc348809255315eaac"
+    },
+    {
+      "target": "models/m700/textures/metal-rough.jpg",
+      "file": "hd2k/equipment/m700/metal-rough.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://stein-indie.itch.io/m700",
+      "bytes": 1495822,
+      "sha256": "4ced25d6d1836bf7abd278825229cd11c81f1d06aeaff6d3c4980810e20117f6"
+    },
+    {
+      "target": "models/m700/textures/normal.jpg",
+      "file": "hd2k/equipment/m700/normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://stein-indie.itch.io/m700",
+      "bytes": 1158725,
+      "sha256": "59031f74e3ae9795ba6b089281f8ad0d6cf4f832eaf14f19a39f1d563f18fe8f"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_body_color_acu.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_body_color_acu.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures",
+      "bytes": 1942159,
+      "sha256": "66d0d5e2334d09ec9bacd7c4c57800feb6320a29886a44b57350a5b4ad826c2b"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_body_normal.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_body_normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures",
+      "bytes": 2026397,
+      "sha256": "7ea9caf0d66e3300f73fa78bd4d05a91c9c594681bf9a1fcfaf6b01dffe2ac37"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_equipment_color_acu.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_equipment_color_acu.jpg",
+      "width": 2048,
+      "height": 1024,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures",
+      "bytes": 462976,
+      "sha256": "addf1ab7cde0d3c4a05e69ad62959d2e6bc90f0bca3dd6eb9a10ae2757a40804"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_equipment_normal.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_equipment_normal.jpg",
+      "width": 2048,
+      "height": 1024,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures",
+      "bytes": 550653,
+      "sha256": "00a0ee0a31264d50f4649e20460e6f6f1158ab50f5394650076951dcaec54e54"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_head_color.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_head_color.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures",
+      "bytes": 1001246,
+      "sha256": "594335db06f86222bd97e2c1b50df8657125b935ccfd0c006fdb15f3c9195909"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_head_normal.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_head_normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures",
+      "bytes": 1392938,
+      "sha256": "e6bbd19f5237a44444b38b239d7ba44ceba1164314f2241a414174d0c2c95171"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_helmet_color_acu.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_helmet_color_acu.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures",
+      "bytes": 1041866,
+      "sha256": "43e4d8f94aa90143b5225bb581e031405f4c01ac6f1032b4efdd954214bbdddf"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_helmet_normal.jpg",
+      "file": "hd2k/equipment/rocketbox/sm004_helmet_normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures",
+      "bytes": 2534504,
+      "sha256": "cd98b63b7cbe578701c0989734595855c19decad1e70bac827cacfea531fac4a"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_pistol_color.jpg",
+      "file": "models/rocketbox-soldier/textures/sm004_pistol_color.jpg",
+      "width": 1024,
+      "height": 1024,
+      "native": false,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures (author original 1024px; retained without upscaling)",
+      "bytes": 187911,
+      "sha256": "5dffa32c60396d51292c7490e1b1b6f92135c9420ded66489ccaf5b43f51a5df"
+    },
+    {
+      "target": "models/rocketbox-soldier/textures/sm004_pistol_normal.jpg",
+      "file": "models/rocketbox-soldier/textures/sm004_pistol_normal.jpg",
+      "width": 1024,
+      "height": 1024,
+      "native": false,
+      "source": "https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Professions/Military_Male_03/Textures (author original 1024px; retained without upscaling)",
+      "bytes": 304450,
+      "sha256": "5048e9f012bdd0831f422646e8bd40e8599424891c09a8bdd218fd8051a5aec3"
+    },
+    {
+      "target": "nature/fern_02/textures/fern_02_arm_1k.jpg",
+      "file": "hd2k/nature/fern_02/textures/fern_02_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/fern_02/fern_02_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 519437,
+      "sha256": "f79acc9f9e451adf37c33f0260d40305a647b910f31eda685f484cdf91160d32"
+    },
+    {
+      "target": "nature/fern_02/textures/fern_02_diff_1k.png",
+      "file": "hd2k/nature/fern_02/textures/fern_02_diff_2k.png",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/fern_02/fern_02_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "alphaSource": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/fern_02/fern_02_alpha_2k.png",
+      "bytes": 1701797,
+      "sha256": "ba3533ff312d41518ee43491cb098221d0757fcabf69932582a3cc68b827f817"
+    },
+    {
+      "target": "nature/fern_02/textures/fern_02_nor_gl_1k.jpg",
+      "file": "hd2k/nature/fern_02/textures/fern_02_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/fern_02/fern_02_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 783970,
+      "sha256": "5a65f7f29e044e725bd378164ed193a63e625095a01fabf8849f0e364e2948c0"
+    },
+    {
+      "target": "nature/flower_heliophila/textures/flower_heliophila_arm_1k.jpg",
+      "file": "hd2k/nature/flower_heliophila/textures/flower_heliophila_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/flower_heliophila/flower_heliophila_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 750766,
+      "sha256": "9995a3a7b51c6a699f2114901507c8b3cd58b8e804c4b834cdf8049a5d489f3a"
+    },
+    {
+      "target": "nature/flower_heliophila/textures/flower_heliophila_diff_1k.png",
+      "file": "hd2k/nature/flower_heliophila/textures/flower_heliophila_diff_2k.png",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/flower_heliophila/flower_heliophila_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "alphaSource": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/flower_heliophila/flower_heliophila_alpha_2k.png",
+      "bytes": 2921842,
+      "sha256": "d40147fed871917b2fa5f8ca847afedfbb0d8ba0347da0bb931676ac5a0dd7b6"
+    },
+    {
+      "target": "nature/flower_heliophila/textures/flower_heliophila_nor_gl_1k.jpg",
+      "file": "hd2k/nature/flower_heliophila/textures/flower_heliophila_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/flower_heliophila/flower_heliophila_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 977344,
+      "sha256": "b01e825e3259a4c82b23c6aaf36510a2ff92fd46e061758d5ba13274ed934143"
+    },
+    {
+      "target": "nature/grass_medium_02/textures/grass_medium_02_arm_1k.jpg",
+      "file": "hd2k/nature/grass_medium_02/textures/grass_medium_02_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/grass_medium_02/grass_medium_02_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 398239,
+      "sha256": "4cbcb7ea50c369642f305f48d52b1995c1f6fda9573658b7ad36e7a9429948f1"
+    },
+    {
+      "target": "nature/grass_medium_02/textures/grass_medium_02_diff_1k.png",
+      "file": "hd2k/nature/grass_medium_02/textures/grass_medium_02_diff_2k.png",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/grass_medium_02/grass_medium_02_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "alphaSource": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/grass_medium_02/grass_medium_02_alpha_2k.png",
+      "bytes": 1235415,
+      "sha256": "65e1c5bef530afcb29ff91b6defd7a3357cda893595e77cf6fac2d3af6363038"
+    },
+    {
+      "target": "nature/grass_medium_02/textures/grass_medium_02_nor_gl_1k.jpg",
+      "file": "hd2k/nature/grass_medium_02/textures/grass_medium_02_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/grass_medium_02/grass_medium_02_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 235077,
+      "sha256": "036a68ddea89f076d7c03064ab6ead9b545bba9b5568e6c74d16a4f3c2d20fef"
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_arm_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1273154,
+      "sha256": "cf07767a18bb3166ba1bb31ed3074ca07749be73eed419ff7f08bd29ad933e9f"
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_branches_arm_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_branches_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_branches_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 799557,
+      "sha256": "b83b9324d2dc81bb6e08e5a45ebef88ac118ce036a134b5618b1f00351f96d24"
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_branches_diff_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_branches_diff_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_branches_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 808718,
+      "sha256": "bb6baf6abca65cd08139435fc65c677309eecd20df5ba32e9c7d4cb4fa2da906"
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_branches_nor_gl_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_branches_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_branches_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1430177,
+      "sha256": "6d05fa3d692a97a5ac46a65af3d183dc51a65277560316560f1b69cdb974e233"
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_diff_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_diff_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1464550,
+      "sha256": "6f8c28e2e570cf7c929abff46e1ecd1868812dde43d13ccfd6f6e7fdec7e6e12"
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_leaves_arm_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_leaves_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_leaves_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 926646,
+      "sha256": "766f34542e7bbf4eed3b0a86bedab18b0c19d31f19ef5e643a25ffd1c94721c4"
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_leaves_diff_1k.png",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_leaves_diff_2k.png",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_leaves_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "alphaSource": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/island_tree_02/island_tree_02_leaves_alpha_2k.png",
+      "bytes": 1882597,
+      "sha256": "39686c791700217426e5a8082fa2b8f388a3b404c80431a6aacff7fde8e32ef4"
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_leaves_nor_gl_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_leaves_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_leaves_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 755110,
+      "sha256": "53eb36cbb6ea5587c08b9f57ab59417e350cfba9721f84b72d03dfb10bfe42d2"
+    },
+    {
+      "target": "nature/island_tree_02/textures/island_tree_02_nor_gl_1k.jpg",
+      "file": "hd2k/nature/island_tree_02/textures/island_tree_02_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/island_tree_02/island_tree_02_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 2698042,
+      "sha256": "5614c3a19854d1358d1c741689b3576b2c96a8afe612563bec9d5ef0efa2aa04"
+    },
+    {
+      "target": "nature/rock_face_01/textures/rock_face_01_arm_1k.jpg",
+      "file": "hd2k/nature/rock_face_01/textures/rock_face_01_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_face_01/rock_face_01_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1387260,
+      "sha256": "cba9544f6466e1923ed431911ad061a1bb6b768a88077c995ed6edb5a4a960e3"
+    },
+    {
+      "target": "nature/rock_face_01/textures/rock_face_01_diff_1k.jpg",
+      "file": "hd2k/nature/rock_face_01/textures/rock_face_01_diff_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_face_01/rock_face_01_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1773265,
+      "sha256": "806d13462b7c6fba71a7c027879c80fa291a914dd9c264ff7d0f3f9c47db9b39"
+    },
+    {
+      "target": "nature/rock_face_01/textures/rock_face_01_nor_gl_1k.jpg",
+      "file": "hd2k/nature/rock_face_01/textures/rock_face_01_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_face_01/rock_face_01_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 2416799,
+      "sha256": "34ab06ee5bb9aa4c9b74731eaaf912b5c3cbada21ff324228ef3aa28ec8609c1"
+    },
+    {
+      "target": "nature/rock_moss_set_01/textures/rock_moss_set_01_diff_1k.jpg",
+      "file": "hd2k/nature/rock_moss_set_01/textures/rock_moss_set_01_diff_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_moss_set_01/rock_moss_set_01_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 870500,
+      "sha256": "2a9a58b731e3d90517fb7f28a4340b6dfeb24fb2dadcc43941c8ea3f58cead84"
+    },
+    {
+      "target": "nature/rock_moss_set_01/textures/rock_moss_set_01_nor_gl_1k.jpg",
+      "file": "hd2k/nature/rock_moss_set_01/textures/rock_moss_set_01_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_moss_set_01/rock_moss_set_01_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1392008,
+      "sha256": "b6506be3ef59d97a321840a2c9ee68ed0f30adfa252a828c659f41041a1dca58"
+    },
+    {
+      "target": "nature/rock_moss_set_01/textures/rock_moss_set_01_rough_1k.jpg",
+      "file": "hd2k/nature/rock_moss_set_01/textures/rock_moss_set_01_rough_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_moss_set_01/rock_moss_set_01_rough_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 349879,
+      "sha256": "6dd745c566638188db9e8eb56cc5815248db2ab0c5863765b76401773dc7e3ec"
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_arm_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1337690,
+      "sha256": "b46da5a5a91fc13405f1d05917c201f39fb88f005b502a4249da040af327ce81"
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_branch_arm_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_branch_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_branch_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 624459,
+      "sha256": "361124a55805986bdabdc848528be16d044588ee7c3c6ef78a2eb2ce2f8a7cdc"
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_branch_diff_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_branch_diff_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_branch_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 802497,
+      "sha256": "0ee53fc7f7088f994b2ab7b58949740fcbfa148e945023e68bed88ccdb58b490"
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_branch_nor_gl_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_branch_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_branch_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1106008,
+      "sha256": "bae29483361406c9b62836732e935381a2daac8559e6b1271f664b4651e42e06"
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_diff_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_diff_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1743678,
+      "sha256": "d8e89b5549037a43281bd1aec4192ec101e19341262bbcdb6768ab649ef1893e"
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_leaves_arm_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_leaves_arm_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_leaves_arm_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1170079,
+      "sha256": "44e3af956350ab6128f0a32d8deb3e018e2e9eebcc79b8a797dda9c708fa7e5e"
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_leaves_diff_1k.png",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_leaves_diff_2k.png",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_leaves_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "alphaSource": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/tree_small_02/tree_small_02_leaves_alpha_2k.png",
+      "bytes": 2781163,
+      "sha256": "f259a1b8a4acae515002232ec02d65d6cabd608f516ae42cc4f28f2f89a47e95"
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_leaves_nor_gl_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_leaves_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_leaves_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1305282,
+      "sha256": "b34bf22948ebb6efbaafafe4582f8554868d1c229fbefa25dfae21a3106448da"
+    },
+    {
+      "target": "nature/woodland_tree_03/textures/tree_small_02_nor_gl_1k.jpg",
+      "file": "hd2k/nature/woodland_tree_03/textures/tree_small_02_nor_gl_2k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 2827697,
+      "sha256": "8278ef44ac26e08f0be2a47b11fd3001ff3a55888bf78e08136b40bd065ef575"
+    },
+    {
+      "target": "textures/forest-normal.jpg",
+      "file": "hd2k/textures/forest-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_mud_leaves_01/brown_mud_leaves_01_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 3669921,
+      "sha256": "b9b59ae7348ba62992210e58d9fa2835a40f6693ab66b2e560ae5f4189650f23"
+    },
+    {
+      "target": "textures/forest.jpg",
+      "file": "hd2k/textures/forest.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_mud_leaves_01/brown_mud_leaves_01_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 2673227,
+      "sha256": "36567503d2bf8d9acac5e74479f37b23ad2278609dfb9d1d106eb972c82c74f1"
+    },
+    {
+      "target": "textures/grass-normal.jpg",
+      "file": "hd2k/textures/grass-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leafy_grass/leafy_grass_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 3889288,
+      "sha256": "4c8f11a12d42665b459382acdefc082b5f360b06d2522cebf38b687d7c553fba"
+    },
+    {
+      "target": "textures/grass-rough.jpg",
+      "file": "hd2k/textures/grass-rough.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leafy_grass/leafy_grass_rough_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1063437,
+      "sha256": "9ac7e87cddbbeb0d9799052cb621204b3578cef7cd0f57dc0b4ab5d36fd22cbc"
+    },
+    {
+      "target": "textures/grass.jpg",
+      "file": "hd2k/textures/grass.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leafy_grass/leafy_grass_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 2820666,
+      "sha256": "5fa503473e459b41b450079de29988235dbcc9e1f8a1fbc0741e7726e3a4c97a"
+    },
+    {
+      "target": "textures/ground-normal.jpg",
+      "file": "hd2k/textures/ground-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rocky_trail/rocky_trail_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 3515362,
+      "sha256": "b93191c83897d50acc78dcc26f126d5f439cb14c0ed231017a68b955d2efbe1e"
+    },
+    {
+      "target": "textures/ground.jpg",
+      "file": "hd2k/textures/ground.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rocky_trail/rocky_trail_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 2424305,
+      "sha256": "0e27e1863d85b659058142af774759fabb2de00b8a6ea7119e069e5102782087"
+    },
+    {
+      "target": "textures/metal-normal.jpg",
+      "file": "hd2k/textures/metal-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/metal_plate/metal_plate_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1400156,
+      "sha256": "137509c0c0d848aee7166a2dec186d14bf76dea6c355d5b13b7387a6c6a5780c"
+    },
+    {
+      "target": "textures/metal-rough.jpg",
+      "file": "hd2k/textures/metal-rough.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/metal_plate/metal_plate_rough_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1703122,
+      "sha256": "bca656c23901ad6df30b201b783fd6420407058b66826d25026a407c3cdab135"
+    },
+    {
+      "target": "textures/rock-normal.jpg",
+      "file": "hd2k/textures/rock-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_01/rock_01_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 2713670,
+      "sha256": "a3e5ccf812ad24cf2a67a225a852f832b66609305f023a8fdd395e939c53a898"
+    },
+    {
+      "target": "textures/rock.jpg",
+      "file": "hd2k/textures/rock.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_01/rock_01_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 2697845,
+      "sha256": "bc70cc55e67ab1d69409128963be4aa78a3cee38290b0d460f140d28b06a68c2"
+    },
+    {
+      "target": "textures/roof-normal.jpg",
+      "file": "hd2k/textures/roof-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/grey_roof_tiles/grey_roof_tiles_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1353451,
+      "sha256": "0f85e7264635bed8ab88d7f8adce6c8a09ae0d4faedc74b4bc5c2c63c798d781"
+    },
+    {
+      "target": "textures/roof-rough.jpg",
+      "file": "hd2k/textures/roof-rough.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/grey_roof_tiles/grey_roof_tiles_rough_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 934919,
+      "sha256": "9d85fb11a83b066f114a963b2cf466ff064f692f0017809968d09b84e4933237"
+    },
+    {
+      "target": "textures/roof.jpg",
+      "file": "hd2k/textures/roof.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/grey_roof_tiles/grey_roof_tiles_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1846184,
+      "sha256": "08a066a6d310c060b73996b11911a4727d6ab9b7f9cb7f59ae32d71cd0061b9b"
+    },
+    {
+      "target": "textures/wall-normal.jpg",
+      "file": "hd2k/textures/wall-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/plaster_brick_01/plaster_brick_01_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1990841,
+      "sha256": "062a4a65e7a3509a3b2feeab73e17d3d957a11383531bf4e083126dc5067d030"
+    },
+    {
+      "target": "textures/wall-rough.jpg",
+      "file": "hd2k/textures/wall-rough.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/plaster_brick_01/plaster_brick_01_rough_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 2191025,
+      "sha256": "447c750ed7a520613167095e4f2a57b14ebdd02a9d3188f6fa205db43d40c9eb"
+    },
+    {
+      "target": "textures/wall.jpg",
+      "file": "hd2k/textures/wall.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/plaster_brick_01/plaster_brick_01_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 2673056,
+      "sha256": "e53ef70cb87a3abef3fa543da0fb55c91b61d2bf77ae3c0a35f7d74bb1e37eef"
+    },
+    {
+      "target": "textures/water-normal.jpg",
+      "file": "hd2k/textures/water-normal.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "source": "scripts/prepare-2k-nature.mjs: native periodic 2048px Fourier wave normal",
+      "bytes": 831032,
+      "sha256": "09f34f712fc0a83bb6b14da267ccab9137866dce321a04646deb85c67d369f30"
+    },
+    {
+      "target": "textures/wood-normal.jpg",
+      "file": "hd2k/textures/wood-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_planks_dirt/wood_planks_dirt_nor_gl_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 980657,
+      "sha256": "93340faba0133b8171915094585b876deace493e87d576a4b4f53070047387f6"
+    },
+    {
+      "target": "textures/wood-rough.jpg",
+      "file": "hd2k/textures/wood-rough.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_planks_dirt/wood_planks_dirt_rough_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 1045354,
+      "sha256": "9d99c3dc04e6eba0bb617e6955f23decb795e0b85f5975d3cbefe9161371e472"
+    },
+    {
+      "target": "textures/wood.jpg",
+      "file": "hd2k/textures/wood.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_planks_dirt/wood_planks_dirt_diff_2k.jpg",
+      "width": 2048,
+      "height": 2048,
+      "native": true,
+      "bytes": 2138663,
+      "sha256": "e308f50cb475f08f0628e36459226474e863254d45b89c91f6c3937d32b2a402"
+    }
+  ],
+  "notes": [
+    "All 20 active surface photographic maps and all 33 external images in the seven active nature glTF models use original official 2048x2048 Poly Haven sources. No 1K images enlarged.",
+    "Photographic RGB and UV orientation retained; normal maps are OpenGL; ARM maps retain original AO/Roughness/Metal channels. JPEG quality 93 with full 4:4:4 chroma.",
+    "Foliage alpha uses the original 16-bit PNG divided by 257. Invisible RGB is dilated without changing alpha.",
+    "Water normal is generated directly on a periodic 2048px Fourier lattice. It is an authored wave field, not a photograph or enlarged lower-resolution texture.",
+    "Sky is unmodified official 2048x1024 RGBE HDR. All Poly Haven assets CC0-1.0.",
+    "27 mapped equipment images: 25 maps have a native 2048px long edge; the two tiny holstered-pistol maps remain author-original 1024x1024 and are explicitly native:false.",
+    "Rocketbox equipment atlases are native 2048x1024, preserving original aspect ratio and UV orientation; body, head and helmet atlases are 2048x2048.",
+    "M700 original 2048x2048 PNG maps restored from the author CC0 archive. Unreal DirectX normal green inverted; MAOR repacked R=AO,G=1-originalB,B=originalR. No resized 1K inputs.",
+    "AKM reuses the existing original 4096px-derived 2048x2048 exports. No second encoding.",
+    "GL6 and gloves retain original UV/material assignments. Their 2048px finishes are new authored procedural surfaces, not photographs, scans or enlargement of old 256px maps.",
+    "New RGB delivery files use JPEG quality 93 with 4:4:4 chroma; all tangent normals use OpenGL convention. Texture dimensions alone do not add geometry or scanning detail."
+  ]
+}

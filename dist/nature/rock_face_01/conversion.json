@@ -1,0 +1,38 @@
+{
+  "name": "rock_face_01",
+  "source": "https://polyhaven.com/a/rock_face_01",
+  "license": "CC0-1.0",
+  "axis": "Y up, units meters",
+  "originalBBox": {
+    "min": [
+      -2.133601427078247,
+      -0.03435921296477318,
+      -3.466048240661621
+    ],
+    "max": [
+      2.8199098110198975,
+      3.5296897888183594,
+      0.36125504970550537
+    ]
+  },
+  "origin": [
+    0.3431541919708252,
+    -0.03435921296477318,
+    -1.5523965954780579
+  ],
+  "lods": [
+    {
+      "name": "model",
+      "meshBytes": 357372,
+      "triangles": 11997,
+      "parts": [
+        {
+          "material": "rock_face_01",
+          "originalTriangles": 20174,
+          "triangles": 11997,
+          "relativeError": 0.0015806879382580519
+        }
+      ]
+    }
+  ]
+}

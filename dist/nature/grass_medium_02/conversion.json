@@ -1,0 +1,119 @@
+{
+  "source": "https://polyhaven.com/a/grass_medium_02",
+  "author": "Rico Cilliers",
+  "license": "CC0-1.0",
+  "up": "Y",
+  "units": "metres",
+  "transforms": "Each clump centered in X/Z; its minimum Y grounded to zero; source display offsets removed.",
+  "alpha": "Separate original 16-bit grayscale PNG divided by 257 and combined with 1K diffuse; exact source silhouette, no crop.",
+  "stats": [
+    {
+      "lod": "model",
+      "variant": "grass_medium_02_a",
+      "sourceTriangles": 714,
+      "triangles": 450,
+      "vertices": 424,
+      "relativeError": 0.002434764988720417,
+      "min": [
+        -0.05836772918701172,
+        0,
+        -0.05988120660185814
+      ],
+      "max": [
+        0.05956093221902847,
+        0.15641076862812042,
+        0.05988120660185814
+      ]
+    },
+    {
+      "lod": "model",
+      "variant": "grass_medium_02_c",
+      "sourceTriangles": 1215,
+      "triangles": 599,
+      "vertices": 603,
+      "relativeError": 0.0027463077567517757,
+      "min": [
+        -0.1308385729789734,
+        0,
+        -0.12475517392158508
+      ],
+      "max": [
+        0.12805034220218658,
+        0.23166149854660034,
+        0.12475517392158508
+      ]
+    },
+    {
+      "lod": "model",
+      "variant": "grass_medium_02_e",
+      "sourceTriangles": 1664,
+      "triangles": 850,
+      "vertices": 868,
+      "relativeError": 0.0025788466446101665,
+      "min": [
+        -0.17778466641902924,
+        0,
+        -0.21662327647209167
+      ],
+      "max": [
+        0.17778466641902924,
+        0.40323612093925476,
+        0.21662327647209167
+      ]
+    },
+    {
+      "lod": "low",
+      "variant": "grass_medium_02_a",
+      "sourceTriangles": 714,
+      "triangles": 72,
+      "vertices": 108,
+      "relativeError": 0.03715452924370766,
+      "min": [
+        -0.05208370089530945,
+        0,
+        -0.05988120660185814
+      ],
+      "max": [
+        0.057710081338882446,
+        0.13408638536930084,
+        0.0580977126955986
+      ]
+    },
+    {
+      "lod": "low",
+      "variant": "grass_medium_02_c",
+      "sourceTriangles": 1215,
+      "triangles": 108,
+      "vertices": 162,
+      "relativeError": 0.037347398698329926,
+      "min": [
+        -0.0917963832616806,
+        0,
+        -0.10231883823871613
+      ],
+      "max": [
+        0.10843472182750702,
+        0.2203407734632492,
+        0.12022100389003754
+      ]
+    },
+    {
+      "lod": "low",
+      "variant": "grass_medium_02_e",
+      "sourceTriangles": 1664,
+      "triangles": 180,
+      "vertices": 270,
+      "relativeError": 0.027542173862457275,
+      "min": [
+        -0.14666569232940674,
+        0,
+        -0.21586185693740845
+      ],
+      "max": [
+        0.1623651683330536,
+        0.40323612093925476,
+        0.1692369133234024
+      ]
+    }
+  ]
+}

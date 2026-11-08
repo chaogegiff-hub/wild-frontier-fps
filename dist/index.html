@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#111c1b">
+  <meta name="description" content="荒野前线：山地湖泊中的第一人称战斗。狙击枪、八倍镜、榴弹炮与 AI 生存对战，支持手机横屏。">
+  <title>荒野前线 · 写实 FPS</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="modulepreload" href="./vendor/three.module.js">
+  <link rel="modulepreload" href="./vendor/GLTFLoader.js">
+  <link rel="modulepreload" href="./vendor/fflate.module.js">
+  <link rel="modulepreload" href="./game.js?v=2.21">
+  <link rel="modulepreload" href="./resource-pack.js?v=2.21">
+  <link rel="preload" as="image" href="./images/lobby-portrait.jpg?v=2.22" fetchpriority="high">
+  <link rel="stylesheet" href="./style.css?v=2.21">
+  <link rel="stylesheet" href="./lobby-photo.css?v=2.22">
+  <link rel="stylesheet" href="./vehicle.css?v=2.21">
+  <link rel="stylesheet" href="./battle-feedback.css?v=2.21">
+</head>
+<body>
+<svg class="svg-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 1v6M12 17v6M1 12h6M17 12h6"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><path d="m10 2 4 0 1 3 3 2 3-.5 2 3-2 2v4l2 2-2 3-3-.5-3 2-1 3h-4l-1-3-3-2-3 .5-2-3 2-2v-4l-2-2 2-3 3 .5 3-2z" transform="translate(1 -2) scale(.92)"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-sound" viewBox="0 0 24 24"><path d="M3 9h4l5-4v14l-5-4H3zM16 8c3 2 3 6 0 8M19 5c5 4 5 10 0 14"/></symbol>
+  <symbol id="i-reload" viewBox="0 0 24 24"><path d="M20 8a9 9 0 1 0 1 7M20 3v6h-6"/></symbol>
+  <symbol id="i-full" viewBox="0 0 24 24"><path d="M3 9V3h6M15 3h6v6M21 15v6h-6M9 21H3v-6"/></symbol>
+  <symbol id="i-sniper" viewBox="0 0 180 60"><path d="M10 37 30 30h25l8-9h23l4 5h66v5H94l-5 10H68l-9 14H48l5-17H28L10 48z" fill="currentColor" stroke="none"/><rect x="66" y="11" width="39" height="8" rx="3" fill="currentColor" stroke="none"/><path d="M77 19v6M95 19v6M152 26h18v5h-18M132 30l7 20M132 30l-7 20"/></symbol>
+  <symbol id="i-grenade" viewBox="0 0 180 60"><path d="M17 34h24l8-12h60l12 5h34v15h-43l-5 10H76l-6-13H55l-8 17H34l4-17H17z" fill="currentColor" stroke="none"/><circle cx="87" cy="38" r="16"/><path d="M115 22v23M125 24v20M135 25v18M50 15h37v5H50z"/></symbol>
+  <symbol id="i-rifle" viewBox="0 0 180 60"><path d="M12 30h28l9-8h67v5h44v5h-48l-8 7H83l-2 18H66l-7-18H48l-7 17H29l7-18H12z" fill="currentColor" stroke="none"/><path d="M60 16h23v6M110 22V12h8v15M147 24v11M160 26h12v6h-12"/></symbol>
+</defs></svg>
+<main id="app">
+  <div id="viewport" aria-label="3D 枪战场景"></div>
+  <div class="film-grain" aria-hidden="true"></div>
+  <div id="lobby" class="screen">
+    <div class="lobby-backdrop" aria-hidden="true"><img class="lobby-photo" src="./images/lobby-portrait.jpg?v=2.22" width="1056" height="1872" alt="" decoding="async" fetchpriority="high"></div>
+    <header class="lobby-header"><a class="wordmark" href="./" aria-label="荒野前线首页"><span class="brand-icon"><svg><use href="#i-target"/></svg></span><span>WILD FRONTIER<small>荒野前线</small></span></a><div class="header-right"><span class="status-dot"></span><span>单人 AI 对战</span><button class="icon-button settings-open" aria-label="设置"><svg><use href="#i-gear"/></svg></button></div></header>
+    <div class="lobby-content">
+      <div class="eyebrow"><span></span> FIRST PERSON · OPEN WORLD</div>
+      <h1>荒野<span>前线<span class="title-dot">.</span></span></h1>
+      <p class="lead">在山林与湖泊之间，<br>锁定你的下一个目标。</p>
+      <div class="feature-tags"><span>2K 画面 · 高清材质</span><span>8× 狙击瞄准</span><span>榴弹范围爆炸</span></div>
+      <div class="mode-label">选择作战模式 <span>SELECT MODE</span></div>
+      <div class="mode-switch" role="group" aria-label="作战模式"><button data-mode="survival" class="selected"><strong>生存对战</strong><small>12 名 AI · 动态安全区</small></button><button data-mode="training"><strong>自由训练</strong><small>枪弹免伤 · 无限补给</small></button></div>
+      <section class="loadout-section" aria-label="选择部署武器"><div class="loadout-label">选择初始武器 <span>LOADOUT</span></div><div class="lobby-loadout"><button class="loadout-card" data-weapon="0"><span class="weapon-no">01</span><svg><use href="#i-sniper"/></svg><span><strong>M700 狙击枪</strong><small>栓动狙击 / 8 倍镜</small></span><b>8×</b></button><button class="loadout-card" data-weapon="1"><span class="weapon-no">02</span><svg><use href="#i-grenade"/></svg><span><strong>GL-6 榴弹炮</strong><small>抛物线 / 范围爆炸</small></span><b>40 MM</b></button><button class="loadout-card selected" data-weapon="2"><span class="weapon-no">03</span><svg><use href="#i-rifle"/></svg><span><strong>AKM 突击步枪</strong><small>全自动 / 近中距离</small></span><b>AUTO</b></button></div></section>
+      <button id="start" class="deploy-button" aria-describedby="bootStatus bootError"><span><small id="loadLabel">正在载入战场</small><strong id="startText">开始作战</strong></span><span class="deploy-arrow">↗</span></button>
+      <progress id="bootProgress" class="boot-progress" aria-label="战场资源加载进度"></progress>
+      <p id="bootStatus" class="boot-status" role="status" aria-live="polite">首次进入需要载入资源，可先点击部署。</p>
+      <div class="start-hint"><span class="key">W</span><span class="key">A</span><span class="key">S</span><span class="key">D</span><span>移动</span><i></i><span>鼠标瞄准 / 手机双指操作</span></div>
+      <p id="bootError" class="error" role="alert" hidden></p>
+    </div>
+    <aside class="map-card"><div class="map-card-heading"><span class="status-dot"></span>战场情报 <span>01 / GREEN ISLAND</span></div><div class="map-card-body"><div class="map-glyph"><svg viewBox="0 0 130 90"><path d="m7 76 25-42 16 25 30-49 44 66M32 34l7 16 9 9M78 10l8 24 9-1 27 43"/><path class="river" d="M3 87c18-14 26 6 43-6s8-29 25-27 15 13 24 16 25-1 31-5"/></svg></div><h2>青岚海岛</h2><p>海岸 · 山林 · 草地 · 村落</p><div class="map-meta"><span><small>战场范围</small><strong>640 × 640 m</strong></span><span><small>作战时间</small><strong>晴日 / 阳光</strong></span></div></div></aside>
+    <footer class="lobby-footer"><div class="loadout-caption"><span>青岚海岛</span><small>GREEN ISLAND</small></div><div class="version-label">WEB FPS<br><span>V 2.22</span></div></footer>
+  </div>
+  <div id="hud" hidden>
+    <div class="compass"><div id="compassMarks"></div><div class="compass-center">▾<strong id="bearing">000</strong></div></div>
+    <div class="match-status"><div><small>剩余敌人</small><strong id="alive">12</strong></div><div><small>击败</small><strong id="kills">0</strong></div><span class="match-mode" id="modeTag">生存对战</span></div>
+    <div class="hud-top-right"><button id="pauseButton" class="icon-button" aria-label="暂停">Ⅱ</button><button id="fullscreenButton" class="icon-button" aria-label="全屏"><svg><use href="#i-full"/></svg></button></div>
+    <div class="minimap-wrap"><canvas id="minimap" width="260" height="260" aria-label="战场地图"></canvas><div><span>青岚海岛</span><b id="zoneLabel">安全区 · 278 m</b></div></div>
+    <div id="crosshair"><i></i><i></i><i></i><i></i><b></b></div>
+    <div id="hitMarker" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <canvas id="aimReticle" aria-hidden="true" hidden></canvas><div id="aimReadout" hidden></div>
+    <div id="grenadeLock" class="grenade-lock" hidden><span id="lockLabel">锁定中</span><div class="lock-track"><i id="lockProgress"></i></div></div>
+    <div id="lockConfirm" class="lock-confirm" role="status" aria-live="polite" hidden><b>✓ 锁定成功</b><span id="lockConfirmText">开火后榴弹将追踪目标</span></div>
+    <div id="scope" hidden><div class="scope-glass"><div class="scope-top">8× <span>M700 · MIL-DOT</span></div><div id="scopeRange">测距 — m</div><div id="breathLabel">按住 Shift 屏息稳定</div></div></div>
+    <div id="damageVignette"></div><div id="zoneWarning" hidden>⚠ 你在安全区外 · 向地图圆圈内移动</div><div id="message" role="status"></div><div id="killFeed"></div>
+    <div class="hud-bottom-left"><div class="armour-status" id="armourStatus"><div class="armour-title"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"/><path d="m8 11 3 3 5-6"/></svg>防弹衣</span><b id="armourNumber">100</b><small id="armourState">完好</small></div><div class="armour-track" id="armourTrack" role="progressbar" aria-label="防弹衣耐久" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><div id="armourBar"></div></div></div><div class="health-title"><span>生命值</span><b id="hpNumber">100</b><small id="medkitLabel">医疗包 × 3</small></div><div class="health-track"><div id="hpBar"></div></div><button id="healButton"><span>✚</span> 医疗包 <kbd>H</kbd></button></div>
+    <div id="actionProgress" hidden><span id="actionLabel">换弹中</span><div><i id="actionBar"></i></div></div>
+    <div class="swim-status" role="status"><strong>游泳中</strong><span>划水前进 · 上岸恢复持枪</span></div>
+    <div class="hud-bottom-right"><div class="weapon-current"><small id="weaponTag">栓动狙击 · 8×</small><h2 id="weaponName">M700 狙击枪</h2><div class="ammo"><strong id="mag">05</strong><span>/ <b id="reserve">35</b></span><button id="reloadButton" aria-label="换弹"><svg><use href="#i-reload"/></svg></button></div></div><div class="weapon-slots"><button data-slot="0" class="selected"><kbd>1</kbd><svg><use href="#i-sniper"/></svg></button><button data-slot="1"><kbd>2</kbd><svg><use href="#i-grenade"/></svg></button><button data-slot="2"><kbd>3</kbd><svg><use href="#i-rifle"/></svg></button></div></div>
+    <div class="desktop-controls">移动鼠标 瞄准 <span>·</span> 左键 开火 <span>·</span> 右键 开镜 <span>·</span> R 换弹 <span>·</span> F 拾取 <span>·</span> 空格 跳跃 <span>·</span> C 蹲下 <span>·</span> Esc 暂停</div>
+    <div id="touchControls"><div id="joystick" aria-label="移动摇杆"><div class="joystick-ring"></div><div id="joystickKnob"></div><span>移动</span></div><div class="touch-actions"><button id="aimTouch" aria-label="开镜"><svg><use href="#i-target"/></svg><span id="aimTouchLabel">开镜</span></button><button id="jumpTouch" aria-label="跳跃">↑<span>跳跃</span></button><button id="crouchTouch" aria-label="蹲下">⌄<span>蹲下</span></button><button id="fireTouch" aria-label="开火"><svg><use href="#i-target"/></svg><span>开火</span></button></div><div class="look-hint" id="lookHint">右侧滑动转动视角</div></div>
+    <button id="lootPickup" class="loot-pickup" aria-label="拾取附近物资" aria-keyshortcuts="F" hidden><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m4 10 12-6 12 6v14l-12 5-12-5ZM4 10l12 6 12-6M16 16v13M10 7l12 6"/></svg><span><b id="lootName">弹药</b><small id="lootAmount">拾取</small></span><kbd>F</kbd></button>
+    <button id="windowVault" class="loot-pickup window-vault" aria-keyshortcuts="F Space" hidden><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 28V5h22v23M5 22h22M16 25V9m-5 5 5-5 5 5"/></svg><span><b id="vaultLabel">翻越进入屋内</b><small id="vaultHint">破窗已清空 · F / 空格</small></span><kbd>F</kbd></button>
+    <button id="vehicleEnter" class="vehicle-enter" aria-keyshortcuts="E" hidden><svg viewBox="0 0 32 24" aria-hidden="true"><path d="m4 16 2-8h16l4 8M2 16h28v4H2ZM10 8l2-5h8l3 5M9 20v2m14-2v2M10 11v3m6-3v3m6-3v3"/></svg><span>上车<small>驾驶越野车 · E</small></span></button>
+    <section id="drivingControls" aria-label="汽车驾驶方向键" hidden>
+      <div class="drive-turn-buttons"><button data-drive="left" aria-label="车辆左转"><strong>◀</strong><span>左转</span></button><button data-drive="right" aria-label="车辆右转"><strong>▶</strong><span>右转</span></button></div>
+      <div class="drive-pedals"><button class="drive-forward" data-drive="forward" aria-label="车辆前进"><strong>▲</strong><span>前进</span></button><button class="drive-reverse" data-drive="reverse" aria-label="车辆后退"><strong>▼</strong><span>后退</span></button></div>
+      <div class="vehicle-dash"><small id="vehicleName">野外 4×4</small><div><b id="vehicleGear">N</b><strong id="vehicleSpeed">0</strong><span>km/h</span></div><small>WASD / 方向键 · B 鸣笛</small></div>
+      <button id="vehicleExit" class="vehicle-exit" aria-keyshortcuts="E">下车</button>
+      <button id="vehicleHorn" class="vehicle-horn" aria-label="汽车喇叭，按住鸣笛" aria-keyshortcuts="B" aria-pressed="false"><svg viewBox="0 0 32 28" aria-hidden="true"><path d="M4 10h7l10-6v20l-10-6H4ZM10 18l2 7h5l-2-7M25 9q5 5 0 10"/></svg><span>喇叭</span></button>
+      <div id="vehicleWaterAlert" class="vehicle-water-alert" role="status" hidden><b id="vehicleWaterTitle">车辆进水</b><span id="vehicleWaterText">尽快下车，游回岸边</span></div>
+    </section>
+    <div id="graphicsLabel" class="graphics-badge" aria-live="polite">2K 超清</div>
+    <div id="fpsLabel" aria-hidden="true">60 FPS</div>
+  </div>
+  <div id="waterScreen" class="water-screen" aria-hidden="true"><i></i><i></i><i></i><div><strong>溺水阵亡</strong><span>车辆沉没，未能及时逃离</span></div></div>
+  <div id="pauseScreen" class="modal-layer" hidden><section class="modal pause-modal"><div class="eyebrow">OPERATION PAUSED</div><h2>作战已暂停</h2><p>继续探索谷地，保持警惕。</p><button id="resume" class="solid-button">继续作战 <span>→</span></button><button class="outline-button settings-open">操作与画质设置</button><button id="leave" class="text-button">返回部署界面</button><div class="controls-grid"><span><kbd>WASD</kbd> 移动</span><span><kbd>Shift</kbd> 冲刺 / 屏息</span><span><kbd>1 / 2 / 3</kbd> 切换武器</span><span><kbd>H</kbd> 使用医疗包</span></div></section></div>
+  <div id="result" class="modal-layer" hidden><section class="modal result-modal"><div class="eyebrow" id="resultEyebrow">MISSION COMPLETE</div><h2 id="resultTitle">战场已清空</h2><p id="resultDescription">这片谷地属于你。</p><div class="result-stats"><span><strong id="resultKills">12</strong><small>击败敌人</small></span><span><strong id="resultAccuracy">0%</strong><small>子弹命中率</small></span><span><strong id="resultTime">00:00</strong><small>作战时间</small></span></div><button id="restart" class="solid-button">再次部署 <span>↗</span></button><button id="resultLobby" class="text-button">返回部署界面</button></section></div>
+  <div id="settings" class="modal-layer" hidden><section class="modal settings-modal"><button id="closeSettings" class="close-button" aria-label="关闭设置">×</button><div class="eyebrow">FIELD SETTINGS</div><h2>作战设置</h2><label class="setting-row"><span>视角灵敏度<small>开镜后自动降低灵敏度</small></span><input id="sensitivity" type="range" min=".35" max="2.5" step=".05" value="1"><output id="sensitivityValue">1.00</output></label><label class="setting-row"><span>画质<small>2K 更清晰，流畅更省电</small></span><select id="quality"><option value="low">流畅</option><option value="medium">均衡</option><option value="high" selected>2K 超清</option></select></label><label class="setting-row"><span>游戏音效<small>枪声、爆炸、移动环境声</small></span><input id="soundToggle" type="checkbox" checked></label><p class="vehicle-credit">越野车：<a href="https://sketchfab.com/3d-models/jeep-8dd9a0b3faa84aaa813431b44c716a6d" target="_blank" rel="noopener noreferrer">Jeep · DJMaesen</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>（车轮绑定与贴图压缩调整）</p><p class="settings-note">电脑：点击“开始作战”后锁定鼠标，Esc 暂停。<br>手机：左侧摇杆移动，右侧滑动瞄准；使用开镜、开火按钮。建议横屏打开。</p><button id="saveSettings" class="solid-button">保存设置 <span>✓</span></button></section></div>
+  <div id="rotateNotice" hidden><svg><use href="#i-full"/></svg><strong>横屏，进入战场</strong><p>将手机横过来，获得更宽的视野</p><button id="portraitContinue">继续竖屏体验</button></div>
+</main>
+<script type="module" src="./bootstrap.js?v=2.21"></script>
+</body>
+</html>

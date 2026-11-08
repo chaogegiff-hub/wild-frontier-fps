@@ -1,0 +1,60 @@
+{
+  "triangles": 15517,
+  "vertices": 12067,
+  "drawCalls": 5,
+  "weightedBones": 80,
+  "totalBones": 81,
+  "bounds": {
+    "min": [
+      -0.6781399250030518,
+      3.381986357631206e-11,
+      -0.2515373229980469
+    ],
+    "max": [
+      0.6781399250030518,
+      1.8503577709197998,
+      0.2135344296693802
+    ]
+  },
+  "floorOffset": 0.003393185125956129,
+  "unit": "meter",
+  "up": "+Y",
+  "forward": "+Z",
+  "rootScale": [
+    1,
+    1,
+    1
+  ],
+  "clips": [
+    {
+      "name": "Idle",
+      "duration": 11.666666984558105,
+      "tracks": 162,
+      "dropped": 85
+    },
+    {
+      "name": "Walk",
+      "duration": 1.0666667222976685,
+      "tracks": 162,
+      "dropped": 86
+    },
+    {
+      "name": "Run",
+      "duration": 0.7666666507720947,
+      "tracks": 162,
+      "dropped": 86
+    }
+  ],
+  "armBones": {
+    "left": {
+      "upper": "Bip01_L_UpperArm",
+      "forearm": "Bip01_L_Forearm",
+      "hand": "Bip01_L_Hand"
+    },
+    "right": {
+      "upper": "Bip01_R_UpperArm",
+      "forearm": "Bip01_R_Forearm",
+      "hand": "Bip01_R_Hand"
+    }
+  }
+}

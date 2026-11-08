@@ -1,0 +1,2030 @@
+{
+  ".github/workflows/pages.yml": {
+    "bytes": 771,
+    "sha256": "fcb9427cc38f3f96078f1960ef3b00dc9884e9e0c85745bc387f7baf826f9667"
+  },
+  ".gitignore": {
+    "bytes": 88,
+    "sha256": "c8927871079940a903cbf89f12530edbca9d9b9e92b89f9be29ad2be8d4fdbe5"
+  },
+  "ORIGINAL-CHANGELOG.md": {
+    "bytes": 53015,
+    "sha256": "bbc5753bee7959148c65d2688619e077f53cfdfe44f1a744e3f9ec8f1df2cdb8"
+  },
+  "README.md": {
+    "bytes": 2301,
+    "sha256": "99a8b3bfaf8da4dcf12f7e97706c9a389da9b516155f340c1cc48deb0444b924"
+  },
+  "VALIDATION.txt": {
+    "bytes": 5686,
+    "sha256": "bd2e40fcd29964e3ffc3a8259faf99df89d0dab86f1b22ead5c5cff020c21fa8"
+  },
+  "dist/.nojekyll": {
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  "dist/ASSET-CREDITS.txt": {
+    "bytes": 11188,
+    "sha256": "8c7f2b74773bc2ff31b794fd67bba5ff171ebfd77de6f6671b0ee86a3a693785"
+  },
+  "dist/aim-overlay.js": {
+    "bytes": 2378,
+    "sha256": "5f88c6faac84859f4c1aa26bbd07ed1cf543594639563e9552532933ec7133cd"
+  },
+  "dist/ammunition.js": {
+    "bytes": 5541,
+    "sha256": "8e67ea948f9e51a34d9ca8d34355f0c168a46bae27b871ae0b0c0eb3489b02d6"
+  },
+  "dist/asset-loading.js": {
+    "bytes": 1955,
+    "sha256": "14676cf7538465540e601f0d1b0607f1ca632c9e425d39bfe0944ce1a1161841"
+  },
+  "dist/assets.js": {
+    "bytes": 7693,
+    "sha256": "2193f9449f7b48a88c8ba714d55437ba43316688faef9fe216b88622a462cfa6"
+  },
+  "dist/audio/SOURCES.json": {
+    "bytes": 21974,
+    "sha256": "fb09ec6082e812c2bb87df8e867765c2ff7df08ccddcf37fccd6e6d7ccb9e40e"
+  },
+  "dist/audio/bolt.wav": {
+    "bytes": 41056,
+    "sha256": "b162ce570ca2420d02e299c3861a58c7e9e6353ee41c2fd6e524cc31737eec5b"
+  },
+  "dist/audio/casing.wav": {
+    "bytes": 55742,
+    "sha256": "f571a0fe5e9b49dca527b5f67c4ef4d02273be458208966b9a8507b8f1b9723f"
+  },
+  "dist/audio/explosion.wav": {
+    "bytes": 57754,
+    "sha256": "b16181bfed106efa9913f0c206beb14b52b24706e1746d1bd312135e63a03208"
+  },
+  "dist/audio/footstep-grass-1.wav": {
+    "bytes": 25644,
+    "sha256": "93d939e0dedf105d694e65786b624822f88cd4f262d79714f1583174b38cb2d3"
+  },
+  "dist/audio/footstep-grass-2.wav": {
+    "bytes": 25644,
+    "sha256": "2c750ecddfd8a6d420ec7e33d26b642f7e02ad161818797061a211b4d278d021"
+  },
+  "dist/audio/footstep-grass-3.wav": {
+    "bytes": 25644,
+    "sha256": "9850abc05e5bfdebf933b21bf7112a74d2be9ae0b93872fe477a9179c1f463b9"
+  },
+  "dist/audio/footstep-grass-4.wav": {
+    "bytes": 25644,
+    "sha256": "cc8724ae81ba85b1f4873f8fed10cb6a6cbf55d983c26eed4bdddf431859ae4c"
+  },
+  "dist/audio/footstep-gravel-1.wav": {
+    "bytes": 25644,
+    "sha256": "4166627d6042057108ddcb2fffcbb041408c461d0798e7139efd5c814b0a5d0b"
+  },
+  "dist/audio/footstep-gravel-2.wav": {
+    "bytes": 25644,
+    "sha256": "07c65108bb121b615972a2c8b00fa840b32c733b4e125b91b6e7f8d93b69c931"
+  },
+  "dist/audio/footstep-gravel-3.wav": {
+    "bytes": 25644,
+    "sha256": "935907eda605d31bff73d154da7716d2a29224a950a5c25a5ffffb4d18d9ba6d"
+  },
+  "dist/audio/footstep-gravel-4.wav": {
+    "bytes": 25644,
+    "sha256": "28189cd81c6c1ad13a707daa02a1906544f47bcc6990d4bd623812a9e901d611"
+  },
+  "dist/audio/footstep-stone-1.wav": {
+    "bytes": 23084,
+    "sha256": "c2f9d247f30d0a95d0197a65e391a5c99bfeb6196cf3c02c4c3cbf85fbdbd456"
+  },
+  "dist/audio/footstep-stone-2.wav": {
+    "bytes": 23084,
+    "sha256": "b661b8acf0d022fb5889c2c0d7c608c524270519a5afb803727e6c456e24011f"
+  },
+  "dist/audio/footstep-stone-3.wav": {
+    "bytes": 23084,
+    "sha256": "8db17ada18d7b46f1ee4660e43900dda4ad1b418bc399605fc649c86c339cb3e"
+  },
+  "dist/audio/footstep-stone-4.wav": {
+    "bytes": 23084,
+    "sha256": "61ffab97a05b01633b278ec03128fec68205c170e2c9655cf8bf115549de3c55"
+  },
+  "dist/audio/footstep-wood-1.wav": {
+    "bytes": 21804,
+    "sha256": "2bef410272338da0d69e0739ea294477f15fc91afc160bc93713abb1d07735f1"
+  },
+  "dist/audio/footstep-wood-2.wav": {
+    "bytes": 21804,
+    "sha256": "1a7341ea7c0a76e595e8536cd45ffa7bad3234983c1032eacc0c1958dc77278e"
+  },
+  "dist/audio/footstep-wood-3.wav": {
+    "bytes": 21804,
+    "sha256": "7fd2ce3ed0d8a7940cb47437903e9bc2c00d5d0c2b4055d27a8a7e324958933d"
+  },
+  "dist/audio/footstep-wood-4.wav": {
+    "bytes": 21804,
+    "sha256": "0bb2f968ed64d9bdf620514db45293e1682a912a35a290ca265cc6d2db58c811"
+  },
+  "dist/audio/forest.wav": {
+    "bytes": 3840044,
+    "sha256": "2252c8cf7d259e4bbe90a13284133bdfcd65443b96f17929338139921f7f38ed"
+  },
+  "dist/audio/glass-break.wav": {
+    "bytes": 90976,
+    "sha256": "1aa39d23f28405daad0f94394eeb64c3bd1d6885ff7edfc2634738fe5b414460"
+  },
+  "dist/audio/grenade.wav": {
+    "bytes": 114562,
+    "sha256": "71e5bbe245173b3dd25862fea0e9ccd031bbf5c870ff42ad828a82f1c7d07c8f"
+  },
+  "dist/audio/manifest.json": {
+    "bytes": 1075,
+    "sha256": "4add4609f3ae2675eb370d48464343f89436eacda95c1abe31c93c6d2088a31a"
+  },
+  "dist/audio/reload.wav": {
+    "bytes": 179552,
+    "sha256": "f9d7f66493c25fcad9039eb7936470d7d4353aed02c772055e84fe15b8bad0c5"
+  },
+  "dist/audio/rifle-1.wav": {
+    "bytes": 129644,
+    "sha256": "8c2b54a10f8f0175a074c7eb687e96de5416f25e5f2f77872c02c5f43a00f42b"
+  },
+  "dist/audio/sniper-1.wav": {
+    "bytes": 134444,
+    "sha256": "db4cc7859edce111c3e3bcbc4a4cf38f6580cca005e39da01229b088b5767875"
+  },
+  "dist/audio/swim-stroke-1.wav": {
+    "bytes": 39724,
+    "sha256": "72a4714b0673fa1c9b57a8b2c00b48e5fefdf0e3a2c3b635ab670b644cee8765"
+  },
+  "dist/audio/swim-stroke-2.wav": {
+    "bytes": 39724,
+    "sha256": "871d2d72051eb055cd61b8333868b6bca82dfc5558d1927cca640e63f474a97c"
+  },
+  "dist/audio/swim-stroke-3.wav": {
+    "bytes": 39724,
+    "sha256": "10058a7892ac2c6fc7970159b9ab18e1aebd5198feda4dc890cf3825f631a5fe"
+  },
+  "dist/audio/swim-stroke-4.wav": {
+    "bytes": 39724,
+    "sha256": "29fafd7e935c827392be5eaab61c73299e2d7a8d99c8e084130b607110defb45"
+  },
+  "dist/audio/water-step-1.wav": {
+    "bytes": 62444,
+    "sha256": "3634fd3fd28641245f1a6525645e5958472f68b22b3625b2d5ae8ad08a6bcb62"
+  },
+  "dist/audio/water-step-2.wav": {
+    "bytes": 62444,
+    "sha256": "26742c57d5aece5ccf0b9f17d64711755ae6ae4e9e4a7afd69db50c2501bac2c"
+  },
+  "dist/audio.js": {
+    "bytes": 10806,
+    "sha256": "0e9f0828eaed53a58a0dbc0a8d4dd79e6b296a1c6615fee6b0b5a49e0df6d0dd"
+  },
+  "dist/battle-feedback.css": {
+    "bytes": 2231,
+    "sha256": "89e61d1af2031b5e9ccf3e2a747a4ccc227e404d09ac07713708a3e26c8b3af8"
+  },
+  "dist/battle-feedback.js": {
+    "bytes": 1589,
+    "sha256": "6cfc33e806309d8ce1d64d2306958588964afa513d5883a00c5518c7054db765"
+  },
+  "dist/bootstrap.js": {
+    "bytes": 1993,
+    "sha256": "841bc4090ea7c87023c9810c4c02c35499c0c597c1971050618a83f8a00ab6c2"
+  },
+  "dist/building-layout.js": {
+    "bytes": 5074,
+    "sha256": "8e74a7deb13effb6a0e7a1476213f7a1650d4d74157e6f8653f9f4fe8f9ac14f"
+  },
+  "dist/cactus-field.js": {
+    "bytes": 9974,
+    "sha256": "0a5056891d984b9ba5d7fcc98a900096d9032255d40bcf9a6719dbf49e4748ae"
+  },
+  "dist/character-motion.js": {
+    "bytes": 5634,
+    "sha256": "ac4b26ea0782ab7e599c4c64b7b558738f285bbd7b95c8de8cc7088e23be3380"
+  },
+  "dist/character.js": {
+    "bytes": 11362,
+    "sha256": "187a74ee7ac8687e9dea485a976344d0d2e756ca87b498281bb6dc7b4dcf6cc2"
+  },
+  "dist/core.js": {
+    "bytes": 43768,
+    "sha256": "7ed11ad515fa01a21cd40043e95d4e4cb9fb7f4b04c36a0715b8c2f3c05ccda3"
+  },
+  "dist/daylight.js": {
+    "bytes": 1901,
+    "sha256": "ca3e116d6e756d9ac1369590be3dc62684638ab6c850ef282fa585788672ccf4"
+  },
+  "dist/detail-resources.js": {
+    "bytes": 673,
+    "sha256": "cfe8faf74b7be035e6df565836cc0af36cb57fa48b8572ff6f750a9ee341cb40"
+  },
+  "dist/effects.js": {
+    "bytes": 17148,
+    "sha256": "e5ab9b51fdd18b13a8340a87409c19f94f910243b1c4053f29f621e271c398bb"
+  },
+  "dist/environment/SOURCE.md": {
+    "bytes": 570,
+    "sha256": "ecefac50a9e4c5fa84d05c3e1af9dc44c049bfd4aa3319ddec0172da00349f7a"
+  },
+  "dist/environment/sky.hdr": {
+    "bytes": 1435119,
+    "sha256": "fd94c84997b8a3c353b62c2125a9b44e19509956986a126e472684432a02d798"
+  },
+  "dist/favicon.svg": {
+    "bytes": 282,
+    "sha256": "4fc7ef7c0a9e11096fd3a7e8bf82fce585ec029e3574f4d7ff6dbcbc5d3e868a"
+  },
+  "dist/first-person-body.js": {
+    "bytes": 1237,
+    "sha256": "3d12e786f584ee58baceb9dc646801568ef8dc000248ed2f9c82bff95be69850"
+  },
+  "dist/foley-motion.js": {
+    "bytes": 1114,
+    "sha256": "c49ac58039cd0054e0d26a81b1f08f24688ca42071b0dc5c070d28282b541ef2"
+  },
+  "dist/fonts/OFL.txt": {
+    "bytes": 4377,
+    "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f"
+  },
+  "dist/fonts/barlow.ttf": {
+    "bytes": 81448,
+    "sha256": "cc9fb2539cf27df48255982e896d28f544483537cdb41f9fabd741af8992d719"
+  },
+  "dist/game.js": {
+    "bytes": 42032,
+    "sha256": "019fc1d8bcbebc719ad6daa746c9c41a166d2e1318835f1c9deae8a2ca9e6070"
+  },
+  "dist/graphics.js": {
+    "bytes": 7627,
+    "sha256": "8640cd01dfd700377176f28004a754ba9b0cad16957f9976ffd506cb1cbfb0e1"
+  },
+  "dist/hd2k/EQUIPMENT-SOURCES.md": {
+    "bytes": 2892,
+    "sha256": "df0ba754bf88e028e757350210fdae13876af92b26c06d4bcc42bfd84ba0d073"
+  },
+  "dist/hd2k/NATURE-SOURCES.md": {
+    "bytes": 13978,
+    "sha256": "aa28b8aef27536cad0cb80ce5e58e8d61386b0cfe302f59e014a80f1558b11b7"
+  },
+  "dist/hd2k/environment/sky.hdr": {
+    "bytes": 5451493,
+    "sha256": "5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198"
+  },
+  "dist/hd2k/equipment/gl6/metal-base.jpg": {
+    "bytes": 323653,
+    "sha256": "d4654dc1cc5b77ca407b73fa518dc97e9d22196f07d19ebbf00f8b70d668f991"
+  },
+  "dist/hd2k/equipment/gl6/metal-normal.jpg": {
+    "bytes": 1450869,
+    "sha256": "1e3f9198d5d9cc6700313a43c9d7615d32a25c858f49fe1d86d0126e968c1c29"
+  },
+  "dist/hd2k/equipment/gl6/metal-orm.jpg": {
+    "bytes": 529799,
+    "sha256": "1c0b19de84c9ed07c0e9ec1251aa3cf46b0d6d89963c48bad2ff62b6835de50f"
+  },
+  "dist/hd2k/equipment/gl6/polymer-base.jpg": {
+    "bytes": 295105,
+    "sha256": "6a50f2716abf37c565c4aba28e4c678ca49894d2eb4f309d4df2683fc9d1fc71"
+  },
+  "dist/hd2k/equipment/gl6/polymer-normal.jpg": {
+    "bytes": 2106186,
+    "sha256": "653b2ba9dc07aeb3c4c2197d9b60b3233091af040dee9f237e358e6bd46deeea"
+  },
+  "dist/hd2k/equipment/gl6/polymer-orm.jpg": {
+    "bytes": 527361,
+    "sha256": "131c785e9ef13b0d8ee3d3e8b2561ec7fd6e0d994a5e961c48e5c7e94aad639c"
+  },
+  "dist/hd2k/equipment/gloves/cloth-color.jpg": {
+    "bytes": 118940,
+    "sha256": "cc3185ced8deedfe96d32d651622a70bca6ef6c8570dc48ce99ef81e24de44e8"
+  },
+  "dist/hd2k/equipment/gloves/cloth-normal.jpg": {
+    "bytes": 994565,
+    "sha256": "33e1dcc9e0011ecf3c4fc0cab414c08e30840da971489ce1a4abf8c5b46212b2"
+  },
+  "dist/hd2k/equipment/gloves/cloth-roughness.jpg": {
+    "bytes": 130499,
+    "sha256": "dc7ef884fe3576ed9867b87b9b0f676d7cecb581e23c2692be8807d96f7c2d32"
+  },
+  "dist/hd2k/equipment/gloves/leather-color.jpg": {
+    "bytes": 206711,
+    "sha256": "429b2d2a91d030bb552dc26c1e20a5ad5ff898726dd571492ff73b64039822a0"
+  },
+  "dist/hd2k/equipment/gloves/leather-normal.jpg": {
+    "bytes": 1315186,
+    "sha256": "c066ff5d4eb79654ce170d655cb5e3c8c4325c9715343a22fdccea711f6a6796"
+  },
+  "dist/hd2k/equipment/m700/base-color.jpg": {
+    "bytes": 1068526,
+    "sha256": "93a55eb80a31aed58565a96183230f7ebf153b6bdd1282cc348809255315eaac"
+  },
+  "dist/hd2k/equipment/m700/metal-rough.jpg": {
+    "bytes": 1495822,
+    "sha256": "4ced25d6d1836bf7abd278825229cd11c81f1d06aeaff6d3c4980810e20117f6"
+  },
+  "dist/hd2k/equipment/m700/normal.jpg": {
+    "bytes": 1158725,
+    "sha256": "59031f74e3ae9795ba6b089281f8ad0d6cf4f832eaf14f19a39f1d563f18fe8f"
+  },
+  "dist/hd2k/equipment/rocketbox/sm004_body_color_acu.jpg": {
+    "bytes": 1942159,
+    "sha256": "66d0d5e2334d09ec9bacd7c4c57800feb6320a29886a44b57350a5b4ad826c2b"
+  },
+  "dist/hd2k/equipment/rocketbox/sm004_body_normal.jpg": {
+    "bytes": 2026397,
+    "sha256": "7ea9caf0d66e3300f73fa78bd4d05a91c9c594681bf9a1fcfaf6b01dffe2ac37"
+  },
+  "dist/hd2k/equipment/rocketbox/sm004_equipment_color_acu.jpg": {
+    "bytes": 462976,
+    "sha256": "addf1ab7cde0d3c4a05e69ad62959d2e6bc90f0bca3dd6eb9a10ae2757a40804"
+  },
+  "dist/hd2k/equipment/rocketbox/sm004_equipment_normal.jpg": {
+    "bytes": 550653,
+    "sha256": "00a0ee0a31264d50f4649e20460e6f6f1158ab50f5394650076951dcaec54e54"
+  },
+  "dist/hd2k/equipment/rocketbox/sm004_head_color.jpg": {
+    "bytes": 1001246,
+    "sha256": "594335db06f86222bd97e2c1b50df8657125b935ccfd0c006fdb15f3c9195909"
+  },
+  "dist/hd2k/equipment/rocketbox/sm004_head_normal.jpg": {
+    "bytes": 1392938,
+    "sha256": "e6bbd19f5237a44444b38b239d7ba44ceba1164314f2241a414174d0c2c95171"
+  },
+  "dist/hd2k/equipment/rocketbox/sm004_helmet_color_acu.jpg": {
+    "bytes": 1041866,
+    "sha256": "43e4d8f94aa90143b5225bb581e031405f4c01ac6f1032b4efdd954214bbdddf"
+  },
+  "dist/hd2k/equipment/rocketbox/sm004_helmet_normal.jpg": {
+    "bytes": 2534504,
+    "sha256": "cd98b63b7cbe578701c0989734595855c19decad1e70bac827cacfea531fac4a"
+  },
+  "dist/hd2k/equipment/validation.json": {
+    "bytes": 174,
+    "sha256": "00f3486815848038d2914ca9957235b4b94bddef07451e2629d567df49689f32"
+  },
+  "dist/hd2k/equipment/verification.json": {
+    "bytes": 2412,
+    "sha256": "b1a4911703c66669ee6b3f565e9d817247e7351e4929e2101076c93f28dec7ee"
+  },
+  "dist/hd2k/equipment-manifest.json": {
+    "bytes": 9226,
+    "sha256": "63f470e9a372950a1be3416de08879075dd3f3df10b49ce5c878bafc840ffd66"
+  },
+  "dist/hd2k/manifest.json": {
+    "bytes": 37406,
+    "sha256": "9f164023f6752fbda7e197768af1f359c529c51a0fca6f244f91546983dce182"
+  },
+  "dist/hd2k/nature/fern_02/textures/fern_02_arm_2k.jpg": {
+    "bytes": 519437,
+    "sha256": "f79acc9f9e451adf37c33f0260d40305a647b910f31eda685f484cdf91160d32"
+  },
+  "dist/hd2k/nature/fern_02/textures/fern_02_diff_2k.png": {
+    "bytes": 1701797,
+    "sha256": "ba3533ff312d41518ee43491cb098221d0757fcabf69932582a3cc68b827f817"
+  },
+  "dist/hd2k/nature/fern_02/textures/fern_02_nor_gl_2k.jpg": {
+    "bytes": 783970,
+    "sha256": "5a65f7f29e044e725bd378164ed193a63e625095a01fabf8849f0e364e2948c0"
+  },
+  "dist/hd2k/nature/flower_heliophila/textures/flower_heliophila_arm_2k.jpg": {
+    "bytes": 750766,
+    "sha256": "9995a3a7b51c6a699f2114901507c8b3cd58b8e804c4b834cdf8049a5d489f3a"
+  },
+  "dist/hd2k/nature/flower_heliophila/textures/flower_heliophila_diff_2k.png": {
+    "bytes": 2921842,
+    "sha256": "d40147fed871917b2fa5f8ca847afedfbb0d8ba0347da0bb931676ac5a0dd7b6"
+  },
+  "dist/hd2k/nature/flower_heliophila/textures/flower_heliophila_nor_gl_2k.jpg": {
+    "bytes": 977344,
+    "sha256": "b01e825e3259a4c82b23c6aaf36510a2ff92fd46e061758d5ba13274ed934143"
+  },
+  "dist/hd2k/nature/grass_medium_02/textures/grass_medium_02_arm_2k.jpg": {
+    "bytes": 398239,
+    "sha256": "4cbcb7ea50c369642f305f48d52b1995c1f6fda9573658b7ad36e7a9429948f1"
+  },
+  "dist/hd2k/nature/grass_medium_02/textures/grass_medium_02_diff_2k.png": {
+    "bytes": 1235415,
+    "sha256": "65e1c5bef530afcb29ff91b6defd7a3357cda893595e77cf6fac2d3af6363038"
+  },
+  "dist/hd2k/nature/grass_medium_02/textures/grass_medium_02_nor_gl_2k.jpg": {
+    "bytes": 235077,
+    "sha256": "036a68ddea89f076d7c03064ab6ead9b545bba9b5568e6c74d16a4f3c2d20fef"
+  },
+  "dist/hd2k/nature/island_tree_02/textures/island_tree_02_arm_2k.jpg": {
+    "bytes": 1273154,
+    "sha256": "cf07767a18bb3166ba1bb31ed3074ca07749be73eed419ff7f08bd29ad933e9f"
+  },
+  "dist/hd2k/nature/island_tree_02/textures/island_tree_02_branches_arm_2k.jpg": {
+    "bytes": 799557,
+    "sha256": "b83b9324d2dc81bb6e08e5a45ebef88ac118ce036a134b5618b1f00351f96d24"
+  },
+  "dist/hd2k/nature/island_tree_02/textures/island_tree_02_branches_diff_2k.jpg": {
+    "bytes": 808718,
+    "sha256": "bb6baf6abca65cd08139435fc65c677309eecd20df5ba32e9c7d4cb4fa2da906"
+  },
+  "dist/hd2k/nature/island_tree_02/textures/island_tree_02_branches_nor_gl_2k.jpg": {
+    "bytes": 1430177,
+    "sha256": "6d05fa3d692a97a5ac46a65af3d183dc51a65277560316560f1b69cdb974e233"
+  },
+  "dist/hd2k/nature/island_tree_02/textures/island_tree_02_diff_2k.jpg": {
+    "bytes": 1464550,
+    "sha256": "6f8c28e2e570cf7c929abff46e1ecd1868812dde43d13ccfd6f6e7fdec7e6e12"
+  },
+  "dist/hd2k/nature/island_tree_02/textures/island_tree_02_leaves_arm_2k.jpg": {
+    "bytes": 926646,
+    "sha256": "766f34542e7bbf4eed3b0a86bedab18b0c19d31f19ef5e643a25ffd1c94721c4"
+  },
+  "dist/hd2k/nature/island_tree_02/textures/island_tree_02_leaves_diff_2k.png": {
+    "bytes": 1882597,
+    "sha256": "39686c791700217426e5a8082fa2b8f388a3b404c80431a6aacff7fde8e32ef4"
+  },
+  "dist/hd2k/nature/island_tree_02/textures/island_tree_02_leaves_nor_gl_2k.jpg": {
+    "bytes": 755110,
+    "sha256": "53eb36cbb6ea5587c08b9f57ab59417e350cfba9721f84b72d03dfb10bfe42d2"
+  },
+  "dist/hd2k/nature/island_tree_02/textures/island_tree_02_nor_gl_2k.jpg": {
+    "bytes": 2698042,
+    "sha256": "5614c3a19854d1358d1c741689b3576b2c96a8afe612563bec9d5ef0efa2aa04"
+  },
+  "dist/hd2k/nature/rock_face_01/textures/rock_face_01_arm_2k.jpg": {
+    "bytes": 1387260,
+    "sha256": "cba9544f6466e1923ed431911ad061a1bb6b768a88077c995ed6edb5a4a960e3"
+  },
+  "dist/hd2k/nature/rock_face_01/textures/rock_face_01_diff_2k.jpg": {
+    "bytes": 1773265,
+    "sha256": "806d13462b7c6fba71a7c027879c80fa291a914dd9c264ff7d0f3f9c47db9b39"
+  },
+  "dist/hd2k/nature/rock_face_01/textures/rock_face_01_nor_gl_2k.jpg": {
+    "bytes": 2416799,
+    "sha256": "34ab06ee5bb9aa4c9b74731eaaf912b5c3cbada21ff324228ef3aa28ec8609c1"
+  },
+  "dist/hd2k/nature/rock_moss_set_01/textures/rock_moss_set_01_diff_2k.jpg": {
+    "bytes": 870500,
+    "sha256": "2a9a58b731e3d90517fb7f28a4340b6dfeb24fb2dadcc43941c8ea3f58cead84"
+  },
+  "dist/hd2k/nature/rock_moss_set_01/textures/rock_moss_set_01_nor_gl_2k.jpg": {
+    "bytes": 1392008,
+    "sha256": "b6506be3ef59d97a321840a2c9ee68ed0f30adfa252a828c659f41041a1dca58"
+  },
+  "dist/hd2k/nature/rock_moss_set_01/textures/rock_moss_set_01_rough_2k.jpg": {
+    "bytes": 349879,
+    "sha256": "6dd745c566638188db9e8eb56cc5815248db2ab0c5863765b76401773dc7e3ec"
+  },
+  "dist/hd2k/nature/woodland_tree_03/textures/tree_small_02_arm_2k.jpg": {
+    "bytes": 1337690,
+    "sha256": "b46da5a5a91fc13405f1d05917c201f39fb88f005b502a4249da040af327ce81"
+  },
+  "dist/hd2k/nature/woodland_tree_03/textures/tree_small_02_branch_arm_2k.jpg": {
+    "bytes": 624459,
+    "sha256": "361124a55805986bdabdc848528be16d044588ee7c3c6ef78a2eb2ce2f8a7cdc"
+  },
+  "dist/hd2k/nature/woodland_tree_03/textures/tree_small_02_branch_diff_2k.jpg": {
+    "bytes": 802497,
+    "sha256": "0ee53fc7f7088f994b2ab7b58949740fcbfa148e945023e68bed88ccdb58b490"
+  },
+  "dist/hd2k/nature/woodland_tree_03/textures/tree_small_02_branch_nor_gl_2k.jpg": {
+    "bytes": 1106008,
+    "sha256": "bae29483361406c9b62836732e935381a2daac8559e6b1271f664b4651e42e06"
+  },
+  "dist/hd2k/nature/woodland_tree_03/textures/tree_small_02_diff_2k.jpg": {
+    "bytes": 1743678,
+    "sha256": "d8e89b5549037a43281bd1aec4192ec101e19341262bbcdb6768ab649ef1893e"
+  },
+  "dist/hd2k/nature/woodland_tree_03/textures/tree_small_02_leaves_arm_2k.jpg": {
+    "bytes": 1170079,
+    "sha256": "44e3af956350ab6128f0a32d8deb3e018e2e9eebcc79b8a797dda9c708fa7e5e"
+  },
+  "dist/hd2k/nature/woodland_tree_03/textures/tree_small_02_leaves_diff_2k.png": {
+    "bytes": 2781163,
+    "sha256": "f259a1b8a4acae515002232ec02d65d6cabd608f516ae42cc4f28f2f89a47e95"
+  },
+  "dist/hd2k/nature/woodland_tree_03/textures/tree_small_02_leaves_nor_gl_2k.jpg": {
+    "bytes": 1305282,
+    "sha256": "b34bf22948ebb6efbaafafe4582f8554868d1c229fbefa25dfae21a3106448da"
+  },
+  "dist/hd2k/nature/woodland_tree_03/textures/tree_small_02_nor_gl_2k.jpg": {
+    "bytes": 2827697,
+    "sha256": "8278ef44ac26e08f0be2a47b11fd3001ff3a55888bf78e08136b40bd065ef575"
+  },
+  "dist/hd2k/nature-manifest.json": {
+    "bytes": 19323,
+    "sha256": "9cb7120020ed0bbc2fce59c751363a61bc70dd1b0191d7f98c97a92a93b18201"
+  },
+  "dist/hd2k/textures/forest-normal.jpg": {
+    "bytes": 3669921,
+    "sha256": "b9b59ae7348ba62992210e58d9fa2835a40f6693ab66b2e560ae5f4189650f23"
+  },
+  "dist/hd2k/textures/forest.jpg": {
+    "bytes": 2673227,
+    "sha256": "36567503d2bf8d9acac5e74479f37b23ad2278609dfb9d1d106eb972c82c74f1"
+  },
+  "dist/hd2k/textures/grass-normal.jpg": {
+    "bytes": 3889288,
+    "sha256": "4c8f11a12d42665b459382acdefc082b5f360b06d2522cebf38b687d7c553fba"
+  },
+  "dist/hd2k/textures/grass-rough.jpg": {
+    "bytes": 1063437,
+    "sha256": "9ac7e87cddbbeb0d9799052cb621204b3578cef7cd0f57dc0b4ab5d36fd22cbc"
+  },
+  "dist/hd2k/textures/grass.jpg": {
+    "bytes": 2820666,
+    "sha256": "5fa503473e459b41b450079de29988235dbcc9e1f8a1fbc0741e7726e3a4c97a"
+  },
+  "dist/hd2k/textures/ground-normal.jpg": {
+    "bytes": 3515362,
+    "sha256": "b93191c83897d50acc78dcc26f126d5f439cb14c0ed231017a68b955d2efbe1e"
+  },
+  "dist/hd2k/textures/ground.jpg": {
+    "bytes": 2424305,
+    "sha256": "0e27e1863d85b659058142af774759fabb2de00b8a6ea7119e069e5102782087"
+  },
+  "dist/hd2k/textures/metal-normal.jpg": {
+    "bytes": 1400156,
+    "sha256": "137509c0c0d848aee7166a2dec186d14bf76dea6c355d5b13b7387a6c6a5780c"
+  },
+  "dist/hd2k/textures/metal-rough.jpg": {
+    "bytes": 1703122,
+    "sha256": "bca656c23901ad6df30b201b783fd6420407058b66826d25026a407c3cdab135"
+  },
+  "dist/hd2k/textures/rock-normal.jpg": {
+    "bytes": 2713670,
+    "sha256": "a3e5ccf812ad24cf2a67a225a852f832b66609305f023a8fdd395e939c53a898"
+  },
+  "dist/hd2k/textures/rock.jpg": {
+    "bytes": 2697845,
+    "sha256": "bc70cc55e67ab1d69409128963be4aa78a3cee38290b0d460f140d28b06a68c2"
+  },
+  "dist/hd2k/textures/roof-normal.jpg": {
+    "bytes": 1353451,
+    "sha256": "0f85e7264635bed8ab88d7f8adce6c8a09ae0d4faedc74b4bc5c2c63c798d781"
+  },
+  "dist/hd2k/textures/roof-rough.jpg": {
+    "bytes": 934919,
+    "sha256": "9d85fb11a83b066f114a963b2cf466ff064f692f0017809968d09b84e4933237"
+  },
+  "dist/hd2k/textures/roof.jpg": {
+    "bytes": 1846184,
+    "sha256": "08a066a6d310c060b73996b11911a4727d6ab9b7f9cb7f59ae32d71cd0061b9b"
+  },
+  "dist/hd2k/textures/wall-normal.jpg": {
+    "bytes": 1990841,
+    "sha256": "062a4a65e7a3509a3b2feeab73e17d3d957a11383531bf4e083126dc5067d030"
+  },
+  "dist/hd2k/textures/wall-rough.jpg": {
+    "bytes": 2191025,
+    "sha256": "447c750ed7a520613167095e4f2a57b14ebdd02a9d3188f6fa205db43d40c9eb"
+  },
+  "dist/hd2k/textures/wall.jpg": {
+    "bytes": 2673056,
+    "sha256": "e53ef70cb87a3abef3fa543da0fb55c91b61d2bf77ae3c0a35f7d74bb1e37eef"
+  },
+  "dist/hd2k/textures/water-normal.jpg": {
+    "bytes": 831032,
+    "sha256": "09f34f712fc0a83bb6b14da267ccab9137866dce321a04646deb85c67d369f30"
+  },
+  "dist/hd2k/textures/wood-normal.jpg": {
+    "bytes": 980657,
+    "sha256": "93340faba0133b8171915094585b876deace493e87d576a4b4f53070047387f6"
+  },
+  "dist/hd2k/textures/wood-rough.jpg": {
+    "bytes": 1045354,
+    "sha256": "9d99c3dc04e6eba0bb617e6955f23decb795e0b85f5975d3cbefe9161371e472"
+  },
+  "dist/hd2k/textures/wood.jpg": {
+    "bytes": 2138663,
+    "sha256": "e308f50cb475f08f0628e36459226474e863254d45b89c91f6c3937d32b2a402"
+  },
+  "dist/images/lobby-portrait.jpg": {
+    "bytes": 336452,
+    "sha256": "f53a389f175a51c6dc98acc77ae17eee421becf5d5474f60bdd7f50edf306ed5"
+  },
+  "dist/impact-motion.js": {
+    "bytes": 10899,
+    "sha256": "ed9ad807c9797dde37ab96e4bb4572ff3a917248cac0a8009280ed85c3175a06"
+  },
+  "dist/index.html": {
+    "bytes": 16890,
+    "sha256": "ab3c39f4f6348af32011e1efd2c17bf9f76c4fe77c6125783046049815ff4e57"
+  },
+  "dist/lobby-photo.css": {
+    "bytes": 2674,
+    "sha256": "3a96f118af583698acd08ab9111d9a9372f97e9f06e557fd92fc38a0567bdea6"
+  },
+  "dist/look-controls.js": {
+    "bytes": 4029,
+    "sha256": "5b8080951fe6d42706b04f462128fe51c8d8c9a059347081e129c81363bbbb10"
+  },
+  "dist/loot-views.js": {
+    "bytes": 3051,
+    "sha256": "9bb16f3107621326f7bc979f6969923026f22083d05fd37d39e8fe3660264f9d"
+  },
+  "dist/meadow-blades.js": {
+    "bytes": 4282,
+    "sha256": "d8710fbe539c86211a279755f0be6a188594350a7521a00641575b6e2d0b32cc"
+  },
+  "dist/models/akm/SOURCE.md": {
+    "bytes": 2157,
+    "sha256": "9d8a9b1dd5c6e5980a854dd1a110c9761a94e14dee65097f9bd096e598626897"
+  },
+  "dist/models/akm/basecolor.jpg": {
+    "bytes": 1047283,
+    "sha256": "71e1ebc3098e837b275f36f2f097cdb9925d0996e9002135e970f1cda34a825c"
+  },
+  "dist/models/akm/conversion.json": {
+    "bytes": 1703,
+    "sha256": "0e7697c189a5aab94c07c6b7ae71f5deb5db21a0174fc4fec32bf47e8557c59d"
+  },
+  "dist/models/akm/model.bin": {
+    "bytes": 510912,
+    "sha256": "647b7a5f21a5d2d0ec2a0dcd062dfe97422de854b3b200c649a955ced201df7c"
+  },
+  "dist/models/akm/model.gltf": {
+    "bytes": 3112,
+    "sha256": "042372ae9ff486b72f5be713dd9f7a8908a874e9ca3e34c9f3f0d851d0b2db13"
+  },
+  "dist/models/akm/normal.jpg": {
+    "bytes": 1702979,
+    "sha256": "b17a95878aea9653c92123cd02968359bd05fda28729f244d5a9dffcf7723d4a"
+  },
+  "dist/models/akm/orm.jpg": {
+    "bytes": 2048732,
+    "sha256": "d22f2e8004abb7ac9154808304d8565be4d9f8931149deaca5a38ab06f0912fa"
+  },
+  "dist/models/fps-arms/SOURCE.md": {
+    "bytes": 2710,
+    "sha256": "a64f653aef316277b62199b1094b7e6301107902bdd188ba6db865d729622b60"
+  },
+  "dist/models/fps-arms/conversion.json": {
+    "bytes": 1583,
+    "sha256": "58f44b5e7f70d89dd2a3b3755eec33fcaa5af3aec7942036fa285c98ec08eaed"
+  },
+  "dist/models/fps-arms/model.bin": {
+    "bytes": 309712,
+    "sha256": "6c86e1c947fe7e270d8176f50dd409b215f70c8968be0429f901ecb3da5f65ed"
+  },
+  "dist/models/fps-arms/model.gltf": {
+    "bytes": 19257,
+    "sha256": "83b1c710044788692677fceaf6ad01f4baa96720690d93baa0ded03b7bedae1c"
+  },
+  "dist/models/fps-arms/textures/skin.jpg": {
+    "bytes": 168411,
+    "sha256": "640e9b84a0850b82637b668d33563f7a631339f31551758c8cea73cd8cabed7d"
+  },
+  "dist/models/gl6/SOURCE.md": {
+    "bytes": 1066,
+    "sha256": "56a01bda038470d7df9d1e50612265c0d3fa460c57d1470a49bd8b76637f488a"
+  },
+  "dist/models/gl6/conversion.json": {
+    "bytes": 129,
+    "sha256": "fa0379afe3789a235e67d433bb75674b9da14a4ce977d07d2fb1e285ac3d4f8f"
+  },
+  "dist/models/gl6/model.bin": {
+    "bytes": 785088,
+    "sha256": "6b5f582e73124ec89cee0043f2e476927c63d6c2bc3b2996fd5f4bd2b6bf5d26"
+  },
+  "dist/models/gl6/model.gltf": {
+    "bytes": 7770,
+    "sha256": "6e76b1a9aa401596345de19cc242edf62ca523ecd1506df2898481c788f81dcd"
+  },
+  "dist/models/gl6/textures/metal-base.png": {
+    "bytes": 25194,
+    "sha256": "e3c070523a8c583ffe9c88805a1473c29ca5d78b6f0d09971837d408cc079917"
+  },
+  "dist/models/gl6/textures/metal-normal.png": {
+    "bytes": 51564,
+    "sha256": "080e49b732441aa048707e4cec60f77710b2fc4a86b62da574080034540e815d"
+  },
+  "dist/models/gl6/textures/metal-orm.png": {
+    "bytes": 47034,
+    "sha256": "04178a1efe5dd80b3ff88e3455fea4f7cc2ada8bd5d9b0b15e7acd36c1d60ca3"
+  },
+  "dist/models/gl6/textures/polymer-base.png": {
+    "bytes": 25207,
+    "sha256": "44168054c3d0f7b5ce9cc22ce118d41e462c50f797a0dc3fecdb6a04862224ba"
+  },
+  "dist/models/gl6/textures/polymer-normal.png": {
+    "bytes": 51532,
+    "sha256": "3152d865b275558d78d61cc172fa3e226f84ba9e5a5f30f6048eb043ba3e6f6c"
+  },
+  "dist/models/gl6/textures/polymer-orm.png": {
+    "bytes": 47241,
+    "sha256": "7fd68341814c67fdd43e6a8ead3f142284ba76428b34806ed0447d82621647a6"
+  },
+  "dist/models/gloved-hands/SOURCE.md": {
+    "bytes": 1019,
+    "sha256": "1a4bf2e203fcd9fa050677af26d7d202c660ee88b18fad749a2db3f6b489425f"
+  },
+  "dist/models/gloved-hands/conversion.json": {
+    "bytes": 1980,
+    "sha256": "d73550c66c094dd6c71450048038ba90a6cc8ecb3496658fd182ad0d90c6e4a8"
+  },
+  "dist/models/gloved-hands/model.bin": {
+    "bytes": 348208,
+    "sha256": "73401393170bf6eaea7ee5392ef54216b630581be8a99e56499bcf139bc319cc"
+  },
+  "dist/models/gloved-hands/model.gltf": {
+    "bytes": 24167,
+    "sha256": "2d69e3dc76bdbb198c29ed6b79f6473f17717dffcb8e5d9258e3b08e999ec2d4"
+  },
+  "dist/models/gloved-hands/textures/cloth-color.png": {
+    "bytes": 30075,
+    "sha256": "deefe05e7dbb04eeaa21bf4af1262550e5850207b9f68a086b1c0bc8ac7b8c5a"
+  },
+  "dist/models/gloved-hands/textures/cloth-normal.png": {
+    "bytes": 70978,
+    "sha256": "ec5c6f822910932542c40e32cd71b6e5fa9796cee8fe91b8d7486af55cb4bc6e"
+  },
+  "dist/models/gloved-hands/textures/cloth-roughness.png": {
+    "bytes": 13795,
+    "sha256": "4fdd4df1f15330116224a6a8d0f2d38c1985ace1761546069c08df9bcdbed886"
+  },
+  "dist/models/gloved-hands/textures/leather-color.png": {
+    "bytes": 35437,
+    "sha256": "58fa29b32d3f18df2a0d6609091d501f0fb24b35156e65474313c82e8f876e2c"
+  },
+  "dist/models/gloved-hands/textures/leather-normal.png": {
+    "bytes": 132553,
+    "sha256": "8e550c620f495df391a97b638ffebcb49e0dd23c5c6ddfe902c71767d0d220c4"
+  },
+  "dist/models/jeep/SOURCES.md": {
+    "bytes": 1190,
+    "sha256": "05a6369a1cc470d794c35950f5a656b6cc113aa61d5888930d6a4785a03b1908"
+  },
+  "dist/models/jeep/body-color.jpg": {
+    "bytes": 317605,
+    "sha256": "213aecc9063a28d489304be384573507651346629b07e07bd86f4ab77750b39d"
+  },
+  "dist/models/jeep/body-emissive.png": {
+    "bytes": 5408,
+    "sha256": "6aa5ee0acc025d3442054c17dbeb6bee4e9e9363eab8481bae025aeecb164bfe"
+  },
+  "dist/models/jeep/body-normal.jpg": {
+    "bytes": 287144,
+    "sha256": "308662810d50004275387634efef91956b8c6568fada15b299f7f1a08cb6e24d"
+  },
+  "dist/models/jeep/body-orm.jpg": {
+    "bytes": 598885,
+    "sha256": "555abcc37baf7814a63d41c8b3bdb156754db4f91eae98290d93224758c7d142"
+  },
+  "dist/models/jeep/geometry.bin": {
+    "bytes": 1021972,
+    "sha256": "5b64b6545c1f3954d7122dc50bf6da71902c5b6770da33ad70fe11158ca2113e"
+  },
+  "dist/models/jeep/glass-color.png": {
+    "bytes": 648732,
+    "sha256": "8e171d41216724fac3c5e300bc5a19305f94a7e1e7c72a6701e9ceb2aaef9a79"
+  },
+  "dist/models/jeep/glass-orm.jpg": {
+    "bytes": 253128,
+    "sha256": "2d5318e2f047a24c73db247c82bdf219f1f91d0490a886d995e570faa3e7ace2"
+  },
+  "dist/models/jeep/model.gltf": {
+    "bytes": 17870,
+    "sha256": "21a4c78ff1bda313ad9f3fade435f524830027b2bb2e4093e70eadd542d01eea"
+  },
+  "dist/models/jeep/tires-color.jpg": {
+    "bytes": 212913,
+    "sha256": "314834db40a0443918b227c36334579350ccaa724e06c6b6d9bdfb9d99f7fe7a"
+  },
+  "dist/models/jeep/tires-normal.jpg": {
+    "bytes": 181576,
+    "sha256": "f39c99b67c3576d57e835511057ded418c61d357d099aa1f51575017dde1193f"
+  },
+  "dist/models/jeep/tires-orm.jpg": {
+    "bytes": 168683,
+    "sha256": "a8659732d60eb1ae82ca52ddb672cf84eb7aee8ac68c977a9337e1268b221da6"
+  },
+  "dist/models/m700/SOURCE.md": {
+    "bytes": 1276,
+    "sha256": "ce510473cb28e45117bf93fd580c6e85dd933a810ccbb4f831fc9566f3c5cec8"
+  },
+  "dist/models/m700/conversion.json": {
+    "bytes": 4015,
+    "sha256": "411ddab68284c49bfb32833ca6b410efe7b277fa1c31c016b6805f3869e62ba8"
+  },
+  "dist/models/m700/model.bin": {
+    "bytes": 880320,
+    "sha256": "d6a8f007c57312e8226ed0e9a2efd087bba15d3f7202f8b0ccda32c62a58e9c1"
+  },
+  "dist/models/m700/model.gltf": {
+    "bytes": 7988,
+    "sha256": "ddf6e1af645f2e3ff4f0725e90189a422fb00bc28e4c88672cac8c496e273731"
+  },
+  "dist/models/m700/textures/base-color.jpg": {
+    "bytes": 281630,
+    "sha256": "e0dc5dde812cc60767514ab768a885cfad88a02558086459b321d21521c984c0"
+  },
+  "dist/models/m700/textures/metal-rough.jpg": {
+    "bytes": 572894,
+    "sha256": "173578a6e408c1aadc94c36e7165871d423be687c1b069f8ef5bea27fe9173a0"
+  },
+  "dist/models/m700/textures/normal.jpg": {
+    "bytes": 414247,
+    "sha256": "81599272be664caeab44c6988a59923cf738a1bb0d7cfe8460685422509ffaf8"
+  },
+  "dist/models/optics/SOURCE.md": {
+    "bytes": 1016,
+    "sha256": "59c30c668c60dd4bf6a7954dda9a698b59643bf859eaad5d934b3d5df320dec6"
+  },
+  "dist/models/optics/scope.bin": {
+    "bytes": 248872,
+    "sha256": "199f8ee9a5854b71e6e3022f5437e2a164f4c496759b254b1d9bac17db66707e"
+  },
+  "dist/models/optics/scope.gltf": {
+    "bytes": 4476,
+    "sha256": "90e8c88c40af7bad8076a6f572f863905080918c6cc95aa3e447b49c4cebd795"
+  },
+  "dist/models/rocketbox-soldier/LICENSE.md": {
+    "bytes": 1066,
+    "sha256": "17474e386e0b9e1a700cc3d06b2b0882a2c376d9c6b49c7f8274409b8f8d2352"
+  },
+  "dist/models/rocketbox-soldier/SOURCE.md": {
+    "bytes": 975,
+    "sha256": "962bd1a5927196a15c5bd09b9f7ae14e12c23a6a4e3890902bf50a8e059c8936"
+  },
+  "dist/models/rocketbox-soldier/conversion.json": {
+    "bytes": 1077,
+    "sha256": "eeb36c80225ec3ebf64287aa232d132f9e770ad62fbd97eeba3348deaa540761"
+  },
+  "dist/models/rocketbox-soldier/model.bin": {
+    "bytes": 1963704,
+    "sha256": "a471a68e3723ea984d1cf6b70d7ecee424302b576a383d36b775ed4e3b29e7e2"
+  },
+  "dist/models/rocketbox-soldier/model.gltf": {
+    "bytes": 242517,
+    "sha256": "7d9dc9717df6c4c94cf42916c9630afa3dc0eb2f61a517adc7e54f274c1e24cb"
+  },
+  "dist/models/rocketbox-soldier/textures/sm004_body_color_acu.jpg": {
+    "bytes": 482805,
+    "sha256": "dea112df14373a75c3fa87ce7ea3af4bf20e2c94edeead6dec2a262454461b91"
+  },
+  "dist/models/rocketbox-soldier/textures/sm004_body_normal.jpg": {
+    "bytes": 509252,
+    "sha256": "85667e1496d496989842ad44cd6fd1c27a2ef8471861eb0eb2a925bb5de9d2b5"
+  },
+  "dist/models/rocketbox-soldier/textures/sm004_equipment_color_acu.jpg": {
+    "bytes": 126554,
+    "sha256": "ccefe393efde8c6773f025b8ad4a1d7b0d34dd60358d5e27e5cbec2769bb99e3"
+  },
+  "dist/models/rocketbox-soldier/textures/sm004_equipment_normal.jpg": {
+    "bytes": 136764,
+    "sha256": "0a3cde0bec36bc05225096bd9ea6a12fed6257cf9e7c4af57edf8dcabe8681f1"
+  },
+  "dist/models/rocketbox-soldier/textures/sm004_head_color.jpg": {
+    "bytes": 235795,
+    "sha256": "c50bd2873832275f990ccf0ab4a64f04c063539651212a12c6cdc77d84462fd3"
+  },
+  "dist/models/rocketbox-soldier/textures/sm004_head_normal.jpg": {
+    "bytes": 328235,
+    "sha256": "25540b1584eaad4a737908d1c135bc632af9818d34cace1fcbabe4dc474f2f70"
+  },
+  "dist/models/rocketbox-soldier/textures/sm004_helmet_color_acu.jpg": {
+    "bytes": 249725,
+    "sha256": "1e3b30192252ab19703a9448763daa464ab5dc81eb7b45159ac0d13d607426dc"
+  },
+  "dist/models/rocketbox-soldier/textures/sm004_helmet_normal.jpg": {
+    "bytes": 519648,
+    "sha256": "555ef307c1237778b173c9a4d6606d47e6d85ec0dddcb680c0a6fdbe9e9e23aa"
+  },
+  "dist/models/rocketbox-soldier/textures/sm004_pistol_color.jpg": {
+    "bytes": 187911,
+    "sha256": "5dffa32c60396d51292c7490e1b1b6f92135c9420ded66489ccaf5b43f51a5df"
+  },
+  "dist/models/rocketbox-soldier/textures/sm004_pistol_normal.jpg": {
+    "bytes": 304450,
+    "sha256": "5048e9f012bdd0831f422646e8bd40e8599424891c09a8bdd218fd8051a5aec3"
+  },
+  "dist/models/rocketbox-soldier/verification.json": {
+    "bytes": 7311,
+    "sha256": "05892e764b1577f1091b23f08aa52458b19145050c2db1bef689955a90366708"
+  },
+  "dist/models/swim-sleeves/SOURCE.md": {
+    "bytes": 711,
+    "sha256": "b1cf603e057843b67a6fcd48e89e0d856124eb60a360f024b5013cf3200345ac"
+  },
+  "dist/models/swim-sleeves/model.bin": {
+    "bytes": 257808,
+    "sha256": "b342cac01a791945269a8e909ef59ad92edc2cb90e596b65d34fa19c09336981"
+  },
+  "dist/models/swim-sleeves/model.gltf": {
+    "bytes": 19327,
+    "sha256": "101abbcb27b3e7837d8837d547e4a19cf441f30070882a0ae24ce706787aa636"
+  },
+  "dist/nature/fern_02/fern_02.bin": {
+    "bytes": 213568,
+    "sha256": "c0d2ca71ed4e88965634ed37f1c285ad3bb457191bad6c10098e97ebc3591b8c"
+  },
+  "dist/nature/fern_02/model.gltf": {
+    "bytes": 4533,
+    "sha256": "99fa664dfcb0dd4bb30e5289eb44303c60da7672b284b6a21625eba09c59d26c"
+  },
+  "dist/nature/fern_02/textures/fern_02_arm_1k.jpg": {
+    "bytes": 280359,
+    "sha256": "ebfb5d76ce9cbdaec20bcd22dce9b755f0b1b8650ef29ca13555e3e6961025d7"
+  },
+  "dist/nature/fern_02/textures/fern_02_diff_1k.png": {
+    "bytes": 896669,
+    "sha256": "d1dedae503c4f208a25ecbea54eafbd9654fda557377353132607877770396c9"
+  },
+  "dist/nature/fern_02/textures/fern_02_nor_gl_1k.jpg": {
+    "bytes": 367222,
+    "sha256": "45bce132c6e96a0864bc89ab5da51361ab3f4afa83a6669ae499ab5ca811f621"
+  },
+  "dist/nature/flower_heliophila/flower_heliophila.bin": {
+    "bytes": 303224,
+    "sha256": "e72ba64896d9ad21c4e2043a79f8f7d2e02ac31a46429483e1ae76e96219aea8"
+  },
+  "dist/nature/flower_heliophila/model.gltf": {
+    "bytes": 3764,
+    "sha256": "c34520028305bd6c09af16cc8e3638a686dc3d45be0ca8146d2890e925b401ef"
+  },
+  "dist/nature/flower_heliophila/textures/flower_heliophila_arm_1k.jpg": {
+    "bytes": 444561,
+    "sha256": "61c7a47fdf8ff0f5251c0f569588efefad7856b3b069d07c1c025d18a1420e22"
+  },
+  "dist/nature/flower_heliophila/textures/flower_heliophila_diff_1k.png": {
+    "bytes": 1011652,
+    "sha256": "19eef2077114843c1807268bf66e106a1ad29f686654c2997c0af27d53d91b29"
+  },
+  "dist/nature/flower_heliophila/textures/flower_heliophila_nor_gl_1k.jpg": {
+    "bytes": 501286,
+    "sha256": "ab22e05c1f350a2f95914049f832bb52817e951142b259aec751e16a4a75d54a"
+  },
+  "dist/nature/grass_medium_01/grass_medium_01.bin": {
+    "bytes": 1006632,
+    "sha256": "f4587cabdb96a2e96d8be644923dc954a248edfaaa717a0ff224cacb898bee1f"
+  },
+  "dist/nature/grass_medium_01/model.gltf": {
+    "bytes": 17523,
+    "sha256": "5acc092bd10a7e5439afb3a1b0c218d0c6c22e8d38603852a9870958c115632c"
+  },
+  "dist/nature/grass_medium_01/textures/alpha.png": {
+    "bytes": 648718,
+    "sha256": "711a8e49af758d6a6ce1f610db858899a27be19da6d1866bd35c13bc7b8ffeff"
+  },
+  "dist/nature/grass_medium_01/textures/grass_medium_01_arm_1k.jpg": {
+    "bytes": 679518,
+    "sha256": "9a3a30f72bc02f4398967c5b08f2d20cce30bd423a2613b42a727034296fa3ae"
+  },
+  "dist/nature/grass_medium_01/textures/grass_medium_01_diff_1k.jpg": {
+    "bytes": 395673,
+    "sha256": "71495bd6a11fddcab0aaff38246fea1a7b802a705483f1c7cbca53955daa8050"
+  },
+  "dist/nature/grass_medium_01/textures/grass_medium_01_diff_1k.png": {
+    "bytes": 849022,
+    "sha256": "18e82a637fb9877bce26f2b5793d81dc513dbe453b4d23a86979d37acb644875"
+  },
+  "dist/nature/grass_medium_01/textures/grass_medium_01_nor_gl_1k.jpg": {
+    "bytes": 956166,
+    "sha256": "cae298d3d1d7ff7c7e210ad8ac772b96706e356f9315a6b04fde373ce01ccf1e"
+  },
+  "dist/nature/grass_medium_02/SOURCE.md": {
+    "bytes": 3160,
+    "sha256": "9790efe3d3bd05785cd5475769191ac25854f95eead970e339c0b9d4eeac70af"
+  },
+  "dist/nature/grass_medium_02/conversion.json": {
+    "bytes": 2786,
+    "sha256": "bbbc52afa33393f59b1277f6243ee2fdda1c6e053a86fabb740a40f5842417b9"
+  },
+  "dist/nature/grass_medium_02/low.bin": {
+    "bytes": 21600,
+    "sha256": "3ab9038a0705bf5f3a05422ae67e31809794deb07e2e62b20679cd997ccebae1"
+  },
+  "dist/nature/grass_medium_02/low.gltf": {
+    "bytes": 3536,
+    "sha256": "b853dbf7f3d7ba80f0317042c1e982ab34d6706f1ef26e1d3a319edfbe3b9cd3"
+  },
+  "dist/nature/grass_medium_02/model.bin": {
+    "bytes": 83428,
+    "sha256": "32eed2e768a636b7870a02e7ac5f26b849f093e53c58ca69247c27eb71a8408a"
+  },
+  "dist/nature/grass_medium_02/model.gltf": {
+    "bytes": 3560,
+    "sha256": "b31925b7e3c5773f2c9f3f7a914426f4ead3e8849e0c17722e19f4b741eaa837"
+  },
+  "dist/nature/grass_medium_02/textures/grass_medium_02_arm_1k.jpg": {
+    "bytes": 241181,
+    "sha256": "f0d57bfd95bff7710526b49d47cf2326ee3796e425639d53b983d1472480b57d"
+  },
+  "dist/nature/grass_medium_02/textures/grass_medium_02_diff_1k.png": {
+    "bytes": 315265,
+    "sha256": "04b95d742e10d88678b77dd47c56dad439514a321bbe460b3fddc19f43fcc824"
+  },
+  "dist/nature/grass_medium_02/textures/grass_medium_02_nor_gl_1k.jpg": {
+    "bytes": 118146,
+    "sha256": "0b464550366ed72a6cad9c357e19ac4c83fc9adc87272771479138129853b300"
+  },
+  "dist/nature/island_tree_02/SOURCE.md": {
+    "bytes": 897,
+    "sha256": "77dd757ff398fc7709ff95c22fb31eb6782b8e860825438d3a8f0ffd77ef6bc2"
+  },
+  "dist/nature/island_tree_02/conversion.json": {
+    "bytes": 1788,
+    "sha256": "2a72bb3490ffeabc374c4c32be92ea347503deeb657de52f160fcff7652519e5"
+  },
+  "dist/nature/island_tree_02/high.bin": {
+    "bytes": 4830660,
+    "sha256": "738c47cadf8f808d13a4a624d5c1083655edd6df7632095b593d6ec4ab4d499b"
+  },
+  "dist/nature/island_tree_02/high.gltf": {
+    "bytes": 5046,
+    "sha256": "b12456db76477155fe1d0e80c1510c896324a875db25c428188fd0a0aa6ba2e8"
+  },
+  "dist/nature/island_tree_02/impostor.png": {
+    "bytes": 531538,
+    "sha256": "d11c8bc2e36057b911d52ebb340556b1afdf283665b6407463cbae1e5c54c648"
+  },
+  "dist/nature/island_tree_02/low.bin": {
+    "bytes": 3837644,
+    "sha256": "ef0695b49636ba0b5a4db0617edc1fc8b4907c01b9b464e34253354ff5216a36"
+  },
+  "dist/nature/island_tree_02/low.gltf": {
+    "bytes": 5034,
+    "sha256": "49afba9fd7eba7e28bcf407c1d5f07926b39b7a91a24b81a5aed0643eb261c17"
+  },
+  "dist/nature/island_tree_02/textures/island_tree_02_arm_1k.jpg": {
+    "bytes": 251888,
+    "sha256": "a9f14b1a964b786fdda5bcfdcdcb622b83eb9882a309cf7dd1780a758d17dea2"
+  },
+  "dist/nature/island_tree_02/textures/island_tree_02_branches_arm_1k.jpg": {
+    "bytes": 167429,
+    "sha256": "c2f205fda6408f42cbd398b6c9aa42e556bc2129cbb4b64d6dd76939e6843d72"
+  },
+  "dist/nature/island_tree_02/textures/island_tree_02_branches_diff_1k.jpg": {
+    "bytes": 198471,
+    "sha256": "66c71c5ee607142d3ede3ae94eb454524b27bf592f234b903750f8e05b29b3b3"
+  },
+  "dist/nature/island_tree_02/textures/island_tree_02_branches_nor_gl_1k.jpg": {
+    "bytes": 344239,
+    "sha256": "9a99ad74ff0319dd9e6bacd659b03d9dfe03bbe9cf5b3b50b133db731a1ffc7d"
+  },
+  "dist/nature/island_tree_02/textures/island_tree_02_diff_1k.jpg": {
+    "bytes": 266990,
+    "sha256": "9b64da8f8c1990e7801a9631dd8432e5f8585978a874fb0ce1c6c99cfefe0297"
+  },
+  "dist/nature/island_tree_02/textures/island_tree_02_leaves_arm_1k.jpg": {
+    "bytes": 197017,
+    "sha256": "247dc8d89758d1152b54c59824b9c83fc6e98a62cd179b6758beaa27307964e4"
+  },
+  "dist/nature/island_tree_02/textures/island_tree_02_leaves_diff_1k.png": {
+    "bytes": 440805,
+    "sha256": "745329979ca60ecf83caa6a73aecb3d4dc304d023dc42e176265a5a93f22bfa0"
+  },
+  "dist/nature/island_tree_02/textures/island_tree_02_leaves_nor_gl_1k.jpg": {
+    "bytes": 141188,
+    "sha256": "7647fa7db10b1752900588d6c2aafe84a8b4daef6ecf7be77943e8b579a29b74"
+  },
+  "dist/nature/island_tree_02/textures/island_tree_02_nor_gl_1k.jpg": {
+    "bytes": 510708,
+    "sha256": "5ac2e2289c5ae6590a72ba3ce48083bf707a2173933bed82a05f357d447af495"
+  },
+  "dist/nature/rock_face_01/SOURCE.md": {
+    "bytes": 830,
+    "sha256": "a86b5b29349a9f6b8de461edac063fb3abb05dc229666913ccb2506e2d2dbb62"
+  },
+  "dist/nature/rock_face_01/conversion.json": {
+    "bytes": 756,
+    "sha256": "5508c40e8b2674916c48c8647e8109cf45a9a7c71a51cc67ea94aa7c23d34280"
+  },
+  "dist/nature/rock_face_01/model.bin": {
+    "bytes": 357372,
+    "sha256": "c9a010f82e839f0ec9bad9dea3e605afb1e4756ce5dbc57e521b1ac6b10d03cf"
+  },
+  "dist/nature/rock_face_01/model.gltf": {
+    "bytes": 1682,
+    "sha256": "5bf82a5c13ad318b62d67ac031b1877f67d5fc0a7d304eb0e904fc3cea436151"
+  },
+  "dist/nature/rock_face_01/textures/rock_face_01_arm_1k.jpg": {
+    "bytes": 250677,
+    "sha256": "3cd1ab4a1637cd8db5388e4416b4dcdf12d93908d71354dcca1e9db4bed7d7c0"
+  },
+  "dist/nature/rock_face_01/textures/rock_face_01_diff_1k.jpg": {
+    "bytes": 324990,
+    "sha256": "3ae596aa104d2cd2a3f31bee4996a539a3098966aae56facb1b436a122baf2df"
+  },
+  "dist/nature/rock_face_01/textures/rock_face_01_nor_gl_1k.jpg": {
+    "bytes": 426567,
+    "sha256": "8620bde132c884361e16597c8a97b76453b1f1b913702fd9580858845c6df162"
+  },
+  "dist/nature/rock_moss_set_01/model.gltf": {
+    "bytes": 9987,
+    "sha256": "c36675aca9c6b2be7785c2534cf413b03ec82a5a2a5407a2b1c0cdb0346c9727"
+  },
+  "dist/nature/rock_moss_set_01/rock_moss_set_01.bin": {
+    "bytes": 1466380,
+    "sha256": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e"
+  },
+  "dist/nature/rock_moss_set_01/textures/rock_moss_set_01_diff_1k.jpg": {
+    "bytes": 168099,
+    "sha256": "40cea65d8aa4ee73a93b04af19963834d061eee9779c3fc2c1cba76eef812ccc"
+  },
+  "dist/nature/rock_moss_set_01/textures/rock_moss_set_01_nor_gl_1k.jpg": {
+    "bytes": 209975,
+    "sha256": "eb4aad3f207f1dc5b624d74ae240372171626a66912bd71adf7bd3e518181d6e"
+  },
+  "dist/nature/rock_moss_set_01/textures/rock_moss_set_01_rough_1k.jpg": {
+    "bytes": 82624,
+    "sha256": "4d6ec46623abd8e2cdb855f59c7ce31873ad61b36b60e4de579e9e776a497c6b"
+  },
+  "dist/nature/woodland_tree_02/SOURCE.md": {
+    "bytes": 1379,
+    "sha256": "d3a8450359e0d2e4c3671f17176500262a3294e225d3783fdbd6ea87462cd0fb"
+  },
+  "dist/nature/woodland_tree_02/conversion.json": {
+    "bytes": 24551,
+    "sha256": "e6d363947e1dc3fbfc65fa309a11f5818ba8b0d1f5a396e6df90c735e763f505"
+  },
+  "dist/nature/woodland_tree_02/high.bin": {
+    "bytes": 174988,
+    "sha256": "38d906941ae97eb38df472a5ae9715aa026e2f1b36058944f7e9dfd047e34415"
+  },
+  "dist/nature/woodland_tree_02/high.gltf": {
+    "bytes": 4861,
+    "sha256": "767af7627f189664dfb683b5223dc12027795f0c5e87ffeb5fde5831796e7e4c"
+  },
+  "dist/nature/woodland_tree_02/impostor.png": {
+    "bytes": 389411,
+    "sha256": "eaba9a9741f08c72d23c24c8f9ad6033fb9d83bc98539eb5c5a55e68a23caf9f"
+  },
+  "dist/nature/woodland_tree_02/low.bin": {
+    "bytes": 104988,
+    "sha256": "92c4bdfae25a0b6d9356f7cff732f99acf7b40a9ae1c7e97257047f6f607291a"
+  },
+  "dist/nature/woodland_tree_02/low.gltf": {
+    "bytes": 4834,
+    "sha256": "de260acb1d3e3171631f1422abde392771ca3ca70ee53ca0e29937bbc2f93d56"
+  },
+  "dist/nature/woodland_tree_02/textures/tree_small_02_arm_1k.jpg": {
+    "bytes": 235498,
+    "sha256": "9cb30ecb883d29b190c7dfd6289b1aca00b5467d30422869d9fd4a8d086fbf8e"
+  },
+  "dist/nature/woodland_tree_02/textures/tree_small_02_branch_arm_1k.jpg": {
+    "bytes": 132338,
+    "sha256": "8d05793b82d53fdaa8a1a9126dff2b43c86737881ada26e0c7c7879acac79866"
+  },
+  "dist/nature/woodland_tree_02/textures/tree_small_02_branch_diff_1k.jpg": {
+    "bytes": 165476,
+    "sha256": "bf3c9e26b1e898fbacb01734a11b44960b871e224a1b14dc1ba680e1c318f513"
+  },
+  "dist/nature/woodland_tree_02/textures/tree_small_02_branch_nor_gl_1k.jpg": {
+    "bytes": 256700,
+    "sha256": "e0912835da5026bba5028701c214bdc839cd59b68c3c436038e3b037e0173487"
+  },
+  "dist/nature/woodland_tree_02/textures/tree_small_02_diff_1k.jpg": {
+    "bytes": 320536,
+    "sha256": "57a893be98c9fa74984850fc466ed021e603f53d356774cca5f1a9c95ae50d95"
+  },
+  "dist/nature/woodland_tree_02/textures/tree_small_02_leaves_arm_1k.jpg": {
+    "bytes": 201952,
+    "sha256": "6bd594ddac364e1a43cfad843f1389b7054d3cde7bf78d6a52286997a8616612"
+  },
+  "dist/nature/woodland_tree_02/textures/tree_small_02_leaves_diff_1k.png": {
+    "bytes": 860022,
+    "sha256": "8ccbe2acfa87d0444bc2042265f2030b85414ebbcd49c0f37d2379578d818797"
+  },
+  "dist/nature/woodland_tree_02/textures/tree_small_02_leaves_nor_gl_1k.jpg": {
+    "bytes": 239766,
+    "sha256": "d6956f387b9896beb504c8508a0a9738429673e0325fe9071a7c77f65975b19d"
+  },
+  "dist/nature/woodland_tree_02/textures/tree_small_02_nor_gl_1k.jpg": {
+    "bytes": 536884,
+    "sha256": "869d45beec4ad58e62cdfa10da8c4eb7590a1013a65a2ff5e3d57b5666ecb4c7"
+  },
+  "dist/nature/woodland_tree_02/textures/woodland_leaf_clusters.png": {
+    "bytes": 980362,
+    "sha256": "2c68bde50ada18b95b2e53426946613cae22323b2989fbbf9e231076e002922d"
+  },
+  "dist/nature/woodland_tree_03/SOURCE.md": {
+    "bytes": 1444,
+    "sha256": "d51a08e556c8daff9b765bf348bfc1611403a63d60a9620f1748d3f5ece57224"
+  },
+  "dist/nature/woodland_tree_03/conversion.json": {
+    "bytes": 5245,
+    "sha256": "b052958ddaac3386cc51a69a1f11c43cb483099bb8fadf8b1fe2ebf63c9aa5da"
+  },
+  "dist/nature/woodland_tree_03/high.bin": {
+    "bytes": 4732328,
+    "sha256": "ea5ed23a3cf77813b7c6c87e6ae918d709c2c6aa1c1649d3963e6305a017473b"
+  },
+  "dist/nature/woodland_tree_03/high.gltf": {
+    "bytes": 5153,
+    "sha256": "99f8737be7cb643ea3a63dd89c5cbfe924a9b6741f50f991614a2d06c71fb7fa"
+  },
+  "dist/nature/woodland_tree_03/low.bin": {
+    "bytes": 3101084,
+    "sha256": "2b303b33914403c9408c7c48b4f21bb5f1ce831319f5718ebc59c9f1c9702ea2"
+  },
+  "dist/nature/woodland_tree_03/low.gltf": {
+    "bytes": 5135,
+    "sha256": "8012e474c27f9a2f8384b529f589467d73ec72bc6236da851172e09c5bfdd7a9"
+  },
+  "dist/nature/woodland_tree_03/textures/tree_small_02_arm_1k.jpg": {
+    "bytes": 62292,
+    "sha256": "7bb9594a676abd734a04eb79e81f7341d65d2d2d1b236ac9adf3a41216a6dcff"
+  },
+  "dist/nature/woodland_tree_03/textures/tree_small_02_branch_arm_1k.jpg": {
+    "bytes": 41760,
+    "sha256": "c8ef2bf3bde561432d52117c251b6dd1bf0b0245834f66e3677a208fe2370329"
+  },
+  "dist/nature/woodland_tree_03/textures/tree_small_02_branch_diff_1k.jpg": {
+    "bytes": 150221,
+    "sha256": "5950b8075a9d14fba7418a4f558fb0bfdfc608d573aa94d7b88590d87e7d7023"
+  },
+  "dist/nature/woodland_tree_03/textures/tree_small_02_branch_nor_gl_1k.jpg": {
+    "bytes": 85816,
+    "sha256": "0221f7a47ed1625092356ab4208db5dd88c981067918b0a4013ea774824b6c8d"
+  },
+  "dist/nature/woodland_tree_03/textures/tree_small_02_diff_1k.jpg": {
+    "bytes": 291390,
+    "sha256": "34b36fe86c9515a766f8a3e2c24075ec1b8e00e7d5fa54f45011ccb870508f57"
+  },
+  "dist/nature/woodland_tree_03/textures/tree_small_02_leaves_arm_1k.jpg": {
+    "bytes": 53874,
+    "sha256": "0974bdb069c6fd6bfae2017490b348e1845add17b6b81e2b0594c3c715382c95"
+  },
+  "dist/nature/woodland_tree_03/textures/tree_small_02_leaves_diff_1k.png": {
+    "bytes": 908589,
+    "sha256": "b7c1c825c8420a1d045541a7de37b68116fe6d9e8354b426cddef53b220e9da0"
+  },
+  "dist/nature/woodland_tree_03/textures/tree_small_02_leaves_nor_gl_1k.jpg": {
+    "bytes": 66044,
+    "sha256": "af03e93512da16436ad54860b2e82eaf76f1c0d83e1eb9b84ae7309ba1ac91b5"
+  },
+  "dist/nature/woodland_tree_03/textures/tree_small_02_nor_gl_1k.jpg": {
+    "bytes": 136404,
+    "sha256": "3aff956fce071605172137b08fbdcafaffc47ce31d1420b9fe80f19965757672"
+  },
+  "dist/nature.js": {
+    "bytes": 10360,
+    "sha256": "e367e09438d83d2e3174f19f345d75932409c4b31fb7db9b59cf263656ccd62c"
+  },
+  "dist/packs/desktop-geometry-cb5da49e9809.pack": {
+    "bytes": 9038160,
+    "sha256": "cb5da49e980953d51600825e334546d71e8964b1f66c1cabd9bf40bfd7ec0bf3"
+  },
+  "dist/packs/desktop-surfaces-3d8592adb6a6.pack": {
+    "bytes": 18135158,
+    "sha256": "3d8592adb6a6ce8b5fe1772dae9b4b9e9f578937d0f9d25443db752c4fb80e70"
+  },
+  "dist/packs/mobile-8d92f455e9b3.pack": {
+    "bytes": 17119389,
+    "sha256": "8d92f455e9b31fe6055a8552a61fe6d1826fabf6bf20df32cb4b5e30a6ec0112"
+  },
+  "dist/packs/swim-1c9e031726c6.pack": {
+    "bytes": 198839,
+    "sha256": "1c9e031726c606a28c31a283ebe6e509a312fd618380e27a783626f392c7f233"
+  },
+  "dist/packs/vehicle-b6085ba1f4c3.pack": {
+    "bytes": 3114165,
+    "sha256": "b6085ba1f4c37f097052699039a1c73df5176f20934133408e69f64c57bacee7"
+  },
+  "dist/pickup-controls.js": {
+    "bytes": 472,
+    "sha256": "f6d0e61670fc997dd7820db8f264b312737a5e0c23aeb442ac8efe8068e93cf3"
+  },
+  "dist/resident-vegetation.js": {
+    "bytes": 12890,
+    "sha256": "59a0dc952916e0254b99a56a9fc64dfae4d7dad91fb033e0877b20f7bebeb4cb"
+  },
+  "dist/resource-cache.js": {
+    "bytes": 5758,
+    "sha256": "3fcfc03de193042a25ef1a95f8729439403d0e844935cf2156327537501632b4"
+  },
+  "dist/resource-pack.js": {
+    "bytes": 7923,
+    "sha256": "24ac247ac9bc73f92fa6d55054f73defde60abc63accff9a91f546248e5d7bc2"
+  },
+  "dist/rig-ik.js": {
+    "bytes": 3693,
+    "sha256": "84634f028f7e6c861e0584a088c0f67ec259c559f42a12e082ba29943ba7f78e"
+  },
+  "dist/rural-buildings.js": {
+    "bytes": 9055,
+    "sha256": "a687dfe314717bbcbefb39a3ebd6445a7b474bb1a064c34451661f0ec98d3ae4"
+  },
+  "dist/startup-pack-manifest.js": {
+    "bytes": 768,
+    "sha256": "5f3bfcafd7c043fc3a29c8e92b675151e7c124b1a4793a08e9ac665d23d4f816"
+  },
+  "dist/startup.js": {
+    "bytes": 1605,
+    "sha256": "4eb2405ea9feb3bb9ba8d4c8e760bdc5ecfc1248d6b87ee07b8cd27527d0976b"
+  },
+  "dist/style.css": {
+    "bytes": 37137,
+    "sha256": "e7e1cc5629525cc8f7032d02264fd8a03e426de6759779351fde3fc0fb078109"
+  },
+  "dist/swim-view.js": {
+    "bytes": 5400,
+    "sha256": "96579046099ca4546cb9b8cf25e728c58643209c1de2cb9591a8bb5b3207f12e"
+  },
+  "dist/terrain-data.js": {
+    "bytes": 44949,
+    "sha256": "f1ab8f45897a7a3f0924a6c680d489b124020ef6dcc9219327c4733b7c0fff23"
+  },
+  "dist/terrain-material.js": {
+    "bytes": 6122,
+    "sha256": "d3730e39af14a8158b2e738517af2d618cfc55c6c2a14571c46e987da11b46d5"
+  },
+  "dist/textures/detail/SOURCE.md": {
+    "bytes": 635,
+    "sha256": "cd306382caed23b6bcf70a7d55b632cab4288fd5427734e1af5177823218ce47"
+  },
+  "dist/textures/detail/grass-2k.jpg": {
+    "bytes": 2018412,
+    "sha256": "35864c4b7012fbd2d5d62b6153a03cebd029aa3005b821d6b1b3ab81df24f8c4"
+  },
+  "dist/textures/detail/grass-normal-2k.jpg": {
+    "bytes": 3352782,
+    "sha256": "510455319ae8a1c4f5b237952048762cebab5032a6c33f814fe86c4400b9d783"
+  },
+  "dist/textures/detail/rock-2k.jpg": {
+    "bytes": 1767453,
+    "sha256": "85fb346787f445ffd73213cddba57c2e2038f1e3399abc797afff1c28d795403"
+  },
+  "dist/textures/detail/rock-normal-2k.jpg": {
+    "bytes": 2148654,
+    "sha256": "128c7316088a1878b78277103a5e260274fad4f3d91e8d3e1f0f1eb7a31e2a34"
+  },
+  "dist/textures/forest-normal.jpg": {
+    "bytes": 1486072,
+    "sha256": "8dd5166ddcc293cefd331d491ce6b9162bc9202ddd999ac1e4141697560d38e0"
+  },
+  "dist/textures/forest-rough.jpg": {
+    "bytes": 644332,
+    "sha256": "9f84b7e7b5fdd2ff9798645fdec243b994fced05e543692761994b793211b5d0"
+  },
+  "dist/textures/forest.jpg": {
+    "bytes": 1206953,
+    "sha256": "c598c555f13cd5328409fd5e2a45496a26e319e52299e3959042f1449c2f1b06"
+  },
+  "dist/textures/grass-normal.jpg": {
+    "bytes": 592907,
+    "sha256": "120fae4c55e06d1226cae23ba9c57d7aa84389344e3b1b46d7598bb76b5d00d1"
+  },
+  "dist/textures/grass-rough.jpg": {
+    "bytes": 137318,
+    "sha256": "ca6bd3a9c99c2fde9e26bd1102adb631da6c9cb31e377e3e44ea5b7cd0fd84f5"
+  },
+  "dist/textures/grass.jpg": {
+    "bytes": 440348,
+    "sha256": "725d51f6f3cf68e73bfc451fdb90efa13ab710dc864c713c2b181d2e04be495b"
+  },
+  "dist/textures/ground-normal.jpg": {
+    "bytes": 1398291,
+    "sha256": "087b8912c8cf40a528965c4282a5b3e4be011da5790273ffcdb5bd2697bde7dd"
+  },
+  "dist/textures/ground.jpg": {
+    "bytes": 1076180,
+    "sha256": "7f20d83cd4a67f9c38abf72f39f5a3749a962e90bdc156998be027b1227a5bd6"
+  },
+  "dist/textures/metal-normal.jpg": {
+    "bytes": 770307,
+    "sha256": "994f851a84d52b51e97906021a1b7070ee6eac9a789fef041132268de47d8e6b"
+  },
+  "dist/textures/metal-rough.jpg": {
+    "bytes": 775206,
+    "sha256": "756308485ce742a52831453c296452f48cf0adead7d85adfffd34c08dce23ec1"
+  },
+  "dist/textures/metal.jpg": {
+    "bytes": 692234,
+    "sha256": "c6b6739eac2c75ccc898e753d7833df24eafbdb9aa92fb6eabfb92abd1a680a5"
+  },
+  "dist/textures/rock-normal.jpg": {
+    "bytes": 798807,
+    "sha256": "7a7146f51159a7667233c2c14c34ff18a9f4374cc8869d53a1162648d0941023"
+  },
+  "dist/textures/rock.jpg": {
+    "bytes": 688083,
+    "sha256": "0b5f0418eb1e686190c5d33bb54c400b1f9ed58813b5e34aa5e573a5197302b5"
+  },
+  "dist/textures/roof-normal.jpg": {
+    "bytes": 522186,
+    "sha256": "99546fdc2978d0950a2c61fe94dbd4230bb7825944bb4e4e7ad586839fdc721d"
+  },
+  "dist/textures/roof-rough.jpg": {
+    "bytes": 260780,
+    "sha256": "edc3185b560a71b2b5f5f568710b8674da41becb39ca374f5e8efeca15b5794f"
+  },
+  "dist/textures/roof.jpg": {
+    "bytes": 596156,
+    "sha256": "f61107b70cf56074c9db09384a332620c94c678ed2baabfae78029a8242e49a3"
+  },
+  "dist/textures/wall-normal.jpg": {
+    "bytes": 699258,
+    "sha256": "efdc3a46f07106b856ff86bf39ccd60a12ad98f642e053e424ad5ea419e771a9"
+  },
+  "dist/textures/wall-rough.jpg": {
+    "bytes": 586693,
+    "sha256": "b3aa9edd335da2eb673bfae782d71c946c34916ec178192227de55c641157253"
+  },
+  "dist/textures/wall.jpg": {
+    "bytes": 749746,
+    "sha256": "0a6337a0fcc3968430c3385becf6676c4c147acd21a92a71f3184ed3fa7e8641"
+  },
+  "dist/textures/water-normal.jpg": {
+    "bytes": 248813,
+    "sha256": "add9912b158a4fe9c12421745babe68c44c8af75631ac4837236cb2a03bc373f"
+  },
+  "dist/textures/wood-normal.jpg": {
+    "bytes": 515002,
+    "sha256": "877bf561c0bc83a583238c5133c221026ff25052f8f567174c6b285af4b74f0e"
+  },
+  "dist/textures/wood-rough.jpg": {
+    "bytes": 523014,
+    "sha256": "f9b706729bb727d3eeab4794f18d3c4df43760d580342bf28fe8f3f09a68c5e9"
+  },
+  "dist/textures/wood.jpg": {
+    "bytes": 918123,
+    "sha256": "230bb4aabaebde24ead3ae593a48f8f45e93705aaf3cfdc438589bb49c2a7af3"
+  },
+  "dist/vehicle-controls.js": {
+    "bytes": 4227,
+    "sha256": "4262bad566ca15c29b06c542c06075d0f1025164c8b17022b4fc77e223ff8d7c"
+  },
+  "dist/vehicle-physics.js": {
+    "bytes": 12164,
+    "sha256": "fd29e51a545ba1511b945c3ba69718c763677b27db3cca47a87ce7e953895c02"
+  },
+  "dist/vehicle-trails.js": {
+    "bytes": 11034,
+    "sha256": "4acc22ce98d6187798c87080492475048462e04e278346616e9f15bbfd7202b8"
+  },
+  "dist/vehicle-wreck.js": {
+    "bytes": 2323,
+    "sha256": "b2f7ad9a20234c4345155c48a99063af3493fdb78bab528b559f7e25d3638f8d"
+  },
+  "dist/vehicle.css": {
+    "bytes": 7086,
+    "sha256": "cc9f7faf64a747a35b43c91140d1c5f207a92a696293c3343fcb2adb7a0bbb80"
+  },
+  "dist/vehicles.js": {
+    "bytes": 6108,
+    "sha256": "be6356bb090dd66e8fbbf238e5064561db1d0b4e7a3d4738b9ad538a2cc73b34"
+  },
+  "dist/vendor/BufferGeometryUtils.js": {
+    "bytes": 31566,
+    "sha256": "ff504e533c377b99b03b159cde610c3d699458d2c719d4f7a3ae59a6bda5fe8e"
+  },
+  "dist/vendor/GLTFLoader.js": {
+    "bytes": 109786,
+    "sha256": "d6e829cf2e3ce8495abb8445d5b76c093aea666bfcfd2a540c467d8f80935fe9"
+  },
+  "dist/vendor/LICENSE": {
+    "bytes": 1081,
+    "sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454"
+  },
+  "dist/vendor/RGBELoader.js": {
+    "bytes": 11389,
+    "sha256": "86f2ee7669e59f307b778515356148358a8898ddbe217b42f5b66979b3a324aa"
+  },
+  "dist/vendor/SkeletonUtils.js": {
+    "bytes": 8433,
+    "sha256": "d201dd4908df9ee1b408da04b1623b6e4b92cdb077a93549cca9a0457480962d"
+  },
+  "dist/vendor/fflate-LICENSE": {
+    "bytes": 1081,
+    "sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454"
+  },
+  "dist/vendor/fflate.module.js": {
+    "bytes": 89384,
+    "sha256": "209a4412eb48ce609edb4391992a792ffcc3983d30ee7e2b0b89a8c470f3cd8a"
+  },
+  "dist/vendor/three.module.js": {
+    "bytes": 1274691,
+    "sha256": "a97ec6852978949b7941c070b81292b842473a37549222353fa0a70c18d7285a"
+  },
+  "dist/weapon-view.js": {
+    "bytes": 3044,
+    "sha256": "e1ce4d8a46774d22b7532151d549fe67b9aabdde076eda2dacc9b63d074f885e"
+  },
+  "dist/weapons.js": {
+    "bytes": 12135,
+    "sha256": "5f32bcec5881cc4dea4fa7a68c8c4c6a9aedb21755ef3f79cf5a217c0860f20f"
+  },
+  "dist/window-vault.js": {
+    "bytes": 2759,
+    "sha256": "2f02de9be0ffe1be961477a99f4209e56e9e28af860500f30b192aab3e204f2d"
+  },
+  "dist/world.js": {
+    "bytes": 12710,
+    "sha256": "86595f7c1a050921fe700b0f9893bacb81351cf80580447b2161e2737c0c5e14"
+  },
+  "package.json": {
+    "bytes": 434,
+    "sha256": "62fdb655e82136412ac439e976f6d7d2eba66810f825cb74d6c164cdf6b4bc5f"
+  },
+  "scripts/build-cache-ui-check.mjs": {
+    "bytes": 4786,
+    "sha256": "22505e816bc07390e1aac6335099fd4f7d2d3ad196c630394c75948607fc9406"
+  },
+  "scripts/build-hd-manifest.mjs": {
+    "bytes": 1077,
+    "sha256": "bbfaa3fc7270737fd8de39dd19edb4d0884397a568e4c1472bfb8cac3992e205"
+  },
+  "scripts/build-interactive-ui-check.mjs": {
+    "bytes": 3278,
+    "sha256": "314c5b1b17a7ff37f23a3540c6e762ae0036980e58ed1daa3b32f063cead790b"
+  },
+  "scripts/build-lock-audio-check.mjs": {
+    "bytes": 4453,
+    "sha256": "4674b10112211aa879a36844d43879e9cc229212ff9de4cb118fd127b468a315"
+  },
+  "scripts/build-motion-ui-check.mjs": {
+    "bytes": 3043,
+    "sha256": "56ea6813916dfc376c955087d78a6551ecb5e31db2b3b5fecb9d2d248c75ff93"
+  },
+  "scripts/build-startup-packs.mjs": {
+    "bytes": 7316,
+    "sha256": "7ead7b7782c92abf594da5420b98a5d5fcd51250fbf876c9d5767cdc3e6cd97e"
+  },
+  "scripts/build-vault-ui-check.mjs": {
+    "bytes": 3929,
+    "sha256": "024ace8f461513182ebb32b03dc574bb85ddf4e2dd5f36e084c89b2d1fd831a6"
+  },
+  "scripts/build-vehicle-ui-check.mjs": {
+    "bytes": 4356,
+    "sha256": "d58848a6e5a7bfe26046d8cf6710d8c131f5bec4a436ebbc56802bc8d8ff6773"
+  },
+  "scripts/check-aim.mjs": {
+    "bytes": 6095,
+    "sha256": "bc66e15912055bc402f805faa2c099be03b53bc22670431755dd3725f13083a6"
+  },
+  "scripts/check-battle-feedback.mjs": {
+    "bytes": 5886,
+    "sha256": "7615c05380ac084dce0061a1dfe82b89cda17e57db84eac1f804f378eefae656"
+  },
+  "scripts/check-building-detail.mjs": {
+    "bytes": 2271,
+    "sha256": "be60fb1fbfd168b6d6dc50eed2b09c538bd2f5d1143d9bc5a281001b01cc3711"
+  },
+  "scripts/check-character-motion.mjs": {
+    "bytes": 9018,
+    "sha256": "d1964e3c5f719cb274c95d01a2473a82885bf631bd8d1bab17fb9cfd18884df8"
+  },
+  "scripts/check-combat.mjs": {
+    "bytes": 4757,
+    "sha256": "bb556a57d5a0dbfd135f3e5caff63650ac925f9dc023aabfcf870cf69bf9fee2"
+  },
+  "scripts/check-foley.mjs": {
+    "bytes": 4214,
+    "sha256": "ee6fc12e86f9c72d8fb8c8a2111286b121425019c2950b48318e860872f908df"
+  },
+  "scripts/check-frame.mjs": {
+    "bytes": 9037,
+    "sha256": "c2a7af4b5a7e922bc666293f9098894d51850dd810bc027148d665ec6e61ac94"
+  },
+  "scripts/check-full-leaf-tree.py": {
+    "bytes": 10206,
+    "sha256": "b138e09761b2e51f993fab270841c9fcb7338a5b116159d506cce7155c88badc"
+  },
+  "scripts/check-graphics.mjs": {
+    "bytes": 7015,
+    "sha256": "9aba87010f4abc7afb26276df568fe2ae52332ce5f6620cd01c49eaa9e7fe9d8"
+  },
+  "scripts/check-impact-motion.mjs": {
+    "bytes": 4983,
+    "sha256": "d61ce3c9cac8b948a02bad32c2b95ad5d81e8d34ffc0404a8e605b9d78f2043b"
+  },
+  "scripts/check-interactive-assets.mjs": {
+    "bytes": 5494,
+    "sha256": "6bb319f42ae89595cec614d6dc1e5d0c662d0a1c9f04c9f4c58cf2581be78c8d"
+  },
+  "scripts/check-interactive-world.mjs": {
+    "bytes": 6991,
+    "sha256": "54f75b95320dd0d7936ecb8bde117bf446d1b603f7b00c3c6a814052f3e009fa"
+  },
+  "scripts/check-loading.mjs": {
+    "bytes": 3321,
+    "sha256": "a731ffb270c609cf8c809900df962b530c16d3675561b16686b94927fc1f4f10"
+  },
+  "scripts/check-lock-vehicle.mjs": {
+    "bytes": 8918,
+    "sha256": "3881c2924ea4a6bd7ba302a33d6623f452a964c579337ff47b921eca8a1cf39d"
+  },
+  "scripts/check-look-controls.mjs": {
+    "bytes": 4838,
+    "sha256": "fc3dda40a8f3338830e696b1f039fae6a0654698d1f576184c42bfe10dfd73e4"
+  },
+  "scripts/check-meadow-detail.mjs": {
+    "bytes": 3250,
+    "sha256": "0bb1b5fc9ce067909bf063f81dbefeed093522a7166546d00ae9937666199809"
+  },
+  "scripts/check-motion.mjs": {
+    "bytes": 13349,
+    "sha256": "39840c91df669070b5d3c682ebfb531c83a11dd697092f6f1e93da3b14db8933"
+  },
+  "scripts/check-new-nature.py": {
+    "bytes": 10405,
+    "sha256": "9132094d24cc0e9f5b483c5d0cac63ed5994ed429764f9c189425434b5cf5257"
+  },
+  "scripts/check-packs.mjs": {
+    "bytes": 11060,
+    "sha256": "8998f1b4e601de9eb4e3d468f228ecef3b3d5599403a2b4328488a0df4739f38"
+  },
+  "scripts/check-resident-scene.mjs": {
+    "bytes": 5901,
+    "sha256": "852b841c2d0b38e07946e4b5a525b495f034cf0b9cd44eda1954831294bf4efb"
+  },
+  "scripts/check-resource-cache.mjs": {
+    "bytes": 8798,
+    "sha256": "90a2b1265025b7ea0ae7d6bb8013e1e2c3f106a1eb096cce7672c6bd34667de1"
+  },
+  "scripts/check-shaders.py": {
+    "bytes": 3462,
+    "sha256": "9375fa39e02b633fb8a6e15c56d89e667878c3696c21913db133efb6b24b826b"
+  },
+  "scripts/check-startup.mjs": {
+    "bytes": 2547,
+    "sha256": "4a09e6b93bf690296c23ac1b5f88b78b9d9d4b69204642a348f14f731cb499c6"
+  },
+  "scripts/check-static.mjs": {
+    "bytes": 2547,
+    "sha256": "5cb5425047111000a9f822c77e4719609bf16e24e2f7ef53225188f1a00c0004"
+  },
+  "scripts/check-swim-arms.mjs": {
+    "bytes": 6070,
+    "sha256": "dbf0200546d63f152676f844f33c8afe70ad1f480345e81d9cf719734b3d7830"
+  },
+  "scripts/check-vegetation-pixels.py": {
+    "bytes": 6072,
+    "sha256": "46d3cbf777cd87fbbd9408f35ada978b3d9e2f77c29d66586404134fbef43233"
+  },
+  "scripts/check-vehicle-audio.mjs": {
+    "bytes": 1822,
+    "sha256": "599d123916252a01df9fff62d7a3a98228b28f60f16e24ba48ffb5856c93c8cf"
+  },
+  "scripts/check-vehicle-trails.mjs": {
+    "bytes": 6171,
+    "sha256": "e145ee4b8e5f9d29bd6d6751a1f349072a8caee38ee5d2479db9df7edae839b2"
+  },
+  "scripts/check-vehicle-water.mjs": {
+    "bytes": 4924,
+    "sha256": "b5e98d7eef6c2b13af057720c5a8042be3189d3a4c0162e76f4f985513fa82d0"
+  },
+  "scripts/check-vehicles.mjs": {
+    "bytes": 20742,
+    "sha256": "b391fe73a5a175fab0d5e7784a83e634d96645adb72ce9d7c066fd5ff1431c0b"
+  },
+  "scripts/check-weapon-hands.mjs": {
+    "bytes": 3063,
+    "sha256": "93a89c65ea7413b145d21c6a71ec440afa47716133da2bb2e0b00015adcec333"
+  },
+  "scripts/check-window-vault.mjs": {
+    "bytes": 4132,
+    "sha256": "8bad8bb6a14bbe81ef101dc31f4df625fbb327945a7cab23bce07e77069cc49b"
+  },
+  "scripts/check-woodland-tree.py": {
+    "bytes": 9739,
+    "sha256": "d9d14e7a2bffc48c386a117882896aabd298f930781e7ec8e49648a3a2ed3042"
+  },
+  "scripts/check.mjs": {
+    "bytes": 34268,
+    "sha256": "9b1d51c0af173159fcca3b4d00b4849c9889b000d52e278b0b105a377aa54d92"
+  },
+  "scripts/convert-real-weapons.mjs": {
+    "bytes": 9294,
+    "sha256": "fb32246ae8600c5b3a65272d4f9a498f2bcc7f5818f18c302f7b0d93ee754e2a"
+  },
+  "scripts/export-character-layout.mjs": {
+    "bytes": 5237,
+    "sha256": "4675334b4f3f703b755fb1b5c4971426517ab6dca8f8fe7cf47884c9accf796f"
+  },
+  "scripts/export-exhaust-layout.mjs": {
+    "bytes": 4523,
+    "sha256": "8a868d0c5c27efa1d8efc390586b4a35ff9ce08ca6d02cf2b092947a6e59d94b"
+  },
+  "scripts/export-field-layout.mjs": {
+    "bytes": 4317,
+    "sha256": "d57688ef8bf437ee6a8430bdaa50efca6b0c155d92afcdb84be132c37b11888c"
+  },
+  "scripts/export-interactive-layout.mjs": {
+    "bytes": 4087,
+    "sha256": "013b07d8183637a2888d3201bbabef13c868a447733df635d47483426cdd43c3"
+  },
+  "scripts/export-meadow-detail.mjs": {
+    "bytes": 5111,
+    "sha256": "bbc4cc9a69f183772ece6ad929b53b937504573f6a35fbed3cadb8486d5fe769"
+  },
+  "scripts/export-motion-layout.mjs": {
+    "bytes": 5185,
+    "sha256": "15dcea6009feee3016565b3fef4ee98bbcc60a11e8d0c1a6d2e3800ada146250"
+  },
+  "scripts/export-trail-layout.mjs": {
+    "bytes": 5052,
+    "sha256": "d113f115714203c0107c1889c83e1aa07e4942ee36df43a3ae6e8f6151ce428f"
+  },
+  "scripts/export-vegetation-pixels.mjs": {
+    "bytes": 1693,
+    "sha256": "cd7de75b6e19f5e59b964fb7d3e5c7181f643a359c62b1c4a018c82773cde416"
+  },
+  "scripts/export-vehicle-layout.mjs": {
+    "bytes": 3184,
+    "sha256": "dd4b3e284241387ba9d6948277590d9564b050f4e292a1aad193f88e68108fb8"
+  },
+  "scripts/export-weapon-layout.mjs": {
+    "bytes": 3326,
+    "sha256": "ab85525f4962c1c84115bd23e9a94da8391134c0147e454bef1e1cf32c66b054"
+  },
+  "scripts/export-webgl2-shaders.mjs": {
+    "bytes": 6431,
+    "sha256": "3dd32c56494bb822d8cc5a2fe2e7937850c12a59845c9ab5f74bbe6403e92515"
+  },
+  "scripts/extract-scope.mjs": {
+    "bytes": 5006,
+    "sha256": "dcb751f7de795f9fd64548f3847cb5aa2ea741ef7cbc1c9c6c8f4e70b0f325f4"
+  },
+  "scripts/local-assets.mjs": {
+    "bytes": 3599,
+    "sha256": "8beef5db7b009d96250e13ccbea780accf286081365f67f283e8150ec965a07a"
+  },
+  "scripts/optimize-tree.mjs": {
+    "bytes": 3911,
+    "sha256": "e6d906dd85cfc78d83855723fbf61f691ec63583b3917062a6382bf106caac43"
+  },
+  "scripts/prepare-2k-equipment.mjs": {
+    "bytes": 11050,
+    "sha256": "777aee14be04f79c39dcb9f817faac0dfe2042497c049ff63696c9e821487d4c"
+  },
+  "scripts/prepare-2k-nature.mjs": {
+    "bytes": 9872,
+    "sha256": "81c4b750f1342717f70e258b03229fbda5e3095ea5d6a4034fa8a9fd358be641"
+  },
+  "scripts/prepare-audio.py": {
+    "bytes": 11135,
+    "sha256": "62a38c597eb6c48017de13540dd439855c1a830318538522fad145dbab128703"
+  },
+  "scripts/prepare-foley.py": {
+    "bytes": 2666,
+    "sha256": "ed9eeb57a222ab3d568253f010cc61cbd4d795844c4c4ef47f26a4766cfc0649"
+  },
+  "scripts/prepare-fps-arms.mjs": {
+    "bytes": 7510,
+    "sha256": "85b6df5644282d98dc2f03c47e2fdd02fb4cdcf57651f3b00c24c1982bbc4945"
+  },
+  "scripts/prepare-full-leaf-tree.mjs": {
+    "bytes": 13734,
+    "sha256": "e3e4d6603471b5ad74bf0ae027da563dc1b0f6d0bf5bbf859cb932624b05e145"
+  },
+  "scripts/prepare-gl6.mjs": {
+    "bytes": 9572,
+    "sha256": "db2e4e1ee149df61122c09b9cf859960491d958a64bbfabafb0fb13e34e9baf4"
+  },
+  "scripts/prepare-gloved-hands.py": {
+    "bytes": 13883,
+    "sha256": "4b21e110fcfbf41cd606b1c48a0769bfd92f3f166b216c2b21e07b18745732b9"
+  },
+  "scripts/prepare-jeep.mjs": {
+    "bytes": 6376,
+    "sha256": "854c78d9e714a1fda2248eb8799fa2ea9c732d16529a8006d15ff16a92e6114f"
+  },
+  "scripts/prepare-meadow-grass.mjs": {
+    "bytes": 7815,
+    "sha256": "464fda57081013a6290e903da46078084fccc78144ed547bec6102e9b9950278"
+  },
+  "scripts/prepare-new-nature.mjs": {
+    "bytes": 8701,
+    "sha256": "35333db36193c92f718a21571d1638788a0a71dc08aa47b5738a0712f9f806a8"
+  },
+  "scripts/prepare-plants.mjs": {
+    "bytes": 5885,
+    "sha256": "effe1ef334c5d578d8bd06719a9208b1c1cb967b78472be2075d11deef7decf9"
+  },
+  "scripts/prepare-swim-sleeves.py": {
+    "bytes": 9447,
+    "sha256": "45a8f0da50122cd70122d5cb056b67d14bab51551ae6ebe0030cea2f8626e812"
+  },
+  "scripts/prepare-terrain.py": {
+    "bytes": 2151,
+    "sha256": "2956b13f42f636deac16327b191bfb9747e9371a28f6146a286ac2cea592476d"
+  },
+  "scripts/prepare-woodland-clusters.py": {
+    "bytes": 14044,
+    "sha256": "b55b37ae4c9a7445b2f9c42fd8bfda70964fb4d25b45e6448e9890e0eacc5fdd"
+  },
+  "scripts/prepare-woodland-tree.mjs": {
+    "bytes": 6959,
+    "sha256": "ee3a089b04e463bc78fd5120024bb1277a7003085a857d2107570befbac1c807"
+  },
+  "scripts/render-trail-layout.py": {
+    "bytes": 6342,
+    "sha256": "b7b804a561e4523fb4c8abc3c279885dc013aabef040ba067c7b76c91326cefe"
+  },
+  "scripts/render-weapon-layout.py": {
+    "bytes": 6741,
+    "sha256": "e0028e9dcd5c41678d6e0f464a8c077552d3a35c2bd1c70ba1a4981a15198ae1"
+  },
+  "scripts/repair-m4-geometry.py": {
+    "bytes": 3516,
+    "sha256": "d12e0eabb15e4d47d7975e46afcc430e78602f27035431fc2aad4c4156c1f3cb"
+  },
+  "scripts/vendor/meshopt_simplifier.module.js": {
+    "bytes": 33208,
+    "sha256": "0c2e1d0309c52abf8bf07799334efa9838bb396455c8afc858a02636561919ad"
+  },
+  "scripts/vendor/meshoptimizer-LICENSE.md": {
+    "bytes": 1079,
+    "sha256": "d1bc307ff896c7fc65e3ff4823cc478194f7a5bc6436f99534ebede4d9e2017a"
+  },
+  "scripts/vendor/three-fbx/FBXLoader.js": {
+    "bytes": 101489,
+    "sha256": "f61fef82d104a9ec991526e836d6f1a8e698d1d61de529329859c6d606a3da2f"
+  },
+  "scripts/vendor/three-fbx/LICENSE": {
+    "bytes": 1081,
+    "sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454"
+  },
+  "scripts/vendor/three-fbx/NURBSCurve.js": {
+    "bytes": 1901,
+    "sha256": "25e2caab1190c721da9153b83bd17f9846e9eef57eaa2f326191a9fa84412fc9"
+  },
+  "scripts/vendor/three-fbx/NURBSUtils.js": {
+    "bytes": 9181,
+    "sha256": "b74bb1f488307c19211d0610a629d303f474a1aa831b14f597a34e09c189bec6"
+  },
+  "scripts/vendor/three-fbx/fflate.module.js": {
+    "bytes": 89384,
+    "sha256": "209a4412eb48ce609edb4391992a792ffcc3983d30ee7e2b0b89a8c470f3cd8a"
+  },
+  "source-assets/jeep/original.glb": {
+    "bytes": 10604196,
+    "sha256": "4cd78eabecf8e053238c476d5402adf74b9aba1240a63006e3eb3c54636dca9b"
+  },
+  "source-assets/legacy/models/grenade.glb": {
+    "bytes": 999600,
+    "sha256": "a054968dc0c167cf438dc965561510ec90eccda5796150cbcf78dc0dc0a4db89"
+  },
+  "source-assets/legacy/models/m4a1/SOURCE.md": {
+    "bytes": 1184,
+    "sha256": "a903ca1e6bce109fa52acb131e51d51645c364c7d35dda349f132fb98adab4a9"
+  },
+  "source-assets/legacy/models/m4a1/conversion.json": {
+    "bytes": 5713,
+    "sha256": "9c26f0f76b0922a7321440a6f63c06c6fe4e6c6d8505425d7c0a9444594c4118"
+  },
+  "source-assets/legacy/models/m4a1/model.bin": {
+    "bytes": 883968,
+    "sha256": "27990c68b8bfd8bdfb5a13145262a835870659060a42141a73a087708ef3d15b"
+  },
+  "source-assets/legacy/models/m4a1/model.gltf": {
+    "bytes": 11755,
+    "sha256": "8809e4121a503bfbda377723c3c9138846116f3ac1cf1cbbd4880e60db5ef501"
+  },
+  "source-assets/legacy/models/m4a1/textures/base-color.jpg": {
+    "bytes": 58709,
+    "sha256": "1d35419dacc70a22abe7a5a4367da14486edd001929d387bf0a2615ef15ea141"
+  },
+  "source-assets/legacy/models/m4a1/textures/metal-rough.jpg": {
+    "bytes": 508845,
+    "sha256": "f0bbc25f647a08a9f2848b5a900b8ff83791e232ac96870eeb295037762bc4c6"
+  },
+  "source-assets/legacy/models/m4a1/textures/normal.jpg": {
+    "bytes": 39696,
+    "sha256": "6f6bde1c36635c8e535e8f51dfd2029f40111d4005c84a9f76e66dc8a6d9cc7d"
+  },
+  "source-assets/legacy/models/rifle.glb": {
+    "bytes": 1082372,
+    "sha256": "65cc141d0253e641a5710f33823e2d02c02f523ef25d563c61ba240c54242352"
+  },
+  "source-assets/legacy/models/sniper.glb": {
+    "bytes": 2327892,
+    "sha256": "39ce175f6e2e016e67a1902fdeb52c11bb5e66de28e02230369562fa0aa3dcbe"
+  },
+  "source-assets/legacy/models/soldier.glb": {
+    "bytes": 2160468,
+    "sha256": "dfb230fc1f942f259dd00281a1186953ad602fc5d69067ce63e24b2aa439736b"
+  },
+  "source-assets/legacy/nature/tree/high.bin": {
+    "bytes": 3745656,
+    "sha256": "f1775b4b8269f2e827c74ed0ed23dc8eed8b37123f150a8b2e63b208d6c5b743"
+  },
+  "source-assets/legacy/nature/tree/high.gltf": {
+    "bytes": 6059,
+    "sha256": "9ca9cb1a4fa7c02498b8cbde4480e0a8c7f1c7175c5cb2c82076b99ebf15bf2b"
+  },
+  "source-assets/legacy/nature/tree/low.bin": {
+    "bytes": 457888,
+    "sha256": "094f66bae7e806ec5e85be33b0de7dd15bf3d5d4eade38ce857c7d1b5e29a529"
+  },
+  "source-assets/legacy/nature/tree/low.gltf": {
+    "bytes": 6019,
+    "sha256": "c9d6c6dcd718ed3e54a7f57736cf378ca88d3c5282bd7f816966210738032124"
+  },
+  "source-assets/legacy/nature/tree/medium.bin": {
+    "bytes": 1268064,
+    "sha256": "e0c3c8aef0d7a0916f84225e665b2bedbe0faf23668295b3fc7619131b173349"
+  },
+  "source-assets/legacy/nature/tree/medium.gltf": {
+    "bytes": 6050,
+    "sha256": "1fd1f4e11698f07d001b5780e925632c214e348a3ec6dce49157b42adf548286"
+  },
+  "source-assets/legacy/nature/tree/textures/alpha.png": {
+    "bytes": 264711,
+    "sha256": "4f143e2dda8a6a572f427ac378b92255d21761e4611de0d26e21816c01aa533b"
+  },
+  "source-assets/legacy/nature/tree/textures/tree_small_02_arm_1k.jpg": {
+    "bytes": 708242,
+    "sha256": "891c5a1bb124292984b01558e9f2b0302d27d2fa3ccf9dfc6c34f9ea4ca24e6c"
+  },
+  "source-assets/legacy/nature/tree/textures/tree_small_02_branch_arm_1k.jpg": {
+    "bytes": 375732,
+    "sha256": "8968b46d76c67da09ebbf4eed04b8123c9e0ddf5b55d123968b35b32aa76d27a"
+  },
+  "source-assets/legacy/nature/tree/textures/tree_small_02_branch_diff_1k.jpg": {
+    "bytes": 449977,
+    "sha256": "a71b768e330c0c6cca097e30314f6b4e842ef724a1370f6aab14b4434eec64cb"
+  },
+  "source-assets/legacy/nature/tree/textures/tree_small_02_branch_nor_gl_1k.jpg": {
+    "bytes": 581596,
+    "sha256": "a2efae9e7fede259601188cd5cb7e561fc502bd87e04d862a9532b2d8e647a62"
+  },
+  "source-assets/legacy/nature/tree/textures/tree_small_02_diff_1k.jpg": {
+    "bytes": 863246,
+    "sha256": "4e0093f407b3a1120a36de49a48ebe5a465a9a9b77e361c7a3e66866e115e404"
+  },
+  "source-assets/legacy/nature/tree/textures/tree_small_02_leaves_arm_1k.jpg": {
+    "bytes": 633698,
+    "sha256": "71f81374daf5a8f3e6eb2c694264a1769fdb0bea508178e4105618eecea83c3e"
+  },
+  "source-assets/legacy/nature/tree/textures/tree_small_02_leaves_diff_1k.jpg": {
+    "bytes": 340003,
+    "sha256": "261e7d7a5ac7d2e16ea8823ff8510be8f3f615999724232994039ad2885e5c36"
+  },
+  "source-assets/legacy/nature/tree/textures/tree_small_02_leaves_diff_1k.png": {
+    "bytes": 783563,
+    "sha256": "ffa4df1cf3c8ca8e0e9ac70d9ccc59abe413ffb7417e13445174ce4af7258c2c"
+  },
+  "source-assets/legacy/nature/tree/textures/tree_small_02_leaves_nor_gl_1k.jpg": {
+    "bytes": 681604,
+    "sha256": "8c72e04fb23e16ae1df79c01385a638473d1dd4dede3d51e83d70153c129f09b"
+  },
+  "source-assets/legacy/nature/tree/textures/tree_small_02_nor_gl_1k.jpg": {
+    "bytes": 1228646,
+    "sha256": "9c83be074c950ea1b94c732c0c0291b53b9ba357f932d378bafe3ca3b4418871"
+  },
+  "sources/aerial_grass_rock.json": {
+    "bytes": 29769,
+    "sha256": "b4fc59bf78a2ea9c1ce18eaa46e004b98b89f37bdac38d18e6ceac4fd8cb5344"
+  },
+  "sources/brown_mud_leaves_01.json": {
+    "bytes": 28236,
+    "sha256": "a1529e39aade7ccf239181261d76f1c1bc41df27b6ab0edfcf6a5de95d3c0f8a"
+  },
+  "sources/dead_tree_trunk.json": {
+    "bytes": 27133,
+    "sha256": "171488d0ec64d831a142d4d51bdd5b1140c114f697fc499db2ed0ceaeeef606a"
+  },
+  "sources/fir_tree_01.json": {
+    "bytes": 114197,
+    "sha256": "99a959319cf9254d35ac591ae83b63d068ddbcdea80e3e68cf8cfe00e57da017"
+  },
+  "sources/grass_medium_01.json": {
+    "bytes": 33591,
+    "sha256": "daa882bd7a3925042501536763269b064f66c736779dd90fd9bd1cb405cb4d53"
+  },
+  "sources/grenade-search.json": {
+    "bytes": 31257,
+    "sha256": "8c044fb4c6d2b08032c5ae2ad283fdd03ced7a05c05a284217b6c3bf72204465"
+  },
+  "sources/grey_roof_tiles.json": {
+    "bytes": 40441,
+    "sha256": "29a5fcda078b766b4653bd97985422b3f7a730c7642da8f093110c52db0439b3"
+  },
+  "sources/metal_plate.json": {
+    "bytes": 33163,
+    "sha256": "6a67dcc408c32005533f935e37a4796d60f46ec4e1e7b6147746c2f280602e13"
+  },
+  "sources/pine-source.gltf": {
+    "bytes": 16365,
+    "sha256": "b08bc0f19b06b545115945164b0d3a8340c78ba86a0521ea7cfe9c2d50a83f4e"
+  },
+  "sources/pine_sapling_medium.json": {
+    "bytes": 66181,
+    "sha256": "27f7fef72898fbae728321fb1ebb817a5a21f3582d6b510224bbd00ec50fbac9"
+  },
+  "sources/pine_tree_01.json": {
+    "bytes": 126939,
+    "sha256": "6dc7a454e1047014ba5dc0cc3fe62a0f5ade64c25051f46b9789136dc46b0551"
+  },
+  "sources/plaster_brick_01.json": {
+    "bytes": 40825,
+    "sha256": "3614a785bc29f6ad831009632e162a2de5709674d8bbdc4ea10ffd1ebd830881"
+  },
+  "sources/rock_moss_set_01.json": {
+    "bytes": 26375,
+    "sha256": "07302bec237ba887a93ae977bdfd33d464553cbba75ef8393512cc3766d39506"
+  },
+  "sources/tree-source.gltf": {
+    "bytes": 5929,
+    "sha256": "f3e8dabe4307ec4d6d57371caf34fa786014d4d2f52192536fb2d8289769b60a"
+  },
+  "sources/tree_small_02.json": {
+    "bytes": 85567,
+    "sha256": "ec99b26a7f0441ed2cfef8b30bc2931f5bbaa7565ed999b99912cd678b984d2c"
+  },
+  "sources/wood_planks_dirt.json": {
+    "bytes": 35380,
+    "sha256": "c8ad92bd3d0be2cccf3aa8b8c27dc5b3eef55effa49ab7463e6d5d90626a0e17"
+  }
+}

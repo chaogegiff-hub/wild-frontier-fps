@@ -1,0 +1,63 @@
+{
+  "sniper": [
+    "sniper-1.wav"
+  ],
+  "rifle": [
+    "rifle-1.wav"
+  ],
+  "grenade": [
+    "grenade.wav"
+  ],
+  "explosion": [
+    "explosion.wav"
+  ],
+  "reload": [
+    "reload.wav"
+  ],
+  "bolt": [
+    "bolt.wav"
+  ],
+  "casing": [
+    "casing.wav"
+  ],
+  "forest": [
+    "forest.wav"
+  ],
+  "footstep": [
+    "footstep-grass-1.wav",
+    "footstep-grass-2.wav",
+    "footstep-grass-3.wav",
+    "footstep-grass-4.wav"
+  ],
+  "waterStep": [
+    "water-step-1.wav",
+    "water-step-2.wav"
+  ],
+  "footstepGravel": [
+    "footstep-gravel-1.wav",
+    "footstep-gravel-2.wav",
+    "footstep-gravel-3.wav",
+    "footstep-gravel-4.wav"
+  ],
+  "footstepWood": [
+    "footstep-wood-1.wav",
+    "footstep-wood-2.wav",
+    "footstep-wood-3.wav",
+    "footstep-wood-4.wav"
+  ],
+  "footstepStone": [
+    "footstep-stone-1.wav",
+    "footstep-stone-2.wav",
+    "footstep-stone-3.wav",
+    "footstep-stone-4.wav"
+  ],
+  "swimStroke": [
+    "swim-stroke-1.wav",
+    "swim-stroke-2.wav",
+    "swim-stroke-3.wav",
+    "swim-stroke-4.wav"
+  ],
+  "glassBreak": [
+    "glass-break.wav"
+  ]
+}
