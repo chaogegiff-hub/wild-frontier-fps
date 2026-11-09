@@ -1,3 +1,7 @@
+Deployment recovery note:
+- Initial run 42609364687 passed all checks, uploaded the game and then remained in Pages syncing_files until the default 600000 ms timeout canceled the deployment. This was not a JavaScript/audio validation failure.
+- The Pages wait limit was raised to 1200000 ms for the existing large resource bundle. This recovery changes deployment configuration and validation metadata only; the checked V2.27 application and all audio bytes remain unchanged.
+
 Wild Frontier 2.27: real human pain and terminal vocal reactions.
 Base GitHub revision: 33d3ac84618eb2b7cff075ce111477ebf8580fe1.
 Validation session: 2026-11-09.
