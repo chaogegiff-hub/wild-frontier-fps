@@ -3,9 +3,9 @@ import {assetUrl} from './resource-pack.js?v=2.25-drive-grass1';
 
 // Firearms use recordings; the engine and dual-tone horn are synthesized.
 export class GameAudio{
-  constructor(){this.ctx=null;this.buffers={};this._enabled=true;this.active=false;this.sources=new Set();this.lockTones=new Set();this.movementSources=new Set();this.chatterSources=new Set();this.lastChoices=new Map();this.lockTargetId=null;this.lockBeepTimer=0;this.ready=false;}
+  constructor(){this.ctx=null;this.buffers={};this._enabled=true;this.active=false;this.sources=new Set();this.lockTones=new Set();this.movementSources=new Set();this.chatterSources=new Set();this.reactionSources=new Map();this.lastChoices=new Map();this.lockTargetId=null;this.lockBeepTimer=0;this.ready=false;}
   get enabled(){return this._enabled;}
-  set enabled(value){this._enabled=value;if(this.master)this.master.gain.setTargetAtTime(value?.75:0,this.ctx.currentTime,.05);if(!value){this.clearLockAudio();this.stopChatter();}}
+  set enabled(value){this._enabled=value;if(this.master)this.master.gain.setTargetAtTime(value?.75:0,this.ctx.currentTime,.05);if(!value){this.clearLockAudio();this.stopChatter();this.stopReactions();}}
   init(){
     if(this.ctx)return;
     const Audio=globalThis.AudioContext||globalThis.webkitAudioContext;if(!Audio)return;
@@ -46,9 +46,40 @@ export class GameAudio{
     })();return this.voiceLoadPromise;
   }
   stopChatter(){for(const source of this.chatterSources)try{source.stop();}catch{}this.chatterSources.clear();}
+  async loadReactions(){
+    if(this.reactionLoadPromise)return this.reactionLoadPromise;
+    this.reactionLoadPromise=(async()=>{
+      try{
+        this.init();if(!this.ctx)throw new Error('AudioContext unavailable');
+        const root=new URL('./audio/reactions/',import.meta.url),response=await fetch(new URL('manifest.json?v=2.27-human-pain1',root));if(!response.ok)throw new Error('Vocal reactions unavailable');
+        const manifest=await response.json(),results=await Promise.allSettled(Object.entries(manifest.clips).map(async([key,clip])=>{
+          const response=await fetch(new URL(clip.file,root));if(!response.ok)throw new Error(clip.file);this.buffers[key]=[await this.ctx.decodeAudioData(await response.arrayBuffer())];
+        }));
+        if(results.some(r=>r.status==='rejected'))throw new Error('Some vocal reactions failed to load');this.reactionsReady=true;return true;
+      }catch(error){console.warn('Vocal reaction load can be retried',error);this.reactionLoadPromise=null;return false;}
+    })();return this.reactionLoadPromise;
+  }
+  stopReactions({keepTerminal=false}={}){
+    for(const [id,entry] of this.reactionSources){if(keepTerminal&&entry.terminal)continue;try{entry.source.stop();}catch{}this.reactionSources.delete(id);}
+  }
+  vocalReaction(line){
+    if(!this.active||!this.enabled||!this.ctx||!this.buffers[line.key]?.length)return false;
+    const previous=this.reactionSources.get(line.actorId);
+    if(previous){try{previous.source.stop();}catch{}this.reactionSources.delete(line.actorId);}
+    // Two nearby reflex voices at most; higher urgency wins, then proximity.
+    if(this.reactionSources.size>=2){
+      const worst=[...this.reactionSources.values()].sort((a,b)=>a.priority-b.priority||b.distance-a.distance)[0];
+      if(line.priority<worst.priority||line.priority===worst.priority&&line.distance>=worst.distance)return false;
+      try{worst.source.stop();}catch{}this.reactionSources.delete(worst.actorId);
+    }
+    const volume=(line.actorId==='player'?(line.kind==='light'?.58:.78):(line.kind==='light'?.78:.92))*(line.blocked?.5:1);
+    const source=this.play(line.key,{volume,position:line.position||undefined,refDistance:9,occluded:line.blocked,category:'reaction'});
+    if(!source)return false;this.reactionSources.set(line.actorId,{...line,source});
+    return source.buffer.duration+(line.distance||0)/343;
+  }
   enemyVoice(line){
     if(!this.active||!this.enabled)return false;
-    const source=this.play(line.key,{volume:line.blocked?.48:1.05,position:line.position,refDistance:16,category:'chatter',occluded:line.blocked});
+    const source=this.play(line.key,{volume:line.blocked?.40:.86,position:line.position,refDistance:11,category:'chatter',occluded:line.blocked});
     return source?source.buffer.duration+Math.hypot(line.position.x-(this.position?.x||0),line.position.z-(this.position?.z||0))/343:false;
   }
   cactusImpact(position,speed=3){
@@ -56,9 +87,9 @@ export class GameAudio{
     let seed=19;for(let i=0;i<length;i++){seed=(Math.imul(seed,1664525)+1013904223)|0;const t=i/c.sampleRate;data[i]=((seed>>>0)/4294967295-.5)*Math.exp(-t*27)+Math.sin(t*650)*Math.exp(-t*45)*.55;}source.buffer=buffer;
     const gain=c.createGain(),filter=c.createBiquadFilter();filter.type='lowpass';filter.frequency.value=1800;const d=this.position?Math.hypot(position.x-this.position.x,position.z-this.position.z):0;gain.gain.value=Math.min(.28,.10+speed*.012)/(1+d*.09);source.connect(filter).connect(gain).connect(this.master);source.onended=()=>{source.disconnect();filter.disconnect();gain.disconnect();};source.start();
   }
-  setActive(active){
+  setActive(active,{allowVocalTail=false}={}){
     this.active=active;if(this.ambientGain)this.ambientGain.gain.setTargetAtTime(active?.055:0,this.ctx.currentTime,.18);
-    if(!active&&this.engineGain)this.engineGain.gain.setTargetAtTime(0,this.ctx.currentTime,.04);if(!active){this.stopChatter();this.horn(false);this.clearLockAudio();for(const source of this.movementSources)try{source.stop();}catch{}this.movementSources.clear();}
+    if(!active&&this.engineGain)this.engineGain.gain.setTargetAtTime(0,this.ctx.currentTime,.04);if(!active){this.stopChatter();this.stopReactions({keepTerminal:allowVocalTail});this.horn(false);this.clearLockAudio();for(const source of this.movementSources)try{source.stop();}catch{}this.movementSources.clear();}
   }
   horn(pressed){
     if(!this.enabled||!this.active){this.hornPressed=false;if(this.hornGain){this.hornGain.gain.cancelScheduledValues?.(this.ctx.currentTime);this.hornGain.gain.setTargetAtTime(0,this.ctx.currentTime,.025);}return;}
@@ -106,7 +137,7 @@ export class GameAudio{
     }
     if(!position&&pan&&c.createStereoPanner){const stereo=c.createStereoPanner();stereo.pan.value=pan;output.connect(stereo);output=stereo;nodes.push(stereo);}
     output.connect(this.master);if(echo)output.connect(this.echo);
-    source.onended=()=>{this.sources.delete(source);this.movementSources.delete(source);this.chatterSources.delete(source);nodes.forEach(n=>n.disconnect());};this.sources.add(source);if(category==='movement')this.movementSources.add(source);if(category==='chatter')this.chatterSources.add(source);
+    source.onended=()=>{this.sources.delete(source);this.movementSources.delete(source);this.chatterSources.delete(source);if(category==='reaction')for(const [id,e] of this.reactionSources)if(e.source===source)this.reactionSources.delete(id);nodes.forEach(n=>n.disconnect());};this.sources.add(source);if(category==='movement')this.movementSources.add(source);if(category==='chatter')this.chatterSources.add(source);
     const when=c.currentTime+delay;if(duration)source.start(when,0,Math.min(duration,source.buffer.duration));else source.start(when);
     return source;
   }

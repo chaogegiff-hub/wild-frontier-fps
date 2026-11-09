@@ -16,20 +16,20 @@
     "sha256": "bbc5753bee7959148c65d2688619e077f53cfdfe44f1a744e3f9ec8f1df2cdb8"
   },
   "README.md": {
-    "bytes": 6415,
-    "sha256": "d9e23439612cffc28e0d1afc9b9fcce4f6d6c12c209d53ff74dcb8b6c5da2992"
+    "bytes": 7660,
+    "sha256": "1c457928770ce6685147c95e9e91f9bb1bd5327f9d671000b7a679e209482707"
   },
   "VALIDATION.txt": {
-    "bytes": 23759,
-    "sha256": "e80605187ba5567c1ec2bcdbb34ad056c19bb21de2f636bdd2e6716f21ae6e7f"
+    "bytes": 40305,
+    "sha256": "7c7ec665125339d304e5054a89cb47d99801ce1209331c3eccf92be07aebc94f"
   },
   "dist/.nojekyll": {
     "bytes": 1,
     "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
   },
   "dist/ASSET-CREDITS.txt": {
-    "bytes": 11827,
-    "sha256": "58e84e7e17f044aa0e6d099160f8fc8332e41e25400d16662feddbe17dff0425"
+    "bytes": 12615,
+    "sha256": "cb934587dd45a6405119fd3d558eedf48e0e3ec6f5a2bddf18505e7e59aeb94a"
   },
   "dist/aim-overlay.js": {
     "bytes": 2391,
@@ -48,8 +48,8 @@
     "sha256": "c8d729adc2eb211329f1c6139a066cbcf5e845af8abfe452b839d9538c0bb767"
   },
   "dist/audio.js": {
-    "bytes": 13660,
-    "sha256": "08e29f8d9fd38b32d60e9680f864498eb177e825f763555d36bc189178a26132"
+    "bytes": 16287,
+    "sha256": "ad37278e19a2208f5d824d094168347ceb6ff3d1067f168d8f542679fe8e1e2c"
   },
   "dist/audio/SOURCES.json": {
     "bytes": 21974,
@@ -271,6 +271,138 @@
     "bytes": 1075,
     "sha256": "4add4609f3ae2675eb370d48464343f89436eacda95c1abe31c93c6d2088a31a"
   },
+  "dist/audio/reactions/human-leader-death-0.mp3": {
+    "bytes": 13364,
+    "sha256": "49b03c1ae4eb87b69e5e07934a4bb0fe5bacf758d1fbf8b7f1b61071f35f56f1"
+  },
+  "dist/audio/reactions/human-leader-death-1.mp3": {
+    "bytes": 10484,
+    "sha256": "73360626d1109fd8573083638274145a8c4bedfba8b288ab05bd90f71c5fb2f2"
+  },
+  "dist/audio/reactions/human-leader-heavy-0.mp3": {
+    "bytes": 9044,
+    "sha256": "45989227820212baec188877bdc868fb664b2361db6d812423b568c74db832d9"
+  },
+  "dist/audio/reactions/human-leader-heavy-1.mp3": {
+    "bytes": 8324,
+    "sha256": "74ac9433f5a56f3397248f7b8f338e47ec3973a8bb8788c048852f1ed0663d77"
+  },
+  "dist/audio/reactions/human-leader-heavy-2.mp3": {
+    "bytes": 8684,
+    "sha256": "244d6f6e4d740b93f0279f5f4cb77ac7929c5391a5f8b10da6fa0c9e12a99a6e"
+  },
+  "dist/audio/reactions/human-leader-light-0.mp3": {
+    "bytes": 5804,
+    "sha256": "748a08a1b7f776834708044474142f50899a927c5e5536af83b5522c3a3b13fe"
+  },
+  "dist/audio/reactions/human-leader-light-1.mp3": {
+    "bytes": 8684,
+    "sha256": "8f86fa76885da2e18cab2e1d4a8fb0357120ea5966805b927350656305e442f7"
+  },
+  "dist/audio/reactions/human-leader-light-2.mp3": {
+    "bytes": 10844,
+    "sha256": "b95b8ea35a61478efe0b127e6cfa2f782006edca0371efff53f6d20ab0fed26d"
+  },
+  "dist/audio/reactions/human-player-death-0.mp3": {
+    "bytes": 13724,
+    "sha256": "9332df0b3d0272b65e78ead7a21566c8b908a4bda2ed7beb6a97e3a8cc9e63b0"
+  },
+  "dist/audio/reactions/human-player-death-1.mp3": {
+    "bytes": 15164,
+    "sha256": "4a73cfb2eb587edb5cb0aa0390390d8e2d03a7b29bed9184ac984d87699fed79"
+  },
+  "dist/audio/reactions/human-player-heavy-0.mp3": {
+    "bytes": 9404,
+    "sha256": "471604f70303eb7f2e58e2cad86db1970349965f2bacc43b01b02f2bc36fd428"
+  },
+  "dist/audio/reactions/human-player-heavy-1.mp3": {
+    "bytes": 9404,
+    "sha256": "c2068725f2d9ca2e7a1a4d1dfcb74cff8373a6cecb4a4589045047d4cd44fce1"
+  },
+  "dist/audio/reactions/human-player-heavy-2.mp3": {
+    "bytes": 11564,
+    "sha256": "1e010f521f0734b65a497a54f66086aee94d8d0d64e6f534e57ee9260227e7bf"
+  },
+  "dist/audio/reactions/human-player-light-0.mp3": {
+    "bytes": 7244,
+    "sha256": "4f4057a39b1c024d2666769013710ed112405d0629957bd0d7867d230d4321f2"
+  },
+  "dist/audio/reactions/human-player-light-1.mp3": {
+    "bytes": 6884,
+    "sha256": "3c85d22ecb1d09a749cba14b0d057a38cdc2c0b4332d7d38211a1dd67577bcde"
+  },
+  "dist/audio/reactions/human-player-light-2.mp3": {
+    "bytes": 8324,
+    "sha256": "1c3b13f10b90eeeae108a198b4a6afcea6f306c7d3d258970de0389d40a8cd53"
+  },
+  "dist/audio/reactions/human-scout-death-0.mp3": {
+    "bytes": 9044,
+    "sha256": "816ad370bb550d8dee4e38b97c5d6463d6901ada2c40ffa49b753cf6c99106b4"
+  },
+  "dist/audio/reactions/human-scout-death-1.mp3": {
+    "bytes": 7964,
+    "sha256": "9eb88acb35e4588f3248d6945b50605da03215a84552d1d194eea55e836af223"
+  },
+  "dist/audio/reactions/human-scout-heavy-0.mp3": {
+    "bytes": 7244,
+    "sha256": "66a1134baf34c2bb8aef91b71a4b924513da7d6a7b8cf74f518bf4e959eb1cec"
+  },
+  "dist/audio/reactions/human-scout-heavy-1.mp3": {
+    "bytes": 7964,
+    "sha256": "e4f92d846bd1826e737ac98c6f495ba9f345371232f69b40f93ac2fdabf9fb34"
+  },
+  "dist/audio/reactions/human-scout-heavy-2.mp3": {
+    "bytes": 7604,
+    "sha256": "862b9706cf99460313629c40cfa2198a10306efb08730c56bc2d300013a3349c"
+  },
+  "dist/audio/reactions/human-scout-light-0.mp3": {
+    "bytes": 5444,
+    "sha256": "264f16509086d79740be9f455b21c3ef8ae17a75dcee78d32c396a13de350903"
+  },
+  "dist/audio/reactions/human-scout-light-1.mp3": {
+    "bytes": 4724,
+    "sha256": "6e517a78b94b14a21951dfd5e2d61b7b23a5b29e8456dcbe6f11c53ce40def5d"
+  },
+  "dist/audio/reactions/human-scout-light-2.mp3": {
+    "bytes": 5804,
+    "sha256": "300e16d65047257dc2540d7794c8c5416df4255fe038f19cd882b1ee203465bf"
+  },
+  "dist/audio/reactions/human-veteran-death-0.mp3": {
+    "bytes": 16964,
+    "sha256": "12640aa89abb3a1844e6445142a004995f3592f53e3c73c8da0509fcf25c54de"
+  },
+  "dist/audio/reactions/human-veteran-death-1.mp3": {
+    "bytes": 17324,
+    "sha256": "d7e13130e39d369dcd4d453c1972946a72f783eb1bb4066839c853423f827cb3"
+  },
+  "dist/audio/reactions/human-veteran-heavy-0.mp3": {
+    "bytes": 7964,
+    "sha256": "4e1c63c9e3c670f91f856369fb604f6e381310b7f1611c78eb6bdd893d2b1bd0"
+  },
+  "dist/audio/reactions/human-veteran-heavy-1.mp3": {
+    "bytes": 11564,
+    "sha256": "41cede8a9ca2a2bd437546f42dcd4ea3f045611fa46bd983fe81eabb86330469"
+  },
+  "dist/audio/reactions/human-veteran-heavy-2.mp3": {
+    "bytes": 5084,
+    "sha256": "65ebd2c4478028d1c1f61c2883d57d5c14ba4337b804b8a91019ff4a6da42e3c"
+  },
+  "dist/audio/reactions/human-veteran-light-0.mp3": {
+    "bytes": 5444,
+    "sha256": "1f856f3925da060f155c418a64539b7ef33e5be191f13d16593b1aabe0265bc0"
+  },
+  "dist/audio/reactions/human-veteran-light-1.mp3": {
+    "bytes": 5804,
+    "sha256": "6c771f9955781b544ae6e93f917107586ce5cea8018c2eac9b070e27f74c09e1"
+  },
+  "dist/audio/reactions/human-veteran-light-2.mp3": {
+    "bytes": 4724,
+    "sha256": "cf2407b7420ed1f5ebff8cd13ed25256c86129a56b7c558de177608e67bb2032"
+  },
+  "dist/audio/reactions/manifest.json": {
+    "bytes": 17757,
+    "sha256": "fa5a1869663c80d81dabc57cfdfcd123643f2ef10fc8ed7b339b98119156b40d"
+  },
   "dist/audio/reload.wav": {
     "bytes": 179552,
     "sha256": "f9d7f66493c25fcad9039eb7936470d7d4353aed02c772055e84fe15b8bad0c5"
@@ -316,8 +448,8 @@
     "sha256": "6cfc33e806309d8ce1d64d2306958588964afa513d5883a00c5518c7054db765"
   },
   "dist/bootstrap.js": {
-    "bytes": 2020,
-    "sha256": "739a843b3b37dca2bfb4175f11a57e48e38b76c6443e3b1087810fde19658f0e"
+    "bytes": 2018,
+    "sha256": "eab95953877ae4fbd85f5d316ef140fa09f7fec09eb7bb03ac90e8405c61d58a"
   },
   "dist/building-layout.js": {
     "bytes": 5074,
@@ -360,8 +492,8 @@
     "sha256": "6ae21cb0ed8cabb65aff28e1018b5c6fb87b51a78061c32181ca6ea07a35706c"
   },
   "dist/enemy-chatter.js": {
-    "bytes": 4680,
-    "sha256": "b5ef9c376a8d68ad52965d9a89c834d5f9fd404f37503aa61f5db14d6c4e5227"
+    "bytes": 4693,
+    "sha256": "8be8101ac73d8d265da584f2ec8ee039246e93021a07ecb7345e44d91f8c4dd9"
   },
   "dist/environment/SOURCE.md": {
     "bytes": 570,
@@ -392,8 +524,8 @@
     "sha256": "cc9fb2539cf27df48255982e896d28f544483537cdb41f9fabd741af8992d719"
   },
   "dist/game.js": {
-    "bytes": 43055,
-    "sha256": "af685c3ba84befe220ecdac399b29272901b60f2a8646c29c69e8e17d893012a"
+    "bytes": 43698,
+    "sha256": "037953e61997c8509ffd11ab21d28f6ec63236e06cbbb98eac0d19cef9a58ab9"
   },
   "dist/graphics.js": {
     "bytes": 7640,
@@ -744,8 +876,8 @@
     "sha256": "09c070873b762302aa6ee86e35127b49dd86f2a6f894bac8180ec188fa7ff4e0"
   },
   "dist/index.html": {
-    "bytes": 17041,
-    "sha256": "186b17dddd40acdd7e8967211f139619765111660656bbaadcb807aa9ae1bb0e"
+    "bytes": 17037,
+    "sha256": "17ca6dcdd60c6f449274363a29222c1d5bce59dededd0860961a981b4bc650f5"
   },
   "dist/lobby-photo.css": {
     "bytes": 2674,
@@ -1635,6 +1767,10 @@
     "bytes": 1274691,
     "sha256": "a97ec6852978949b7941c070b81292b842473a37549222353fa0a70c18d7285a"
   },
+  "dist/vocal-reactions.js": {
+    "bytes": 2963,
+    "sha256": "a2f304b6d39f0331f3950d832e22c4d7c151863811eda5769113c66187fc0e1f"
+  },
   "dist/weapon-view.js": {
     "bytes": 3192,
     "sha256": "d35f6cb82bf956d05aec35ef33bf7a16c9bf5abb8d51b7a018f912dc37796450"
@@ -1664,8 +1800,8 @@
     "sha256": "e956bf258dc3c0a25104c9a19e9d56a8393aaac3fba0bcad8a3d71b0fa7c098e"
   },
   "package.json": {
-    "bytes": 791,
-    "sha256": "207853b4723ad5841559955c6ea9a4fc87d7903cdfd32f23963bec3c015b5370"
+    "bytes": 833,
+    "sha256": "5709883ce163bcdf0a4c0e0173fbe2428981c2bff25575f4a28591e7072c4cab"
   },
   "scripts/build-cache-ui-check.mjs": {
     "bytes": 4786,
@@ -1716,8 +1852,8 @@
     "sha256": "d1964e3c5f719cb274c95d01a2473a82885bf631bd8d1bab17fb9cfd18884df8"
   },
   "scripts/check-combat-chatter.mjs": {
-    "bytes": 3143,
-    "sha256": "8cff28e71e2eb37199c90c0ebe60d64b0aba330e7076d879a434e7cc09d36663"
+    "bytes": 3426,
+    "sha256": "5cd3766e2a0d189f50500018e3051e294308fa3bd6221b41b3f650648823761a"
   },
   "scripts/check-combat.mjs": {
     "bytes": 4757,
@@ -1736,8 +1872,8 @@
     "sha256": "ee6fc12e86f9c72d8fb8c8a2111286b121425019c2950b48318e860872f908df"
   },
   "scripts/check-frame.mjs": {
-    "bytes": 9144,
-    "sha256": "c8f076ab0df055e1ae6d50cf6e2c17457e9446bb891ecd0a8ee1bec4071f9114"
+    "bytes": 9239,
+    "sha256": "00b9be0a435d6be4895bc82e7cba02df479449ea84f5aa76170889e2fa77dfdd"
   },
   "scripts/check-full-leaf-tree.py": {
     "bytes": 10206,
@@ -1834,6 +1970,10 @@
   "scripts/check-vehicles.mjs": {
     "bytes": 20742,
     "sha256": "b391fe73a5a175fab0d5e7784a83e634d96645adb72ce9d7c066fd5ff1431c0b"
+  },
+  "scripts/check-vocal-reactions.mjs": {
+    "bytes": 8383,
+    "sha256": "a3efa56215175f7d1052f969d5d26a2b8674f2038639153d6de71ecd25bd256e"
   },
   "scripts/check-weapon-hands.mjs": {
     "bytes": 3063,
@@ -1950,6 +2090,10 @@
   "scripts/prepare-gloved-hands.py": {
     "bytes": 13883,
     "sha256": "4b21e110fcfbf41cd606b1c48a0769bfd92f3f166b216c2b21e07b18745732b9"
+  },
+  "scripts/prepare-human-reactions.py": {
+    "bytes": 3582,
+    "sha256": "481cfab25a8a90c2c56b0dbbad6074b0c36b2381429e152860da240c4104ea34"
   },
   "scripts/prepare-jeep.mjs": {
     "bytes": 6376,
@@ -2143,6 +2287,10 @@
     "bytes": 1228646,
     "sha256": "9c83be074c950ea1b94c732c0c0291b53b9ba357f932d378bafe3ca3b4418871"
   },
+  "sources/HUMAN-VOCALS.md": {
+    "bytes": 1860,
+    "sha256": "d7fedc874d9baf2271437ab7cae13ec3d6a321d1c4084ba22c70e8e8f41b48e9"
+  },
   "sources/aerial_grass_rock.json": {
     "bytes": 29769,
     "sha256": "b4fc59bf78a2ea9c1ce18eaa46e004b98b89f37bdac38d18e6ceac4fd8cb5344"
@@ -2178,6 +2326,10 @@
   "sources/grey_roof_tiles.json": {
     "bytes": 40441,
     "sha256": "29a5fcda078b766b4653bd97985422b3f7a730c7642da8f093110c52db0439b3"
+  },
+  "sources/human-vocal-reactions.json": {
+    "bytes": 10479,
+    "sha256": "6d81de49ba639538e8d4b6401bd066906107f7d89b043e9c1c4df6c4fefce67d"
   },
   "sources/metal_plate.json": {
     "bytes": 33163,

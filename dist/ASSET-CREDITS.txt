@@ -165,3 +165,16 @@ Preset voices: Dylan (scout), Uncle_Fu (veteran), Ryan (leader), speaking Chines
 Original dialogue and per-line acting directions: this project; see
 sources/combat-voice-direction.json in the source repository.
 No remote inference API, voice cloning, pitch shift or speed change was used.
+
+Human pain / terminal vocal reactions (V2.27): HaelDB,
+"Male Grunt/Yelling sounds", OpenGameArt, 2012-04-12.
+https://opengameart.org/content/male-gruntyelling-sounds
+CC0 1.0 option selected: https://creativecommons.org/publicdomain/zero/1.0/
+32 edited human recordings, four fixed performer groups. Excerpts trimmed,
+rumble filtered, edges faded and levels balanced; no pitch/speed changes.
+Original archive SHA256:
+e9100a4e3b9dcd146993089970dc6097dcf9935fa4683b196040012bad65d67a
+Source edit plan and reproduction helper are in sources/human-vocal-reactions.json
+and scripts/prepare-human-reactions.py in the source repository.
+Existing Chinese tactical dialogue remains synthetic; the new reflex vocals
+are recordings of separate human performers, not cloned versions of those voices.

@@ -1,0 +1,569 @@
+{
+  "version": "2.27-human-pain1",
+  "humanRecorded": true,
+  "synthetic": false,
+  "source": {
+    "title": "Male Grunt/Yelling sounds",
+    "author": "HaelDB",
+    "page": "https://opengameart.org/content/male-gruntyelling-sounds",
+    "archive": "https://opengameart.org/sites/default/files/yelling%20sounds.zip",
+    "archiveSha256": "e9100a4e3b9dcd146993089970dc6097dcf9935fa4683b196040012bad65d67a",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "recording": "Four human male performers; not TTS or voice clones. Fixed performer per role."
+  },
+  "processing": {
+    "sampleRate": 32000,
+    "channels": 1,
+    "bitrate": "80k",
+    "pitchShift": false,
+    "speedChange": false,
+    "silence": "Retain 35ms pre-onset and 110ms tail; 4ms/35ms edge fades."
+  },
+  "clips": {
+    "reaction-scout-light-0": {
+      "file": "human-scout-light-0.mp3",
+      "profile": "scout",
+      "kind": "light",
+      "performer": "1",
+      "duration": 0.43803,
+      "sha256": "264f16509086d79740be9f455b21c3ef8ae17a75dcee78d32c396a13de350903",
+      "bytes": 5444,
+      "sourceFile": "1yell1.wav",
+      "sourceSha256": "d9fd329f37c07327bf6a3249ff9b30dad9ecec8762981c6d8eda225f892d028e",
+      "sourceExcerpt": [
+        0.29105,
+        0.72907
+      ],
+      "peakDbfs": -4.34,
+      "rmsDbfs": -20.86
+    },
+    "reaction-scout-light-1": {
+      "file": "human-scout-light-1.mp3",
+      "profile": "scout",
+      "kind": "light",
+      "performer": "1",
+      "duration": 0.39256,
+      "sha256": "6e517a78b94b14a21951dfd5e2d61b7b23a5b29e8456dcbe6f11c53ce40def5d",
+      "bytes": 4724,
+      "sourceFile": "1yell9.wav",
+      "sourceSha256": "da11a59a017ad4ed3f371ca0829c1f5f3d6a59106eee1ae914d39e04ffe08d6e",
+      "sourceExcerpt": [
+        0.22906,
+        0.62161
+      ],
+      "peakDbfs": -4.41,
+      "rmsDbfs": -17.42
+    },
+    "reaction-scout-light-2": {
+      "file": "human-scout-light-2.mp3",
+      "profile": "scout",
+      "kind": "light",
+      "performer": "1",
+      "duration": 0.50291,
+      "sha256": "300e16d65047257dc2540d7794c8c5416df4255fe038f19cd882b1ee203465bf",
+      "bytes": 5804,
+      "sourceFile": "1yell15.wav",
+      "sourceSha256": "761a03d1ea2339ef26e11744c7aa7f641ba259acc1e3398516ca90eef3f3da1d",
+      "sourceExcerpt": [
+        0.19037,
+        0.69327
+      ],
+      "peakDbfs": -4.49,
+      "rmsDbfs": -22.62
+    },
+    "reaction-scout-heavy-0": {
+      "file": "human-scout-heavy-0.mp3",
+      "profile": "scout",
+      "kind": "heavy",
+      "performer": "1",
+      "duration": 0.61466,
+      "sha256": "66a1134baf34c2bb8aef91b71a4b924513da7d6a7b8cf74f518bf4e959eb1cec",
+      "bytes": 7244,
+      "sourceFile": "1yell2.wav",
+      "sourceSha256": "5bd2d3b068ba08b2d1237676bd441c4edd608624df4c2ed1d7a6a471d5765138",
+      "sourceExcerpt": [
+        0.12693,
+        0.74157
+      ],
+      "peakDbfs": -3.37,
+      "rmsDbfs": -18.41
+    },
+    "reaction-scout-heavy-1": {
+      "file": "human-scout-heavy-1.mp3",
+      "profile": "scout",
+      "kind": "heavy",
+      "performer": "1",
+      "duration": 0.70506,
+      "sha256": "e4f92d846bd1826e737ac98c6f495ba9f345371232f69b40f93ac2fdabf9fb34",
+      "bytes": 7964,
+      "sourceFile": "1yell5.wav",
+      "sourceSha256": "9c8f8591b96ecc44d58682a438e47cbee446a2c1a64dee24a07309ebfe04715c",
+      "sourceExcerpt": [
+        0.33872,
+        1.04379
+      ],
+      "peakDbfs": -3.37,
+      "rmsDbfs": -16.57
+    },
+    "reaction-scout-heavy-2": {
+      "file": "human-scout-heavy-2.mp3",
+      "profile": "scout",
+      "kind": "heavy",
+      "performer": "1",
+      "duration": 0.64947,
+      "sha256": "862b9706cf99460313629c40cfa2198a10306efb08730c56bc2d300013a3349c",
+      "bytes": 7604,
+      "sourceFile": "1yell12.wav",
+      "sourceSha256": "f7def3b6591e98309b968f985f001d914bdddac0d3b1a3f0f668b28331bc3c4a",
+      "sourceExcerpt": [
+        0.2782,
+        0.92744
+      ],
+      "peakDbfs": -3.56,
+      "rmsDbfs": -21.24
+    },
+    "reaction-scout-death-0": {
+      "file": "human-scout-death-0.mp3",
+      "profile": "scout",
+      "kind": "death",
+      "performer": "1",
+      "duration": 0.80397,
+      "sha256": "816ad370bb550d8dee4e38b97c5d6463d6901ada2c40ffa49b753cf6c99106b4",
+      "bytes": 9044,
+      "sourceFile": "1yell3.wav",
+      "sourceSha256": "a2cf791abecb62affff1d2691f2b883f61b1558e9fe3e80a10765add5006ba6d",
+      "sourceExcerpt": [
+        0.73001,
+        1.53397
+      ],
+      "peakDbfs": -3.33,
+      "rmsDbfs": -16.83
+    },
+    "reaction-scout-death-1": {
+      "file": "human-scout-death-1.mp3",
+      "profile": "scout",
+      "kind": "death",
+      "performer": "1",
+      "duration": 0.71375,
+      "sha256": "9eb88acb35e4588f3248d6945b50605da03215a84552d1d194eea55e836af223",
+      "bytes": 7964,
+      "sourceFile": "1yell4.wav",
+      "sourceSha256": "6ee9d367fcec4ca722d1fa97a336a8c264ac443156fe51d1e2b7825636a1b0b7",
+      "sourceExcerpt": [
+        0.09255,
+        0.80626
+      ],
+      "peakDbfs": -3.51,
+      "rmsDbfs": -16.22
+    },
+    "reaction-veteran-light-0": {
+      "file": "human-veteran-light-0.mp3",
+      "profile": "veteran",
+      "kind": "light",
+      "performer": "3",
+      "duration": 0.46172,
+      "sha256": "1f856f3925da060f155c418a64539b7ef33e5be191f13d16593b1aabe0265bc0",
+      "bytes": 5444,
+      "sourceFile": "3grunt1.wav",
+      "sourceSha256": "57b3a59c39ffe74a1706bcb85c451443c3b388d1f6423827b2af4af508c8416b",
+      "sourceExcerpt": [
+        0.50058,
+        0.96229
+      ],
+      "peakDbfs": -4.48,
+      "rmsDbfs": -14.8
+    },
+    "reaction-veteran-light-1": {
+      "file": "human-veteran-light-1.mp3",
+      "profile": "veteran",
+      "kind": "light",
+      "performer": "3",
+      "duration": 0.5,
+      "sha256": "6c771f9955781b544ae6e93f917107586ce5cea8018c2eac9b070e27f74c09e1",
+      "bytes": 5804,
+      "sourceFile": "3grunt3.wav",
+      "sourceSha256": "6006516ae7979896a4053cfc88f26ef575a67133fa0c51de5d9a893498960cc9",
+      "sourceExcerpt": [
+        0,
+        0.5
+      ],
+      "peakDbfs": -4.45,
+      "rmsDbfs": -17.92
+    },
+    "reaction-veteran-light-2": {
+      "file": "human-veteran-light-2.mp3",
+      "profile": "veteran",
+      "kind": "light",
+      "performer": "3",
+      "duration": 0.38341,
+      "sha256": "cf2407b7420ed1f5ebff8cd13ed25256c86129a56b7c558de177608e67bb2032",
+      "bytes": 4724,
+      "sourceFile": "3grunt5.wav",
+      "sourceSha256": "32705e7835d0cdce3eb6e9d3a512ef128ee6c50564bd53bb0723b4474be85181",
+      "sourceExcerpt": [
+        0.11663,
+        0.5
+      ],
+      "peakDbfs": -4.5,
+      "rmsDbfs": -19.42
+    },
+    "reaction-veteran-heavy-0": {
+      "file": "human-veteran-heavy-0.mp3",
+      "profile": "veteran",
+      "kind": "heavy",
+      "performer": "3",
+      "duration": 0.69294,
+      "sha256": "4e1c63c9e3c670f91f856369fb604f6e381310b7f1611c78eb6bdd893d2b1bd0",
+      "bytes": 7964,
+      "sourceFile": "3grunt2.wav",
+      "sourceSha256": "a377c43f2151000713a45c18223c94e1de2e2393ad10569a391c1b9f96898544",
+      "sourceExcerpt": [
+        0.28822,
+        0.98116
+      ],
+      "peakDbfs": -3.57,
+      "rmsDbfs": -22.67
+    },
+    "reaction-veteran-heavy-1": {
+      "file": "human-veteran-heavy-1.mp3",
+      "profile": "veteran",
+      "kind": "heavy",
+      "performer": "3",
+      "duration": 1.05381,
+      "sha256": "41cede8a9ca2a2bd437546f42dcd4ea3f045611fa46bd983fe81eabb86330469",
+      "bytes": 11564,
+      "sourceFile": "3grunt6.wav",
+      "sourceSha256": "c334b34e7a64d67f226cd0a54fb237b8fbcc09e5ac6258a32fafcecc2c2e0857",
+      "sourceExcerpt": [
+        0.37885,
+        1.43265
+      ],
+      "peakDbfs": -3.49,
+      "rmsDbfs": -22.05
+    },
+    "reaction-veteran-heavy-2": {
+      "file": "human-veteran-heavy-2.mp3",
+      "profile": "veteran",
+      "kind": "heavy",
+      "performer": "3",
+      "duration": 0.42566,
+      "sha256": "65ebd2c4478028d1c1f61c2883d57d5c14ba4337b804b8a91019ff4a6da42e3c",
+      "bytes": 5084,
+      "sourceFile": "3yell3.wav",
+      "sourceSha256": "2e55e23478c86bf9bfdf4297a24fb5135c18822dd38f95cabeb45612c840b64b",
+      "sourceExcerpt": [
+        0.22906,
+        0.65472
+      ],
+      "peakDbfs": -3.5,
+      "rmsDbfs": -16.85
+    },
+    "reaction-veteran-death-0": {
+      "file": "human-veteran-death-0.mp3",
+      "profile": "veteran",
+      "kind": "death",
+      "performer": "3",
+      "duration": 1.59712,
+      "sha256": "12640aa89abb3a1844e6445142a004995f3592f53e3c73c8da0509fcf25c54de",
+      "bytes": 16964,
+      "sourceFile": "3yell1.wav",
+      "sourceSha256": "df151155a9c1a743de9d7c079a700896f37926d832305e07d2c7f2f0846c86b9",
+      "sourceExcerpt": [
+        0.3567,
+        1.95379
+      ],
+      "peakDbfs": -3.4,
+      "rmsDbfs": -13.54
+    },
+    "reaction-veteran-death-1": {
+      "file": "human-veteran-death-1.mp3",
+      "profile": "veteran",
+      "kind": "death",
+      "performer": "3",
+      "duration": 1.65587,
+      "sha256": "d7e13130e39d369dcd4d453c1972946a72f783eb1bb4066839c853423f827cb3",
+      "bytes": 17324,
+      "sourceFile": "3yell9.wav",
+      "sourceSha256": "f9c63c26c2dafb9c0dd0859c56c79c9012faf32bf2defdc8b53b19ed23ad0704",
+      "sourceExcerpt": [
+        0.34416,
+        2.0
+      ],
+      "peakDbfs": -3.39,
+      "rmsDbfs": -12.9
+    },
+    "reaction-leader-light-0": {
+      "file": "human-leader-light-0.mp3",
+      "profile": "leader",
+      "kind": "light",
+      "performer": "2",
+      "duration": 0.50225,
+      "sha256": "748a08a1b7f776834708044474142f50899a927c5e5536af83b5522c3a3b13fe",
+      "bytes": 5804,
+      "sourceFile": "2yell1.wav",
+      "sourceSha256": "7c14c178f7d765cc60e20f72d296de8a6ad26172dcc98e69a36b4f817df7fa25",
+      "sourceExcerpt": [
+        0.38643,
+        0.88868
+      ],
+      "peakDbfs": -4.42,
+      "rmsDbfs": -17.19
+    },
+    "reaction-leader-light-1": {
+      "file": "human-leader-light-1.mp3",
+      "profile": "leader",
+      "kind": "light",
+      "performer": "2",
+      "duration": 0.76422,
+      "sha256": "8f86fa76885da2e18cab2e1d4a8fb0357120ea5966805b927350656305e442f7",
+      "bytes": 8684,
+      "sourceFile": "2yell10.wav",
+      "sourceSha256": "718542b6a1ba707b613499f4510c2fe1eb063a28546cc608030bc63354e45b83",
+      "sourceExcerpt": [
+        0,
+        0.76419
+      ],
+      "peakDbfs": -4.56,
+      "rmsDbfs": -18.6
+    },
+    "reaction-leader-light-2": {
+      "file": "human-leader-light-2.mp3",
+      "profile": "leader",
+      "kind": "light",
+      "performer": "2",
+      "duration": 1.0,
+      "sha256": "b95b8ea35a61478efe0b127e6cfa2f782006edca0371efff53f6d20ab0fed26d",
+      "bytes": 10844,
+      "sourceFile": "2yell3.wav",
+      "sourceSha256": "5fbacf0e1d7fca6f8c3022203793af19f6903a6281f6822e022206ec29bf625d",
+      "sourceExcerpt": [
+        0,
+        1.0
+      ],
+      "peakDbfs": -4.45,
+      "rmsDbfs": -19.7
+    },
+    "reaction-leader-heavy-0": {
+      "file": "human-leader-heavy-0.mp3",
+      "profile": "leader",
+      "kind": "heavy",
+      "performer": "2",
+      "duration": 0.8235,
+      "sha256": "45989227820212baec188877bdc868fb664b2361db6d812423b568c74db832d9",
+      "bytes": 9044,
+      "sourceFile": "2yell2.wav",
+      "sourceSha256": "1a9836ad95d3102459a416839ccc0b0cf551dfc3322b44284fb7b6ab0b7daf77",
+      "sourceExcerpt": [
+        0.34924,
+        1.17272
+      ],
+      "peakDbfs": -3.45,
+      "rmsDbfs": -16.24
+    },
+    "reaction-leader-heavy-1": {
+      "file": "human-leader-heavy-1.mp3",
+      "profile": "leader",
+      "kind": "heavy",
+      "performer": "2",
+      "duration": 0.72975,
+      "sha256": "74ac9433f5a56f3397248f7b8f338e47ec3973a8bb8788c048852f1ed0663d77",
+      "bytes": 8324,
+      "sourceFile": "2yell7.wav",
+      "sourceSha256": "b88f6a390493935c2682a52e7e52d7a4e77b7d8a60c73af7b508f312454af839",
+      "sourceExcerpt": [
+        0.56944,
+        1.29916
+      ],
+      "peakDbfs": -3.3,
+      "rmsDbfs": -17.06
+    },
+    "reaction-leader-heavy-2": {
+      "file": "human-leader-heavy-2.mp3",
+      "profile": "leader",
+      "kind": "heavy",
+      "performer": "2",
+      "duration": 0.78875,
+      "sha256": "244d6f6e4d740b93f0279f5f4cb77ac7929c5391a5f8b10da6fa0c9e12a99a6e",
+      "bytes": 8684,
+      "sourceFile": "2yell9.wav",
+      "sourceSha256": "927c5b00d74e44302da73ffe89b2b27a4d78a207d81136eb1a1dceffd6fa9f54",
+      "sourceExcerpt": [
+        0.26446,
+        1.0532
+      ],
+      "peakDbfs": -3.39,
+      "rmsDbfs": -15.78
+    },
+    "reaction-leader-death-0": {
+      "file": "human-leader-death-0.mp3",
+      "profile": "leader",
+      "kind": "death",
+      "performer": "2",
+      "duration": 1.22547,
+      "sha256": "49b03c1ae4eb87b69e5e07934a4bb0fe5bacf758d1fbf8b7f1b61071f35f56f1",
+      "bytes": 13364,
+      "sourceFile": "2yell8.wav",
+      "sourceSha256": "c0e6628c4a548cfd7e5aa9adf1d8f2d6d99b22f73a4884bb20470ff06d7fc7d9",
+      "sourceExcerpt": [
+        0.12332,
+        1.34762
+      ],
+      "peakDbfs": -3.45,
+      "rmsDbfs": -18.04
+    },
+    "reaction-leader-death-1": {
+      "file": "human-leader-death-1.mp3",
+      "profile": "leader",
+      "kind": "death",
+      "performer": "2",
+      "duration": 0.96241,
+      "sha256": "73360626d1109fd8573083638274145a8c4bedfba8b288ab05bd90f71c5fb2f2",
+      "bytes": 10484,
+      "sourceFile": "2yell11.wav",
+      "sourceSha256": "dc42f9af596b189ac3225ffd96c227dbcebb3b7d3d1d11fa60d1417d5431e4d5",
+      "sourceExcerpt": [
+        0.29792,
+        1.26032
+      ],
+      "peakDbfs": -3.74,
+      "rmsDbfs": -15.91
+    },
+    "reaction-player-light-0": {
+      "file": "human-player-light-0.mp3",
+      "profile": "player",
+      "kind": "light",
+      "performer": "unprefixed",
+      "duration": 0.61347,
+      "sha256": "4f4057a39b1c024d2666769013710ed112405d0629957bd0d7867d230d4321f2",
+      "bytes": 7244,
+      "sourceFile": "yell12.wav",
+      "sourceSha256": "7bc85e86d21552e525d2ffa82dd4276f2d46828593993018d4646ac68e4b1108",
+      "sourceExcerpt": [
+        0.20339,
+        0.81565
+      ],
+      "peakDbfs": -4.23,
+      "rmsDbfs": -14.71
+    },
+    "reaction-player-light-1": {
+      "file": "human-player-light-1.mp3",
+      "profile": "player",
+      "kind": "light",
+      "performer": "unprefixed",
+      "duration": 0.587,
+      "sha256": "3c85d22ecb1d09a749cba14b0d057a38cdc2c0b4332d7d38211a1dd67577bcde",
+      "bytes": 6884,
+      "sourceFile": "yell13.wav",
+      "sourceSha256": "c48cac885dc87fb7a63d486320d96c39dc6f5e7994ee23ec2458a8fe1f8aa9ea",
+      "sourceExcerpt": [
+        0.29545,
+        0.88243
+      ],
+      "peakDbfs": -4.47,
+      "rmsDbfs": -17.88
+    },
+    "reaction-player-light-2": {
+      "file": "human-player-light-2.mp3",
+      "profile": "player",
+      "kind": "light",
+      "performer": "unprefixed",
+      "duration": 0.729,
+      "sha256": "1c3b13f10b90eeeae108a198b4a6afcea6f306c7d3d258970de0389d40a8cd53",
+      "bytes": 8324,
+      "sourceFile": "yell7.wav",
+      "sourceSha256": "d6e6db12bdea249f86c476f660681d2e8bc34c513cdf21963f6368f5a6a097f7",
+      "sourceExcerpt": [
+        0.16409,
+        0.89306
+      ],
+      "peakDbfs": -4.46,
+      "rmsDbfs": -16.6
+    },
+    "reaction-player-heavy-0": {
+      "file": "human-player-heavy-0.mp3",
+      "profile": "player",
+      "kind": "heavy",
+      "performer": "unprefixed",
+      "duration": 0.83388,
+      "sha256": "471604f70303eb7f2e58e2cad86db1970349965f2bacc43b01b02f2bc36fd428",
+      "bytes": 9404,
+      "sourceFile": "yell3.wav",
+      "sourceSha256": "ea2de04506bb355241ff74b9d92a73e6fac374595fdadd32735dff5a541eb3b3",
+      "sourceExcerpt": [
+        0.40534,
+        1.23918
+      ],
+      "peakDbfs": -3.32,
+      "rmsDbfs": -17.79
+    },
+    "reaction-player-heavy-1": {
+      "file": "human-player-heavy-1.mp3",
+      "profile": "player",
+      "kind": "heavy",
+      "performer": "unprefixed",
+      "duration": 0.86013,
+      "sha256": "c2068725f2d9ca2e7a1a4d1dfcb74cff8373a6cecb4a4589045047d4cd44fce1",
+      "bytes": 9404,
+      "sourceFile": "yell8.wav",
+      "sourceSha256": "cf70569ae0d528e95831be63862ef23b070a538973b0d75d21394186659feca9",
+      "sourceExcerpt": [
+        0.3582,
+        1.21832
+      ],
+      "peakDbfs": -3.38,
+      "rmsDbfs": -20.22
+    },
+    "reaction-player-heavy-2": {
+      "file": "human-player-heavy-2.mp3",
+      "profile": "player",
+      "kind": "heavy",
+      "performer": "unprefixed",
+      "duration": 1.04769,
+      "sha256": "1e010f521f0734b65a497a54f66086aee94d8d0d64e6f534e57ee9260227e7bf",
+      "bytes": 11564,
+      "sourceFile": "yell4.wav",
+      "sourceSha256": "399f3bb14cf9a1ac1ab71d66c7931aef537687a03568278a7a49766686d54857",
+      "sourceExcerpt": [
+        0.45228,
+        1.5
+      ],
+      "peakDbfs": -3.45,
+      "rmsDbfs": -12.59
+    },
+    "reaction-player-death-0": {
+      "file": "human-player-death-0.mp3",
+      "profile": "player",
+      "kind": "death",
+      "performer": "unprefixed",
+      "duration": 1.29281,
+      "sha256": "9332df0b3d0272b65e78ead7a21566c8b908a4bda2ed7beb6a97e3a8cc9e63b0",
+      "bytes": 13724,
+      "sourceFile": "yell1.wav",
+      "sourceSha256": "ce6ddb412e2c562be70f7cd1ca8f5c8cdb8cc321d9f23d596bf796c6d2da1a16",
+      "sourceExcerpt": [
+        1.45201,
+        2.74483
+      ],
+      "peakDbfs": -3.36,
+      "rmsDbfs": -13.27
+    },
+    "reaction-player-death-1": {
+      "file": "human-player-death-1.mp3",
+      "profile": "player",
+      "kind": "death",
+      "performer": "unprefixed",
+      "duration": 1.41688,
+      "sha256": "4a73cfb2eb587edb5cb0aa0390390d8e2d03a7b29bed9184ac984d87699fed79",
+      "bytes": 15164,
+      "sourceFile": "yell2.wav",
+      "sourceSha256": "7bd946b5858450313327f2c3c351d2cb79d7e6a82369a93a15be625adcf5cbb3",
+      "sourceExcerpt": [
+        0.31457,
+        1.73143
+      ],
+      "peakDbfs": -3.41,
+      "rmsDbfs": -13.68
+    }
+  }
+}
