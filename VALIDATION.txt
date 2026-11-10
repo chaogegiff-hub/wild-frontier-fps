@@ -12,6 +12,11 @@ Validation session: 2026-11-11 (Asia/Shanghai).
 - Temporary 2D QA HTML and the preview-only hosting manifest were removed before publication. No diagnostic UI ships with the game.
 - Navigation still uses existing collision-aware ground movement and local sidesteps; it is not a full navigation mesh for arbitrary complex indoor routes. Automated checks establish behavior, not commercial-game animation/AI quality.
 
+Publication recovery:
+- Run 42889368311 attempt 1 passed every check, then Pages stayed in syncing_files until deploy-pages aborted at its enforced 600000ms maximum. The prior 1200000ms setting was logged as clamped; it did not extend that limit.
+- Retrying the failed job reached deployment, but two artifacts named github-pages then caused deploy-pages to reject the ambiguous selection. No game source/test failure occurred.
+- Upload and deployment now share an artifact name scoped to run_id and run_attempt, avoiding ambiguous artifacts on future retries. The timeout now matches the action's actual 600000ms maximum. A new push retries publication with a clean run.
+
 Previous validation history follows:
 
 Wild Frontier 2.28: prevent accidental pauses while touch aiming.

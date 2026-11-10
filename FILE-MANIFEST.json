@@ -4,8 +4,8 @@
     "sha256": "299e6f890f4964b964001cd60e406cd59dd060b3221061ab319766e19e685288"
   },
   ".github/workflows/pages.yml": {
-    "bytes": 1616,
-    "sha256": "efb5ae1b8f919c1e3b7bc9c9fd525b74d843ae707d7f36531ce94dc38355eaf9"
+    "bytes": 1776,
+    "sha256": "4a11a2f570abe3916012077d923d7efbac53ae729de643f6ad560c343dbcba33"
   },
   ".gitignore": {
     "bytes": 88,
@@ -20,8 +20,8 @@
     "sha256": "2b0cfcdcf8a1be3d868bd10d396e8f5104b65fc478d1159a17a668f3a3839732"
   },
   "VALIDATION.txt": {
-    "bytes": 54340,
-    "sha256": "9d1c087662f73243b86430ec0e34d782a3a73c95eceb71a2cbfa0fe1f0fbfd88"
+    "bytes": 55013,
+    "sha256": "21f2097212d168c328490d79e621f838ed1eb38edf563850c2ca1b3dbf01deae"
   },
   "dist/.nojekyll": {
     "bytes": 1,

@@ -48,9 +48,11 @@ jobs:
       - name: Upload full game
         uses: actions/upload-pages-artifact@v4
         with:
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: dist
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          timeout: 1200000
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+          timeout: 600000
