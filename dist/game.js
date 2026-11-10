@@ -19,7 +19,8 @@ import {DrivingControls} from './vehicle-controls.js?v=2.25-drive-grass1';
 import {BattleFeedback} from './battle-feedback.js?v=2.25-drive-grass1';
 import {VehicleTrails} from './vehicle-trails.js?v=2.25-drive-grass1';
 import {SwimView,swimViewFov} from './swim-view.js?v=2.25-drive-grass1';
-import {LookControls} from './look-controls.js?v=2.25-drive-grass1';
+import {LookControls} from './look-controls.js?v=2.28-touch-pause1';
+import {PauseControls} from './pause-controls.js?v=2.28-touch-pause1';
 
 const $=id=>document.getElementById(id);
 const deployment=window.wildFrontierDeployment;
@@ -324,7 +325,8 @@ function activateDetails(){
 function applyQuality(){if(!renderer||!world)return;renderer.shadowMap.enabled=config.quality!=='low';world.setQuality(config.quality);activateDetails();resize();}
 
 // Buttons and keyboard are handled through the same Match actions.
-deployment.bindEnter(startMatch);$('resume').addEventListener('click',resume);$('pauseButton').addEventListener('click',pause);$('leave').addEventListener('click',lobby);$('restart').addEventListener('click',startMatch);$('resultLobby').addEventListener('click',lobby);
+const pauseControls=new PauseControls($('pauseButton'),{document,window,isPlaying:()=>state==='playing',onPause:pause,onClear:clearInput,isTouch:()=>touch});
+deployment.bindEnter(startMatch);$('resume').addEventListener('click',resume);$('leave').addEventListener('click',lobby);$('restart').addEventListener('click',startMatch);$('resultLobby').addEventListener('click',lobby);
 document.addEventListener('pointerdown',()=>audio.resume(),{passive:true});
 $('reloadButton').addEventListener('click',()=>{if(state==='playing')match.reload();});$('healButton').addEventListener('click',()=>{if(state==='playing')match.heal();});
 $('fullscreenButton').addEventListener('click',()=>{try{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen?.()?.catch?.(()=>showMessage('当前浏览器不支持全屏',2));}catch{}});
@@ -338,7 +340,7 @@ $('sensitivity').addEventListener('input',e=>$('sensitivityValue').value=Number(
 $('closeSettings').addEventListener('click',()=>$('settings').hidden=true);
 $('saveSettings').addEventListener('click',()=>{config.sensitivity=Number($('sensitivity').value);config.quality=$('quality').value;config.sound=$('soundToggle').checked;audio.enabled=config.sound;try{localStorage.setItem('wild-frontier-settings',JSON.stringify(config));}catch{}applyQuality();$('settings').hidden=true;});
 $('portraitContinue').addEventListener('click',()=>{document.body.classList.add('portrait-approved');$('rotateNotice').hidden=true;});
-window.addEventListener('resize',resize);window.addEventListener('blur',()=>{if(state==='playing')pause();});document.addEventListener('visibilitychange',()=>{if(document.hidden&&state==='playing')pause();});
+window.addEventListener('resize',resize);
 document.addEventListener('contextmenu',e=>e.preventDefault());
 document.addEventListener('keydown',e=>{
   if(!['playing','paused'].includes(state)||!$('settings').hidden)return;

@@ -1,3 +1,139 @@
+Wild Frontier 2.28: prevent accidental pauses while touch aiming.
+Base GitHub revision: f7d2ca634bf6a49fd4cc61dff9ba7f8ca92f02af.
+Validation session: 2026-11-10.
+- Baseline reproduction executed the shipped old lifecycle bindings with touch=true, document.hidden=false and a window blur event. The old game changed from playing to paused although its page remained visible.
+- PauseControls now distinguishes actual touch/pen input from mouse/keyboard use. A visible touch-page blur cancels held input and any pending pause-button gesture without pausing. Hidden visibility/pagehide still pause; foregrounding does not automatically resume. Desktop/mouse blur and explicit Escape/pointer unlock behavior remain intact.
+- The pause button accepts a stationary release whose down began on that button, with a 12 CSS-pixel movement tolerance. Crossing the button, moving away and back, canceled/lost/mismatched pointers and touch-generated clicks are rejected. Keyboard and assistive activation remain available, including immediately after a visible mobile blur without a button gesture.
+- LookControls explicitly sets canvas touch-action:none, cancels active touch pointer defaults and installs a non-passive touchmove fallback. It continues to select mouse input from actual event types rather than touchscreen hardware alone.
+- Passed 7 look/input checks and 10 pause/lifecycle checks, including the actual shipped UI binding block; 70 existing game regressions passed. Static check: 443 local files, 22 models, 55 JS modules and 129 module references.
+- Shared Chrome ran the actual input modules in a temporary component QA page. Replaying 100 touch look moves and 10 visible blur events left playing=true, pauses=0, clears=10 and moves=100. Crossing/dragging the pause key left pauses=0. A real browser pointer tap paused once, manual continue worked, and replayed pagehide/mouse blur still paused.
+- Touch events in this browser QA were replayed through the test page; this is not a physical iPhone/Safari gesture or full rendered combat test.
+- The main entry was attempted in shared Chrome. WebGL context creation reported GL_VENDOR=Disabled / GL_RENDERER=Disabled, so full 3D gameplay and real iPhone/Safari gestures remain unverified in this executor.
+- The temporary component QA page and preview-only hosting manifest were removed before publication. Existing terrain, grass, vehicle, hand, audio and large startup resource files remain unchanged.
+
+API references used to distinguish focus from visibility and pointer gestures:
+https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
+https://developer.mozilla.org/en-US/docs/Web/API/Window/blur_event
+https://www.w3.org/TR/pointerevents3/
+
+Local check output:
+
+COMMAND npm run check:input
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> wild-frontier-fps@1.0.0 check:input
+> node scripts/check-look-controls.mjs && node scripts/check-mobile-pause.mjs
+
+PASS embedded mouse hover rotates without pointer lock, a held button, or movementX
+PASS touchscreen-equipped computers still fire, aim and request lock when the event comes from a mouse
+PASS locked relative movement is applied once and releasing pointer lock reports one pause
+PASS touch and pen drag use their own captured pointer without firing or requesting mouse lock
+PASS pause and clear stop held fire, ignore movement, and resume with a fresh cursor baseline
+PASS lost capture and cancelled gestures release fire, with no stale pointer after reinstall
+PASS active touch aiming suppresses page gestures without applying duplicate look movement
+7 actual mouse, embedded fallback, lock lifecycle and touch/pen input checks passed.
+PASS a visible mobile blur clears held input without opening the pause screen
+PASS real backgrounding and pagehide pause, and returning does not resume a hidden fight automatically
+PASS desktop and actual mouse/keyboard use still pause on blur even on touch-capable computers
+PASS a swipe ending over pause cannot activate it through pointerup or a compatibility click
+PASS a drag beginning on pause remains a drag even if it returns to the original point
+PASS an intentional stationary touch or mouse tap pauses exactly once
+PASS cancelled/lost/mismatched pointers and visible blur cannot turn into a late pause
+PASS keyboard and assistive activation remain available without double firing a pointer tap
+PASS destroy removes lifecycle listeners and releases a captured pause gesture
+PASS the shipped bindings ignore mobile blur and ghost clicks while keeping the real pause button
+10 pause intent and mobile lifecycle checks passed. These do not replace an iPhone hardware gesture test.
+
+COMMAND npm run check:static
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> wild-frontier-fps@1.0.0 check:static
+> node scripts/check-static.mjs
+
+PASS 443 local files; 22 3D models; 55 JavaScript modules; 129 module references
+PASS project Pages paths and full terrain, soldier, weapons and vehicle assets
+
+COMMAND npm run check
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> wild-frontier-fps@1.0.0 check
+> node scripts/check.mjs
+
+PASS deployment responds while loading and enters once after readiness
+PASS deployment waits for foreground without losing the queued click
+PASS load failure stays recoverable and late assets cannot auto-enter
+PASS stalled loading times out and retries; hidden tabs retain their request
+PASS readiness without a click keeps the user in the lobby
+PASS reproducible terrain, forest and dry deployment
+PASS lake and river banks keep continuous walkable slopes
+PASS eightfold optical magnification and camera-ray alignment
+PASS weapon muzzle and casing markers share the world-camera screen position
+PASS physical muzzle starts at the barrel, converges on aim and cannot fire past near cover
+PASS recoil has bounded movement, frame-rate agreement and a settled rest pose
+PASS sniper body damage, bolt cooldown and exact headshot
+PASS solid cover stops bullets before an enemy
+PASS bullets have finite flight speed, gravity, air drag and pause
+PASS reload accounting and weapon switch cancellation
+PASS grenade trajectory has gravity and impacts terrain
+PASS blast radius damages multiple enemies and respects cover
+PASS pause freezes movement, timers and projectile state
+PASS movement slides at solid walls and the world boundary
+PASS medical pack, safe-zone damage and training immunity
+PASS win/lose events and full reset
+PASS armour is consumed before health and emits the exact split losses
+PASS broken armour passes overflow to health and cannot protect later hits
+PASS the actual player blast path consumes armour before its remaining damage
+PASS medical packs restore health without repairing armour and matches reset both
+PASS training and invalid damage cannot drain either health or armour
+PASS enemy hits deal 2 to 4 points and consume armour before health
+PASS grenade lock needs steady aim and clears on cover, switching or closing aim
+PASS a locked grenade follows a moving enemy and explodes once on contact
+PASS cover stops a homing grenade and a dead target cannot be followed
+PASS unlocked grenades hit enemy bodies between frames instead of passing through
+PASS blasts launch bodies, stop at terrain, preserve pause and let survivors recover
+PASS shipped first-frame path supports the fixed cactus field and shared world time
+PASS shipped playing and paused frame paths reach both scene draws
+PASS shipped HUD shows armour loss, broken armour and reset beside health
+PASS the shipped driving frame applies accelerator input and omits the infantry weapon draw
+PASS the result frame keeps a launched body moving while pause still freezes it
+PASS the drowned result frame keeps a vehicle sinking without drawing infantry weapons and pause freezes it
+PASS the shipped frame runs vehicle trails during play, freezes them on pause and only dissipates exhaust in results
+PASS the shipped horn responds to keyboard or touch and stops on pause, engine flooding or leaving the car
+PASS reticles preserve the camera centre, angular mil spacing and grenade elevation marks
+PASS shipped grenade and third-weapon aim look through both sights without barrel obstruction
+PASS switching away from 8x removes its pattern and closing aim restores the normal view
+PASS the shipped camera displays lock progress on the enemy and clears it on weapon change
+PASS terrain, trees, soldiers and viewmodels have finite geometry
+PASS water height texture follows lake and river coordinates
+PASS island coast, graded foundations and enterable rural architecture
+PASS fixed cacti follow visible terrain and remain present in low quality
+PASS photographic foliage has alpha cutouts and bounded LOD sizes
+PASS portrait weapon view preserves width and shows only compact gloved hands
+PASS independent soldier skeletons, rifle grip and bolt animation
+PASS grenade impact articulates the original skeleton and resets all rig offsets
+PASS shots aimed at the enlarged animated head hit the visible head
+PASS cacti have outward solid volumes, stable normals, ribbing and visible spines
+PASS sky sun, moving shadows and water highlights share one direction
+PASS weapon metal illumination follows the world sun as the camera turns
+PASS full-leaf canopy and three solid cactus forms keep physical vegetation detail
+PASS optional 2K photos share requests, survive failure and retry independently
+PASS original weapon textures, physical scope and independent AKM magazine
+PASS cactus ground cover keeps existing roadside stones grounded
+PASS obsolete grass, ferns and flower resources are absent from the deployed model list
+PASS casings, dust and explosion effects stay within the phone budget
+PASS grenade hits create a finite flash, expanding blast and fading debris
+PASS calibre-sized hollow cases and separate copper bullets use shared non-emissive meshes
+PASS all island grass is replaced by grounded solid cacti before walking
+PASS walking, turning, scope zoom and quality changes preserve the entire scene
+PASS every tree retains continuous coverage through both detail transitions
+PASS cactus geometry, instance counts and visibility never change with camera distance
+PASS every rigid cactus and its spines remain inside their tile culling bounds
+PASS all local HTML/CSS/JS dependencies and deployment configuration exist
+
+70 checks passed. Browser / mobile rendering has not been tested.
+
+
+Previous version validation (historical):
 Deployment recovery note:
 - Initial run 42609364687 passed all checks, uploaded the game and then remained in Pages syncing_files until the default 600000 ms timeout canceled the deployment. This was not a JavaScript/audio validation failure.
 - The Pages wait limit was raised to 1200000 ms for the existing large resource bundle. This recovery changes deployment configuration and validation metadata only; the checked V2.27 application and all audio bytes remain unchanged.

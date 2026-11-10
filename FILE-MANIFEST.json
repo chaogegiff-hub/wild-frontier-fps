@@ -4,8 +4,8 @@
     "sha256": "299e6f890f4964b964001cd60e406cd59dd060b3221061ab319766e19e685288"
   },
   ".github/workflows/pages.yml": {
-    "bytes": 1285,
-    "sha256": "c9aa843c3f45ddad86c1b2839966c2339e97ec8875f33e3fa4192c57fd77abc1"
+    "bytes": 1377,
+    "sha256": "db0d04c92310a025d6764a77f58acf6a2d003af3725c8927ea7f125ed02ea924"
   },
   ".gitignore": {
     "bytes": 88,
@@ -16,12 +16,12 @@
     "sha256": "bbc5753bee7959148c65d2688619e077f53cfdfe44f1a744e3f9ec8f1df2cdb8"
   },
   "README.md": {
-    "bytes": 7660,
-    "sha256": "1c457928770ce6685147c95e9e91f9bb1bd5327f9d671000b7a679e209482707"
+    "bytes": 8611,
+    "sha256": "ac351947f026cdd39307f780f6f3f1c1652fba6546f4aadce59d995774947340"
   },
   "VALIDATION.txt": {
-    "bytes": 40782,
-    "sha256": "67238f1ffe0cfe73be4010225df3ea0846d8774d8e32341db2fcc4b3fed98606"
+    "bytes": 51343,
+    "sha256": "c048560daa8f397009adca7321333bf0f137ae90c7c1bc78c272c3765dcbfef8"
   },
   "dist/.nojekyll": {
     "bytes": 1,
@@ -448,8 +448,8 @@
     "sha256": "6cfc33e806309d8ce1d64d2306958588964afa513d5883a00c5518c7054db765"
   },
   "dist/bootstrap.js": {
-    "bytes": 2018,
-    "sha256": "eab95953877ae4fbd85f5d316ef140fa09f7fec09eb7bb03ac90e8405c61d58a"
+    "bytes": 2019,
+    "sha256": "ca79a06e277ba085e180f96d978b5e0adf7171b5ef6ec041dd3e997d15807258"
   },
   "dist/building-layout.js": {
     "bytes": 5074,
@@ -524,8 +524,8 @@
     "sha256": "cc9fb2539cf27df48255982e896d28f544483537cdb41f9fabd741af8992d719"
   },
   "dist/game.js": {
-    "bytes": 43698,
-    "sha256": "037953e61997c8509ffd11ab21d28f6ec63236e06cbbb98eac0d19cef9a58ab9"
+    "bytes": 43711,
+    "sha256": "c1729d66500fe2d905ffb14940b2729815e5b568535b3cf065142b60fe19c071"
   },
   "dist/graphics.js": {
     "bytes": 7640,
@@ -876,16 +876,16 @@
     "sha256": "09c070873b762302aa6ee86e35127b49dd86f2a6f894bac8180ec188fa7ff4e0"
   },
   "dist/index.html": {
-    "bytes": 17037,
-    "sha256": "17ca6dcdd60c6f449274363a29222c1d5bce59dededd0860961a981b4bc650f5"
+    "bytes": 17039,
+    "sha256": "b35db340caf97a46a7f72e5e62ec69386c7c56e79d0a5614fe3ad1debbad1d41"
   },
   "dist/lobby-photo.css": {
     "bytes": 2674,
     "sha256": "3a96f118af583698acd08ab9111d9a9372f97e9f06e557fd92fc38a0567bdea6"
   },
   "dist/look-controls.js": {
-    "bytes": 4029,
-    "sha256": "5b8080951fe6d42706b04f462128fe51c8d8c9a059347081e129c81363bbbb10"
+    "bytes": 4298,
+    "sha256": "dbcebb2fd4cb10dd727860c06719611af12e3057cc83d2db8a2bd596c8bf3efa"
   },
   "dist/loot-views.js": {
     "bytes": 3051,
@@ -1551,6 +1551,10 @@
     "bytes": 3114165,
     "sha256": "b6085ba1f4c37f097052699039a1c73df5176f20934133408e69f64c57bacee7"
   },
+  "dist/pause-controls.js": {
+    "bytes": 3157,
+    "sha256": "99b4f6d71e39b3ff402546cd97a2c9992fc8676c3675f50fa665600bf6c2dfbc"
+  },
   "dist/pickup-controls.js": {
     "bytes": 472,
     "sha256": "f6d0e61670fc997dd7820db8f264b312737a5e0c23aeb442ac8efe8068e93cf3"
@@ -1800,8 +1804,8 @@
     "sha256": "e956bf258dc3c0a25104c9a19e9d56a8393aaac3fba0bcad8a3d71b0fa7c098e"
   },
   "package.json": {
-    "bytes": 833,
-    "sha256": "5709883ce163bcdf0a4c0e0173fbe2428981c2bff25575f4a28591e7072c4cab"
+    "bytes": 931,
+    "sha256": "283ba7e1487dede5d9d4252b79f99e0855da7daea13788640df039c051d27f05"
   },
   "scripts/build-cache-ui-check.mjs": {
     "bytes": 4786,
@@ -1908,12 +1912,16 @@
     "sha256": "3881c2924ea4a6bd7ba302a33d6623f452a964c579337ff47b921eca8a1cf39d"
   },
   "scripts/check-look-controls.mjs": {
-    "bytes": 4838,
-    "sha256": "fc3dda40a8f3338830e696b1f039fae6a0654698d1f576184c42bfe10dfd73e4"
+    "bytes": 5441,
+    "sha256": "27d8ee918e9d50257d34e28dc80395e23f25c5b74240e7e224299bb0b5b89c3c"
   },
   "scripts/check-meadow-detail.mjs": {
     "bytes": 3250,
     "sha256": "0bb1b5fc9ce067909bf063f81dbefeed093522a7166546d00ae9937666199809"
+  },
+  "scripts/check-mobile-pause.mjs": {
+    "bytes": 6416,
+    "sha256": "1de94b8550e0cb6424bb2448c7a5b1e468a672a2382ca7ada5189000ddb161a0"
   },
   "scripts/check-motion.mjs": {
     "bytes": 13349,

@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import {LookControls} from '../dist/look-controls.js';
 class Surface extends EventTarget{
-  constructor(){super();this.captured=new Set();}
-  fire(type,data={}){const event=new Event(type,{cancelable:true});for(const [key,value] of Object.entries(data))Object.defineProperty(event,key,{value});this.dispatchEvent(event);}
+  constructor(){super();this.captured=new Set();this.style={};}
+  fire(type,data={}){const event=new Event(type,{cancelable:true});for(const [key,value] of Object.entries(data))Object.defineProperty(event,key,{value});this.dispatchEvent(event);return event;}
   setPointerCapture(id){this.captured.add(id);}hasPointerCapture(id){return this.captured.has(id);}releasePointerCapture(id){this.captured.delete(id);}
 }
 let passed=0;async function check(name,fn){await fn();console.log('PASS '+name);passed++;}
@@ -35,5 +35,8 @@ await check('pause and clear stop held fire, ignore movement, and resume with a 
 });
 await check('lost capture and cancelled gestures release fire, with no stale pointer after reinstall',()=>{
   const s=setup();s.canvas.fire('pointerdown',mouse);s.canvas.fire('lostpointercapture',mouse);assert.ok(!s.controls.dragging);assert.equal(s.release.length,1);s.canvas.fire('pointerdown',mouse);s.canvas.fire('pointercancel',mouse);assert.equal(s.release.length,2);s.controls.destroy();s.canvas.fire('pointermove',{...mouse,clientX:1000});assert.equal(s.moves.length,0);
+});
+await check('active touch aiming suppresses page gestures without applying duplicate look movement',()=>{
+  const s=setup();assert.equal(s.canvas.style.touchAction,'none');const finger={...mouse,pointerType:'touch',pointerId:11};assert.ok(s.canvas.fire('pointerdown',finger).defaultPrevented);s.canvas.fire('pointermove',{...finger,clientX:120});assert.deepEqual(s.moves,[[34,0]]);assert.ok(s.canvas.fire('touchmove').defaultPrevented);assert.equal(s.moves.length,1);s.setActive(false);assert.equal(s.canvas.fire('touchmove').defaultPrevented,false);s.controls.destroy();
 });
 console.log(`${passed} actual mouse, embedded fallback, lock lifecycle and touch/pen input checks passed.`);

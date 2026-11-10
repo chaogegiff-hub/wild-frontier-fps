@@ -35,6 +35,8 @@ jobs:
         run: npm run check:driving
       - name: Verify combat voice priority and lifecycle
         run: npm run check:voices
+      - name: Verify aiming gestures and intentional pause
+        run: npm run check:input
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload full game

@@ -10,7 +10,7 @@
   <link rel="modulepreload" href="./vendor/three.module.js">
   <link rel="modulepreload" href="./vendor/GLTFLoader.js">
   <link rel="modulepreload" href="./vendor/fflate.module.js">
-  <link rel="modulepreload" href="./game.js?v=2.27-human-pain1">
+  <link rel="modulepreload" href="./game.js?v=2.28-touch-pause1">
   <link rel="modulepreload" href="./resource-pack.js?v=2.21">
   <link rel="preload" as="image" href="./images/lobby-portrait.jpg?v=2.22" fetchpriority="high">
   <link rel="stylesheet" href="./style.css?v=2.21">
@@ -51,7 +51,7 @@
       <p id="bootError" class="error" role="alert" hidden></p>
     </div>
     <aside class="map-card"><div class="map-card-heading"><span class="status-dot"></span>战场情报 <span>01 / GREEN ISLAND</span></div><div class="map-card-body"><div class="map-glyph"><svg viewBox="0 0 130 90"><path d="m7 76 25-42 16 25 30-49 44 66M32 34l7 16 9 9M78 10l8 24 9-1 27 43"/><path class="river" d="M3 87c18-14 26 6 43-6s8-29 25-27 15 13 24 16 25-1 31-5"/></svg></div><h2>青岚海岛</h2><p>海岸 · 山林 · 草地 · 村落</p><div class="map-meta"><span><small>战场范围</small><strong>640 × 640 m</strong></span><span><small>作战时间</small><strong>晴日 / 阳光</strong></span></div></div></aside>
-    <footer class="lobby-footer"><div class="loadout-caption"><span>青岚海岛</span><small>GREEN ISLAND</small></div><div class="version-label">WEB FPS<br><span>V 2.27</span></div></footer>
+    <footer class="lobby-footer"><div class="loadout-caption"><span>青岚海岛</span><small>GREEN ISLAND</small></div><div class="version-label">WEB FPS<br><span>V 2.28</span></div></footer>
   </div>
   <div id="hud" hidden>
     <div class="compass"><div id="compassMarks"></div><div class="compass-center">▾<strong id="bearing">000</strong></div></div>
@@ -91,6 +91,6 @@
   <div id="settings" class="modal-layer" hidden><section class="modal settings-modal"><button id="closeSettings" class="close-button" aria-label="关闭设置">×</button><div class="eyebrow">FIELD SETTINGS</div><h2>作战设置</h2><label class="setting-row"><span>视角灵敏度<small>开镜后自动降低灵敏度</small></span><input id="sensitivity" type="range" min=".35" max="2.5" step=".05" value="1"><output id="sensitivityValue">1.00</output></label><label class="setting-row"><span>画质<small>2K 更清晰，流畅更省电</small></span><select id="quality"><option value="low">流畅</option><option value="medium">均衡</option><option value="high" selected>2K 超清</option></select></label><label class="setting-row"><span>游戏音效<small>枪声、爆炸、移动环境声</small></span><input id="soundToggle" type="checkbox" checked></label><p class="vehicle-credit">越野车：<a href="https://sketchfab.com/3d-models/jeep-8dd9a0b3faa84aaa813431b44c716a6d" target="_blank" rel="noopener noreferrer">Jeep · DJMaesen</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>（车轮绑定与贴图压缩调整）</p><p class="settings-note">电脑：点击“开始作战”后锁定鼠标，Esc 暂停。<br>手机：左侧摇杆移动，右侧滑动瞄准；使用开镜、开火按钮。建议横屏打开。</p><button id="saveSettings" class="solid-button">保存设置 <span>✓</span></button></section></div>
   <div id="rotateNotice" hidden><svg><use href="#i-full"/></svg><strong>横屏，进入战场</strong><p>将手机横过来，获得更宽的视野</p><button id="portraitContinue">继续竖屏体验</button></div>
 </main>
-<script type="module" src="./bootstrap.js?v=2.27-human-pain1"></script>
+<script type="module" src="./bootstrap.js?v=2.28-touch-pause1"></script>
 </body>
 </html>
