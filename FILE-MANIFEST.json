@@ -4,8 +4,8 @@
     "sha256": "299e6f890f4964b964001cd60e406cd59dd060b3221061ab319766e19e685288"
   },
   ".github/workflows/pages.yml": {
-    "bytes": 1377,
-    "sha256": "db0d04c92310a025d6764a77f58acf6a2d003af3725c8927ea7f125ed02ea924"
+    "bytes": 1616,
+    "sha256": "efb5ae1b8f919c1e3b7bc9c9fd525b74d843ae707d7f36531ce94dc38355eaf9"
   },
   ".gitignore": {
     "bytes": 88,
@@ -16,12 +16,12 @@
     "sha256": "bbc5753bee7959148c65d2688619e077f53cfdfe44f1a744e3f9ec8f1df2cdb8"
   },
   "README.md": {
-    "bytes": 8611,
-    "sha256": "ac351947f026cdd39307f780f6f3f1c1652fba6546f4aadce59d995774947340"
+    "bytes": 10013,
+    "sha256": "2b0cfcdcf8a1be3d868bd10d396e8f5104b65fc478d1159a17a668f3a3839732"
   },
   "VALIDATION.txt": {
-    "bytes": 51343,
-    "sha256": "c048560daa8f397009adca7321333bf0f137ae90c7c1bc78c272c3765dcbfef8"
+    "bytes": 54340,
+    "sha256": "9d1c087662f73243b86430ec0e34d782a3a73c95eceb71a2cbfa0fe1f0fbfd88"
   },
   "dist/.nojekyll": {
     "bytes": 1,
@@ -448,8 +448,8 @@
     "sha256": "6cfc33e806309d8ce1d64d2306958588964afa513d5883a00c5518c7054db765"
   },
   "dist/bootstrap.js": {
-    "bytes": 2019,
-    "sha256": "ca79a06e277ba085e180f96d978b5e0adf7171b5ef6ec041dd3e997d15807258"
+    "bytes": 2023,
+    "sha256": "a47b8b6bddb67a4666ede5f1f0d1b9ae34ee78f2d13342d8eda94291cf789538"
   },
   "dist/building-layout.js": {
     "bytes": 5074,
@@ -468,12 +468,12 @@
     "sha256": "12bfdee767ee5ae0ecb5997e75746cafea40222a7f541190e52078e5f0c7b7f0"
   },
   "dist/character.js": {
-    "bytes": 11414,
-    "sha256": "43820b71489f8a1040c053625c43efa8be2933beb7ca2eced6db62d67b16b959"
+    "bytes": 11514,
+    "sha256": "331046431c112156796956fe07c41baffc4a341a258d8c39d9d3478327c78cc3"
   },
   "dist/core.js": {
-    "bytes": 43820,
-    "sha256": "acbef91df4b34e606fc8124c7e892982eb1bf8436ee2793e777e4ea8b7ee6060"
+    "bytes": 41027,
+    "sha256": "eb7db2e33a5e7d6d24cba4f4dcf2d8663664463ec709a812b1da14e3cbce7eed"
   },
   "dist/daylight.js": {
     "bytes": 1901,
@@ -487,13 +487,17 @@
     "bytes": 17174,
     "sha256": "cd0bb09687849f581d2beffaaf6ea6aa6cf827b45a8e65d2c426ca393c06df2e"
   },
+  "dist/enemy-ai.js": {
+    "bytes": 12553,
+    "sha256": "6330a87bd8bd5fded78479b6017fc059e81159ca7011c344445f133cbffb2494"
+  },
   "dist/enemy-chatter.css": {
     "bytes": 543,
     "sha256": "6ae21cb0ed8cabb65aff28e1018b5c6fb87b51a78061c32181ca6ea07a35706c"
   },
   "dist/enemy-chatter.js": {
-    "bytes": 4693,
-    "sha256": "8be8101ac73d8d265da584f2ec8ee039246e93021a07ecb7345e44d91f8c4dd9"
+    "bytes": 4700,
+    "sha256": "cd817d384bc07f2221943d74fa17153dd3bfb782569ae92e486b72fa9725a762"
   },
   "dist/environment/SOURCE.md": {
     "bytes": 570,
@@ -524,8 +528,8 @@
     "sha256": "cc9fb2539cf27df48255982e896d28f544483537cdb41f9fabd741af8992d719"
   },
   "dist/game.js": {
-    "bytes": 43711,
-    "sha256": "c1729d66500fe2d905ffb14940b2729815e5b568535b3cf065142b60fe19c071"
+    "bytes": 43724,
+    "sha256": "06444081390efb543836b3b779a44892fa16f879aa96cd1e9b5a39e15ea2afe7"
   },
   "dist/graphics.js": {
     "bytes": 7640,
@@ -876,8 +880,8 @@
     "sha256": "09c070873b762302aa6ee86e35127b49dd86f2a6f894bac8180ec188fa7ff4e0"
   },
   "dist/index.html": {
-    "bytes": 17039,
-    "sha256": "b35db340caf97a46a7f72e5e62ec69386c7c56e79d0a5614fe3ad1debbad1d41"
+    "bytes": 17047,
+    "sha256": "2b3c8e9b33a7dad824bbb8bffd0063ccc6f8fef2e1320994116d507e710c7f59"
   },
   "dist/lobby-photo.css": {
     "bytes": 2674,
@@ -1780,8 +1784,8 @@
     "sha256": "d35f6cb82bf956d05aec35ef33bf7a16c9bf5abb8d51b7a018f912dc37796450"
   },
   "dist/weapons.js": {
-    "bytes": 13462,
-    "sha256": "0d0a819958e8ec10e2abf8d25f40d1121ad6da93eff62a18698ec1e94e5eebdb"
+    "bytes": 13466,
+    "sha256": "e1544df89005ebc03578aa28b173266807d326bd0f03e9e78aa13e580ea5de6d"
   },
   "dist/wild-grass.js": {
     "bytes": 6200,
@@ -1804,8 +1808,8 @@
     "sha256": "e956bf258dc3c0a25104c9a19e9d56a8393aaac3fba0bcad8a3d71b0fa7c098e"
   },
   "package.json": {
-    "bytes": 931,
-    "sha256": "283ba7e1487dede5d9d4252b79f99e0855da7daea13788640df039c051d27f05"
+    "bytes": 982,
+    "sha256": "0b4890e7458e88ead039df1091aab1e6e652b9613badd5a94c099a45e1575632"
   },
   "scripts/build-cache-ui-check.mjs": {
     "bytes": 4786,
@@ -1852,20 +1856,24 @@
     "sha256": "be60fb1fbfd168b6d6dc50eed2b09c538bd2f5d1143d9bc5a281001b01cc3711"
   },
   "scripts/check-character-motion.mjs": {
-    "bytes": 9018,
-    "sha256": "d1964e3c5f719cb274c95d01a2473a82885bf631bd8d1bab17fb9cfd18884df8"
+    "bytes": 9055,
+    "sha256": "d231627a6c62e774ad2be4c3c93de0f0c1d2e675b11fa119841d5d94b9b9fd65"
   },
   "scripts/check-combat-chatter.mjs": {
     "bytes": 3426,
     "sha256": "5cd3766e2a0d189f50500018e3051e294308fa3bd6221b41b3f650648823761a"
   },
   "scripts/check-combat.mjs": {
-    "bytes": 4757,
-    "sha256": "bb556a57d5a0dbfd135f3e5caff63650ac925f9dc023aabfcf870cf69bf9fee2"
+    "bytes": 5013,
+    "sha256": "44147ab9c9027e6b6b1ba536923ea3bc494697519bdea24900bf05d5b020d176"
   },
   "scripts/check-drivable-terrain.mjs": {
     "bytes": 2886,
     "sha256": "f2b2c67a20ff372b2078b98f7a655f59b81cf9722438125445b2c33006baa591"
+  },
+  "scripts/check-enemy-ai.mjs": {
+    "bytes": 11107,
+    "sha256": "f1c8b65dcb8c98f8d59d0b0763f8f834fa6145cac5b8ada9dc69a882ab02d157"
   },
   "scripts/check-field-chatter.mjs": {
     "bytes": 10657,
@@ -1896,8 +1904,8 @@
     "sha256": "6bb319f42ae89595cec614d6dc1e5d0c662d0a1c9f04c9f4c58cf2581be78c8d"
   },
   "scripts/check-interactive-world.mjs": {
-    "bytes": 6991,
-    "sha256": "54f75b95320dd0d7936ecb8bde117bf446d1b603f7b00c3c6a814052f3e009fa"
+    "bytes": 7170,
+    "sha256": "870b9a5fbec21744603e812cfdc50eee554e94dea246b9ba363a3d0da7e39177"
   },
   "scripts/check-loading.mjs": {
     "bytes": 3321,

@@ -11,6 +11,7 @@
     "check:field": "node scripts/check-field-chatter.mjs",
     "check:driving": "node scripts/check-drivable-terrain.mjs && node scripts/check-vehicles.mjs && node scripts/check-vehicle-water.mjs",
     "check:voices": "node scripts/check-combat-chatter.mjs && node scripts/check-vocal-reactions.mjs",
+    "check:ai": "node scripts/check-enemy-ai.mjs",
     "check:input": "node scripts/check-look-controls.mjs && node scripts/check-mobile-pause.mjs"
   },
   "description": "Restored complete Wild Frontier 3D FPS with local assets and GitHub Pages deployment",

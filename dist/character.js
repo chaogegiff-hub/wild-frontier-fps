@@ -70,8 +70,8 @@ export function createCombatant(id,assets,surfaces,finishWeapon){
       fireAge+=dt;flash.visible=pendingFlash||fireAge<.025;pendingFlash=false;accumulated+=dt;const interval=distance>90?1/30:0;if(accumulated<interval)return;dt=accumulated;accumulated=0;
       motion.advance(dt,e,groundAt);clock+=dt;lookYaw=THREE.MathUtils.damp(lookYaw,e.lookYaw||0,8,dt);lookPitch=THREE.MathUtils.damp(lookPitch,e.aimPitch||0,9,dt);
       const reload=e.reloadRemaining>0,phase=reload?clamp(1-e.reloadRemaining/(e.reloadDuration||2.6),0,1):0,reach=reload?smooth(.04,.20,phase)*(1-smooth(.78,.98,phase)):0;
-      reloadReach=THREE.MathUtils.damp(reloadReach,reach,18,dt);raise=THREE.MathUtils.damp(raise,e.sees&&!reload?1:0,8,dt);
-      const kick=fireAge<.22?Math.sin(Math.min(1,fireAge/.055)*Math.PI/2)*Math.exp(-fireAge*20)*.055:0,hit=e.hitReact||0,breathing=Math.sin(clock*1.7)*.006,scan=!e.sees?Math.sin(clock*.47)*.12:0;
+      reloadReach=THREE.MathUtils.damp(reloadReach,reach,18,dt);raise=THREE.MathUtils.damp(raise,reload?0:Number.isFinite(e.weaponReady)?e.weaponReady:e.sees?1:0,8,dt);
+      const kick=fireAge<.22?Math.sin(Math.min(1,fireAge/.055)*Math.PI/2)*Math.exp(-fireAge*20)*.055:0,hit=e.hitReact||0,breathing=Math.sin(clock*1.7)*.006,scan=!e.sees?Math.sin(clock*(e.aiState==='search'?1.15:.47))*(e.aiState==='search'?.22:.12):0;
       // Use actor/world axes; authored bone-local yaw can roll and twist the torso.
       turnBone(spine1,axes.up,lookYaw*.22);turnBone(spine2,axes.up,lookYaw*.43);turnBone(head,axes.up,lookYaw*.33+scan);
       turnBone(spine1,axes.right,-lookPitch*.22+breathing+hit*.065);turnBone(spine2,axes.right,-lookPitch*.43-kick*.5-hit*.10);turnBone(head,axes.right,-lookPitch*.30-hit*.055);

@@ -1,3 +1,4 @@
+import {EnemyDirector} from './enemy-ai.js?v=2.29-enemy-awareness1';
 import {houseColliders,houseWindows,houseLoot} from './building-layout.js?v=2.25-drive-grass1';
 import {terrainRelief} from './terrain-data.js?v=2.25-drive-grass1';
 import {VehicleFleet,vehicleLocal,circleTouchesBox} from './vehicle-physics.js?v=2.25-drive-grass1';
@@ -243,7 +244,7 @@ export function createWorldData() {
   }
   const enemies=[[-62,92],[-23,79],[-103,85],[-142,2],[-69,-74],[99,42],[145,-17],[-22,-136],[86,-150],[-158,134],[161,148],[-168,-150]].map(([x,z],i)=>{
     while(circleBlocked(x,z,.75,colliders)) x+=2;
-    return {id:i,x,z,y:heightAt(x,z),homeX:x,homeZ:z,hp:100,alive:true,phase:rand()*6.28,shoot:3+rand()*5,alert:0,yaw:0,walk:0};
+    const phase=rand()*6.28;return {id:i,x,z,y:heightAt(x,z),homeX:x,homeZ:z,hp:100,alive:true,phase,shoot:3+rand()*5,alert:0,yaw:phase,walk:0};
   });
   return {trees,rocks,cliffs,buildings,colliders,enemies,windows:buildings.flatMap(houseWindows),loot:buildings.flatMap(houseLoot)};
 }
@@ -311,8 +312,10 @@ export class Match {
     this.fleet=new VehicleFleet({terrain:terrainSurfaceAt,waterLevel:WATER_LEVEL,colliders:this.worldColliders});
     this.windows=(this.world.windows||[]).map(w=>({...w,broken:false}));this.loot=(this.world.loot||[]).map(item=>({...item,taken:false}));
     this.ammo=WEAPONS.map(w=>({mag:w.mag,reserve:w.reserve}));this.grenades=[];this.bullets=[];this.nextBulletId=0;this.trainingResetTime=0;this.clearGrenadeLock();
-    this.enemies=this.world.enemies.map(e=>({...e,hp:100,alive:true,alert:0,rounds:30,reloadRemaining:0,reloadDuration:2.6,aimReady:0,hitReact:0}));
+    this.enemies=this.freshEnemies();
+    this.enemyAI=new EnemyDirector({lineClear,moveGround,walkHeight,circleBlocked,waterLevel:WATER_LEVEL,enemyScale:ENEMY_SCALE,body:ENEMY_BODY});
   }
+  freshEnemies(){return this.world.enemies.map(e=>({...e,hp:100,alive:true,alert:0,ai:undefined,sees:false,weaponReady:0,aiState:'patrol',awareness:0,rounds:30,reloadRemaining:0,reloadDuration:2.6,aimReady:0,hitReact:0}));}
   clearGrenadeLock(){this.grenadeLock={targetId:null,progress:0,locked:false,distance:0};}
   updateGrenadeLock(dt,origin,dir,active){
     if(this.vehicle||this.swimming||this.vault||!active||this.weapon!==1||this.reloadTime>0||this.healTime>0||!this.running||this.over){this.clearGrenadeLock();return this.grenadeLock;}
@@ -340,7 +343,7 @@ export class Match {
   shoot(dir,origin) {
     if(this.vehicle||this.swimming||this.vault||!this.running||this.over||this.cooldown>0||this.reloadTime>0||this.healTime>0) return false;
     const w=WEAPONS[this.weapon],a=this.ammo[this.weapon]; if(!a.mag){this.reload();return false;}
-    a.mag--;this.shots++;this.cooldown=w.interval;
+    a.mag--;this.shots++;this.cooldown=w.interval;this.enemyAI.noise(origin,'shot',185,this.time);
     if(this.mode==='training')a.reserve=Math.max(a.reserve,w.reserve);
     if(w.id==='grenade') {
       const target=this.grenadeLock.locked?this.enemies.find(e=>e.id===this.grenadeLock.targetId&&e.alive):null;
@@ -390,7 +393,7 @@ export class Match {
   }
   damageEnemy(e,amount,headshot=false,cause='bullet') {
     if(!e.alive) return;
-    e.hp-=amount;e.alert=1;if(cause==='bullet')e.hitReact=1;
+    e.hp-=amount;e.alert=1;this.enemyAI.startle(e,this.time);if(cause==='bullet')e.hitReact=1;
     if(e.hp<=0){ e.alive=false;this.kills++;if(headshot)this.headshots++;this.onEvent({type:'kill',enemy:e,headshot,cause});
       if(this.kills===this.enemies.length&&this.mode==='survival') this.finish(true);
     } else this.onEvent({type:'hit',enemy:e,headshot,cause});
@@ -420,6 +423,7 @@ export class Match {
     this.onEvent({type:'vehicledestroyed',vehicle:car});this.explode({x:car.x,y:car.y+.82,z:car.z,sourceCarId:car.id});return true;
   }
   explode(g) {
+    this.enemyAI.noise(g,'explosion',210,this.time);
     let hits=0;const source=this.fleet.cars.find(c=>c.id===g.sourceCarId),blastColliders=source?this.colliders.filter(c=>c!==source.collider):this.colliders;
     for(const e of this.enemies){
       const d=Math.hypot(e.x-g.x,e.y+1-g.y,e.z-g.z);
@@ -530,32 +534,7 @@ export class Match {
       this.zoneRadius=lerp(278,62,smooth(40,390,this.time));this.zoneTick+=dt;
       if(this.zoneTick>1){this.zoneTick=0;if(Math.hypot(p.x-this.zoneCenter.x,p.z-this.zoneCenter.z)>this.zoneRadius)this.hurt(4,'安全区外',{bypassArmour:true});}
     }
-    for(const e of this.enemies){
-      if(!e.alive||e.blast)continue;
-      const d=Math.hypot(p.x-e.x,p.z-e.z);e.shoot-=dt;e.hitReact=Math.max(0,(e.hitReact||0)-dt*3.8);
-      if(e.reloadRemaining>0){e.reloadRemaining=Math.max(0,e.reloadRemaining-dt);if(e.reloadRemaining===0){e.rounds=30;e.shoot=Math.max(.3,e.shoot);}}
-      e.losTimer=(e.losTimer||0)-dt;
-      if(e.losTimer<=0){e.losTimer=.16;e.sees=this.mode==='survival'&&this.time>7&&d<145&&lineClear({x:e.x,y:e.y+1.65,z:e.z},p,this.colliders);}
-      const sees=e.sees;
-      if(sees)e.alert=1;
-      let tx=e.homeX+Math.sin(this.time*.18+e.phase)*7,tz=e.homeZ+Math.cos(this.time*.14+e.phase)*7;
-      if(e.alert&&this.mode==='survival'){tx=p.x+Math.sin(this.time*.28+e.phase)*(d<30?18:5);tz=p.z+Math.cos(this.time*.28+e.phase)*(d<30?18:5);}
-      if(Math.hypot(e.x-this.zoneCenter.x,e.z-this.zoneCenter.z)>this.zoneRadius-8&&this.mode==='survival'){tx=this.zoneCenter.x;tz=this.zoneCenter.z;}
-      const ex=tx-e.x,ez=tz-e.z,dist=Math.hypot(ex,ez),oldX=e.x,oldZ=e.z;
-      const desiredYaw=Math.atan2(ex,ez),headingError=Math.atan2(Math.sin(desiredYaw-e.yaw),Math.cos(desiredYaw-e.yaw)),alignment=.04+.96*Math.max(0,Math.cos(headingError))**2;
-      const bracing=sees&&d<90&&e.shoot<.58&&!(e.reloadRemaining>0),pace=e.reloadRemaining>0?.35:bracing?0:1;
-      const targetSpeed=dist>.7?Math.min(e.alert?2.8:1.25,Math.sqrt(5.2*(dist-.7)))*alignment*pace:0,wantX=dist>0?ex/dist*targetSpeed:0,wantZ=dist>0?ez/dist*targetSpeed:0;
-      const changeX=wantX-(e.vx||0),changeZ=wantZ-(e.vz||0),change=Math.hypot(changeX,changeZ),blend=change>0?Math.min(1,(e.alert?4:2.6)*dt/change):0;
-      e.vx=(e.vx||0)+changeX*blend;e.vz=(e.vz||0)+changeZ*blend;moveGround(e,e.vx*dt,e.vz*dt,this.colliders,.42*ENEMY_SCALE);
-      e.y=Math.max(walkHeight(e.x,e.z,this.colliders,e.ground??e.y),WATER_LEVEL-.62);const moved=Math.hypot(e.x-oldX,e.z-oldZ);e.walk+=moved*2.8;
-      e.vx=dt>0?(e.x-oldX)/dt:0;e.vz=dt>0?(e.z-oldZ)/dt:0;e.moveSpeed=dt>0?moved/dt:0;
-      const targetYaw=e.moveSpeed>.12?Math.atan2(e.vx,e.vz):Math.atan2(sees?p.x-e.x:ex,sees?p.z-e.z:ez),turn=Math.atan2(Math.sin(targetYaw-e.yaw),Math.cos(targetYaw-e.yaw)),rotation=clamp(turn,-(e.alert?3:2.1)*dt,(e.alert?3:2.1)*dt);e.yaw+=rotation;e.turnRate=dt>0?rotation/dt:0;
-      const aimYaw=Math.atan2(p.x-e.x,p.z-e.z);e.lookYaw=sees?clamp(Math.atan2(Math.sin(aimYaw-e.yaw),Math.cos(aimYaw-e.yaw)),-.85,.85):0;
-      e.aimPitch=sees?clamp(Math.atan2(p.y-e.y-ENEMY_BODY.fire,Math.max(1,d)),-.55,.55):0;
-      const aimError=Math.abs(Math.atan2(Math.sin(aimYaw-e.yaw),Math.cos(aimYaw-e.yaw))),ready=sees&&aimError<.65&&e.moveSpeed<1.45&&!(e.reloadRemaining>0);
-      e.aimReady=clamp((e.aimReady||0)+dt*(ready?4:-6),0,1);
-      if(sees&&e.shoot<=0&&e.aimReady>=.8){e.shoot=1.6+(e.id%5)*.22;this.onEvent({type:'enemyfire',enemy:e});const origin={x:e.x,y:e.y+ENEMY_BODY.fire,z:e.z},length=Math.hypot(p.x-origin.x,p.y-origin.y,p.z-origin.z);if(length>0)this.breakGlassAlong(origin,{x:(p.x-origin.x)/length,y:(p.y-origin.y)/length,z:(p.z-origin.z)/length},length);if(Math.random()<clamp(.74-d*.003,.19,.7))this.hurt(2+(e.id%3),'敌方射击');e.rounds=(e.rounds??30)-1;if(e.rounds<=0)e.reloadRemaining=e.reloadDuration||2.6;}
-    }
-    if(this.mode==='training'&&this.kills===this.enemies.length){this.trainingResetTime+=dt;if(this.trainingResetTime>3){this.onEvent({type:'trainingcomplete'});this.enemies=this.world.enemies.map(e=>({...e,hp:100,alive:true,rounds:30,reloadRemaining:0,reloadDuration:2.6,aimReady:0,hitReact:0}));this.kills=0;this.trainingResetTime=0;this.clearGrenadeLock();}}
+    this.enemyAI.update(this,dt,input);
+    if(this.mode==='training'&&this.kills===this.enemies.length){this.trainingResetTime+=dt;if(this.trainingResetTime>3){this.onEvent({type:'trainingcomplete'});this.enemies=this.freshEnemies();this.enemyAI.reset();this.kills=0;this.trainingResetTime=0;this.clearGrenadeLock();}}
   }
 }

@@ -3,7 +3,7 @@ import {createFirstPersonBody} from './first-person-body.js?v=2.25-drive-grass1'
 import {WEAPONS,clamp,smooth} from './core.js?v=2.25-drive-grass1';
 import {poseChain,forearmTwist,curlFingerTo} from './rig-ik.js?v=2.25-drive-grass1';
 import {makeAimPose} from './weapon-view.js?v=2.25-drive-grass1';
-import {createCombatant} from './character.js?v=2.25-drive-grass1';
+import {createCombatant} from './character.js?v=2.29-enemy-awareness1';
 
 const vector=()=>new THREE.Vector3();
 export function weaponViewFov(aspect){return aspect<1?2*Math.atan(Math.tan(58*Math.PI/360)/aspect)*180/Math.PI:58;}

@@ -1,3 +1,19 @@
+Wild Frontier 2.29: believable enemy arrival and lost-contact reactions.
+Base GitHub revision: d36b5636d264886cbc814b784cbbcd20981a342d.
+Validation session: 2026-11-11 (Asia/Shanghai).
+- Removed omnidirectional distance-only detection and pursuit of the current hidden player position. EnemyDirector stores sampled visible positions and uncertain sound cues; navigation only receives those remembered points.
+- Added visual suspicion, crouching/peripheral recognition differences, bounded turning and a recognition/weapon-ready delay. Hearing investigates rather than confirming sight. Nearby contact reports are delayed and provide only uncertain cues.
+- Lost-contact search expires; bounded paired flanks replace endless orbiting. Short bursts have recovery gaps, reloading and hit reactions interrupt firing, and every shot checks a fresh obstruction ray. Reachable cover candidates must pass solid/ground/path tests, and temporary cover is followed by a peek instead of immediately walking into the obstacle.
+- Character head scanning and weapon readiness follow awareness/search. Existing grip solving, assets, human hurt/death recordings, driving/grass, large pack cache identities and V2.28 mobile pause behavior remain intact.
+- Static check passed: 444 local files, 22 models, 56 JS modules and 130 module references. All existing CI commands (arms 6, field 9, voices 17, input 17, driving/water 32) also passed.
+- 21 new AI checks passed. Existing 70 game checks, 10 authored character-motion checks and 9 interactive-world checks passed. The two older single-frame combat/glass fixtures now explicitly start with established contact; they retain their exact damage/glass assertions. The turning/reload fixture starts with remembered contact rather than an artificial sees flag.
+- Browser component QA ran the real Match/EnemyDirector on the island terrain: at 10.10s a front target produced suspicion=0.30, sees=false and no fire; at 11.10s it was confirmed and two burst shots had fired. After an opaque wall and hidden relocation to (-24,150), the guard searched the old observed (-64,136) without firing. Pausing froze the clock and memory at 11.40s. Quiet rear presence produced no notice, while a rear shot caused investigation from an uncertain sound cue with no confirmed target or immediate fire.
+- The full game entry was attempted in shared Chrome and showed the recoverable 3D startup error. Console reported GL_VENDOR=Disabled / GL_RENDERER=Disabled and failed WebGL context creation. This executor cannot verify full 3D combat visuals or real iPhone/Safari behavior.
+- Temporary 2D QA HTML and the preview-only hosting manifest were removed before publication. No diagnostic UI ships with the game.
+- Navigation still uses existing collision-aware ground movement and local sidesteps; it is not a full navigation mesh for arbitrary complex indoor routes. Automated checks establish behavior, not commercial-game animation/AI quality.
+
+Previous validation history follows:
+
 Wild Frontier 2.28: prevent accidental pauses while touch aiming.
 Base GitHub revision: f7d2ca634bf6a49fd4cc61dff9ba7f8ca92f02af.
 Validation session: 2026-11-10.

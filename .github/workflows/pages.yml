@@ -37,6 +37,12 @@ jobs:
         run: npm run check:voices
       - name: Verify aiming gestures and intentional pause
         run: npm run check:input
+      - name: Verify enemy perception, character motion and core combat
+        run: |
+          npm run check:ai
+          node scripts/check-character-motion.mjs
+          node scripts/check-interactive-world.mjs
+          npm run check
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload full game

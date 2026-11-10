@@ -10,7 +10,8 @@ export function checkCombat(check,world){
   const aim=m=>unit(origin,{x:m.enemies[0].x,y:m.enemies[0].y+.98,z:m.enemies[0].z});
   check('enemy hits deal 2 to 4 points and consume armour before health',()=>{
     const events=[],m=new Match(world,e=>events.push(e)),random=Math.random;m.running=true;m.time=8;
-    for(const e of m.enemies){e.shoot=0;e.aimReady=1;e.sees=true;e.losTimer=1;e.x=m.player.x;e.z=m.player.z-10;e.y=m.player.ground;}
+    // This damage-accounting fixture starts in established combat; arrival timing has its own AI tests.
+    for(const e of m.enemies){e.x=m.player.x;e.z=m.player.z-10;e.y=m.player.ground;e.yaw=0;m.enemyAI.confirm(e,m.player,m.time);Object.assign(e.ai,{visible:true,sample:{...m.player},sampleAt:m.time,nextSense:m.time+1,sightRate:2,reactionUntil:0});e.shoot=0;e.aimReady=1;e.sees=true;}
     try{Math.random=()=>0;m.update(1/60,{forward:0,strafe:0});}finally{Math.random=random;}
     const hits=events.filter(e=>e.type==='hurt');assert.equal(hits.length,12);assert.deepEqual([...new Set(hits.map(e=>e.amount))].sort(),[2,3,4]);assert.equal(m.player.hp,100);assert.equal(m.player.armour,64);
     m.player.armour=2;m.hurt(4,'敌方射击');assert.equal(m.player.armour,0);assert.equal(m.player.hp,98);

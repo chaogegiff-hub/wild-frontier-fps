@@ -39,7 +39,7 @@ export class EnemyChatter{
       else if(normalReady&&sees&&match.vehicle&&now-s.lastVehicle>24){kind='vehicle';priority=5;}
       else if(normalReady&&sees&&!s.reported){kind='spot';priority=4;}
       else if(normalReady&&sees&&e.reloadRemaining>0){kind='reload';priority=3;}
-      else if(normalReady&&!sees&&!s.lost&&now-s.lastSeen>3&&now-s.lastSeen<11){kind='lost';priority=2;}
+      else if(!sees&&!s.lost&&now-s.lastTalk>3.2&&now-s.lastSeen>2&&now-s.lastSeen<12){kind='lost';priority=2;}
       else if(normalReady&&sees&&now-s.lastTalk>18+e.id%5){kind='attack';priority=1;}
       if(kind)choices.push({e,s,kind,priority,distance});
     }
