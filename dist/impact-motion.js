@@ -8,17 +8,29 @@ for(const side of ['L','R'])for(const [key,bone,mass,radius]of [['hip','Thigh',5
 // inertia and contact; there is no preselected prone pose or rotating card.
 export class ImpactMotion{
   constructor(actor,rig,body,id){Object.assign(this,{actor,rig,body,id});this.active=false;this.nodes=new Map();for(const [key,name,mass,radius]of joints){const bone=body.getObjectByName('Bip01_'+name);if(bone)this.nodes.set(key,{bone,inv:1/mass,mass,radius:radius*actor.scale.y});}}
-  reset(){if(this.rest)for(const [bone,q]of this.rest)bone.quaternion.copy(q);this.active=false;this.sleeping=false;this.rest=null;this.source=null;this.accumulator=0;}
+  reset(){if(this.rest)for(const [bone,q]of this.rest)bone.quaternion.copy(q);this.active=false;this.sleeping=false;this.rest=null;this.source=null;this.accumulator=0;this.livePose=null;this.liveVelocity=null;}
+  capture(dt){
+    if(this.active)return;const previous=this.livePose;this.livePose=new Map();this.liveVelocity=new Map();
+    for(const [key,n]of this.nodes){if(!n.bone)continue;const p=n.bone.getWorldPosition(V());this.livePose.set(key,p);const velocity=previous?.has(key)&&dt>0&&dt<.15?p.clone().sub(previous.get(key)).divideScalar(dt).clampLength(0,5):V();this.liveVelocity.set(key,velocity);}
+  }
   center(){const c=V();let mass=0;for(const n of this.nodes.values()){c.addScaledVector(n.p,n.mass);mass+=n.mass;}return c.divideScalar(mass);}
   frame(){const a=this.nodes,x=a.get('Lhip').p.clone().sub(a.get('Rhip').p).normalize(),y=a.get('chest').p.clone().sub(a.get('pelvis').p);y.addScaledVector(x,-y.dot(x)).normalize();const z=x.clone().cross(y).normalize();return Q().setFromRotationMatrix(new THREE.Matrix4().makeBasis(x,y,z));}
   begin(blast){
-    const {actor,rig,body}=this;this.nodes.delete('front');actor.updateMatrixWorld(true);this.active=true;this.source=blast;this.sleeping=false;this.elapsed=0;this.requestedAge=0;this.accumulator=0;this.restTime=0;this.rest=new Map();body.traverse(b=>{if(b.isBone)this.rest.set(b,b.quaternion.clone());});
+    const {actor,rig,body}=this;this.nodes.delete('front');actor.updateMatrixWorld(true);this.active=true;this.source=blast;this.supports=null;this.sleeping=false;this.elapsed=0;this.requestedAge=0;this.accumulator=0;this.restTime=0;this.rest=new Map();body.traverse(b=>{if(b.isBone)this.rest.set(b,b.quaternion.clone());});
     const origin=blast.origin?new THREE.Vector3(blast.origin.x,blast.origin.y,blast.origin.z):actor.position.clone(),shift=origin.clone().sub(actor.position);this.lastRoot=origin.clone();
-    for(const n of this.nodes.values()){n.p=n.bone.getWorldPosition(V()).add(shift);n.standing=actor.worldToLocal(n.bone.getWorldPosition(V()));}
+    for(const [key,n]of this.nodes){n.baseRadius??=n.radius;n.radius=n.baseRadius+(blast.kind==='bullet'?(key.includes('hand')?.04:key.includes('foot')?.02:key.includes('toe')?.015:.008)*actor.scale.y:0);n.p=n.bone.getWorldPosition(V()).add(shift);n.standing=actor.worldToLocal(n.bone.getWorldPosition(V()));}
     const chest=this.nodes.get('chest'),front=V().set(0,0,.14*actor.scale.y).applyQuaternion(rig.getWorldQuaternion(Q())).add(chest.p);this.nodes.set('front',{p:front,inv:.25,mass:4,radius:.10*actor.scale.y,standing:actor.worldToLocal(front.clone().sub(shift))});
-    this.offset=this.center().sub(origin);this.initialFrame=this.frame();this.initialRig=rig.getWorldQuaternion(Q());this.pelvisLocal=rig.worldToLocal(this.nodes.get('pelvis').bone.getWorldPosition(V()));
+    this.offset=this.center().sub(origin);this.initialFrame=this.frame();this.startRigPosition=rig.position.clone();this.startRigQuaternion=rig.quaternion.clone();this.headOffset=this.nodes.get('head').p.clone().sub(this.nodes.get('neck').p).applyQuaternion(this.initialFrame.clone().invert());this.initialRig=rig.getWorldQuaternion(Q());this.pelvisLocal=rig.worldToLocal(this.nodes.get('pelvis').bone.getWorldPosition(V()));
+    const bullet=blast.kind==='bullet';
     const impulse=blast.initialVelocity||blast,linear=new THREE.Vector3(impulse.vx||0,impulse.vy||0,impulse.vz||0),angular=new THREE.Vector3(blast.spinX??1.8,blast.spinY??Math.sin(this.id*2.1)*.3,blast.spinZ??1.2).applyQuaternion(actor.quaternion),center=this.center();
     for(const [key,n]of this.nodes){n.v=linear.clone().add(angular.clone().cross(n.p.clone().sub(center)));if(/hand|foot|elbow|knee/.test(key))n.v.add(new THREE.Vector3(Math.sin(this.id*3.1+key.length)*.22,.12,Math.cos(this.id*2.7+key.length)*.18));}
+    if(bullet){
+      const direction=new THREE.Vector3(blast.direction.x,0,blast.direction.z);if(direction.lengthSq()<.01)direction.set(0,0,-1).applyQuaternion(actor.quaternion);direction.normalize();
+      const inherited=new THREE.Vector3(blast.velocity?.x||0,0,blast.velocity?.z||0).clampLength(0,2.8),turn=new THREE.Vector3(direction.z,0,-direction.x).multiplyScalar(.65+(blast.strength||.4)*.25),contact=new THREE.Vector3(blast.point.x,blast.point.y,blast.point.z);turn.y=-(blast.side||0)*.45;
+      const closest=[...this.nodes.entries()].filter(([,n])=>n.bone).sort(([,a],[,b])=>a.p.distanceToSquared(contact)-b.p.distanceToSquared(contact))[0]?.[0];
+      for(const [key,n]of this.nodes){const gait=this.liveVelocity?.get(key);n.v=(gait?gait.clone():inherited.clone()).clampLength(0,3.5);n.v.y=clamp(n.v.y,-.5,.35);n.v.add(turn.clone().cross(n.p.clone().sub(center)));if(key===closest)n.v.addScaledVector(new THREE.Vector3(blast.direction.x,blast.direction.y,blast.direction.z),.3+(blast.strength||.4)*.25);if(/knee/.test(key))n.v.add(new THREE.Vector3(0,-.18,.15).applyQuaternion(actor.quaternion));}
+      this.hitJoint=closest;this.bulletCenter=this.center();this.bulletVelocity=V();let mass=0;for(const n of this.nodes.values()){this.bulletVelocity.addScaledVector(n.v,n.mass);mass+=n.mass;}this.bulletVelocity.divideScalar(mass);this.bulletVelocity.y=0;
+    }
     this.links=[];const link=(a,b,stiff=1)=>{const x=this.nodes.get(a),y=this.nodes.get(b);if(x&&y)this.links.push({a:x,b:y,length:x.p.distanceTo(y.p),stiff});};
     for(const [a,b]of [['pelvis','spine'],['spine','waist'],['waist','chest'],['chest','neck'],['neck','head']])link(a,b);
     for(const [a,b]of [['pelvis','chest'],['spine','neck'],['waist','neck'],['Lhip','Rhip'],['Lshoulder','Rshoulder']])link(a,b,.8);
@@ -27,6 +39,7 @@ export class ImpactMotion{
       link(side+'hip',side+'knee');link(side+'knee',side+'foot');link(side+'foot',side+'toe');link(side+'knee',side+'toe',.9);link(side+'shoulder',side+'elbow');link(side+'elbow',side+'hand');
     }
     for(const key of ['pelvis','waist','chest','neck'])link('front',key,.9);
+    if(bullet){link('chest','head',.8);link('front','head',.65);link('Lshoulder','Rhip',.8);link('Rshoulder','Lhip',.8);}
     this.limbs=['L','R'].flatMap(side=>[{a:side+'hip',b:side+'knee',c:side+'foot',leg:true},{a:side+'shoulder',b:side+'elbow',c:side+'hand',leg:false}]).map(l=>{const a=this.nodes.get(l.a),b=this.nodes.get(l.b),c=this.nodes.get(l.c);return {...l,a,b,c,l1:a.p.distanceTo(b.p),l2:b.p.distanceTo(c.p)};});
   }
   constrain(a,b,length,stiff=1){const d=b.p.clone().sub(a.p),n=d.length();if(n<1e-7)return;d.multiplyScalar((n-length)/n*stiff/(a.inv+b.inv));a.p.addScaledVector(d,a.inv);b.p.addScaledVector(d,-b.inv);}
@@ -46,43 +59,56 @@ export class ImpactMotion{
   update(dt,blast,groundAt,{recovery=0,colliders=[]}={}){
     if(!this.active||this.source!==blast){if(this.active)this.reset();this.begin(blast);}if(!(dt>0))return;
     if(this.sleeping&&recovery===0)return;
-    const actor=this.actor,targetRoot=actor.position.clone(),startRoot=this.lastRoot.clone(),age=blast.origin?blast.age:this.requestedAge+dt,span=clamp(age-this.requestedAge,0,.12);this.requestedAge=age;this.accumulator+=span;
+    const bullet=blast.kind==='bullet',actor=this.actor,targetRoot=actor.position.clone(),startRoot=this.lastRoot.clone(),age=blast.origin?blast.age:this.requestedAge+dt,span=clamp(age-this.requestedAge,0,.12);this.requestedAge=age;this.accumulator+=span;
+    if(bullet&&!this.supports){this.supports=new Map();for(const [key,n]of this.nodes)if(/foot|toe/.test(key)&&n.p.y-groundAt(n.p.x,n.p.z)<.3){const anchor=n.p.clone();anchor.y=Math.max(anchor.y,groundAt(anchor.x,anchor.z)+n.radius);this.supports.set(key,anchor);}}
     const h=1/120,steps=Math.floor((this.accumulator+1e-9)/h);if(!steps)return;
-    const nearby=colliders.filter(c=>!c.bridge&&!c.support&&(blast.vehicleId===undefined||c.vehicleId!==blast.vehicleId)&&(c.type==='circle'?Math.hypot(c.x-targetRoot.x,c.z-targetRoot.z)<c.r+2.3:Math.abs(c.x-targetRoot.x)<c.w/2+2.5&&Math.abs(c.z-targetRoot.z)<c.d/2+2.5));
+    const collisionCenter=bullet?this.center():targetRoot;
+    const nearby=colliders.filter(c=>!c.bridge&&!c.support&&(blast.vehicleId===undefined||c.vehicleId!==blast.vehicleId)&&(c.type==='circle'?Math.hypot(c.x-collisionCenter.x,c.z-collisionCenter.z)<c.r+2.3:Math.abs(c.x-collisionCenter.x)<c.w/2+2.5&&Math.abs(c.z-collisionCenter.z)<c.d/2+2.5));
     let energy=0,contacts=0;
     for(let step=0;step<steps;step++){
-      const expected=startRoot.clone().lerp(targetRoot,(step+1)/steps).add(this.offset);energy=contacts=0;
-      for(const n of this.nodes.values()){n.old=n.p.clone();n.contact=false;n.v.y-=12.5*h;n.v.multiplyScalar(Math.exp(-(blast.grounded?1.8:.16)*h));n.p.addScaledVector(n.v,h);}
+      const landed=bullet&&this.elapsed>.3&&(this.nodes.get('chest').p.y-groundAt(this.nodes.get('chest').p.x,this.nodes.get('chest').p.z)<.38||this.nodes.get('pelvis').p.y-groundAt(this.nodes.get('pelvis').p.x,this.nodes.get('pelvis').p.z)<.3);
+      if(bullet)this.bulletVelocity.multiplyScalar(Math.exp(-(landed?8:.65)*h));
+      const expected=bullet?this.bulletCenter.clone().addScaledVector(this.bulletVelocity,h):startRoot.clone().lerp(targetRoot,(step+1)/steps).add(this.offset);energy=contacts=0;
+      for(const n of this.nodes.values()){n.old=n.p.clone();n.contact=false;n.v.y-=(bullet?9.81:12.5)*h;n.v.multiplyScalar(Math.exp(-(bullet?(landed?8:.65):blast.grounded?1.8:.16)*h));n.p.addScaledVector(n.v,h);}
       for(let iteration=0;iteration<9;iteration++){
         for(const l of this.links)this.constrain(l.a,l.b,l.length,l.stiff);
         const forward=this.nodes.get('front').p.clone().sub(this.nodes.get('chest').p).normalize();
         for(const l of this.limbs){
           const d=l.a.p.distanceTo(l.c.p),min=l.leg?.30:.14,max=(l.l1+l.l2)*.985;if(d>max||d<min)this.constrain(l.a,l.c,clamp(d,min,max));
-          if(l.leg){const axis=l.c.p.clone().sub(l.a.p).normalize(),pole=forward.clone().addScaledVector(axis,-forward.dot(axis)).normalize(),offset=l.b.p.clone().sub(l.a.p);offset.addScaledVector(axis,-offset.dot(axis));if(offset.dot(pole)<.018)l.b.p.addScaledVector(pole,(.018-offset.dot(pole))*.8);}
+          if(l.leg&&!bullet){const axis=l.c.p.clone().sub(l.a.p).normalize(),pole=forward.clone().addScaledVector(axis,-forward.dot(axis)).normalize(),offset=l.b.p.clone().sub(l.a.p);offset.addScaledVector(axis,-offset.dot(axis));if(offset.dot(pole)<.018)l.b.p.addScaledVector(pole,(.018-offset.dot(pole))*.8);}
         }
         for(const side of ['L','R'])for(const key of ['head','chest','pelvis']){const a=this.nodes.get(side+'hand'),b=this.nodes.get(key),d=a.p.distanceTo(b.p),minimum=a.radius+b.radius;if(d<minimum)this.constrain(a,b,minimum,.65);}
+        if(bullet){
+          const bodyFrame=this.frame(),forward=new THREE.Vector3(0,0,1).applyQuaternion(bodyFrame);
+          for(const l of this.limbs)if(l.leg){const axis=l.c.p.clone().sub(l.a.p),d=clamp(axis.length(),Math.abs(l.l1-l.l2)+.003,l.l1+l.l2-.003);axis.normalize();const pole=forward.clone().addScaledVector(axis,-forward.dot(axis));if(pole.lengthSq()<1e-6)continue;pole.normalize();const along=(l.l1*l.l1-l.l2*l.l2+d*d)/(2*d),bend=Math.sqrt(Math.max(0,l.l1*l.l1-along*along));l.b.p.lerp(l.a.p.clone().addScaledVector(axis,along).addScaledVector(pole,bend),.22);}
+          this.nodes.get('head').p.lerp(this.nodes.get('neck').p.clone().add(this.headOffset.clone().applyQuaternion(bodyFrame)),.25);
+          const release=clamp((this.elapsed-.09)/.25,0,1),support=(1-release)*(1-release);for(const [key,anchor]of this.supports)this.nodes.get(key).p.lerp(anchor,support);
+          const knees=[this.nodes.get('Lknee'),this.nodes.get('Rknee')],feet=[this.nodes.get('Lfoot'),this.nodes.get('Rfoot')];if(knees[0].p.distanceTo(knees[1].p)>.52*actor.scale.y)this.constrain(...knees,.52*actor.scale.y,.5);if(feet[0].p.distanceTo(feet[1].p)>.92*actor.scale.y)this.constrain(...feet,.92*actor.scale.y,.5);
+          for(const side of ['L','R'])for(const key of ['chest','pelvis']){const a=this.nodes.get(side+'elbow'),b=this.nodes.get(key),d=a.p.distanceTo(b.p),minimum=a.radius+b.radius;if(d<minimum)this.constrain(a,b,minimum,.5);}
+        }
         for(const n of this.nodes.values())this.project(n,groundAt,nearby);
       }
-      const correction=expected.sub(this.center());if(blast.grounded||[...this.nodes.values()].some(n=>n.contact))correction.y=0;
+      const correction=expected.sub(this.center());if(bullet)correction.y=0;if(blast.grounded||[...this.nodes.values()].some(n=>n.contact))correction.y=0;
       for(const n of this.nodes.values()){
         n.p.add(correction);if(recovery>0&&n.standing){const target=actor.localToWorld(n.standing.clone());if(n.bone&&/Foot|Toe/.test(n.bone.name))target.y=groundAt(target.x,target.z)+n.radius;n.p.lerp(target,recovery);}
-        this.project(n,groundAt,nearby);n.v.copy(n.p).sub(n.old).divideScalar(h).clampLength(0,25);
+        this.project(n,groundAt,nearby);n.v.copy(n.p).sub(n.old).divideScalar(h).clampLength(0,bullet?4:25);if(bullet)n.v.y=Math.min(n.v.y,1.5);
         if(n.contact){contacts++;const tangent=Math.hypot(n.v.x,n.v.z),friction=Math.min(tangent,.72*12.5*h+Math.max(0,-n.v.y)*.45),factor=tangent>1e-5?1-friction/tangent:0;n.v.x*=factor;n.v.z*=factor;n.v.y=Math.max(0,n.v.y)*.08;}
         energy+=n.v.lengthSq();
       }
-      this.elapsed+=h;this.accumulator-=h;
+      if(bullet)this.bulletCenter.copy(this.center());this.elapsed+=h;this.accumulator-=h;
     }
-    this.lastRoot.copy(targetRoot);this.applyPose();this.restTime=blast.grounded&&contacts>3&&energy/this.nodes.size<.03?this.restTime+dt:0;if(this.restTime>.35&&recovery===0)this.sleeping=true;
+    this.lastRoot.copy(targetRoot);this.applyPose();this.restTime=(bullet||blast.grounded)&&contacts>3&&energy/this.nodes.size<.03?this.restTime+dt:0;if(this.restTime>.35&&recovery===0)this.sleeping=true;
   }
   applyPose(){
     const {actor,rig,body}=this;for(const [bone,q]of this.rest)bone.quaternion.copy(q);
     const world=this.frame().multiply(this.initialFrame.clone().invert()).multiply(this.initialRig);rig.quaternion.copy(actor.getWorldQuaternion(Q()).invert().multiply(world));rig.position.copy(actor.worldToLocal(this.nodes.get('pelvis').p.clone())).sub(this.pelvisLocal.clone().applyQuaternion(rig.quaternion));actor.updateMatrixWorld(true);
-    for(const [a,b]of [['pelvis','spine'],['spine','waist'],['waist','chest'],['chest','neck'],['neck','head']])aimBone(body,this.nodes.get(a).bone,this.nodes.get(b).bone,this.nodes.get(b).p);
+    for(const [a,b]of (this.source.kind==='bullet'?[['pelvis','spine'],['spine','waist'],['waist','chest'],['chest','neck']]:[['pelvis','spine'],['spine','waist'],['waist','chest'],['chest','neck'],['neck','head']]))aimBone(body,this.nodes.get(a).bone,this.nodes.get(b).bone,this.nodes.get(b).p);
     for(const side of ['L','R']){
       const clavicle=body.getObjectByName('Bip01_'+side+'_Clavicle');if(clavicle)aimBone(body,clavicle,this.nodes.get(side+'shoulder').bone,this.nodes.get(side+'shoulder').p);
       for(const [a,b,c]of [[side+'hip',side+'knee',side+'foot'],[side+'shoulder',side+'elbow',side+'hand']])poseChain(body,this.nodes.get(a).bone,this.nodes.get(b).bone,this.nodes.get(c).bone,body.worldToLocal(this.nodes.get(c).p.clone()).toArray(),body.worldToLocal(this.nodes.get(b).p.clone()).toArray());
       if(this.nodes.has(side+'toe'))aimBone(body,this.nodes.get(side+'foot').bone,this.nodes.get(side+'toe').bone,this.nodes.get(side+'toe').p);
     }
+    if(this.source.kind==='bullet'&&this.elapsed<.12){const t=clamp(this.elapsed/.12,0,1),weight=t*t*(3-2*t);rig.position.lerpVectors(this.startRigPosition,rig.position.clone(),weight);rig.quaternion.slerpQuaternions(this.startRigQuaternion,rig.quaternion.clone(),weight);for(const [bone,rest]of this.rest)bone.quaternion.slerpQuaternions(rest,bone.quaternion.clone(),weight);}
     actor.updateMatrixWorld(true);body.traverse(o=>{if(o.isSkinnedMesh){o.skeleton.update();const inverse=o.matrixWorld.clone().invert(),bounds=new THREE.Box3();for(const n of this.nodes.values())bounds.expandByPoint(n.p.clone().applyMatrix4(inverse));bounds.expandByScalar(.25);o.boundingSphere=bounds.getBoundingSphere(new THREE.Sphere());}});
   }
 }

@@ -2,9 +2,9 @@ import {footSurface,FootstepContacts} from './foley-motion.js?v=2.25-drive-grass
 import {PickupControls} from './pickup-controls.js?v=2.25-drive-grass1';
 import {VaultControls} from './window-vault.js?v=2.25-drive-grass1';
 import * as THREE from './vendor/three.module.js';
-import {Match,WEAPONS,ENEMY_BODY,GRENADE_LOCK_TIME,createWorldData,heightAt,terrainSurfaceAt,clamp,lerp,direction,zoomFov,terrainRay,walkHeight,WATER_LEVEL,shotFromMuzzle,aimDistance} from './core.js?v=2.29-enemy-awareness1';
+import {Match,WEAPONS,ENEMY_BODY,GRENADE_LOCK_TIME,createWorldData,heightAt,terrainSurfaceAt,clamp,lerp,direction,zoomFov,terrainRay,walkHeight,WATER_LEVEL,shotFromMuzzle,aimDistance} from './core.js?v=2.30-hit-collapse1';
 import {makeWorld,loadSurfaces,SURFACE_GROUPS,SURFACE_FILES} from './world.js?v=2.25-drive-grass1';
-import {createViewModels,createEnemyModel,weaponViewFov,weaponViewPosition} from './weapons.js?v=2.29-enemy-awareness1';
+import {createViewModels,createEnemyModel,weaponViewFov,weaponViewPosition} from './weapons.js?v=2.30-hit-collapse1';
 import {loadAssets,lightFromSky,loadSkyDetail,ASSET_GROUPS,MODEL_FILES} from './assets.js?v=2.25-drive-grass1';
 import {GameAudio} from './audio.js?v=2.27-human-pain1';
 import {EnemyChatter} from './enemy-chatter.js?v=2.29-enemy-awareness1';
@@ -251,7 +251,7 @@ function updateEnemies(dt){
   match.enemies.forEach((e,i)=>{
     const m=enemyMeshes[i];m.position.set(e.x,e.y,e.z);m.rotation.y=e.yaw;
     const groundAt=(x,z)=>{const y=walkHeight(x,z,match.colliders,e.y);return y>heightAt(x,z)+.05?y:terrainSurfaceAt(x,z);};
-    if(!e.alive){m.userData.fall(dt,groundAt,e.blast,match.colliders);return;}
+    if(!e.alive){m.userData.fall(dt,groundAt,e.blast,match.colliders,e.deathImpact);return;}
     if(m.userData.deathTime>0)m.userData.reset();m.rotation.z=0;m.rotation.x=0;
     if(e.blast){m.userData.stagger(dt,e.blast,groundAt,match.colliders);return;}
     m.userData.rig.position.y=.95;m.userData.rig.rotation.set(0,0,0);m.userData.animate(dt,e,{distance:m.position.distanceTo(camera.position),groundAt});

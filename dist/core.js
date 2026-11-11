@@ -1,3 +1,4 @@
+import {bulletHit} from './bullet-hit.js?v=2.30-hit-collapse1';
 import {EnemyDirector} from './enemy-ai.js?v=2.29-enemy-awareness1';
 import {houseColliders,houseWindows,houseLoot} from './building-layout.js?v=2.25-drive-grass1';
 import {terrainRelief} from './terrain-data.js?v=2.25-drive-grass1';
@@ -311,11 +312,11 @@ export class Match {
     this.vault=null;this.player={...SPAWN,y:heightAt(SPAWN.x,SPAWN.z)+1.72,ground:heightAt(SPAWN.x,SPAWN.z),hp:100,armour:100,yaw:0,pitch:-.045,vy:0,jump:0,crouch:false};
     this.fleet=new VehicleFleet({terrain:terrainSurfaceAt,waterLevel:WATER_LEVEL,colliders:this.worldColliders});
     this.windows=(this.world.windows||[]).map(w=>({...w,broken:false}));this.loot=(this.world.loot||[]).map(item=>({...item,taken:false}));
-    this.ammo=WEAPONS.map(w=>({mag:w.mag,reserve:w.reserve}));this.grenades=[];this.bullets=[];this.nextBulletId=0;this.trainingResetTime=0;this.clearGrenadeLock();
+    this.ammo=WEAPONS.map(w=>({mag:w.mag,reserve:w.reserve}));this.grenades=[];this.bullets=[];this.nextBulletId=0;this.nextHitId=0;this.trainingResetTime=0;this.clearGrenadeLock();
     this.enemies=this.freshEnemies();
     this.enemyAI=new EnemyDirector({lineClear,moveGround,walkHeight,circleBlocked,waterLevel:WATER_LEVEL,enemyScale:ENEMY_SCALE,body:ENEMY_BODY});
   }
-  freshEnemies(){return this.world.enemies.map(e=>({...e,hp:100,alive:true,alert:0,ai:undefined,sees:false,weaponReady:0,aiState:'patrol',awareness:0,rounds:30,reloadRemaining:0,reloadDuration:2.6,aimReady:0,hitReact:0}));}
+  freshEnemies(){return this.world.enemies.map(e=>({...e,hp:100,alive:true,alert:0,ai:undefined,hitImpact:undefined,deathImpact:undefined,sees:false,weaponReady:0,aiState:'patrol',awareness:0,rounds:30,reloadRemaining:0,reloadDuration:2.6,aimReady:0,hitReact:0}));}
   clearGrenadeLock(){this.grenadeLock={targetId:null,progress:0,locked:false,distance:0};}
   updateGrenadeLock(dt,origin,dir,active){
     if(this.vehicle||this.swimming||this.vault||!active||this.weapon!==1||this.reloadTime>0||this.healTime>0||!this.running||this.over){this.clearGrenadeLock();return this.grenadeLock;}
@@ -382,7 +383,7 @@ export class Match {
             if(collider){surface=collider.surface||(collider.type==='box'?'plaster':'stone');Object.assign(normal,colliderNormal(collider,point));}
             else{const nx=heightAt(point.x-.15,point.z)-heightAt(point.x+.15,point.z),nz=heightAt(point.x,point.z-.15)-heightAt(point.x,point.z+.15),l=Math.hypot(nx,.3,nz);Object.assign(normal,{x:nx/l,y:.3/l,z:nz/l});}
           }
-          if(target){this.hits++;this.damageEnemy(target,w.damage*(headshot?2.3:1),headshot);}
+          if(target){this.hits++;this.damageEnemy(target,w.damage*(headshot?2.3:1),headshot,'bullet',{point,direction:dir});}
           this.onEvent({type:'impact',weapon:w.id,point,normal,surface,hit:!!target,headshot});finished=true;
         }
         Object.assign(b,point);b.vy-=9.81*step;const drag=Math.exp(-.035*step);b.vx*=drag;b.vy*=drag;b.vz*=drag;b.distance+=distance;b.age+=step;
@@ -391,9 +392,9 @@ export class Match {
       if(finished)this.bullets.splice(i,1);
     }
   }
-  damageEnemy(e,amount,headshot=false,cause='bullet') {
+  damageEnemy(e,amount,headshot=false,cause='bullet',impact) {
     if(!e.alive) return;
-    e.hp-=amount;e.alert=1;this.enemyAI.startle(e,this.time);if(cause==='bullet')e.hitReact=1;
+    e.hp-=amount;e.alert=1;this.enemyAI.startle(e,this.time);if(cause==='bullet'){e.hitReact=1;e.hitImpact=bulletHit(e,{...impact,headshot,damage:amount,serial:++this.nextHitId,at:this.time});if(e.hp<=0)e.deathImpact=e.hitImpact;}
     if(e.hp<=0){ e.alive=false;this.kills++;if(headshot)this.headshots++;this.onEvent({type:'kill',enemy:e,headshot,cause});
       if(this.kills===this.enemies.length&&this.mode==='survival') this.finish(true);
     } else this.onEvent({type:'hit',enemy:e,headshot,cause});

@@ -26,7 +26,7 @@ $('start').addEventListener('click',()=>deployment.request());
 document.addEventListener('visibilitychange',()=>deployment.resume());
 
 // Import failures occur before game.js can run its own startup catch.
-import('./game.js?v=2.29-enemy-awareness1').catch(error=>{
+import('./game.js?v=2.30-hit-collapse1').catch(error=>{
   console.error('Game module failed to load',error);
   deployment.fail('游戏文件未能载入，请检查网络后点击重试。');
 });
