@@ -1,3 +1,20 @@
+Wild Frontier 2.30: directional bullet reactions and articulated collapse.
+Base published revision: 5e667fb02771e0e36bc53319f6d91b2868b8eb64.
+Validation session: 2026-11-11 (Asia/Shanghai).
+- Ordinary bullet deaths previously blended back to Idle while rotating and lowering the entire rig along one fixed axis. This path is replaced with a transition from the captured pose into the existing whole-body positional solver, with a distinct bullet-collapse mode.
+- Physical bullet intersections provide copied contact/direction/part/strength/velocity records. Fatal and nonfatal records remain stable when the player moves; old direct damage callers get a bounded fallback. Round reset clears hit records and their sequence.
+- Bullet collapse inherits measured joint/gait velocities, uses small directional/local impulses and gravity, releases foot support gradually, constrains knee planes/leg spread and head/neck alignment, and conserves horizontal centre-of-mass motion instead of allowing constraint corrections to propel a corpse away. Actual anatomy keeps its original bone lengths. The first 120ms blend preserves pose continuity.
+- Each joint has separate ground/solid contacts. Bodies settle and sleep; actual skinned-mesh sample checks cover flat and sloping ground with an explicit tolerance for approximate collision volumes. The independent rifle uses substeps, mesh-bound corner contacts, continuous landing rotation and a sleeping rest pose. Fingers relax after release.
+- Passed 12 new checks in scripts/check-bullet-collapse.mjs: actual bullet metadata; recoil; pose continuity; hips/knees and bone lengths; shot direction; gait momentum; bounded rest/sleep; flat/slope skin contact; walls; weapon drop; frame-rate/pause; reset. All 5 whole-body blast/vehicle checks passed.
+- Existing check-impact-motion.mjs had an orientation-dependent sum-of-absolute-components spin assertion. It also failed on the unchanged V2.29 baseline after its randomized spawn yaw. The test now checks the Euclidean angular-speed magnitude against the same limit; launch parameters remain unchanged.
+- Existing 70 full-game regressions, 10 authored character-motion checks, 21 enemy AI checks and 17 combat/human-voice checks passed. Required deployment checks also run in GitHub Actions.
+- Native GLES pose inspection uses the actual skinned soldier and rifle geometry. Front/rear/side inspection during development identified unsupported feet, neck inversion and energy gain; joint support, anatomical constraints and momentum controls were adjusted, then model tests passed. The reproducible export helper captures front torso and side head cases at 0, 0.1, 0.65 and 2.6 seconds. Native model draws do not reproduce full battle lighting or prove physical-device rendering/performance.
+- Browser boot was attempted for the new entry. Shared Chrome reported GL_VENDOR=Disabled / GL_RENDERER=Disabled and WebGL context creation failed, leaving the existing recoverable startup message. No physical iPhone/Safari test or full 3D gameplay claim is made.
+- No new media services or fal were used. Existing human voices, grip geometry, vegetation, vehicles, V2.29 perception and V2.28 touch-pause behavior remain in place. Large resource pack identities are unchanged.
+- The preview-only .openai/hosting.json was removed before publication. Collision still uses approximate joint volumes; tight spaces may show local mesh interpenetration. This is not a general-purpose rigid-body engine or a claim of commercial AAA quality.
+
+Previous validation history follows:
+
 Wild Frontier 2.29: believable enemy arrival and lost-contact reactions.
 Base GitHub revision: d36b5636d264886cbc814b784cbbcd20981a342d.
 Validation session: 2026-11-11 (Asia/Shanghai).

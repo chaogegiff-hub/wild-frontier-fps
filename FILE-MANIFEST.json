@@ -4,8 +4,8 @@
     "sha256": "299e6f890f4964b964001cd60e406cd59dd060b3221061ab319766e19e685288"
   },
   ".github/workflows/pages.yml": {
-    "bytes": 1776,
-    "sha256": "4a11a2f570abe3916012077d923d7efbac53ae729de643f6ad560c343dbcba33"
+    "bytes": 1874,
+    "sha256": "68952a5fc1cdd237224ccece2f79f269352648bd72269ce2c1f1166219644621"
   },
   ".gitignore": {
     "bytes": 88,
@@ -16,12 +16,12 @@
     "sha256": "bbc5753bee7959148c65d2688619e077f53cfdfe44f1a744e3f9ec8f1df2cdb8"
   },
   "README.md": {
-    "bytes": 10013,
-    "sha256": "2b0cfcdcf8a1be3d868bd10d396e8f5104b65fc478d1159a17a668f3a3839732"
+    "bytes": 11424,
+    "sha256": "21c85ac6f0502c4d6637262ff74a42620e4410757147375332045e9693e242f8"
   },
   "VALIDATION.txt": {
-    "bytes": 55013,
-    "sha256": "21f2097212d168c328490d79e621f838ed1eb38edf563850c2ca1b3dbf01deae"
+    "bytes": 58569,
+    "sha256": "b6db94bd79e9b7707d6aa189e0bb95d1fc9ccfd35699165a6fcdd3779f584e71"
   },
   "dist/.nojekyll": {
     "bytes": 1,
@@ -448,12 +448,16 @@
     "sha256": "6cfc33e806309d8ce1d64d2306958588964afa513d5883a00c5518c7054db765"
   },
   "dist/bootstrap.js": {
-    "bytes": 2023,
-    "sha256": "a47b8b6bddb67a4666ede5f1f0d1b9ae34ee78f2d13342d8eda94291cf789538"
+    "bytes": 2020,
+    "sha256": "8f43efb1077db0d31053ea7151339dd89f91e413113187083abdbea4c95fbe1d"
   },
   "dist/building-layout.js": {
     "bytes": 5074,
     "sha256": "8e74a7deb13effb6a0e7a1476213f7a1650d4d74157e6f8653f9f4fe8f9ac14f"
+  },
+  "dist/bullet-hit.js": {
+    "bytes": 1159,
+    "sha256": "eda2a89f2b02f9e3e5bb3bb5ed55f8b8b7a7b7b1798a590c6fea4fdcb2d15993"
   },
   "dist/cactus-field.js": {
     "bytes": 11004,
@@ -468,12 +472,12 @@
     "sha256": "12bfdee767ee5ae0ecb5997e75746cafea40222a7f541190e52078e5f0c7b7f0"
   },
   "dist/character.js": {
-    "bytes": 11514,
-    "sha256": "331046431c112156796956fe07c41baffc4a341a258d8c39d9d3478327c78cc3"
+    "bytes": 13618,
+    "sha256": "6d6857696f4463765f51d7104fc3ce35cd5cf46daee9013164df630c355909cc"
   },
   "dist/core.js": {
-    "bytes": 41027,
-    "sha256": "eb7db2e33a5e7d6d24cba4f4dcf2d8663664463ec709a812b1da14e3cbce7eed"
+    "bytes": 41324,
+    "sha256": "f22cae4e1643ab6ded553081d049921018388ad595cd56cf1cbae433c4dee419"
   },
   "dist/daylight.js": {
     "bytes": 1901,
@@ -528,8 +532,8 @@
     "sha256": "cc9fb2539cf27df48255982e896d28f544483537cdb41f9fabd741af8992d719"
   },
   "dist/game.js": {
-    "bytes": 43724,
-    "sha256": "06444081390efb543836b3b779a44892fa16f879aa96cd1e9b5a39e15ea2afe7"
+    "bytes": 43732,
+    "sha256": "2160eadc53c0757c80a0501dfe3020b905b5769d0c1cb8f0a72fe73ec0988645"
   },
   "dist/graphics.js": {
     "bytes": 7640,
@@ -876,12 +880,12 @@
     "sha256": "f53a389f175a51c6dc98acc77ae17eee421becf5d5474f60bdd7f50edf306ed5"
   },
   "dist/impact-motion.js": {
-    "bytes": 10912,
-    "sha256": "09c070873b762302aa6ee86e35127b49dd86f2a6f894bac8180ec188fa7ff4e0"
+    "bytes": 16178,
+    "sha256": "26e99850ee5ceb1c772580a6b820787dd657f711cec5deb4d6ffe7a65100b0b8"
   },
   "dist/index.html": {
-    "bytes": 17047,
-    "sha256": "2b3c8e9b33a7dad824bbb8bffd0063ccc6f8fef2e1320994116d507e710c7f59"
+    "bytes": 17041,
+    "sha256": "528370f75635b769a350a0687b8248e5e787643bf3f63fd6577795b910e55324"
   },
   "dist/lobby-photo.css": {
     "bytes": 2674,
@@ -1784,8 +1788,8 @@
     "sha256": "d35f6cb82bf956d05aec35ef33bf7a16c9bf5abb8d51b7a018f912dc37796450"
   },
   "dist/weapons.js": {
-    "bytes": 13466,
-    "sha256": "e1544df89005ebc03578aa28b173266807d326bd0f03e9e78aa13e580ea5de6d"
+    "bytes": 13464,
+    "sha256": "9d7f819bb2b40d3ae05cd2f32cd6e970a0991ee020f83ad35d24fff0b96e1187"
   },
   "dist/wild-grass.js": {
     "bytes": 6200,
@@ -1808,8 +1812,8 @@
     "sha256": "e956bf258dc3c0a25104c9a19e9d56a8393aaac3fba0bcad8a3d71b0fa7c098e"
   },
   "package.json": {
-    "bytes": 982,
-    "sha256": "0b4890e7458e88ead039df1091aab1e6e652b9613badd5a94c099a45e1575632"
+    "bytes": 1082,
+    "sha256": "7a7c04ca91488f87e97f195f008e0fff9367e0020681ff63b281688fd6882573"
   },
   "scripts/build-cache-ui-check.mjs": {
     "bytes": 4786,
@@ -1855,6 +1859,10 @@
     "bytes": 2271,
     "sha256": "be60fb1fbfd168b6d6dc50eed2b09c538bd2f5d1143d9bc5a281001b01cc3711"
   },
+  "scripts/check-bullet-collapse.mjs": {
+    "bytes": 8133,
+    "sha256": "0975a653e646cc68c5dbfd31d6e4e8f9a4ae1370dad498f942b63d0ae9f19dc8"
+  },
   "scripts/check-character-motion.mjs": {
     "bytes": 9055,
     "sha256": "d231627a6c62e774ad2be4c3c93de0f0c1d2e675b11fa119841d5d94b9b9fd65"
@@ -1896,8 +1904,8 @@
     "sha256": "9aba87010f4abc7afb26276df568fe2ae52332ce5f6620cd01c49eaa9e7fe9d8"
   },
   "scripts/check-impact-motion.mjs": {
-    "bytes": 4983,
-    "sha256": "d61ce3c9cac8b948a02bad32c2b95ad5d81e8d34ffc0404a8e605b9d78f2043b"
+    "bytes": 4975,
+    "sha256": "8250b135fdf8e34bb109770eaef899cb06b50270b75493fa11916fa127705dad"
   },
   "scripts/check-interactive-assets.mjs": {
     "bytes": 5494,
@@ -2026,6 +2034,10 @@
   "scripts/export-field-layout.mjs": {
     "bytes": 4317,
     "sha256": "d57688ef8bf437ee6a8430bdaa50efca6b0c155d92afcdb84be132c37b11888c"
+  },
+  "scripts/export-hit-fall-layout.mjs": {
+    "bytes": 3469,
+    "sha256": "adc165d437c3e8644359af49da70f9b9d033bc6333c3f481c8ea9d15447905e0"
   },
   "scripts/export-interactive-layout.mjs": {
     "bytes": 4087,
