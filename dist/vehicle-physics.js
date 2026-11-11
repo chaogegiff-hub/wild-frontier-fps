@@ -1,3 +1,4 @@
+import {launchVehicleWreck,advanceVehicleWreck} from './vehicle-blast.js?v=2.31-car-blast1';
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 export const VEHICLE_SIZE=Object.freeze({width:2.12,length:3.98,height:1.84,wheelBase:2.42,wheelRadius:.415});
 export const VEHICLE_TERRAIN_LIMITS=Object.freeze({pitch:.68,roll:.49,warp:.72,belly:.56});
@@ -31,7 +32,7 @@ export function vehicleSupport(c,terrain){
 
 export class VehicleFleet{
   constructor({terrain,waterLevel=3,colliders=[],spawns=VEHICLE_SPAWNS}){
-    this.terrain=terrain;this.waterLevel=waterLevel;this.driverId=null;this.exitPending=false;this.cars=[];this.events=[];
+    this.terrain=terrain;this.colliders=colliders;this.waterLevel=waterLevel;this.driverId=null;this.exitPending=false;this.cars=[];this.events=[];
     for(const [id,spawn] of spawns.entries()){
       let car;
       for(const radius of [0,3,6,9,12]){
@@ -45,7 +46,7 @@ export class VehicleFleet{
       this.pose(car);car.collider={type:'obox',vehicle:true,x:car.x,z:car.z,y:car.y+.25,w:2.08,d:3.9,h:1.0,yaw:car.yaw,surface:'metal'};this.cars.push(car);
     }
   }
-  destroy(car){if(car.destroyed)return false;Object.assign(car,{hp:0,destroyed:true,wreckAge:0,speed:0,steer:0,stalled:true,braking:false});Object.assign(car.collider,{h:.40,support:true});return true;}
+  destroy(car,impact){if(car.destroyed)return false;if(impact?.point)launchVehicleWreck(car,impact);Object.assign(car,{hp:0,destroyed:true,wreckAge:0,speed:0,steer:0,stalled:true,braking:false});Object.assign(car.collider,{h:.40,support:true});return true;}
   get current(){return this.driverId===null?null:this.cars.find(c=>c.id===this.driverId)||null;}
   body(c){return {x:c.x,z:c.z,yaw:c.yaw,w:VEHICLE_SIZE.width,d:VEHICLE_SIZE.length};}
   canPlace(c,colliders,{parking=false}={}){
@@ -67,7 +68,7 @@ export class VehicleFleet{
       if(obstacle.bridge||obstacle.y>c.y+VEHICLE_SIZE.height||obstacle.y+obstacle.h<c.y+.15)continue;
       if(obstacle.type==='circle'?circleTouchesBox(obstacle.x,obstacle.z,obstacle.r+.035,body):boxesTouch(body,obstacle))return false;
     }
-    return !this.cars.some(other=>other.id!==c.id&&Math.abs(other.y-c.y)<VEHICLE_SIZE.height&&boxesTouch(body,this.body(other)));
+    return !this.cars.some(other=>other.id!==c.id&&(other.wreckMotion?other.collider.y<c.y+VEHICLE_SIZE.height&&other.collider.y+other.collider.h>c.y&&boxesTouch(body,other.collider):Math.abs(other.y-c.y)<VEHICLE_SIZE.height&&boxesTouch(body,this.body(other))));
   }
   pose(c,dt=0){
     const ground=vehicleSupport(c,this.terrain),support=ground.support+.025,floor=support-(c.sinking?.12:0),pitch=clamp(ground.pitch,-.70,.70),roll=clamp(ground.roll,-.52,.52);
@@ -86,9 +87,13 @@ export class VehicleFleet{
     if(c.collider)Object.assign(c.collider,{x:c.x,z:c.z,y:c.y+.25,yaw:c.yaw});
   }
   takeEvents(){const events=this.events;this.events=[];return events;}
-  updatePassive(dt,player){
+  updateParked(car,dt,colliders=this.colliders){
+    if(car.destroyed&&car.wreckMotion){advanceVehicleWreck(car,dt,{terrain:this.terrain,waterLevel:this.waterLevel,colliders:[...colliders,...this.cars.filter(c=>c!==car).map(c=>c.collider)],emit:e=>this.events.push(e)});return;}
+    if(car.destroyed)car.wreckAge+=dt;if(car.inWater||car.sinking)this.pose(car,dt);
+  }
+  updatePassive(dt,player,colliders=this.colliders){
     const count=Math.max(1,Math.ceil(Math.min(dt,.25)*120)),s=Math.min(dt,.25)/count;
-    for(let i=0;i<count;i++)for(const car of this.cars){if(car.destroyed)car.wreckAge+=s;if(car.inWater||car.sinking)this.pose(car,s);}
+    for(let i=0;i<count;i++)for(const car of this.cars)this.updateParked(car,s,colliders);
     this.syncPlayer(player);
   }
   pathClear(a,b,colliders){
@@ -124,7 +129,7 @@ export class VehicleFleet{
   }
   syncPlayer(player){const c=this.current;if(c)Object.assign(player,{x:c.x,y:c.y+1.5,z:c.z,ground:c.y,yaw:c.yaw,jump:0,vy:0,crouch:false});}
   update(dt,input,player,colliders,onTravel){
-    const car=this.current;if(!car){this.updatePassive(dt,player);return null;}
+    this.colliders=colliders;const car=this.current;if(!car||car.destroyed&&car.wreckMotion){this.updatePassive(dt,player,colliders);return null;}
     const count=Math.max(1,Math.ceil(Math.min(dt,.25)*120)),s=Math.min(dt,.25)/count;
     car.collision=false;
     for(let i=0;i<count;i++){
@@ -155,7 +160,7 @@ export class VehicleFleet{
         if(onTravel&&Math.hypot(x-previous.x,z-previous.z)>1e-7)onTravel(car,previous,s);
       }
       else{car.collision=true;car.speed*=.12;}
-      if(car.destroyed)car.wreckAge+=s;this.pose(car,s);for(const other of this.cars)if(other!==car){if(other.destroyed)other.wreckAge+=s;if(other.inWater||other.sinking)this.pose(other,s);}
+      if(car.destroyed)car.wreckAge+=s;this.pose(car,s);for(const other of this.cars)if(other!==car)this.updateParked(other,s,colliders);
     }
     this.syncPlayer(player);
     if(this.exitPending&&Math.abs(car.speed)<.8)return this.tryExit(player,colliders);

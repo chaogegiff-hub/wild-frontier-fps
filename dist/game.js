@@ -2,19 +2,19 @@ import {footSurface,FootstepContacts} from './foley-motion.js?v=2.25-drive-grass
 import {PickupControls} from './pickup-controls.js?v=2.25-drive-grass1';
 import {VaultControls} from './window-vault.js?v=2.25-drive-grass1';
 import * as THREE from './vendor/three.module.js';
-import {Match,WEAPONS,ENEMY_BODY,GRENADE_LOCK_TIME,createWorldData,heightAt,terrainSurfaceAt,clamp,lerp,direction,zoomFov,terrainRay,walkHeight,WATER_LEVEL,shotFromMuzzle,aimDistance} from './core.js?v=2.30-hit-collapse1';
+import {Match,WEAPONS,ENEMY_BODY,GRENADE_LOCK_TIME,createWorldData,heightAt,terrainSurfaceAt,clamp,lerp,direction,zoomFov,terrainRay,walkHeight,WATER_LEVEL,shotFromMuzzle,aimDistance} from './core.js?v=2.31-car-blast1';
 import {makeWorld,loadSurfaces,SURFACE_GROUPS,SURFACE_FILES} from './world.js?v=2.25-drive-grass1';
 import {createViewModels,createEnemyModel,weaponViewFov,weaponViewPosition} from './weapons.js?v=2.30-hit-collapse1';
 import {loadAssets,lightFromSky,loadSkyDetail,ASSET_GROUPS,MODEL_FILES} from './assets.js?v=2.25-drive-grass1';
 import {GameAudio} from './audio.js?v=2.27-human-pain1';
 import {EnemyChatter} from './enemy-chatter.js?v=2.29-enemy-awareness1';
 import {VocalReactions} from './vocal-reactions.js?v=2.27-human-pain1';
-import {BattleEffects} from './effects.js?v=2.25-drive-grass1';
+import {BattleEffects} from './effects.js?v=2.31-car-blast1';
 import {loadStartupPack,invalidateStartupCache} from './resource-pack.js?v=2.25-drive-grass1';
 import {viewPointToWorld,WeaponRecoil,syncWeaponLighting} from './weapon-view.js?v=2.25-drive-grass1';
 import {AimOverlay} from './aim-overlay.js?v=2.25-drive-grass1';
 import {graphicsConfig,renderSizing,textureRegistry,HDTextureStreamer} from './graphics.js?v=2.25-drive-grass1';
-import {makeVehicleViews} from './vehicles.js?v=2.25-drive-grass1';
+import {makeVehicleViews} from './vehicles.js?v=2.31-car-blast1';
 import {DrivingControls} from './vehicle-controls.js?v=2.25-drive-grass1';
 import {BattleFeedback} from './battle-feedback.js?v=2.25-drive-grass1';
 import {VehicleTrails} from './vehicle-trails.js?v=2.25-drive-grass1';
@@ -97,6 +97,7 @@ function handleEvent(e){
     case 'vehicleexit':clearInput();setAim(false);driveCameraReady=false;audio.drive?.(null);showMessage('已下车 · 恢复步行操作',2);break;
     case 'vehicleexitblocked':clearInput();showMessage('旁边没有下车空间，请挪动车辆后再试',3);break;
     case 'vehiclehit':battleEffects.vehicleHit(e.point,e.direction,e.speed);audio.vehicleImpact(e.point,e.speed);showMessage(e.fatal?'车辆撞击 · 击败敌人':'车辆撞击 · 敌人倒地',1.6);break;
+    case 'vehiclelanding':battleEffects.vehicleLanding(e.point,e.speed);audio.vehicleImpact(e.point,e.speed);break;
     case 'bodylanding':battleEffects.bodyLanding(e.point,e.speed);break;
     case 'vehiclewater':battleEffects.waterEntry(e.point,e.speed);audio.waterImpact(e.point);break;
     case 'vehiclesinking':if(match.vehicle===e.vehicle){clearInput();audio.tone(220,.16,.05);}break;
@@ -122,7 +123,7 @@ function handleEvent(e){
       if(e.headshot)showMessage('精准爆头',1.3);if(match.kills%4===0&&match.medkits<5){match.medkits++;showMessage('医疗包补给 +1',2);}
       break;
     }
-    case 'explosion':battleEffects.explosion(e.point,{vehicle:e.vehicle});if(e.hits){hitTime=.35;audio.tone(850,.06,.035);}if(Math.hypot(match.player.x-e.point.x,match.player.z-e.point.z)<35)weaponRecoil.kick(1);break;
+    case 'explosion':battleEffects.explosion(e.point,{vehicle:e.vehicle,vehicleImpact:e.vehicleImpact});if(e.hits){hitTime=.35;audio.tone(850,.06,.035);}if(Math.hypot(match.player.x-e.point.x,match.player.z-e.point.z)<35)weaponRecoil.kick(1);break;
     case 'targetlocked':audio.lockSuccess();battleFeedback.locked(e.enemy,match.grenadeLock.distance);break;
     case 'enemyfire':{
       const actor=enemyMeshes[e.enemy.id];actor.position.set(e.enemy.x,e.enemy.y,e.enemy.z);actor.rotation.y=e.enemy.yaw;actor.userData.fire();const p=actor.userData.muzzleWorld();audio.enemyShot(p);battleEffects.muzzle(p);break;
@@ -292,7 +293,7 @@ function renderFrame(now){
   vehicleViews?.update(state==='paused'?0:dt,match.fleet);
   if(state!=='paused'){
     for(let i=shellTimers.length-1;i>=0;i--){const pending=shellTimers[i];pending.time-=dt;if(pending.time<=0){ejectCasing(pending.slot);audio.bolt();shellTimers.splice(i,1);}}
-    if(state==='playing'||state==='result'){battleEffects.waterVehicles(dt,match.fleet.cars);battleEffects.vehicleWrecks(dt,match.fleet.cars);}battleEffects.update(dt,match.bullets);vehicleTrails?.update(dt,match.fleet,{active:state==='playing'});world.updateInteractions(dt,match.fleet,state==='playing'||state==='result');
+    if(state==='playing'||state==='result'){battleEffects.waterVehicles(dt,match.fleet.cars);battleEffects.vehicleWrecks(dt,match.fleet.cars,camera.position);}battleEffects.update(dt,match.bullets);vehicleTrails?.update(dt,match.fleet,{active:state==='playing'});world.updateInteractions(dt,match.fleet,state==='playing'||state==='result');
   }
   audio.drive?.(state==='playing'?match.vehicle:null);audio.horn?.(state==='playing'&&!!match.vehicle&&!match.vehicle.stalled&&(keys.KeyB||drivingControls.honking));
   battleFeedback.update(dt,{state,match});

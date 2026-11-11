@@ -2,7 +2,7 @@ import {bulletHit} from './bullet-hit.js?v=2.30-hit-collapse1';
 import {EnemyDirector} from './enemy-ai.js?v=2.29-enemy-awareness1';
 import {houseColliders,houseWindows,houseLoot} from './building-layout.js?v=2.25-drive-grass1';
 import {terrainRelief} from './terrain-data.js?v=2.25-drive-grass1';
-import {VehicleFleet,vehicleLocal,circleTouchesBox} from './vehicle-physics.js?v=2.25-drive-grass1';
+import {VehicleFleet,vehicleLocal,circleTouchesBox} from './vehicle-physics.js?v=2.31-car-blast1';
 import {findWindowVault,vaultSample} from './window-vault.js?v=2.25-drive-grass1';
 // Rendering, collision and targeting share one proportional enemy size.
 export const ENEMY_SCALE=1.18;
@@ -417,9 +417,9 @@ export class Match {
       this.damageEnemy(e,amount,false,'vehicle');car.speed*=.94;
     }
   }
-  damageVehicle(car,amount){
+  damageVehicle(car,amount,blast){
     if(car.destroyed||amount<=0)return false;car.hp=Math.max(0,(car.hp??100)-amount);if(car.hp>0)return false;
-    const occupied=this.vehicle===car;this.fleet.destroy(car);
+    const occupied=this.vehicle===car;this.fleet.destroy(car,blast);
     if(occupied){const event=this.fleet.tryExit(this.player,this.worldColliders);if(event?.type==='vehicleexit'){this.drownTime=0;this.onEvent(event);}else{this.fleet.driverId=null;this.fleet.exitPending=false;this.drownTime=0;const floor=car.collider.y+car.collider.h;Object.assign(this.player,{x:car.x,z:car.z,ground:floor,y:floor+1.72,jump:0,vy:0,crouch:false});this.onEvent({type:'vehicleexit',vehicle:car});}}
     this.onEvent({type:'vehicledestroyed',vehicle:car});this.explode({x:car.x,y:car.y+.82,z:car.z,sourceCarId:car.id});return true;
   }
@@ -437,12 +437,12 @@ export class Match {
     }
     const p=this.player,d=Math.hypot(p.x-g.x,p.y-g.y,p.z-g.z);
     if(d<9&&this.mode==='survival'&&lineClear({x:g.x,y:g.y+.4,z:g.z},p,blastColliders))this.hurt(100*(1-d/10),'榴弹冲击');
-    this.onEvent({type:'explosion',point:{x:g.x,y:g.y,z:g.z},hits,vehicle:!!source});
+    this.onEvent({type:'explosion',point:{x:g.x,y:g.y,z:g.z},hits,vehicle:!!source,vehicleImpact:g.directVehicleId!==undefined});
     for(const w of this.windows)if(!w.broken&&Math.hypot(w.x-g.x,w.y+w.h/2-g.y,w.z-g.z)<6&&lineClear({x:g.x,y:g.y+.12,z:g.z},{x:w.x,y:w.y+w.h/2,z:w.z},blastColliders))this.breakWindow(w);
     for(const car of this.fleet.cars){
       if(car.destroyed)continue;const local=vehicleLocal(car,g.x,g.z),dx=Math.max(0,Math.abs(local.x)-1.06),dz=Math.max(0,Math.abs(local.z)-1.99),dy=Math.max(0,car.y+.25-g.y,g.y-car.y-1.84),distance=Math.hypot(dx,dy,dz),direct=g.directVehicleId===car.id;
       if(!direct&&(distance>=5||!lineClear({x:g.x,y:g.y+.12,z:g.z},{x:car.x,y:car.y+.9,z:car.z},blastColliders.filter(c=>c!==car.collider))))continue;
-      this.damageVehicle(car,direct?200:165*(1-distance/5));
+      this.damageVehicle(car,direct?200:165*(1-distance/5),{point:{x:g.x,y:g.y,z:g.z},direction:{x:g.vx||0,z:g.vz||0},power:direct?1:clamp(1-distance/6,.35,1)});
     }
 
   }
@@ -453,7 +453,7 @@ export class Match {
     this.onEvent({type:'hurt',source,amount,armourDamage,healthDamage,armourBroken:previousArmour>0&&p.armour===0});if(p.hp<=0)this.finish(false);
   }
   finish(win,cause='') { if(this.over)return;this.vault=null;this.over=true;this.running=false;this.resultCause=cause;this.onEvent({type:'finish',win,cause}); }
-  updateAftermath(dt){this.updateBlasts(dt);this.fleet.updatePassive(dt,this.player);for(const event of this.fleet.takeEvents())this.onEvent(event);}
+  updateAftermath(dt){this.updateBlasts(dt);this.fleet.updatePassive(dt,this.player,this.worldColliders);for(const event of this.fleet.takeEvents())this.onEvent(event);}
   updateBlasts(dt){
     for(const e of this.enemies){
       const b=e.blast;if(!b)continue;b.age+=dt;
@@ -507,7 +507,7 @@ export class Match {
     if(this.vehicle){
       const event=this.fleet.update(dt,{throttle:input.vehicleThrottle||0,steer:input.vehicleSteer||0,brake:input.vehicleBrake},p,this.worldColliders,(car,previous)=>this.vehicleContacts(car,previous));if(event)this.onEvent(event);
     }else{
-    this.fleet.updatePassive(dt,p);
+    this.fleet.updatePassive(dt,p,this.worldColliders);
     if(this.vault)this.updateVault(dt);else{
     p.crouch=!!input.crouch&&!this.swimming;
     const water=p.ground<WATER_LEVEL-.1,speed=water?2.3:(p.crouch?2.25:(input.sprint&&!input.aim?7.5:4.4));

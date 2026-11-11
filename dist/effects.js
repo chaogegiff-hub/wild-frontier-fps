@@ -1,3 +1,4 @@
+import {wreckBurnProfile} from './vehicle-blast.js?v=2.31-car-blast1';
 import * as THREE from './vendor/three.module.js';
 import {heightAt,terrainSurfaceAt,WATER_LEVEL} from './core.js?v=2.25-drive-grass1';
 import {makeCasing,makeProjectile} from './ammunition.js?v=2.25-drive-grass1';
@@ -8,6 +9,15 @@ function plumeTexture(seed){
   for(let y=0;y<96;y++)for(let x=0;x<96;x++){
     const r=Math.hypot((x-47.5)/47.5,(y-47.5)/47.5),noise=.40+hash(x>>3,y>>3)*.35+hash(x,y)*.25,i=(y*96+x)*4;
     img.data[i]=img.data[i+1]=img.data[i+2]=255;img.data[i+3]=Math.max(0,1-r*r)**2*noise*255;
+  }ctx.putImageData(img,0,0);return new THREE.CanvasTexture(c);
+}
+function billowTexture(seed){
+  const c=document.createElement('canvas');c.width=c.height=128;const ctx=c.getContext('2d'),img=ctx.createImageData(128,128);
+  const hash=(x,y)=>{let n=Math.imul(x+seed,374761393)^Math.imul(y,668265263);n=Math.imul(n^(n>>>13),1274126177);return (n>>>0)/4294967295;};
+  const noise=(x,y)=>{const a=Math.floor(x),b=Math.floor(y),u=x-a,v=y-b,s=u*u*(3-2*u),t=v*v*(3-2*v);return (hash(a,b)*(1-s)+hash(a+1,b)*s)*(1-t)+(hash(a,b+1)*(1-s)+hash(a+1,b+1)*s)*t;};
+  for(let y=0;y<128;y++)for(let x=0;x<128;x++){
+    const u=(x-63.5)/63.5,v=(y-63.5)/63.5,n=noise(x*.035,y*.035)*.55+noise(x*.09+7,y*.09)*.30+noise(x*.21,y*.21+11)*.15,r=Math.hypot(u,v),edge=.65+n*.34,body=Math.max(0,Math.min(1,(edge-r)*5)),i=(y*128+x)*4;
+    img.data[i]=img.data[i+1]=img.data[i+2]=255;img.data[i+3]=body*body*(.45+n*.55)*255;
   }ctx.putImageData(img,0,0);return new THREE.CanvasTexture(c);
 }
 function impactTexture(wood=false){
@@ -29,7 +39,7 @@ function fireTexture(){
 const up=new THREE.Vector3(0,1,0),forward=new THREE.Vector3(0,0,1),travel=new THREE.Vector3();
 export class BattleEffects{
   constructor(scene,audio,{mobile=false,floorAt=terrainSurfaceAt}={}){
-    this.scene=scene;this.audio=audio;this.floorAt=floorAt;this.burnTimers=new Map();this.effects=[];this.mobile=mobile;this.maps=[plumeTexture(13),plumeTexture(51)];
+    this.scene=scene;this.audio=audio;this.floorAt=floorAt;this.burnTimers=new Map();this.wreckLights=new Map();this.wreckSmokeMaps=[billowTexture(19),billowTexture(71)];this.effects=[];this.mobile=mobile;this.maps=[plumeTexture(13),plumeTexture(51)];
     this.impactMaps=[impactTexture(),impactTexture(true)];this.fireMap=fireTexture();this.waterTimers=new Map();
     this.fragmentGeometry=new THREE.TetrahedronGeometry(.018,0);this.fragmentMaterial=new THREE.MeshStandardMaterial({color:'#6c6554',roughness:1});
     this.glassGeometry=new THREE.BufferGeometry();this.glassGeometry.setAttribute('position',new THREE.Float32BufferAttribute([-.5,-.3,0,.5,-.5,0,.2,.5,0],3));this.glassGeometry.computeVertexNormals();this.glassMaterial=new THREE.MeshStandardMaterial({color:'#b5d4ce',roughness:.17,metalness:.15,transparent:true,opacity:.62,side:THREE.DoubleSide});
@@ -39,10 +49,10 @@ export class BattleEffects{
     this.muzzleLight=new THREE.PointLight('#ffcb8f',0,6,2);scene.add(this.muzzleLight);this.lightTime=0;
     this.blastLight=new THREE.PointLight('#ffbd72',0,16,2);scene.add(this.blastLight);this.blastTime=0;
   }
-  plume(position,{size=.08,color='#a09478',life=.65,velocity={x:0,y:.65,z:0},opacity=.28,growth=1.3,type='plume'}={}){
-    const material=new THREE.SpriteMaterial({map:type==='flame'?this.fireMap:this.maps[this.effects.length%2],color,transparent:true,opacity,depthWrite:false,blending:type==='flame'?THREE.AdditiveBlending:THREE.NormalBlending,toneMapped:type!=='flame'});
-    const mesh=new THREE.Sprite(material);mesh.position.copy(position);mesh.scale.setScalar(size);this.scene.add(mesh);
-    material.rotation=Math.random()*6.28;this.effects.push({mesh,life,total:life,type,velocity:{...velocity},size,opacity,growth});
+  plume(position,{size=.08,color='#a09478',life=.65,velocity={x:0,y:.65,z:0},opacity=.28,growth=1.3,type='plume',billow=false,stretch=1,spin}={}){
+    const material=new THREE.SpriteMaterial({map:type==='flame'?this.fireMap:billow?this.wreckSmokeMaps[this.effects.length%2]:this.maps[this.effects.length%2],color,transparent:true,opacity,depthWrite:false,blending:type==='flame'?THREE.AdditiveBlending:THREE.NormalBlending,toneMapped:type!=='flame'});
+    const mesh=new THREE.Sprite(material);mesh.position.copy(position);mesh.scale.set(size,size*stretch,1);this.scene.add(mesh);
+    material.rotation=Math.random()*6.28;const effect={mesh,life,total:life,type,velocity:{...velocity},size,opacity,growth,billow,stretch,spin,phase:Math.random()*6.28};if(billow){effect.startColor=material.color.clone();effect.endColor=new THREE.Color('#777a73');}this.effects.push(effect);return effect;
   }
   muzzle(position){
     this.muzzleLight.position.copy(position);this.muzzleLight.intensity=3.5;this.lightTime=.024;
@@ -74,16 +84,26 @@ export class BattleEffects{
   glassBreak(point,direction){
     for(let i=0;i<(this.mobile?12:20);i++){const mesh=new THREE.Mesh(this.glassGeometry,this.glassMaterial);mesh.position.set(point.x+(Math.random()-.5)*.35,point.y+(Math.random()-.5)*.45,point.z+(Math.random()-.5)*.18);mesh.scale.setScalar(.06+Math.random()*.10);mesh.rotation.set(Math.random()*3,Math.random()*3,Math.random()*3);this.scene.add(mesh);this.effects.push({mesh,life:1.7,total:1.7,type:'glass',velocity:{x:direction.x*2+(Math.random()-.5)*2,y:Math.random()*2,z:direction.z*2+(Math.random()-.5)*2},spin:{x:6,y:8,z:4},shared:true});}
   }
-  vehicleWrecks(dt,cars){
+  vehicleWrecks(dt,cars,cameraPosition){
     for(const car of cars){
-      if(!car.destroyed||car.wreckAge>18||car.y+1<WATER_LEVEL&&car.inWater)continue;
-      const late=car.wreckAge>7,interval=late?.38:(this.mobile?.18:.14);let timer=(this.burnTimers.get(car.id)||0)+dt;
-      for(let n=0;timer>=interval&&n<3;n++){
-        timer-=interval;const p=new THREE.Vector3((Math.random()-.5)*.45,.78,-.70+Math.random()*.55).applyEuler(new THREE.Euler(car.pitch||0,car.yaw||0,car.roll||0)).add(new THREE.Vector3(car.x,car.y,car.z));
-        this.plume(p,{type:'smoke',size:late?.62:.86,color:late?'#3c3f39':'#252823',life:late?3.2:4.2,opacity:late?.55:.88,growth:late?2.3:3.2,velocity:{x:.18,y:late?1.0:1.4,z:.08}});
-        if(car.wreckAge<5.5)this.plume(p,{type:'flame',size:.78+Math.random()*.22,color:'#ffffff',life:.50+Math.random()*.20,opacity:.92,growth:1.3,velocity:{x:.04,y:1.35,z:0}});
-      }this.burnTimers.set(car.id,timer);
+      const burn=wreckBurnProfile(car);let light=this.wreckLights.get(car.id);if(!burn){if(light)light.intensity=0;this.burnTimers.delete(car.id);continue;}
+      const distance=cameraPosition?Math.hypot(car.x-cameraPosition.x,car.z-cameraPosition.z):0,lod=distance>170?2.8:distance>100?1.65:1;
+      let timers=this.burnTimers.get(car.id);if(!timers||typeof timers==='number')timers={smoke:0,fire:0};
+      timers.smoke+=dt;timers.fire+=dt;
+      const position=()=>{const p=new THREE.Vector3((Math.random()-.5)*.65,.85,-.94+Math.random()*.55).applyEuler(new THREE.Euler(car.pitch||0,car.yaw||0,car.roll||0,'YXZ')).add(new THREE.Vector3(car.x,car.y,car.z));p.y=Math.max(p.y,this.floorAt(p.x,p.z,car.y)+.12);return p;};
+      const smokeInterval=(this.mobile?.22:.18)*lod,fireInterval=(this.mobile?.13:.10)*lod;
+      if(burn.smoke>0)for(let n=0;timers.smoke>=smokeInterval&&n<3;n++){
+        timers.smoke-=smokeInterval;const e=this.plume(position(),{type:'smoke',billow:true,size:.95+Math.random()*.3,color:'#171a17',life:6.4+Math.random()*1.0,opacity:.88*burn.smoke,growth:3.6+Math.random()*.8,spin:.16,velocity:{x:.20,y:1.25+Math.random()*.4,z:.08}});e.wreckId=car.id;
+      }else timers.smoke=Math.min(timers.smoke,smokeInterval);
+      if(burn.fire>0)for(let n=0;timers.fire>=fireInterval&&n<3;n++){
+        timers.fire-=fireInterval;const e=this.plume(position(),{type:'flame',size:(.60+Math.random()*.3)*(.6+burn.fire*.4),stretch:1.5,spin:.12,color:'#ffffff',life:.5+Math.random()*.2,opacity:.92*burn.fire,growth:.9,velocity:{x:.04,y:1.5+Math.random()*.5,z:0}});e.wreckId=car.id;
+      }else timers.fire=Math.min(timers.fire,fireInterval);
+      if(!light){light=new THREE.PointLight('#ff812d',0,9,2);this.scene.add(light);this.wreckLights.set(car.id,light);}const p=new THREE.Vector3(0,1.05,-.70).applyEuler(new THREE.Euler(car.pitch||0,car.yaw||0,car.roll||0,'YXZ')).add(new THREE.Vector3(car.x,car.y,car.z));p.y=Math.max(p.y,this.floorAt(p.x,p.z,car.y)+.3);light.position.copy(p);light.intensity=burn.fire*(6.5+Math.sin(burn.age*23)*1.2+Math.sin(burn.age*37)*.7);this.burnTimers.set(car.id,timers);
     }
+  }
+  vehicleLanding(point,speed){
+    if(point.y<WATER_LEVEL-.3)return;if(point.y<WATER_LEVEL+.1){this.waterEntry(point,speed);return;}
+    for(let i=0;i<(this.mobile?8:12);i++){const a=i*2.4,r=.6+Math.random()*1.1,p={x:point.x+Math.cos(a)*r,y:point.y+.05,z:point.z+Math.sin(a)*r};this.plume(p,{size:.35+Math.random()*.25,color:'#a69779',life:.8+Math.random()*.5,opacity:.30,growth:1.4,velocity:{x:Math.cos(a)*(1+speed*.08),y:.4+Math.random()*.5,z:Math.sin(a)*(1+speed*.08)}});}
   }
   vehicleHit(point,direction,speed){
     const ground={x:point.x,y:terrainSurfaceAt(point.x,point.z)+.10,z:point.z};
@@ -106,7 +126,7 @@ export class BattleEffects{
       if(time>.20){time=0;const mesh=new THREE.Mesh(this.dropletGeometry,this.dropletMaterial);mesh.position.set(car.x+(Math.random()-.5)*.8,car.y+1.2,car.z+(Math.random()-.5)*1.3);mesh.scale.setScalar(6+Math.random()*7);this.scene.add(mesh);this.effects.push({mesh,type:'bubble',life:4,total:4,velocity:{x:.05,y:.8+Math.random()*.7,z:.02},shared:true});}this.waterTimers.set(car.id,time);
     }
   }
-  explosion(point,{vehicle=false}={}){
+  explosion(point,{vehicle=false,vehicleImpact=false}={}){
     this.audio.explosion(point);const dirt=new THREE.Vector3(point.x,Math.max(point.y,heightAt(point.x,point.z))+.08,point.z);
     this.blastLight.position.copy(dirt);this.blastTime=this.blastDuration=vehicle?.62:.32;this.blastStrength=vehicle?140:95;
     const waveOpacity=vehicle?.12:.34,wave=new THREE.Mesh(new THREE.SphereGeometry(vehicle?.60:.45,16,10),new THREE.MeshBasicMaterial({color:'#ffd797',transparent:true,opacity:waveOpacity,depthWrite:false,blending:THREE.AdditiveBlending}));wave.position.copy(dirt);this.scene.add(wave);this.effects.push({mesh:wave,life:vehicle?.18:.24,total:vehicle?.18:.24,opacity:waveOpacity,type:'blastwave'});
@@ -114,9 +134,12 @@ export class BattleEffects{
       const a=Math.random()*6.283,r=Math.random()*.65,p=dirt.clone().add(new THREE.Vector3(Math.cos(a)*r,.12+Math.random()*.4,Math.sin(a)*r));
       this.plume(p,{type:'flame',size:(vehicle?.95:.7)+Math.random()*.5,color:'#ffffff',life:vehicle?.60+Math.random()*.3:.32+Math.random()*.26,opacity:.95,growth:vehicle?3.2:2.3,velocity:{x:Math.cos(a)*1.2,y:1.5+Math.random(),z:Math.sin(a)*1.2}});
     }
-    for(let i=0;i<(vehicle?(this.mobile?18:27):(this.mobile?14:21));i++){
+    // A short expanding pressure/dust cloud leaves the launched chassis visible.
+    // Sustained black smoke belongs to the post-landing fire emitter.
+    const staged=vehicle||vehicleImpact;
+    for(let i=0;i<(staged?(this.mobile?6:9):(this.mobile?14:21));i++){
       const a=Math.random()*6.283,r=Math.random()*.8,p=dirt.clone().add(new THREE.Vector3(Math.cos(a)*r,.15+Math.random()*.9,Math.sin(a)*r));
-      this.plume(p,{type:'smoke',size:(vehicle?1.1:.7)+Math.random()*.65,color:vehicle?(i%3?'#232622':'#41443a'):(i%3?'#45463e':'#7b7463'),life:(vehicle?5.5:4.2)+Math.random()*(vehicle?2:1.4),opacity:(vehicle?.86:.72)+Math.random()*.10,growth:(vehicle?3.8:2.8)+Math.random(),velocity:{x:Math.cos(a)*.45+.18,y:.85+Math.random()*1.4,z:Math.sin(a)*.45}});
+      this.plume(p,{type:'smoke',size:(staged?.65:.7)+Math.random()*.4,color:staged?'#8b8171':i%3?'#45463e':'#7b7463',life:staged?.9+Math.random()*.5:4.2+Math.random()*1.4,opacity:staged?.42:.72+Math.random()*.1,growth:staged?1.0:2.8+Math.random(),velocity:{x:Math.cos(a)*(staged?1.2:.45)+.18,y:staged?.5:.85+Math.random()*1.4,z:Math.sin(a)*(staged?1.2:.45)}});
     }
     for(let i=0;i<(vehicle?(this.mobile?20:28):(this.mobile?16:22));i++){
       const mesh=new THREE.Mesh(this.fragmentGeometry,this.fragmentMaterial);mesh.position.copy(dirt);mesh.scale.setScalar(1+Math.random()*2);this.scene.add(mesh);
@@ -136,8 +159,8 @@ export class BattleEffects{
     for(let i=this.effects.length-1;i>=0;i--){
       const e=this.effects[i];e.life-=dt;if(e.life<=0){this.dispose(e);this.effects.splice(i,1);continue;}const t=1-e.life/e.total;
       if(e.type==='plume'||e.type==='smoke'||e.type==='flame'){
-        e.mesh.position.x+=e.velocity.x*dt;e.mesh.position.y+=e.velocity.y*dt;e.mesh.position.z+=e.velocity.z*dt;e.mesh.scale.setScalar(e.size+Math.pow(t,e.type==='smoke'?.65:1)*e.growth);
-        e.mesh.material.opacity=e.opacity*(e.type==='smoke'?Math.min(1,t/.09)*Math.min(1,e.life/1.8):e.type==='flame'?(1-t)**1.5:1-t);e.mesh.material.rotation+=dt*(e.type==='flame'?.65:.1);
+        e.mesh.position.x+=e.velocity.x*dt;e.mesh.position.y+=e.velocity.y*dt;e.mesh.position.z+=e.velocity.z*dt;const size=e.size+Math.pow(t,e.type==='smoke'?.65:1)*e.growth;e.mesh.scale.set(size,size*(e.stretch||1),1);if(e.billow){e.mesh.position.x+=Math.sin(t*9+e.phase)*.20*dt;e.mesh.position.z+=Math.cos(t*7+e.phase)*.15*dt;e.mesh.material.color.lerpColors(e.startColor,e.endColor,Math.min(.72,t*.8));}
+        e.mesh.material.opacity=e.opacity*(e.type==='smoke'?Math.min(1,t/.09)*Math.min(1,e.life/1.8):e.type==='flame'?(1-t)**1.5:1-t);e.mesh.material.rotation+=dt*(e.spin??(e.type==='flame'?.65:.1));
       }else if(e.type==='droplet'){
         e.velocity.y-=9.81*dt;for(const axis of ['x','y','z'])e.mesh.position[axis]+=e.velocity[axis]*dt;
         if(e.mesh.position.y<WATER_LEVEL)e.life=0;
@@ -158,5 +181,5 @@ export class BattleEffects{
     while(this.effects.length>(this.mobile?160:280))this.dispose(this.effects.shift());
   }
   dispose(e){this.scene.remove(e.mesh);if(e.shared)return;if(!e.mesh.isSprite)e.mesh.geometry?.dispose();e.mesh.material.dispose();}
-  clear(){this.effects.forEach(e=>this.dispose(e));this.effects=[];for(const mesh of this.projectiles.values())this.scene.remove(mesh);this.projectiles.clear();this.waterTimers.clear();this.burnTimers.clear();this.lightTime=0;this.muzzleLight.intensity=0;this.blastTime=0;this.blastLight.intensity=0;}
+  clear(){this.effects.forEach(e=>this.dispose(e));this.effects=[];for(const mesh of this.projectiles.values())this.scene.remove(mesh);this.projectiles.clear();this.waterTimers.clear();this.burnTimers.clear();for(const light of this.wreckLights.values())this.scene.remove(light);this.wreckLights.clear();this.lightTime=0;this.muzzleLight.intensity=0;this.blastTime=0;this.blastLight.intensity=0;}
 }

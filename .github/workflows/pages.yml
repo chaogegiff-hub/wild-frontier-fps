@@ -45,6 +45,8 @@ jobs:
           npm run check
       - name: Verify physical hit reactions and articulated falls
         run: npm run check:hits
+      - name: Verify staged vehicle blast, landing and persistent smoke
+        run: npm run check:wrecks
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload full game

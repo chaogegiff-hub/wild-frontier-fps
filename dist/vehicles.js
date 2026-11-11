@@ -1,8 +1,10 @@
+import {wreckBurnProfile} from './vehicle-blast.js?v=2.31-car-blast1';
 import {makeVehicleWreck,VEHICLE_WRECK_DELAY} from './vehicle-wreck.js?v=2.25-drive-grass1';
 import * as THREE from './vendor/three.module.js';
+const charredColor=new THREE.Color('#20211d');
 import {clone as cloneSkeleton} from './vendor/SkeletonUtils.js';
 import {poseChain} from './rig-ik.js?v=2.25-drive-grass1';
-import {vehicleWorld,VEHICLE_EXHAUST,VEHICLE_EXHAUST_AXIS} from './vehicle-physics.js?v=2.25-drive-grass1';
+import {vehicleWorld,VEHICLE_EXHAUST,VEHICLE_EXHAUST_AXIS} from './vehicle-physics.js?v=2.31-car-blast1';
 
 function seatedDriver(assets,root){
   const driver=cloneSkeleton(assets.soldier.scene);driver.name='player-driver';driver.position.set(-.39,-.18,.46);driver.rotation.y=Math.PI;root.add(driver);
@@ -36,21 +38,22 @@ export function makeVehicleViews(assets,fleet){
   const group=new THREE.Group();group.name='permanent-offroad-vehicles';
   const items=fleet.cars.map(car=>{
     const root=new THREE.Group();root.name='drivable-jeep-'+car.id;root.rotation.order='YXZ';root.position.set(car.x,car.y,car.z);root.rotation.set(car.pitch,car.yaw,car.roll,'YXZ');group.add(root);
-    const model=assets.vehicle.scene.clone(true);root.add(model);const wheels=[];
+    const model=assets.vehicle.scene.clone(true);root.add(model);const wheels=[],finishes=[];
     // The authored underbody already contains the complete exhaust and hollow
     // rim. Attach the emitter there instead of adding a second, floating pipe.
     const pipe=new THREE.Group();pipe.name='authored-tailpipe-emitter';root.add(pipe);
     const emitter=new THREE.Object3D();emitter.name='tailpipe-emitter';emitter.position.set(VEHICLE_EXHAUST.x,VEHICLE_EXHAUST.y,VEHICLE_EXHAUST.z);emitter.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),new THREE.Vector3(VEHICLE_EXHAUST_AXIS.x,VEHICLE_EXHAUST_AXIS.y,VEHICLE_EXHAUST_AXIS.z).normalize());pipe.add(emitter);
     model.traverse(o=>{
       if(o.name.startsWith('wheel-'))wheels.push({node:o,name:o.name.slice(6),base:o.position.clone(),front:o.name.includes('front')});
-      if(!o.isMesh)return;o.castShadow=true;o.receiveShadow=true;
-      if(o.material.name==='jeep'){o.material=o.material.clone();o.material.color.multiply(new THREE.Color(['#ffffff','#e4ecdd','#ede2d3'][car.id%3]));o.material.emissiveIntensity=.25;}
+      if(!o.isMesh)return;o.castShadow=true;o.receiveShadow=true;o.material=Array.isArray(o.material)?o.material.map(m=>m.clone()):o.material.clone();
+      if(o.material.name==='jeep'){o.material.color.multiply(new THREE.Color(['#ffffff','#e4ecdd','#ede2d3'][car.id%3]));o.material.emissiveIntensity=.25;}
+      for(const material of Array.isArray(o.material)?o.material:[o.material])finishes.push({material,color:material.color.clone(),roughness:material.roughness,metalness:material.metalness});
     });
-    const driver=seatedDriver(assets,root),wreck=makeVehicleWreck(model);root.add(wreck);return {root,model,wheels,wreck,pipe,emitter,deathSlump:0,...driver};
+    const driver=seatedDriver(assets,root),wreck=makeVehicleWreck(model);root.add(wreck);return {root,model,wheels,wreck,pipe,emitter,finishes,deathSlump:0,...driver};
   });
   function update(dt,nextFleet=fleet){
     for(const [i,car] of nextFleet.cars.entries()){
-      const item=items[i],root=item.root,blend=dt>0?1-Math.exp(-12*dt):1;
+      const item=items[i],root=item.root,blend=car.wreckMotion?1:dt>0?1-Math.exp(-12*dt):1;
       root.position.set(car.x,car.y,car.z);root.rotation.y=car.yaw;root.rotation.x=THREE.MathUtils.lerp(root.rotation.x,car.pitch,blend);root.rotation.z=THREE.MathUtils.lerp(root.rotation.z,car.roll,blend);
       for(const wheel of item.wheels){
         const p=vehicleWorld(car,wheel.base.x,wheel.base.z),suspension=THREE.MathUtils.clamp(nextFleet.terrain(p.x,p.z)-car.y+Math.sin(car.pitch)*wheel.base.z-Math.sin(car.roll)*wheel.base.x,-.14,.14);
@@ -58,7 +61,8 @@ export function makeVehicleViews(assets,fleet){
         wheel.node.position.y=wheel.base.y+suspension;wheel.node.rotation.set(motion?.spin??car.wheelAngle,motion?.steer??(wheel.front?-car.steer:0),0,'YXZ');
       }
       item.deathSlump=dt>0?THREE.MathUtils.damp(item.deathSlump,car.driverDead?1:0,2.5,dt):car.driverDead?1:0;
-      const stripped=!!car.destroyed&&car.wreckAge>=VEHICLE_WRECK_DELAY;item.model.visible=!stripped;item.wreck.visible=stripped;item.pipe.visible=!stripped;item.driver.visible=nextFleet.driverId===car.id&&!stripped;if(item.driver.visible)item.pose(car.steer,item.deathSlump);
+      const burn=wreckBurnProfile(car),char=car.wreckMotion?(burn?Math.min(1,.18+burn.age/4):.18):0;for(const f of item.finishes){f.material.color.copy(f.color).lerp(charredColor,char);if(f.roughness!==undefined)f.material.roughness=THREE.MathUtils.lerp(f.roughness,.98,char);if(f.metalness!==undefined)f.material.metalness=THREE.MathUtils.lerp(f.metalness,.12,char);}
+      const stripped=!!car.destroyed&&(car.wreckMotion?(burn?.age??0)>14:car.wreckAge>=VEHICLE_WRECK_DELAY);item.model.visible=!stripped;item.wreck.visible=stripped;item.pipe.visible=!stripped;item.driver.visible=nextFleet.driverId===car.id&&!stripped;if(item.driver.visible)item.pose(car.steer,item.deathSlump);
     }
   }
   function exhaust(car){const item=items.find(v=>v.root.name==='drivable-jeep-'+car.id);if(!item)return null;item.emitter.updateWorldMatrix(true,false);return {position:item.emitter.getWorldPosition(new THREE.Vector3()),direction:new THREE.Vector3(0,0,1).transformDirection(item.emitter.matrixWorld)};}
